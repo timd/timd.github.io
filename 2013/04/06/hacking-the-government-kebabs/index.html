@@ -1,0 +1,341 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Hacking the government&#39;s kebabs &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Hacking the government&#39;s kebabs" />
+<meta property="og:description" content="It&rsquo;s a truth universally acknowledged that a man or women in possession of a skinful of beer must be in search of a kebab.
+But the path to kebab nirvana is often paved with the slings and arrows of outrageous fortune.
+Not any more - there&rsquo;s an app for that.
+Kebabbage is an app that I slung together at this weekend&rsquo;s National Hack The Government Day with the help of Shaun McDonald." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2013/04/06/hacking-the-government-kebabs/" />
+
+
+
+<meta property="article:published_time" content="2013-04-06T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2013-04-06T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Hacking the government&#39;s kebabs">
+<meta itemprop="description" content="It&rsquo;s a truth universally acknowledged that a man or women in possession of a skinful of beer must be in search of a kebab.
+But the path to kebab nirvana is often paved with the slings and arrows of outrageous fortune.
+Not any more - there&rsquo;s an app for that.
+Kebabbage is an app that I slung together at this weekend&rsquo;s National Hack The Government Day with the help of Shaun McDonald.">
+
+
+<meta itemprop="dateModified" content="2013-04-06T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1093">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Hacking the government&#39;s kebabs"/>
+<meta name="twitter:title" content="Hacking the government&#39;s kebabs"/>
+<meta name="twitter:description" content="It&rsquo;s a truth universally acknowledged that a man or women in possession of a skinful of beer must be in search of a kebab.
+But the path to kebab nirvana is often paved with the slings and arrows of outrageous fortune.
+Not any more - there&rsquo;s an app for that.
+Kebabbage is an app that I slung together at this weekend&rsquo;s National Hack The Government Day with the help of Shaun McDonald."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Hacking the government&#39;s kebabs</h1>
+                    <h2 class="headline">
+                    6 April 2013 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    
+
+<p>It&rsquo;s a truth universally acknowledged that a man or women in possession of a skinful of beer must be in search of a kebab.</p>
+
+<p>But the path to kebab nirvana is often paved with the slings and arrows of outrageous fortune.</p>
+
+<p>Not any more - there&rsquo;s an app for that.</p>
+
+<p><a href="http://hacks.rewiredstate.org/events/nhtg-13/kebabbage">Kebabbage</a> is an app that I slung together at this weekend&rsquo;s National Hack The Government Day with the help of <a href="http://shaunmcdonald.me.uk">Shaun McDonald</a>.  There were about 9,000 separate datasets on offer of varying degrees of interest and complexity, but one that caught my eye was the API offered by the Food Standards Agency.  This aggregates the results of local authority Trading Standards inspections of food retailers, and allows searching by a variety of parameters such as location and authority.</p>
+
+<p>There&rsquo;s also data on hygiene scores, which suggested an approach - having donned beer googles it seems the dodgier the establishment, the better the kebab.  So rather than go for the obvious &ldquo;where&rsquo;s the cleanest and nicest&rdquo; approach, I decided to turn it on its head, and sort and highlight the lowest scores.</p>
+
+<p>Overall, it&rsquo;s a bit silly, and not especially useful.  But then not every hackday creation can be about saving the world.</p>
+
+<h3 id="the-how">The how</h3>
+
+<p>The app relies on the core iOS <code>MapKit</code> library, and two external APIs.  The <a href="http://uk-postcodes.com">uk-postcodes.com</a> API converts the geolocated latitude and longitude values to UK postcodes; and the <a href="http://ratings.food.gov.uk/open-data-resources/documents/api-guidance.pdf">Food Standards Agency api</a> provides a JSON feed of rated premises based on the postcode.</p>
+
+<p><img src="right /images/2013/04/kebabbage.png 400" alt="" /></p>
+
+<p>Functionally, the app has a single view controller that manages the main interface, and acts as the delegate for two network client classes.  These are subclasses of <a href="https://github.com/AFNetworking/AFNetworking">AFNetworking&rsquo;s</a> <code>AFHTTPClient</code> - each one spins up with a custom <code>init</code> method and then uses an <code>AFJSONRequestOperation</code> to retrieve the relevant data.</p>
+
+<p>Getting the data and plotting it onto the map has four stages:</p>
+
+<ul>
+<li><em>converting the lat/long position of the device to a UK postcode</em></li>
+<li><em>using the postcode to get a list of premises from the FSA API</em></li>
+<li><em>for each premises, converting the postcode to a lat/long pair</em></li>
+<li><em>plotting each premises on the map</em></li>
+</ul>
+
+<p>Getting the initial lat/long-to-postcode isn&rsquo;t any big issue, because it&rsquo;s a single asynchronous call-and-response to the <a href="http://uk-postcodes.com">uk-postcodes.com</a> API.  Neither is getting the list of premises - again, that&rsquo;s a single call-and-response which results in a blob of JSON.</p>
+
+<p>Converting the postcode for each premises is a bit more involved, though.  There can be over 100 premises returned in a single query, and converting each postcode takes time.  Firing these off as a long series of individual requests would mean reliniquishing the chance of knowing when all had been processed.</p>
+
+<p>The approach I used instead was to create a series of individual <code>AFJSONRequestOperation</code> objects, and then batching these up with <code>AFHTTPClient</code>&rsquo;s <code>enqueueBatchOfHTTPRequestOperations:progressBlock:completionBlock:</code> method.  As the signature suggests, this takes an array of multiple <code>AFJSONRequestOperation</code> operations, and a completion block which is fired after <em>all</em> the individual requests have been successfully processed (or have failed, whichever is the case).  That allows code to be scheduled to run once everything has completed - which in this case was the placement of the <code>MKAnnotation</code> objects onto the map.</p>
+
+<pre><code>-(void)getLatLongForArrayOfObjects:(NSArray *)outletsArray {
+
+    NSMutableArray *operationsArray = [[NSMutableArray alloc] init];
+
+    for (KBBOutlet *outlet in outletsArray) {
+
+        // GET http://uk-postcodes.com/postcode/&lt;postcode&gt;.json
+        NSString *postcode = [outlet postCode];
+
+        NSString *urlString = [NSString stringWithFormat:@&quot;%@postcode/%@.json&quot;, kPostcodeApiUrl, postcode];
+        NSString *encodedURLString = [urlString stringByAddingPercentEscapesUsingEncoding:NSStringEncodingConversionAllowLossy];
+        NSURL *url = [NSURL URLWithString:encodedURLString];
+
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+
+        AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+            // SUCCESS
+            NSDictionary *geoDictionary = [JSON objectForKey:@&quot;geo&quot;];
+            NSString *latString = [geoDictionary objectForKey:@&quot;lat&quot;];
+            NSString *lngString = [geoDictionary objectForKey:@&quot;lng&quot;];
+            [outlet setLatitude:[latString floatValue]];
+            [outlet setLongitude:[lngString floatValue]];
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+            // FAILURE
+            NSLog(@&quot;Error in PostCode: %@&quot;, error);
+        }];
+        [operation setShouldExecuteAsBackgroundTaskWithExpirationHandler:nil];
+        [operationsArray addObject:operation];
+    }
+
+    AFHTTPClient *client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:kPostcodeApiUrl]];
+    [client enqueueBatchOfHTTPRequestOperations:operationsArray progressBlock:nil completionBlock:^(NSArray *operations) {
+        [self.delegate plotOutlets:outletsArray];
+    }];
+
+}
+</code></pre>
+
+<p>The code is sitting up on GitHub at <a href="https://github.com/timd/Kebbabage">https://github.com/timd/Kebbabage</a></p>
+
+<h3 id="some-other-post-hackday-thoughts">Some other post-hackday thoughts</h3>
+
+<p>I was somewhat suprised prior to the Hackday when I found out that it was partly sponsored by the Taxpayers Alliance.  I&rsquo;ve got a major problem with them as an opaquely-funded, right-wing blowhard pressure group that have an simplistic &ldquo;everything private sector good, anything public sector bad&rdquo; philosophy.  Hackdays like this attract a large number of participants from all areas of the public sector, people who the TPA clearly look down their noses at - so at first glance there didn&rsquo;t seem to be a natural fit.</p>
+
+<p>I&rsquo;m a tax-payer - in fact I&rsquo;m pretty sure that I pay more UK tax than most of their funders - and they don&rsquo;t speak for me.  Tax is the price I pay for living in a civilised society, and the TPA espouse a set of small-minded, selfish, begger-thy-neighbour attitudes that grate on me badly. They know the price of everything, and the value of nothing.</p>
+
+<p><a href="http://paulclarke.com/honestlyreal/2012/04/the-problem-with-the-taxpayers-alliance/">Paul Clark puts it far more eloquently than I can.</a></p>
+
+<p>The data they supplied was largely culled from Freedom of Information requests to local authorities - and the effort that has gone into compiling and consolidating this is worthy enough in and of itself.  But there were some less-than-subtle hints that we might make want to spend the day digging through it in search of numbers that could later be turned into lazy Daily Mail-friendly &ldquo;OMG councils spends bazillions on flowers for lesbian single parent playgroups&rdquo; headlines.</p>
+
+<p>That kind of political point scoring is not what I do hackdays for.  I loathe and detest pretty much everything that our current government stands for; I&rsquo;m not much more enamoured of the opposition alternatives.  But there are better things that I can do with the skills that I&rsquo;ve got available than digging up more mud for politicians to sling at each other.  Doing that for unaccountable pressure groups is definitely off my agenda.</p>
+
+<p>Having said all that, I don&rsquo;t have a problem with involving the TPA in these kind of events.  Who knows, perhaps some exposure to people who will willingly give up a day of their weekend to hack with data for no immediate reward than the inherent satisfaction might go some way to expose the shallowness of the TPA&rsquo;s profit-centric philosophy.  And looking at it from the point of view of Rewired State, they&rsquo;re a) a source of data and b) are a fixture in the political playground, so they have a part to play.</p>
+
+<p>But I found it quietly satisfying that if the TPA planned to buy the evening&rsquo;s beer in the hope of someone finding them some dirt to sling, they probably left disappointed.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2013%2f04%2f06%2fhacking-the-government-kebabs%2f - Hacking%20the%20government%27s%20kebabs by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

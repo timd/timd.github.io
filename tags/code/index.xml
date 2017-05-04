@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Code on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/code/</link>
+    <description>Recent content in Code on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Fri, 06 Apr 2012 07:33:16 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/code/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Using the iOS Simulator&#39;s camera</title>
+      <link>https://adoptioncurve.net/2012/04/06/using-the-camer-of-ios-simulators/</link>
+      <pubDate>Fri, 06 Apr 2012 07:33:16 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/04/06/using-the-camer-of-ios-simulators/</guid>
+      <description>When you&amp;rsquo;re using the iPhone and iPad Simulators to run your development code, you&amp;rsquo;ll find that they have a significant limitation if you&amp;rsquo;re building apps that use hardware features like the camera.
+If your code tries to use the camera on a Simulator device, it&amp;rsquo;ll crash - not altogether surprisingly because the Simulator doesn&amp;rsquo;t have a hardware camera. That gets painful pretty quickly.
+As a workaround for a project that I&amp;rsquo;m working on, I figured it would be useful to have the option to select an image from the Simulator&amp;rsquo;s library in places where normally the camera would be the default option.</description>
+    </item>
+    
+    <item>
+      <title>Accessing controls in UIView subviews</title>
+      <link>https://adoptioncurve.net/2011/09/25/accessing-controls-in-uiview-subviews/</link>
+      <pubDate>Sun, 25 Sep 2011 11:56:35 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/09/25/accessing-controls-in-uiview-subviews/</guid>
+      <description>The iPhone app I&amp;rsquo;m working on at the moment has a number of screens that consist of long list of questions - so the user needs to be able to scroll down to the bottom.
+At the same time, there&amp;rsquo;s some information at the top of the screen which needs to stay visible. Within the subview containing the questions, there are also several buttons which need to trigger methods in the main view controller - save the answers, move to the next screen and so on.</description>
+    </item>
+    
+    <item>
+      <title>Creating and using test Facebook accounts</title>
+      <link>https://adoptioncurve.net/2010/12/16/creating-and-using-test-facebook-accounts/</link>
+      <pubDate>Thu, 16 Dec 2010 15:54:22 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/12/16/creating-and-using-test-facebook-accounts/</guid>
+      <description>Facebook now allows you to create test users for application development purposes. That doesn&amp;rsquo;t sound too dramatic in and of itself, but up to now it&amp;rsquo;s been necessary to create dummy accounts and (technically) violate the terms of service.
+Creating new test accounts is a two stage process: firstly obtaining an access token for the application with which the account is to be associated; and then creating the account itself.</description>
+    </item>
+    
+    <item>
+      <title>Getting Paperclip attachment sizes</title>
+      <link>https://adoptioncurve.net/2010/11/05/getting-paperclip-attachment-sizes/</link>
+      <pubDate>Fri, 05 Nov 2010 14:42:44 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/11/05/getting-paperclip-attachment-sizes/</guid>
+      <description>Another post from the &amp;ldquo;so I remember how to do this&amp;rdquo; series.
+I&amp;rsquo;m using Paperclip to handle file attachments (in this context to store profile images which have been retrieved from Facebook, although that&amp;rsquo;s not strictly relevant).
+Although you can constrain the size of the stored image in the Paperclipped model, like so:
+# Paperclip stuff has_attached_file :avatar, :styles =&amp;gt; { :medium =&amp;gt; &amp;quot;300x300&amp;gt;&amp;quot;, :thumb =&amp;gt; &amp;quot;100x100&amp;gt;&amp;quot; }  this will automatically maintain the aspect ratio of the image, so you&amp;rsquo;re never quite sure what x and y sizes you&amp;rsquo;ll end up with.</description>
+    </item>
+    
+    <item>
+      <title>Creating Facebook events with the PHP SDK</title>
+      <link>https://adoptioncurve.net/2010/07/27/creating-facebook-events-with-the-php-sdk/</link>
+      <pubDate>Tue, 27 Jul 2010 13:35:27 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/07/27/creating-facebook-events-with-the-php-sdk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nested IF statements with Movable TYpe</title>
+      <link>https://adoptioncurve.net/2009/09/22/nested-if-statements-with-movable-type/</link>
+      <pubDate>Tue, 22 Sep 2009 12:10:25 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/09/22/nested-if-statements-with-movable-type/</guid>
+      <description>One of the - ahem - undocumented features of Movable Type is a certain estotericness about the way it interprets Boolean logic within template tags. That&amp;rsquo;s a polite way of saying it&amp;rsquo;s more-or-less completely unpredictable, which can lead to much wailing and gnashing of teeth during template development.
+Fortunately, there&amp;rsquo;s a workaround, an example of which is below. It comes at a computational cost, because you&amp;rsquo;re using PHP to fill in for MT&amp;rsquo;s deficiencies - but if you&amp;rsquo;re using static templates, then that cost is only really incurred as the templates are rebuild</description>
+    </item>
+    
+    <item>
+      <title>Mashed-up expenses</title>
+      <link>https://adoptioncurve.net/2009/04/02/mashed-up-expenses/</link>
+      <pubDate>Thu, 02 Apr 2009 16:12:10 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/04/02/mashed-up-expenses/</guid>
+      <description>With all the controversy over MPs&amp;rsquo; expenses, I wasn&amp;rsquo;t unduly surprised to see that Parliament have released the raw data in PDF form. Nice for presentational purposes, but bugger-all use for analysis. Funny, that?
+I briefly toyed with attempting to convert from PDF to spreadsheet, but the Guardian got there first - and they&amp;rsquo;ve released the raw data in Google spreadsheet form so anyone can mash it up and see what happens.</description>
+    </item>
+    
+    <item>
+      <title>Code swarms</title>
+      <link>https://adoptioncurve.net/2009/01/27/code-swarms/</link>
+      <pubDate>Tue, 27 Jan 2009 21:39:34 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/01/27/code-swarms/</guid>
+      <description>To someone who&amp;rsquo;s not familiar with the concept of open-source development, it can be a difficult one to get their head around. &amp;ldquo;You mean people do this for free? And give their code away?&amp;rdquo; &amp;ldquo;Well, yes, they do.&amp;rdquo; If your default frame of reference is copyright and closed-source, this can be something of a head-spinner.
+This video visualises the &amp;ldquo;many hands make light work&amp;rdquo; paradigm at the heart of open source.</description>
+    </item>
+    
+    <item>
+      <title>Learning to think like a programmer geek</title>
+      <link>https://adoptioncurve.net/2009/01/25/learning-to-think-like-a-programmer-geek/</link>
+      <pubDate>Sun, 25 Jan 2009 20:27:19 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/01/25/learning-to-think-like-a-programmer-geek/</guid>
+      <description>[![cables]Charles Arthur (the Grauniad journalist) recently put up a blog post passing on some advice to would-be journalists to &amp;ldquo;learn to code&amp;rdquo;.
+Not suprisingly, that kicked off a bit of a discussion around various other blogs: Chris Applegate, who describes himself as a &amp;ldquo;wannabe polymath&amp;rdquo; chipped in with recommendations to get involved with regular expressions, comma-separated variables and Yahoo Pipes. And Tom Armitage - who IS a programmer, even if he hotly denies it - suggested thinking like a programmer rather than concentrating too much on the specifics.</description>
+    </item>
+    
+    <item>
+      <title>Bursting a stock market bubble</title>
+      <link>https://adoptioncurve.net/2009/01/14/bursting-a-stock-market-bubble/</link>
+      <pubDate>Wed, 14 Jan 2009 10:53:28 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/01/14/bursting-a-stock-market-bubble/</guid>
+      <description>[![Balloons]My stock market Twitter bots (@ftse100, @nikkei225 and @dowjonesindex) are tweeting away nicely, but they&amp;rsquo;re all a bit - well, online, really. I think it would be far cooler if it was more visual and tangible. This is what I&amp;rsquo;ve got in mind.
+A Cron job kicks off a Ruby script, which grabs the current FTSE (or whatever) price and feeds that to Processing sketch which runs an Arduino controller. The controller is hooked up to a three-way valve - one outlet is attached to a compressed air cylinder, while the other is vented to the atmosphere.</description>
+    </item>
+    
+    <item>
+      <title>Twittering Thames</title>
+      <link>https://adoptioncurve.net/2009/01/14/twittering-thames/</link>
+      <pubDate>Wed, 14 Jan 2009 07:10:16 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/01/14/twittering-thames/</guid>
+      <description>[![Thames]One of my usual London commuting routes has me walking along the riverside past City Hall in the morning, and back the same way in the evening. It&amp;rsquo;s a fairly uninspiring inland view, because it&amp;rsquo;s home to a succession of utterly forgettable glass boxes housing the likes of Ernst &amp;amp; Young and Norton Rose - which does at least have the benefit of making me thankful that I work in an environment where people actually do wear space cadet uniforms to meetings.</description>
+    </item>
+    
+    <item>
+      <title>Twittering the Shipping Forecast</title>
+      <link>https://adoptioncurve.net/2009/01/13/twittering-the-shipping-forecast-2/</link>
+      <pubDate>Tue, 13 Jan 2009 08:41:05 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/01/13/twittering-the-shipping-forecast-2/</guid>
+      <description>[![Twitter](http://www.twitter.com/shippingcast)One of the aspects of Twitter I like the most is the fact that it has an API. That makes it hackable in a way that appeals to my inner geek, so something I&amp;rsquo;ve been playing with for a while is creating Twitter bots. One of the first I made was @shippingcast, which takes the UK Shipping Forecast and squirts it out onto the web in a Twitter stream.
+Unless you&amp;rsquo;re British, the Shipping Forecast probably doesn&amp;rsquo;t mean a lot.</description>
+    </item>
+    
+  </channel>
+</rss>

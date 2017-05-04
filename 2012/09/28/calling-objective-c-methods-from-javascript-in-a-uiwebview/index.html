@@ -1,0 +1,301 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Calling Objective-C methods from JavaScript in a UIWebView &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Calling Objective-C methods from JavaScript in a UIWebView" />
+<meta property="og:description" content="The East Coast Time Line app I&rsquo;ve just finished building includes a 360-degree virtual reality panorama section, which puts you &ldquo;inside&rdquo; several of the coaches in the National Railway Museum&rsquo;s collection. It&rsquo;s created with the KRPano plugin that uses a set of tiles to build an HTML5 plugin that can be zoomed and rotated, either manually or with the aid of the device&rsquo;s gyroscope.
+The panorama itself is full-screen, so to provide a navigation back to the rest of the app there&rsquo;s a floating toolbar that drops down from the top of the view in response to a tap." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2012/09/28/calling-objective-c-methods-from-javascript-in-a-uiwebview/" />
+
+
+
+<meta property="article:published_time" content="2012-09-28T09:00:27&#43;00:00"/>
+<meta property="article:modified_time" content="2012-09-28T09:00:27&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Calling Objective-C methods from JavaScript in a UIWebView">
+<meta itemprop="description" content="The East Coast Time Line app I&rsquo;ve just finished building includes a 360-degree virtual reality panorama section, which puts you &ldquo;inside&rdquo; several of the coaches in the National Railway Museum&rsquo;s collection. It&rsquo;s created with the KRPano plugin that uses a set of tiles to build an HTML5 plugin that can be zoomed and rotated, either manually or with the aid of the device&rsquo;s gyroscope.
+The panorama itself is full-screen, so to provide a navigation back to the rest of the app there&rsquo;s a floating toolbar that drops down from the top of the view in response to a tap.">
+
+
+<meta itemprop="dateModified" content="2012-09-28T09:00:27&#43;00:00" />
+<meta itemprop="wordCount" content="589">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Calling Objective-C methods from JavaScript in a UIWebView"/>
+<meta name="twitter:title" content="Calling Objective-C methods from JavaScript in a UIWebView"/>
+<meta name="twitter:description" content="The East Coast Time Line app I&rsquo;ve just finished building includes a 360-degree virtual reality panorama section, which puts you &ldquo;inside&rdquo; several of the coaches in the National Railway Museum&rsquo;s collection. It&rsquo;s created with the KRPano plugin that uses a set of tiles to build an HTML5 plugin that can be zoomed and rotated, either manually or with the aid of the device&rsquo;s gyroscope.
+The panorama itself is full-screen, so to provide a navigation back to the rest of the app there&rsquo;s a floating toolbar that drops down from the top of the view in response to a tap."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Calling Objective-C methods from JavaScript in a UIWebView</h1>
+                    <h2 class="headline">
+                    28 September 2012 
+                    <br>
+                    
+                    
+                        
+                            <a href="https://adoptioncurve.net/tags/ios">iOS</a>
+                        
+                            <a href="https://adoptioncurve.net/tags/javascript">javascript</a>
+                        
+                            <a href="https://adoptioncurve.net/tags/objectivec">objectivec</a>
+                        
+                            <a href="https://adoptioncurve.net/tags/uiwebview">uiwebview</a>
+                        
+                    
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>The <a href="http://itunes.apple.com/gb/app/the-east-coast-time-line/id555994737?mt=8">East Coast Time Line app</a> I&rsquo;ve just finished building includes a 360-degree virtual reality panorama section, which puts you &ldquo;inside&rdquo; several of the coaches in the National Railway Museum&rsquo;s collection.  It&rsquo;s created with the KRPano plugin that uses a set of tiles to build an HTML5 plugin that can be zoomed and rotated, either manually or with the aid of the device&rsquo;s gyroscope.</p>
+
+<p><img src="/images/2012/09/Screen-Shot-2012-09-28-at-09.54.541.png" alt="" /></p>
+
+<p>The panorama itself is full-screen, so to provide a navigation back to the rest of the app there&rsquo;s a floating toolbar that drops down from the top of the view in response to a tap.  Implementing that isn&rsquo;t tricky - a <code>UITapGestureRecognizer</code> is attached to the <code>UIWebView</code>, and that triggers a method that changes the frame of the toolbar view from a negative to a positive Y value.</p>
+
+<p>A problem arose when hotspots were added to the panorama - there are various items in the image that can be tapped to pop up an information &ldquo;blob&rdquo;.  That&rsquo;s all done in jQuery inside the webView - so every time a hotspot was tapped, the menu bar was being animated in.  Not a show-stopper, admittedly, but it did look a bit wierd.</p>
+
+<p>The problem was how to discriminate between taps on the background, which <em>should</em> trigger the toolbar display, and taps on the hotspots which <em>shouldn&rsquo;t</em>.  The answer lay in changing the process completely, and relying on the javascript to call out to an Objective-C function in the app.</p>
+
+<p>Going the other way - in other words, calling javascript from Objective-C - isn&rsquo;t difficult.  You use <code>UIWebView</code>&lsquo;s <code>stringByEvaluatingJavaScriptFromString:</code> function and pass in the function that you want to call:</p>
+
+<pre><code>[myWebView stringByEvaluatingJavaScriptFromString:@&quot;myJavascriptFunction()&quot;];
+</code></pre>
+
+<p>Doing it the other way - getting the javascript to trigger an Objective-C method - isn&rsquo;t so obvious.  There are various more-or-less hideous solutions at the other end of a Google search that involve categories and binding systems, all of which seemed like a lot of work for something relatively simple.  The answer turns out to be much less difficult, albeit somewhat hacky.</p>
+
+<p><code>UIWebView</code> comes with a delegate method of <code>webView:shouldStartLoadWithRequest:navigationType:</code> that&rsquo;s called every time a request is made to load another URL from within the <code>webView</code> itself. By returning <code>YES</code>, you allow the <code>webView</code> to go ahead and load the new content, while returning <code>NO</code> stops the process dead in its tracks.  The URL being requested appears in the request parameter:</p>
+
+<pre><code>- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+</code></pre>
+
+<p>The revised solution was to remove the gesture recognizer altogether, and use the javascript to implement a method called <code>panoTap()</code> that is called every time the panorama is tapped on the background.  This tries to load a fake URL:</p>
+
+<pre><code>// Called when the pano is tapped OTHER than to open or close a hotspot
+function panoTap() {
+    // Hey, Objective-C, do something!!
+    window.location = &quot;toolbar://pano/tapped:param1:param2:param3&quot;;
+}
+</code></pre>
+
+<p>The <code>webView:shouldStartLoadWithRequest:navigationType:</code> examines the URL sent over, and reacts to the fake URL:</p>
+
+<pre><code>-(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    NSURL *url = request.URL;
+    if ([[url scheme] isEqualToString:@&quot;toolbar&quot;]) {
+        [self didTapOnView];
+    return YES;
+    }
+    return YES;
+}
+</code></pre>
+
+<p>If the &ldquo;toolbar&rdquo; scheme is received, the toolbar positioning method is triggered - otherwise the method just returns <code>YES</code> to allow the &ldquo;load&rdquo; to complete (nothing will happen as far as the <code>webView</code> is concerned, because that URL doesn&rsquo;t actually exist.)  This also allows the initial load of the webView&rsquo;s HTML to take place when the webView is first instantiated.</p>
+
+<p>By breaking down the URL parameter and extracting the parameters, you could handle more complex scenarios by passing values out of the javascript and reacting accordingly.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2012%2f09%2f28%2fcalling-objective-c-methods-from-javascript-in-a-uiwebview%2f - Calling%20Objective-C%20methods%20from%20JavaScript%20in%20a%20UIWebView by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

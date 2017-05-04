@@ -1,0 +1,524 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Testing for cowards Part 3: Testing the full interface &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Testing for cowards Part 3: Testing the full interface" />
+<meta property="og:description" content="Introduction to part 3 This is the third of three posts (part 1 | part 2 )that works thorough the presentation I gave at September&rsquo;s iOSDevUK conference in Aberystwyth. In the first, I covered the background to test-driven development of the simple traffic lights project I&rsquo;m using as an example; and looked at building the app&rsquo;s model layer using a test-driven approach. The second covers testing user interaction by exposing the methods that underlie the interface." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2013/09/09/testing-for-cowards-part-3-testing-the-full-interface/" />
+
+
+
+<meta property="article:published_time" content="2013-09-09T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2013-09-09T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Testing for cowards Part 3: Testing the full interface">
+<meta itemprop="description" content="Introduction to part 3 This is the third of three posts (part 1 | part 2 )that works thorough the presentation I gave at September&rsquo;s iOSDevUK conference in Aberystwyth. In the first, I covered the background to test-driven development of the simple traffic lights project I&rsquo;m using as an example; and looked at building the app&rsquo;s model layer using a test-driven approach. The second covers testing user interaction by exposing the methods that underlie the interface.">
+
+
+<meta itemprop="dateModified" content="2013-09-09T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1591">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Testing for cowards Part 3: Testing the full interface"/>
+<meta name="twitter:title" content="Testing for cowards Part 3: Testing the full interface"/>
+<meta name="twitter:description" content="Introduction to part 3 This is the third of three posts (part 1 | part 2 )that works thorough the presentation I gave at September&rsquo;s iOSDevUK conference in Aberystwyth. In the first, I covered the background to test-driven development of the simple traffic lights project I&rsquo;m using as an example; and looked at building the app&rsquo;s model layer using a test-driven approach. The second covers testing user interaction by exposing the methods that underlie the interface."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Testing for cowards Part 3: Testing the full interface</h1>
+                    <h2 class="headline">
+                    9 September 2013 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    
+
+<h3 id="introduction-to-part-3">Introduction to part 3</h3>
+
+<p>This is the third of three posts (<a href="/archives/2013/09/a-cowardly-test-o-phobes-presentation-from-iosdevuk/">part 1</a> | <a href="/archives/2013/09/testing-for-cowards-part-2-testing-user-interfaces/">part 2</a> )that works thorough the presentation I gave at September&rsquo;s <a href="http://www.iosdevuk.com">iOSDevUK</a> conference in Aberystwyth.  In the <a href="/archives/2013/09/a-cowardly-test-o-phobes-presentation-from-iosdevuk/">first</a>, I covered the background to test-driven development of the simple traffic lights project I&rsquo;m using as an example; and looked at building the app&rsquo;s model layer using a test-driven approach.  The <a href="/archives/2013/09/testing-for-cowards-part-2-testing-user-interfaces/">second</a> covers testing user interaction by exposing the methods that underlie the interface.</p>
+
+<p>The code and tests can be cloned or downloaded from GitHub: <a href="https://github.com/timd/TrafficLightTests">https://github.com/timd/TrafficLightTests</a>.</p>
+
+<h3 id="testing-the-lights">Testing the lights</h3>
+
+<p>Once the model and user interaction is tested, the final piece of the jigsaw is testing that the user interface can be successfully updated by the model.  This is a somewhat arbitrary division of testing, and I will probably approach things differently in another project.</p>
+
+<p>Having said that, the model-view-controller structure of the app means that there&rsquo;s something of a natural division between the way that the user interacts with the model (mediated through the user interface) and the way in which the user interface is updated as a result of the model&rsquo;s behaviour.</p>
+
+<p>The view controller is responsible for handling the lights code returned by the <code>LightEngine</code> and updating the display accordingly.  The code is a decimal version of the binary representation of the lights:</p>
+
+<p><img src="/images/2013/09/binary.png" alt="" /></p>
+
+<p>The first set of tests check that the <code>updateLightsForCode:</code> method works correctly:</p>
+
+<pre><code>context(@&quot;when working through the sequence&quot;, ^{
+
+    it(@&quot;should respond to the updateLightsForCode: method&quot;, ^{
+        [[vc should] respondToSelector:@selector(updateLightsForCode:)];
+    });
+
+    it(@&quot;should show Rxx Rxx when sent the @164 code&quot;, ^{
+        [vc updateLightsForCode:@164];
+
+        [[vc.upRed.backgroundColor should] equal:[UIColor redColor]];
+        [[vc.upAmber.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.upGreen.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.downRed.backgroundColor should] equal:[UIColor redColor]];
+        [[vc.downAmber.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.downGreen.backgroundColor should] equal:[UIColor blackColor]];
+    });
+
+    it(@&quot;should show RAx Rxx when sent the @180 code&quot;, ^{
+        [vc updateLightsForCode:@180];
+
+        [[vc.upRed.backgroundColor should] equal:[UIColor redColor]];
+        [[vc.upAmber.backgroundColor should] equal:[UIColor yellowColor]];
+        [[vc.upGreen.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.downRed.backgroundColor should] equal:[UIColor redColor]];
+        [[vc.downAmber.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.downGreen.backgroundColor should] equal:[UIColor blackColor]];
+    });
+
+    it(@&quot;should show xxG Rxx when sent the @140 code&quot;, ^{
+        [vc updateLightsForCode:@140];
+
+        [[vc.upRed.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.upAmber.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.upGreen.backgroundColor should] equal:[UIColor greenColor]];
+        [[vc.downRed.backgroundColor should] equal:[UIColor redColor]];
+        [[vc.downAmber.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.downGreen.backgroundColor should] equal:[UIColor blackColor]];
+    });
+
+    it(@&quot;should show xAx Rxx when sent the @148 code&quot;, ^{
+        [vc updateLightsForCode:@148];
+
+        [[vc.upRed.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.upAmber.backgroundColor should] equal:[UIColor yellowColor]];
+        [[vc.upGreen.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.downRed.backgroundColor should] equal:[UIColor redColor]];
+        [[vc.downAmber.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.downGreen.backgroundColor should] equal:[UIColor blackColor]];
+    });
+
+    it(@&quot;should show Rxx Rxx when sent the @100 code&quot;, ^{
+        [vc updateLightsForCode:@100];
+
+        [[vc.upRed.backgroundColor should] equal:[UIColor redColor]];
+        [[vc.upAmber.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.upGreen.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.downRed.backgroundColor should] equal:[UIColor redColor]];
+        [[vc.downAmber.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.downGreen.backgroundColor should] equal:[UIColor blackColor]];
+    });
+
+    it(@&quot;should show Rxx RAx when sent the @102 code&quot;, ^{
+        [vc updateLightsForCode:@102];
+
+        [[vc.upRed.backgroundColor should] equal:[UIColor redColor]];
+        [[vc.upAmber.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.upGreen.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.downRed.backgroundColor should] equal:[UIColor redColor]];
+        [[vc.downAmber.backgroundColor should] equal:[UIColor yellowColor]];
+        [[vc.downGreen.backgroundColor should] equal:[UIColor blackColor]];
+    });
+
+    it(@&quot;should show Rxx xxG when sent the @97 code&quot;, ^{
+        [vc updateLightsForCode:@97];
+
+        [[vc.upRed.backgroundColor should] equal:[UIColor redColor]];
+        [[vc.upAmber.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.upGreen.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.downRed.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.downAmber.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.downGreen.backgroundColor should] equal:[UIColor greenColor]];
+    });
+
+    it(@&quot;should show Rxx xAx when sent the @98 code&quot;, ^{
+        [vc updateLightsForCode:@98];
+
+        [[vc.upRed.backgroundColor should] equal:[UIColor redColor]];
+        [[vc.upAmber.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.upGreen.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.downRed.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.downAmber.backgroundColor should] equal:[UIColor yellowColor]];
+        [[vc.downGreen.backgroundColor should] equal:[UIColor blackColor]];
+    });
+
+});
+</code></pre>
+
+<p>It&rsquo;s worth noting here that whereas normally you&rsquo;d try to write code with the minimum of redundancy consistent with readability, with tests that&rsquo;s not the case.  You want the tests to be as clear as possible, and if that means writing lots of code, well, that&rsquo;s what copy-and-paste was invented for.</p>
+
+<p>It should be immediately obvious what these tests are about, becasue they&rsquo;re written out in long form.  They <em>could</em> be much more concise with a for-each loop and an array of values to iterate across - but then there would be <em>two</em> cognitive loads: one to understand the mechanics of the test, and one to understand the test itself.</p>
+
+<p>Once the operation of the <code>updateLightsForCode:</code> method is proven, then we can look at hooking it up to the UI:</p>
+
+<pre><code>it(@&quot;should update the lights to RAx Rxx after a first tick&quot;, ^{
+
+    [[[vc.upRed backgroundColor] should] equal:[UIColor blackColor]];
+    [[[vc.upAmber backgroundColor] should] equal:[UIColor blackColor]];
+    [[[vc.upGreen backgroundColor] should] equal:[UIColor blackColor]];
+
+    [[[vc.downRed backgroundColor] should] equal:[UIColor blackColor]];
+    [[[vc.downAmber backgroundColor] should] equal:[UIColor blackColor]];
+    [[[vc.downGreen backgroundColor] should] equal:[UIColor blackColor]];
+
+    [vc didTapStartButton:nil];
+
+    [[[vc.upRed backgroundColor] should] equal:[UIColor redColor]];
+    [[[vc.upAmber backgroundColor] should] equal:[UIColor blackColor]];
+    [[[vc.upGreen backgroundColor] should] equal:[UIColor blackColor]];
+
+    [[[vc.downRed backgroundColor] should] equal:[UIColor redColor]];
+    [[[vc.downAmber backgroundColor] should] equal:[UIColor blackColor]];
+    [[[vc.downGreen backgroundColor] should] equal:[UIColor blackColor]];
+
+    [vc didTapTickButton:nil];
+
+    [[[vc.upRed backgroundColor] should] equal:[UIColor redColor]];
+    [[[vc.upAmber backgroundColor] should] equal:[UIColor yellowColor]];
+    [[[vc.upGreen backgroundColor] should] equal:[UIColor blackColor]];
+
+    [[[vc.downRed backgroundColor] should] equal:[UIColor redColor]];
+    [[[vc.downAmber backgroundColor] should] equal:[UIColor blackColor]];
+    [[[vc.downGreen backgroundColor] should] equal:[UIColor blackColor]];
+
+});
+</code></pre>
+
+<p>This tests operation in response to the <code>tick</code> button being tapped once - the next stage is to try the whole sequence:</p>
+
+<pre><code>it(@&quot;should run through the whole sequence correctly&quot;, ^{
+
+    [vc didTapStartButton:nil];
+
+    // Run through the whole sequence 25 times
+
+    for(int count=0; count &lt; 25; count++) {
+
+        // RYB RBB
+        [vc didTapTickButton:nil];
+
+        [[[vc.upRed backgroundColor] should] equal:[UIColor redColor]];
+        [[[vc.upAmber backgroundColor] should] equal:[UIColor yellowColor]];
+        [[[vc.upGreen backgroundColor] should] equal:[UIColor blackColor]];
+
+        [[[vc.downRed backgroundColor] should] equal:[UIColor redColor]];
+        [[[vc.downAmber backgroundColor] should] equal:[UIColor blackColor]];
+        [[[vc.downGreen backgroundColor] should] equal:[UIColor blackColor]];
+
+        // BBG RBB
+        [vc didTapTickButton:nil];
+
+        [[[vc.upRed backgroundColor] should] equal:[UIColor blackColor]];
+        [[[vc.upAmber backgroundColor] should] equal:[UIColor blackColor]];
+        [[[vc.upGreen backgroundColor] should] equal:[UIColor greenColor]];
+
+        [[[vc.downRed backgroundColor] should] equal:[UIColor redColor]];
+        [[[vc.downAmber backgroundColor] should] equal:[UIColor blackColor]];
+        [[[vc.downGreen backgroundColor] should] equal:[UIColor blackColor]];
+
+        // BYB RBB
+        [vc didTapTickButton:nil];
+
+        [[[vc.upRed backgroundColor] should] equal:[UIColor blackColor]];
+        [[[vc.upAmber backgroundColor] should] equal:[UIColor yellowColor]];
+        [[[vc.upGreen backgroundColor] should] equal:[UIColor blackColor]];
+
+        [[[vc.downRed backgroundColor] should] equal:[UIColor redColor]];
+        [[[vc.downAmber backgroundColor] should] equal:[UIColor blackColor]];
+        [[[vc.downGreen backgroundColor] should] equal:[UIColor blackColor]];
+
+        // RBB RBB
+        [vc didTapTickButton:nil];
+
+        [[[vc.upRed backgroundColor] should] equal:[UIColor redColor]];
+        [[[vc.upAmber backgroundColor] should] equal:[UIColor blackColor]];
+        [[[vc.upGreen backgroundColor] should] equal:[UIColor blackColor]];
+
+        [[[vc.downRed backgroundColor] should] equal:[UIColor redColor]];
+        [[[vc.downAmber backgroundColor] should] equal:[UIColor blackColor]];
+        [[[vc.downGreen backgroundColor] should] equal:[UIColor blackColor]];
+
+        // RBB RYB
+        [vc didTapTickButton:nil];
+
+        [[[vc.upRed backgroundColor] should] equal:[UIColor redColor]];
+        [[[vc.upAmber backgroundColor] should] equal:[UIColor blackColor]];
+        [[[vc.upGreen backgroundColor] should] equal:[UIColor blackColor]];
+
+        [[[vc.downRed backgroundColor] should] equal:[UIColor redColor]];
+        [[[vc.downAmber backgroundColor] should] equal:[UIColor yellowColor]];
+        [[[vc.downGreen backgroundColor] should] equal:[UIColor blackColor]];
+
+        // RBB BBG
+        [vc didTapTickButton:nil];
+
+        [[[vc.upRed backgroundColor] should] equal:[UIColor redColor]];
+        [[[vc.upAmber backgroundColor] should] equal:[UIColor blackColor]];
+        [[[vc.upGreen backgroundColor] should] equal:[UIColor blackColor]];
+
+        [[[vc.downRed backgroundColor] should] equal:[UIColor blackColor]];
+        [[[vc.downAmber backgroundColor] should] equal:[UIColor blackColor]];
+        [[[vc.downGreen backgroundColor] should] equal:[UIColor greenColor]];
+
+        // RBB BYB
+        [vc didTapTickButton:nil];
+
+        [[[vc.upRed backgroundColor] should] equal:[UIColor redColor]];
+        [[[vc.upAmber backgroundColor] should] equal:[UIColor blackColor]];
+        [[[vc.upGreen backgroundColor] should] equal:[UIColor blackColor]];
+
+        [[[vc.downRed backgroundColor] should] equal:[UIColor blackColor]];
+        [[[vc.downAmber backgroundColor] should] equal:[UIColor yellowColor]];
+        [[[vc.downGreen backgroundColor] should] equal:[UIColor blackColor]];
+
+        // RBB RBB
+        [vc didTapTickButton:nil];
+
+        [[[vc.upRed backgroundColor] should] equal:[UIColor redColor]];
+        [[[vc.upAmber backgroundColor] should] equal:[UIColor blackColor]];
+        [[[vc.upGreen backgroundColor] should] equal:[UIColor blackColor]];
+
+        [[[vc.downRed backgroundColor] should] equal:[UIColor redColor]];
+        [[[vc.downAmber backgroundColor] should] equal:[UIColor blackColor]];
+        [[[vc.downGreen backgroundColor] should] equal:[UIColor blackColor]];
+
+    }
+
+});
+</code></pre>
+
+<p>There&rsquo;s an element of stress testing in this last test - the sequence is repeated 25 times, which should be enough to expose any edge cases when wrapping back to the start of the state machine sequence.  And the point about automated testing here is that you could equally choose to test the same sequence 250, 2,500 or 250,000 times - something that would be virtually impossible with manual testing.</p>
+
+<h3 id="summary">Summary</h3>
+
+<p>This is a very simple app with a minimum of moving parts - yet it&rsquo;s got all the elements needed to make for a complex set of interactions.  Functions like locking some buttons in response to tapping others can quickly become convoluted and difficult to test thoroughly with a &ldquo;trained monkey&rdquo; approach.</p>
+
+<p>Having a set of automated tests can help by allowing the tests to be exhaustive and completely repeatable.  This would come into its own if the app was extended in the future - the original set of tests would immediately expose any areas where new functions broke old ones.</p>
+
+<p>The other big advantage of taking a test-driven approach in my opinion is that it forces you to stop and think about the structure of the app at the right moment in the app&rsquo;s lifecycle.  By testing each element in isolation, it&rsquo;s possible to be sure that one part works before moving onto the next one.</p>
+
+<p>Although that might not be such a big issue in a &ldquo;toy&rdquo; app like this, on larger-scale projects (and particularly ones with multi-developer teams), testing will provide a &ldquo;comfort blanket&rdquo; that things work in the way which they&rsquo;re intended to.  That&rsquo;s preventing a cognitive load that comes with uncertainty about the behaviour of areas of code.</p>
+
+<h3 id="further-reading">Further reading</h3>
+
+<p>There&rsquo;s no shortage of material about testing online and in books, but much of it suffers from the twin problems of a) approaching testing in a quasi-religious dogmatic &ldquo;test all the things&rdquo; approach; and b) being very Java-centric.</p>
+
+<p>Kiwi as a framework is heavily influenced by RSpec, and the canonical reference for this is <a href="http://www.amazon.co.uk/RSpec-Book-Behaviour-Development-ebook/dp/B00A32NY44k">The RSpec Book</a> by David Chelimsky.  Although this is Ruby-centric, it&rsquo;s a good introduction to the processes involved in behaviour and test-driven development.</p>
+
+<p><a href="http://www.amazon.co.uk/Rails-4-Action-Ryan-Bigg/dp/1617291099/">Rails 4 In Action</a> builds on the concepts covered in The RSpec Book to build out a working Rails site.  Again, this is completely focussed on Ruby and Rails, but it does illustrate the BDD and TDD process extremely well.</p>
+
+<p>For an iOS and Objective-C focussed approach, Graham Lee&rsquo;s <a href="http://www.amazon.co.uk/Test-driven-IOS-Development-Developers-Library/dp/0321774183">Test-Driven iOS Development</a> is excellent.  It doesn&rsquo;t use Kiwi, but is a great introduction to the concepts of testing and practice using SenTest library.</p>
+
+<p>There are relatively-few Kiwi-specific resources around - the GitHub wiki is increasingly comprehensive; and <a href="https://itunes.apple.com/gb/book/test-driving-ios-development/id502345143?mt=11">Test Driving iOS Development with Kiwi</a> is a short iBooks title that covers the basics.</p>
+
+<p>And of course, for all other questions and queries there&rsquo;s the incomparable resource that is Stack Overflow.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2013%2f09%2f09%2ftesting-for-cowards-part-3-testing-the-full-interface%2f - Testing%20for%20cowards%20Part%203%3a%20Testing%20the%20full%20interface by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

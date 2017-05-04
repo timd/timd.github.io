@@ -1,0 +1,265 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Scraping red dots &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Scraping red dots" />
+<meta property="og:description" content="Over the past few weeks, I&rsquo;ve been to a couple of events which have had a common theme of data - or more precisely, what effect access to data can have on the way our organisations behave. First was a quick trip to London for the October Facebook Developer Garage. The overarching theme last month was Government and Data, so there were various speakers from the intersection of technology geekery and policy wonkery that has sprung into existence over the last year or so." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2010/11/04/scraping-red-dots/" />
+
+
+
+<meta property="article:published_time" content="2010-11-04T08:42:11&#43;00:00"/>
+<meta property="article:modified_time" content="2010-11-04T08:42:11&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Scraping red dots">
+<meta itemprop="description" content="Over the past few weeks, I&rsquo;ve been to a couple of events which have had a common theme of data - or more precisely, what effect access to data can have on the way our organisations behave. First was a quick trip to London for the October Facebook Developer Garage. The overarching theme last month was Government and Data, so there were various speakers from the intersection of technology geekery and policy wonkery that has sprung into existence over the last year or so.">
+
+
+<meta itemprop="dateModified" content="2010-11-04T08:42:11&#43;00:00" />
+<meta itemprop="wordCount" content="919">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Scraping red dots"/>
+<meta name="twitter:title" content="Scraping red dots"/>
+<meta name="twitter:description" content="Over the past few weeks, I&rsquo;ve been to a couple of events which have had a common theme of data - or more precisely, what effect access to data can have on the way our organisations behave. First was a quick trip to London for the October Facebook Developer Garage. The overarching theme last month was Government and Data, so there were various speakers from the intersection of technology geekery and policy wonkery that has sprung into existence over the last year or so."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Scraping red dots</h1>
+                    <h2 class="headline">
+                    4 November 2010 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>Over the past few weeks, I&rsquo;ve been to a couple of events which have had a common theme of data - or more precisely, what effect access to data can have on the way our organisations behave.  First was a quick trip to London for the October <a href="http://www.facebook.com/group.php?gid=5282952746">Facebook Developer Garage</a>.  The overarching theme last month was Government and Data, so there were various speakers from the intersection of technology geekery and policy wonkery that has sprung into existence over the last year or so.</p>
+
+<p>One of the speakers was <a href="http://blog.jaggeree.com/">Chris Thorpe</a> - I&rsquo;m not quite sure how best to describe him, other than he makes and thinks about stuff online - and he was talking about how you make public data personal and pertinent.   One of his examples was data from Guildford Borough Council, which he&rsquo;d visualised by showing the ebbs and flows of spending over time.</p>
+
+<p>When you think about it, it&rsquo;s perfectly logical that spending on the Lido would be greater during the summer than the winter - but when you make those sort of visualisations, you also realise that there are spikes around the end of financial periods.  Is that because this is when the invoices come in, or is it frantic efforts to empty the budget before the end of the financial year?</p>
+
+<p>The point here is that raw statistics are all very well, but they&rsquo;re only half the story.  if your local hospital has had 300 cases of MRSA diagnosed in the last year, that might be a bad thing (particularly if it&rsquo;s you that&rsquo;s caught it).  But whether it&rsquo;s a disaster or a triumph depends on more information - if there were 3,000 cases the year before then you can argue that things are improving, whereas if it started from a base of 3, something&rsquo;s gone wrong.</p>
+
+<p>Which is why I&rsquo;m also a bit wary of sites like <a href="http://www.schooloscope.com/">Schooloscope</a>.  Although it&rsquo;s built by people with brains the size of planets and the noblest of intentions, it still makes me slightly queasy that on the surface at least, every facet of a school&rsquo;s existence is boiled down to a smiley face on the side of a cartoon building.</p>
+
+<p>Yes, there IS much more nuanced information behind that, and yes, it&rsquo;s not THAT difficult to find - but there&rsquo;s still a snap smiley/frowny judgement plotted on a map.  And the<a href="http://www.ofsted.gov.uk/Ofsted-home/Inspection-reports"> data is sourced from Ofsted</a> - talk to virtually any teacher for more than a few minutes, and they&rsquo;ll tell how that information is the product of the poster-child of box-ticking-as-a-substitute-for-dealing-with-the-underlying-issues approach.</p>
+
+<p>Making the snap judgements, and not bothering to question the information is a symptom of what <a href="http://iconocla.st/">Schuyler Erle</a> has called &ldquo;<a href="http://www.mcwetboy.net/maproom/2006/04/schuyler_looks.php">red dot fever</a>&rdquo; - maps plastered in splodges of data points as an alternative to analysis.   I&rsquo;ve got a depressing feeling that there&rsquo;s the same red dot fever when it comes to open public sector data - give a lazy journalist a Freedom of Information request and they&rsquo;ll turn out 1,000 words of &ldquo;why, oh why&rdquo; about waste and inefficiencies.</p>
+
+<p>And open data can be used as a weapon, too.  I&rsquo;m convinced that the raft of stories in the last few days about apparent junketing at the Audit Commission - and that organisation&rsquo;s impending abolition - are completely un-coincidental.</p>
+
+<p>Small wonder that some organisations are taking great lengths to ensure that their data is worse than useless - &ldquo;<a href="http://www.lorentzen.org/quotedir.html">it was on display in the bottom of a locked filing cabinet stuck in a disused lavatory with a sign on the door saying &lsquo;Beware of the Leopard</a>&rsquo;.&rdquo;</p>
+
+<p>Which is where the second of the two events comes in.  <a href="http://scraperwiki.com/">Scraperwiki</a> is the product of a startup that does something that on the face of it is relatively simple - it enables you to scrape websites to retrieve data.  By exploiting the fact that the web is a structured medium, with a few clever tools and some persistence it&rsquo;s possible to harvest data into a form which then becomes usable for analysis.</p>
+
+<p>Scraperwiki does more than this, though - because it glues all the tools that you&rsquo;ll need into a single cohesive application, it dramatically lowers the cost-of-entry to this kind of work.  If you&rsquo;re a half-competent geek, chances are you&rsquo;ll be able to rig up a Ruby interpreter, an XML parser and a database so that you can pipe the results into Google Maps.  But those are &ldquo;10,000 hour skills&rdquo;, to misquote Malcolm Gladwell - what Scraperwiki and tools like it do is to start to  put those capabilities into the hands of civilians.</p>
+
+<p>At the moment, there&rsquo;s a culture change beginning to take place inside the public sector with data becoming seen as something that&rsquo;s public property.  It&rsquo;s going to take a long time, because there&rsquo;s a lot of cultural inertia to overcome.  I think we&rsquo;ll find that most of the data that gets release will tell the tale of decent people doing the best they can in trying circumstances.  But some of it will shine some bright lights into some murky areas, so it must be tempting for organisations to think that they can limit the potential damage by burying the data away in obscure formats, or freezing it into a PDF.</p>
+
+<p>But that&rsquo;s a mistake, because it&rsquo;ll cause an arms race.  This is the kind of behaviour that your average geek sees as a challenge.  Given enough time, neurons and lines of code, the information is going to get extracted, parsed, analysed and published - hiding it away is only postponing the inevitable.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2010%2f11%2f04%2fscraping-red-dots%2f - Scraping%20red%20dots by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

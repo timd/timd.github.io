@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Heritage on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/heritage/</link>
+    <description>Recent content in Heritage on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Sun, 28 Mar 2010 10:45:14 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/heritage/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A listed buildings app for the iPhone</title>
+      <link>https://adoptioncurve.net/2010/03/28/a-listed-buildings-app-for-the-iphone/</link>
+      <pubDate>Sun, 28 Mar 2010 10:45:14 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/03/28/a-listed-buildings-app-for-the-iphone/</guid>
+      <description>English Heritage is a non-Departmental Public Body that exists to protect and promote England’s historic environment. One of the tools at their disposal is listing, which applies protection to a building or site through the planning system. Crudely, it stops you putting plastic double glazing into your historic thatched cottage; or demolishing a factory designed by that world-famous architect.
+There are a lot of listed buildings - about 374,081 of them - and they’re listed in a database which English Heritage made available to the Rewired Culture event.</description>
+    </item>
+    
+  </channel>
+</rss>

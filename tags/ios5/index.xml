@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ios5 on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/ios5/</link>
+    <description>Recent content in Ios5 on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Fri, 06 Apr 2012 07:33:16 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/ios5/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Using the iOS Simulator&#39;s camera</title>
+      <link>https://adoptioncurve.net/2012/04/06/using-the-camer-of-ios-simulators/</link>
+      <pubDate>Fri, 06 Apr 2012 07:33:16 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/04/06/using-the-camer-of-ios-simulators/</guid>
+      <description>When you&amp;rsquo;re using the iPhone and iPad Simulators to run your development code, you&amp;rsquo;ll find that they have a significant limitation if you&amp;rsquo;re building apps that use hardware features like the camera.
+If your code tries to use the camera on a Simulator device, it&amp;rsquo;ll crash - not altogether surprisingly because the Simulator doesn&amp;rsquo;t have a hardware camera. That gets painful pretty quickly.
+As a workaround for a project that I&amp;rsquo;m working on, I figured it would be useful to have the option to select an image from the Simulator&amp;rsquo;s library in places where normally the camera would be the default option.</description>
+    </item>
+    
+    <item>
+      <title>Where to put the registerNib method in a table view controller</title>
+      <link>https://adoptioncurve.net/2012/04/01/where-to-put-the-registernib-method-in-a-table-view-controller/</link>
+      <pubDate>Sun, 01 Apr 2012 17:15:09 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/04/01/where-to-put-the-registernib-method-in-a-table-view-controller/</guid>
+      <description>Here&amp;rsquo;s a quick workaround for a gotcha if you&amp;rsquo;re using iOS5&amp;rsquo;s registerNib: method in conjunction with a table view controller class that&amp;rsquo;s external to the controller of the view that contains the table.
+Scenario: You&amp;rsquo;ve got a table view in a Storyboard (or standard xib file) which is controlled by a UITableViewController class which is separate to the class controlling the Storyboard (or view). You want to use a custom cell layout contained in a separate xib file.</description>
+    </item>
+    
+  </channel>
+</rss>

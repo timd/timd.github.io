@@ -1,0 +1,350 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Mocks and expectations with Swift &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Mocks and expectations with Swift" />
+<meta property="og:description" content="A new language, a new way of doing things - including testing. One of the harder parts of getting to grips with Swift has been figuring out how testing works, and in particular how to do more extensive stuff like mocking and stubbing.
+By way of background, mocking is the art of creating &ldquo;stunt doubles&rdquo; for your classes that are involved in tests. You&rsquo;d do this for a couple of reasons - either to manipulate your stunt doubles into a known state for testing purpose; or because it&rsquo;s expensive or difficult to use the real thing." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/" />
+
+
+
+<meta property="article:published_time" content="2015-09-30T21:41:02&#43;00:00"/>
+<meta property="article:modified_time" content="2015-09-30T21:41:02&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Mocks and expectations with Swift">
+<meta itemprop="description" content="A new language, a new way of doing things - including testing. One of the harder parts of getting to grips with Swift has been figuring out how testing works, and in particular how to do more extensive stuff like mocking and stubbing.
+By way of background, mocking is the art of creating &ldquo;stunt doubles&rdquo; for your classes that are involved in tests. You&rsquo;d do this for a couple of reasons - either to manipulate your stunt doubles into a known state for testing purpose; or because it&rsquo;s expensive or difficult to use the real thing.">
+
+
+<meta itemprop="dateModified" content="2015-09-30T21:41:02&#43;00:00" />
+<meta itemprop="wordCount" content="835">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Mocks and expectations with Swift"/>
+<meta name="twitter:title" content="Mocks and expectations with Swift"/>
+<meta name="twitter:description" content="A new language, a new way of doing things - including testing. One of the harder parts of getting to grips with Swift has been figuring out how testing works, and in particular how to do more extensive stuff like mocking and stubbing.
+By way of background, mocking is the art of creating &ldquo;stunt doubles&rdquo; for your classes that are involved in tests. You&rsquo;d do this for a couple of reasons - either to manipulate your stunt doubles into a known state for testing purpose; or because it&rsquo;s expensive or difficult to use the real thing."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Mocks and expectations with Swift</h1>
+                    <h2 class="headline">
+                    30 September 2015 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>A new language, a new way of doing things - including testing. One of the harder parts of getting to grips with Swift has been figuring out how testing works, and in particular how to do more extensive stuff like mocking and stubbing.</p>
+
+<p>By way of background, mocking is the art of creating &ldquo;stunt doubles&rdquo; for your classes that are involved in tests. You&rsquo;d do this for a couple of reasons - either to manipulate your stunt doubles into a known state for testing purpose; or because it&rsquo;s expensive or difficult to use the real thing.</p>
+
+<p>An example of this might be testing what happens if a network service doesn&rsquo;t return the result that you were expecting. If you&rsquo;re testing the use of a live service, it might be tricky to create a deliberate failure just for testing purposes. Far easier to create a stunt double and use this to return the value that your tests require.</p>
+
+<p>The other situation where you may want a stand-in object is if you want to verify that a method has been called. Say for example you&rsquo;ve got some kind of callback, and you want to test whether this gets fired. By setting an expectation on the callback method, you can verify that it actually was called - which is especially useful if you&rsquo;re testing asynchronous operations.</p>
+
+<p>It was perfectly possible to do all of this in Objective-C, but it required the use of external libraries such as OCMock or Kiwi. Swift, on the other hand, is much easier. The structure of the language makes it very straight-forward to implement basic mocking and stubbing operations, without the need for external pods or libraries.</p>
+
+<p>Here&rsquo;s an example. Say we have a class called <code>SooperClass</code>, and this has a function called <code>someExpensiveFunctionThatReturnsAStringFromTheWeb</code>. We don&rsquo;t want to <em>really</em> fire this as part of our tests, because (for the sake of this example) we get charged every time we make an API call. Instead, we need to mock it.</p>
+
+<p>The first step is to create a mock of <code>SooperClass</code> inside our test class.  At the top of the test class, create a <code>FakeSooperClass</code> which inherits from <code>SooperClass</code> like this:</p>
+
+<pre><code class="language-swift">	class MockrTests: XCTestCase {
+    
+	    class FakeSooperClass: SooperClass {
+        
+	    }
+   
+	    ... rest of the test class here ...
+	
+	}
+</code></pre>
+
+<p>Next, override the method that you want to test:</p>
+
+<pre><code class="language-swift">	class FakeSooperClass: SooperClass {
+    
+	    override func someExpensiveFunctionThatReturnsAStringFromTheWeb() -&gt; String {
+    	
+	    }
+	
+	}
+</code></pre>
+
+<p>And use this overridden method to return whatever data your test needs:</p>
+
+<pre><code class="language-swift">override func someExpensiveFunctionThatReturnsAStringFromTheWeb() -&gt; String {
+    return &quot;Finally! Some content!&quot;
+}
+</code></pre>
+
+<p>Now you can use this in your test:</p>
+
+<pre><code class="language-swift">    func testThatTheExpensiveFunctionReturnsSomethingUseful() {
+        
+        let fakeSooperClass = FakeSooperClass()
+        let stringFromTheWeb = fakeSooperClass.someExpensiveFunctionThatReturnsAStringFromTheWeb()
+
+		... use the value in the rest of the test ...
+		
+	}
+</code></pre>
+
+<p>Here, we&rsquo;ve created a mock instance of <code>SooperClass</code>, and used this to return data in the format that we need for the rest of the test. But in doing so, we haven&rsquo;t had to call out to the public API that <code>SooperClass</code> would normally talk to.</p>
+
+<p>We can take the fake class one step further, and test that the method actually gets called. We&rsquo;ll set an <em>expectation</em> that the function will be called once during the code that we&rsquo;re testing - if it isn&rsquo;t, something has gone wrong somewhere.</p>
+
+<p>To do this, we need to extend our fake class slightly, to include a flag:</p>
+
+<pre><code class="language-swift">    class FakeSooperClass: SooperClass {
+        
+        var didCallExpensiveFunctionFlag = false
+        
+        override func someExpensiveFunctionThatReturnsAStringFromTheWeb() -&gt; String {
+            return &quot;Finally! Some content!&quot;
+        }
+    }
+</code></pre>
+
+<p>This flag is initially false (because the function hasn&rsquo;t been called yet). When the function <em>is</em> called, we&rsquo;ll flip the flag inside the fake class. By getting the test to check the state of the flag, it will be possible to see if the function was called as we expected.</p>
+
+<p>This needs a tweak to our fake <code>someExpensiveMethodThatReturnsAStringFromTheWeb()</code> function:</p>
+
+<pre><code class="language-swift">    class FakeSooperClass: SooperClass {
+        
+        var didCallExpensiveFunctionFlat = false
+        
+        override func someExpensiveMethodThatReturnsAStringFromTheWeb() -&gt; String {
+            didCallExpensiveFunctionFlag = true
+            return &quot;Finally! Some content!&quot;
+        }
+    }
+</code></pre>
+
+<p>Now we can test all this in our test case:</p>
+
+<pre><code class="language-swift">    func testThatTheExpensiveFunctionGetsCalled() {
+        
+        let fakeSooperClass = FakeSooperClass()
+        
+        // Code that eventually ends up with someExpensiveFunctionThatReturnsAStringFromTheWeb() being called,
+        // like this:
+        // let result = fakeSooperClass.someExpensiveFunctionThatReturnsAStringFromTheWeb()
+        
+        // Set an assertion to check that the flag
+        XCTAssert(fakeSooperClass.didCallExpensiveFunction == true, &quot;expected function to be called, but wasn't&quot;)
+        
+    }
+</code></pre>
+
+<p>If the function WAS called, the flag will be flipped, and the assertion will pass. If for some reason the function didn&rsquo;t get called, then the flag will be <code>false</code> and will cause the assertion to fail.</p>
+
+<p>You could also extend this to keep track of the number of times the function gets called, by incrementing a counter. It uses exactly the same approach of overriding a function in a fake class, and checking the results with an assertion.</p>
+
+<p>So, not difficult to do. Not only that, but rolling your own mocks and expectations in Swift also has the benefit that you&rsquo;re not dependent on external 3rd party libraries with all the attendent complexities that these can sometimes bring along.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2015%2f09%2f30%2fmocks-and-expectations-with-swift%2f - Mocks%20and%20expectations%20with%20Swift by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

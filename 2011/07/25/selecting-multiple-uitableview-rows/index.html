@@ -1,0 +1,373 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Selecting multiple UITableView rows &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Selecting multiple UITableView rows" />
+<meta property="og:description" content="UITableView supplies a whole variety of built-in methods to manage the table, including the selection and deselection of rows. However, there&rsquo;s a significant limitation with the published API - it&rsquo;ll only allow you to select one row at a time. That&rsquo;s something of a problem if you want to use the table view as a list which supports selection (and the subsequent use of) multiple rows at once.
+UPDATE - This has been completely superceded by iOS5, which does support multiple selection." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2011/07/25/selecting-multiple-uitableview-rows/" />
+
+
+
+<meta property="article:published_time" content="2011-07-25T10:01:54&#43;00:00"/>
+<meta property="article:modified_time" content="2011-07-25T10:01:54&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Selecting multiple UITableView rows">
+<meta itemprop="description" content="UITableView supplies a whole variety of built-in methods to manage the table, including the selection and deselection of rows. However, there&rsquo;s a significant limitation with the published API - it&rsquo;ll only allow you to select one row at a time. That&rsquo;s something of a problem if you want to use the table view as a list which supports selection (and the subsequent use of) multiple rows at once.
+UPDATE - This has been completely superceded by iOS5, which does support multiple selection.">
+
+
+<meta itemprop="dateModified" content="2011-07-25T10:01:54&#43;00:00" />
+<meta itemprop="wordCount" content="920">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Selecting multiple UITableView rows"/>
+<meta name="twitter:title" content="Selecting multiple UITableView rows"/>
+<meta name="twitter:description" content="UITableView supplies a whole variety of built-in methods to manage the table, including the selection and deselection of rows. However, there&rsquo;s a significant limitation with the published API - it&rsquo;ll only allow you to select one row at a time. That&rsquo;s something of a problem if you want to use the table view as a list which supports selection (and the subsequent use of) multiple rows at once.
+UPDATE - This has been completely superceded by iOS5, which does support multiple selection."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Selecting multiple UITableView rows</h1>
+                    <h2 class="headline">
+                    25 July 2011 
+                    <br>
+                    
+                    
+                        
+                            <a href="https://adoptioncurve.net/tags/ios">iOS</a>
+                        
+                            <a href="https://adoptioncurve.net/tags/objective-c">objective-C</a>
+                        
+                    
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    
+
+<p><code>UITableView</code> supplies a whole variety of built-in methods to manage the table, including the selection and deselection of rows. However, there&rsquo;s a significant limitation with the published API - it&rsquo;ll only allow you to select one row at a time. That&rsquo;s something of a problem if you want to use the table view as a list which supports selection (and the subsequent use of) multiple rows at once.</p>
+
+<p><strong>UPDATE - This has been completely superceded by iOS5, which does support multiple selection.  This is not enabled by default, though - it has to be set either in Interface Builder, or in code with [tableView setAllowsMultipleSection:YES];   Thanks, Apple.</strong></p>
+
+<p>There is apparently an undocumented API call to do exactly this, but that&rsquo;s no use if you&rsquo;re planning to submit the app to the Store - Apple will bounce the submission. Here&rsquo;s a &ldquo;legal&rdquo; workaround that&rsquo;s a bit more complicated than a single API call, but does the trick.</p>
+
+<h3 id="setting-up"># Setting up</h3>
+
+<p>First, you&rsquo;ll need an instance variable to hold a mutable dictionary that contains references to the rows that have been selected (it needs to be mutable because you&rsquo;re going to be adding and removing objects to it). This needs to be declared in your class&rsquo;s header file:</p>
+
+<p><code>NSMutableDictionary *selectedRows;</code></p>
+
+<p>Then you&rsquo;ll need to instantiate this mutable array somewhere before you can start using it - it doesn&rsquo;t really matter too much where you do that, so for convenience I tend to do it in the <code>viewDidLoad</code> method because I can guarantee that this method always gets called:</p>
+
+<pre><code>- (void)viewDidLoad {
+
+
+
+
+  [super viewDidLoad];
+
+  /*
+  Your other code goes here
+  */
+
+  // Set up the array of selected devices
+  selectedRows = [[NSMutableDictionary alloc] init];
+
+}
+</code></pre>
+
+<p>And then you&rsquo;ll want the corresponding memory management in the <code>viewDidUnload</code> method:</p>
+
+<pre><code>- (void)viewDidUnload {
+  /*
+  Your other code goes here
+  */
+
+  // Release the selectedRows ivar
+  [selectedRows release];
+  selectedRows = nil;
+
+  [super viewDidUnload];
+}
+</code></pre>
+
+<h3 id="the-science-bit"># The science bit</h3>
+
+<p>Now let&rsquo;s do the heavy lifting. Assuming that your class adopts the <code>UITableViewDelegate</code> protocol, whenever a table view cell is tapped it will trigger the <code>tableView:didSelectRowAtIndexPath:</code> method. This takes two parameters - the <code>tableView</code> itself, and the <code>indexPath</code> of the cell that&rsquo;s just been tapped. We can exploit this to make the tableView handle multiple selections.</p>
+
+<p>Firstly, we need to get a reference to the cell that&rsquo;s been tapped:</p>
+
+<p><code>UITableViewCell *theSelectedCell = [tableView cellForRowAtIndexPath:indexPath];</code></p>
+
+<p>This will allow us to grab some content from the cell which can then be stuffed into the array of selected cells. In my app, I&rsquo;m using cells of type <code>UITableViewCellStyleSubtitle</code> which have two text elements - <code>textLabel</code> and <code>detailTableText</code>. <code>textLabel</code> stores a device name, and <code>detailTableText</code> stores a unique ID for that device - as I&rsquo;m going to use this unique device ID to communicate with it later, that&rsquo;s the value that I&rsquo;m going to store.</p>
+
+<p>To create the key for the dictionary element, we&rsquo;ll have to convert the indexpath row into a string:</p>
+
+<p><code>NSString *keyString = [NSString stringWithFormat:@&quot;%d&quot;, indexPath.row];</code></p>
+
+<p>Before we can start grabbing any information from the cell, we need to figure out whether the cell&rsquo;s already been selected. To mark the cell as selected, and at the same time display that fact to the user, we&rsquo;re going to use the checkmark accessory which appears at the right hand end of the cell. This can be switched on like this:</p>
+
+<p><code>theSelectedCell.accessoryType = UITableViewCellAccessoryCheckMark;</code></p>
+
+<p>and switched off like</p>
+
+<p><code>theSelectedCell.accessoryType = UITableViewCellAccessoryNone;</code></p>
+
+<p>Now can also use the presence or absence of the accessory to determine whether the cell&rsquo;s been selected or not:</p>
+
+<pre><code>if ( theSelectedCell.accessoryType == UITableViewCellAccessoryNone ) {
+
+  // This cell hasn't already been selected - switch on the checkmark
+
+} else {
+
+  // This cell has already been selected - so switch OFF the checkmark
+
+}
+</code></pre>
+
+<p>If the cell HASN&rsquo;T been selected, we need to do two things: switch ON the accessory checkmark, and add the cell (or rather, some content from the cell) to the mutable array of selected cells that we set up earlier. If the cell HAS been selected, then we need to do the exact opposite - which looks like this:</p>
+
+<pre><code>if ( theSelectedCell.accessoryType == UITableViewCellAccessoryNone ) {
+
+  // This cell hasn't already been selected - switch on the checkmark
+  thisCell.accessoryType = UITableViewCellAccessoryCheckmark;
+
+  // Grab the peerID from the cell's detailTextLabel
+  NSString *peerID = thisCell.detailTextLabel.text;
+
+  // Add this peerID to the array of selections at the location
+  // that corresponds to the cell's position in the table
+  [selectedRows setObject:peerID forKey:keyString];
+
+} else {
+
+  // This cell has already been selected - so switch OFF the checkmark
+  thisCell.accessoryType = UITableViewCellAccessoryNone;
+
+  // And remove the peerID from the array of selections
+  [selectedRows removeObjectForKey:keyString];
+
+}
+</code></pre>
+
+<h3 id="the-end-result"># The end result</h3>
+
+<p>What we&rsquo;ll end up with once the user has finished the selection is a mutable dictionary of the cells that they&rsquo;ve selected - and we can use that to drive whatever action comes next. In my case, it&rsquo;s sending a message to the selected devices, but it could be as simple as dumping a list of them to the console:</p>
+
+<pre><code>NSLog(@&quot;The selected devices are:&quot;);
+
+for (NSString *deviceID in selectedRows) {
+
+  NSLog(&quot;%@&quot;, deviceID);
+
+}
+</code></pre>
+
+<p>This process uses the <code>accessoryType</code> as the flag for cell selection, but there&rsquo;s no reason why you can&rsquo;t use any other cell property - so rather than use a checkmark, I could have changed the background colour, or formatted the text and so on. The only restriction is that it needs to be something that can be either &ldquo;on&rdquo; or &ldquo;off&rdquo; so that it can act as a flag.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2011%2f07%2f25%2fselecting-multiple-uitableview-rows%2f - Selecting%20multiple%20UITableView%20rows by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

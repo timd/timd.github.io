@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hacks on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/hacks/</link>
+    <description>Recent content in Hacks on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Sun, 24 May 2009 18:22:14 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/hacks/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Howduino and panda hacking</title>
+      <link>https://adoptioncurve.net/2009/05/24/howduino-and-panda-hacking/</link>
+      <pubDate>Sun, 24 May 2009 18:22:14 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/05/24/howduino-and-panda-hacking/</guid>
+      <description>I spent yesterday in Liverpool at Howduino - billed as a &amp;ldquo;one day event about connecting the internet to the real world, breathing life into inanimate objects and creating new ways to interact with things&amp;rdquo;, it took place at FACT (somewhere that&amp;rsquo;s worthy of a blog post in itself).
+Imagine a room full of geeks, artists and hackers who&amp;rsquo;d been let loose with soldering irons and toys, and then throw in the capabilities of Arduino boards.</description>
+    </item>
+    
+    <item>
+      <title>Panda vivisection redux</title>
+      <link>https://adoptioncurve.net/2009/05/05/panda-vivisection-redux/</link>
+      <pubDate>Tue, 05 May 2009 19:43:41 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/05/05/panda-vivisection-redux/</guid>
+      <description>[![Market Bear]Signing up for Howduino in Liverpool on May 23rd has been a bit of a kick up the proverbial for my otherwise somewhat-moribund Market Bear project. The panda is now vivisected and has LEDs for eyes, with a rather alarming trail of wires leading from his tail. Getting the LEDs to sit in place was something of a challenge, but I eventually hit on the idea of threading two legs of the LED through a four-hole button, and using the other two holes of the button to secure it with thread to the inside of the panda&amp;rsquo;s &amp;ldquo;eye sockets&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Bursting a stock market bubble</title>
+      <link>https://adoptioncurve.net/2009/01/14/bursting-a-stock-market-bubble/</link>
+      <pubDate>Wed, 14 Jan 2009 10:53:28 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/01/14/bursting-a-stock-market-bubble/</guid>
+      <description>[![Balloons]My stock market Twitter bots (@ftse100, @nikkei225 and @dowjonesindex) are tweeting away nicely, but they&amp;rsquo;re all a bit - well, online, really. I think it would be far cooler if it was more visual and tangible. This is what I&amp;rsquo;ve got in mind.
+A Cron job kicks off a Ruby script, which grabs the current FTSE (or whatever) price and feeds that to Processing sketch which runs an Arduino controller. The controller is hooked up to a three-way valve - one outlet is attached to a compressed air cylinder, while the other is vented to the atmosphere.</description>
+    </item>
+    
+    <item>
+      <title>Twittering Thames</title>
+      <link>https://adoptioncurve.net/2009/01/14/twittering-thames/</link>
+      <pubDate>Wed, 14 Jan 2009 07:10:16 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/01/14/twittering-thames/</guid>
+      <description>[![Thames]One of my usual London commuting routes has me walking along the riverside past City Hall in the morning, and back the same way in the evening. It&amp;rsquo;s a fairly uninspiring inland view, because it&amp;rsquo;s home to a succession of utterly forgettable glass boxes housing the likes of Ernst &amp;amp; Young and Norton Rose - which does at least have the benefit of making me thankful that I work in an environment where people actually do wear space cadet uniforms to meetings.</description>
+    </item>
+    
+    <item>
+      <title>Twittering the Shipping Forecast</title>
+      <link>https://adoptioncurve.net/2009/01/13/twittering-the-shipping-forecast-2/</link>
+      <pubDate>Tue, 13 Jan 2009 08:41:05 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/01/13/twittering-the-shipping-forecast-2/</guid>
+      <description>[![Twitter](http://www.twitter.com/shippingcast)One of the aspects of Twitter I like the most is the fact that it has an API. That makes it hackable in a way that appeals to my inner geek, so something I&amp;rsquo;ve been playing with for a while is creating Twitter bots. One of the first I made was @shippingcast, which takes the UK Shipping Forecast and squirts it out onto the web in a Twitter stream.
+Unless you&amp;rsquo;re British, the Shipping Forecast probably doesn&amp;rsquo;t mean a lot.</description>
+    </item>
+    
+  </channel>
+</rss>

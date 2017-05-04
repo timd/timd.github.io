@@ -1,0 +1,631 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Creating a paged photo gallery with a UICollectionView &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Creating a paged photo gallery with a UICollectionView" />
+<meta property="og:description" content="The &ldquo;traditional&rdquo; way of creating a swipeable gallery of images uses a UIScrollView and a series of views containing images which are placed in a line inside the scrollView. It&rsquo;s a technique that works - but it&rsquo;s fiddly to set up, and it doesn&rsquo;t scale well. With more than a very few images in the gallery, you need to start implementing lazy loading to prevent the gallery gobbling up memory." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2013/04/09/creating-a-paged-photo-gallery-with-a-uicollectionview/" />
+
+
+
+<meta property="article:published_time" content="2013-04-09T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2013-04-09T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Creating a paged photo gallery with a UICollectionView">
+<meta itemprop="description" content="The &ldquo;traditional&rdquo; way of creating a swipeable gallery of images uses a UIScrollView and a series of views containing images which are placed in a line inside the scrollView. It&rsquo;s a technique that works - but it&rsquo;s fiddly to set up, and it doesn&rsquo;t scale well. With more than a very few images in the gallery, you need to start implementing lazy loading to prevent the gallery gobbling up memory.">
+
+
+<meta itemprop="dateModified" content="2013-04-09T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2433">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Creating a paged photo gallery with a UICollectionView"/>
+<meta name="twitter:title" content="Creating a paged photo gallery with a UICollectionView"/>
+<meta name="twitter:description" content="The &ldquo;traditional&rdquo; way of creating a swipeable gallery of images uses a UIScrollView and a series of views containing images which are placed in a line inside the scrollView. It&rsquo;s a technique that works - but it&rsquo;s fiddly to set up, and it doesn&rsquo;t scale well. With more than a very few images in the gallery, you need to start implementing lazy loading to prevent the gallery gobbling up memory."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Creating a paged photo gallery with a UICollectionView</h1>
+                    <h2 class="headline">
+                    9 April 2013 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    
+
+<p>The &ldquo;traditional&rdquo; way of creating a swipeable gallery of images uses a <code>UIScrollView</code> and a series of views containing images which are placed in a line inside the scrollView.  It&rsquo;s a technique that works - but it&rsquo;s fiddly to set up, and it doesn&rsquo;t scale well.  With more than a very few images in the gallery, you need to start implementing lazy loading to prevent the gallery gobbling up memory.</p>
+
+<p>If you think of a gallery as being a <code>UITableView</code> laid on its side, then it&rsquo;s pretty obvious that we could use something similar and take advantage of the lazy loading of cells that a table view offers.  Prior to iOS6, sideways-scrolling tableViews were tricky to set up - but iOS6 came to the rescue with <code>UICollectionView</code>.</p>
+
+<p><img src="center /images/2013/04/paging_gallery.png 400" alt="" /></p>
+
+<p>This is a worked example of setting up a full-screen paged image gallery using <code>UICollectionView</code> that lazily-loads images, and supports dynamic resizing of images during device rotation.</p>
+
+<p>##Setting up the project</p>
+
+<p>Create a Single View Application project in Xcode.   You should end up with an <code>AppDelegate</code> and a single view controller and <code>xib</code> file.</p>
+
+<p>##Wiring up the collection view</p>
+
+<p>In the main view controller&rsquo;s <code>.h</code> file, add the <code>UICollectionViewDelegate</code> and <code>UICollectionViewDatasource</code> protocols:</p>
+
+<pre><code>@interface CMFViewController : UIViewController &lt;UICollectionViewDataSource, UICollectionViewDelegate&gt;
+</code></pre>
+
+<p>Then switch to the <code>.m</code> file and create two new properties:</p>
+
+<pre><code>@interface CMFViewController ()
+@property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, strong) NSArray *dataArray;
+@end
+</code></pre>
+
+<p>In the main view controller&rsquo;s &lsquo;.xib&rsquo;, drag and drop a <code>UICollectionView</code> object into the view, and then connect it to the <code>collectionView</code> property.  You&rsquo;ll also need to connect the <code>UICollectionView</code> object&rsquo;s <code>dataSource</code> and <code>delegate</code> outlets to the <code>File's Owner</code> object.</p>
+
+<p><img src="center /images/2013/04/collection_view.png" alt="" /></p>
+
+<p>##Creating the data</p>
+
+<p>For the purposes of this demo, I&rsquo;ve assumed that there&rsquo;s an <code>Assets</code> directory in the project&rsquo;s folder structure, and that contains a series of images.</p>
+
+<p><img src="center /images/2013/04/folders.png" alt="" /></p>
+
+<p>The first step is to load the names of the files in this directory into the <code>dataArray</code> property - I&rsquo;ve done this with a seperate method:</p>
+
+<pre><code>-(void)loadImages {
+    NSString *sourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@&quot;Assets&quot;];
+    self.dataArray = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:sourcePath error:NULL];
+}
+</code></pre>
+
+<p>This method gets called in the view controller&rsquo;s <code>viewDidLoad</code> method:</p>
+
+<pre><code>- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self loadImages];
+}
+</code></pre>
+
+<p>##Feeding the collection view with data</p>
+
+<p>There are three methods that need to be implemented to feed the collection view with data:</p>
+
+<pre><code>-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView;
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
+</code></pre>
+
+<p>Taking these in turn, the first is to tell the collection view how many sections it has.  This being a simple example, there&rsquo;s only one:</p>
+
+<pre><code>-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+</code></pre>
+
+<p>Next, the collection view needs to know how many items it&rsquo;s going to be displaying in total - which is the number of images that live in the <code>Assets</code> directory:</p>
+
+<pre><code>-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return [self.dataArray count];
+}
+</code></pre>
+
+<p>The last third method is where the real work takes place, and the collection view cells are created.  Before we can do this, though, we need to go ahead and create the cells.</p>
+
+<p>##Creating the <code>UICollectionViewCells</code></p>
+
+<p>There&rsquo;s a couple of ways of creating <code>UICollectionViewCells</code> - the nib-based route, or creating a custom subclass.  The latter is the more flexible, so this is the route we&rsquo;ll take here.</p>
+
+<p>Create a new <code>UICollectionViewCell</code> subclass called <code>CMFGalleryCell</code>.  This is going to need one public property declared in the <code>.h</code> file:</p>
+
+<pre><code>@property (nonatomic, strong) NSString *imageName;
+</code></pre>
+
+<p>and one public method:</p>
+
+<pre><code>-(void)updateCell;
+</code></pre>
+
+<p>Next we&rsquo;re going to need a <code>.xib</code> file for the cell, so create a new  that and give it a name - mine&rsquo;s <code>CMFGalleryCell.xib</code>.</p>
+
+<p>By default, the new view comes into life with a <code>UIView</code> inside it - we don&rsquo;t need this, so delete it and replace it with a <code>UICollectionViewCell</code> object.  The canned object is 50 points x 50 points, which isn&rsquo;t what we need - change the dimensions to 320 x 548 (for a 4-inch device) or 320 x 440 (for a 3.5&rdquo; device).</p>
+
+<p>While you&rsquo;re there, change the color of the background to white, and drop a <code>UILabel</code> to the center of the view.  This label won&rsquo;t show anything useful, but will help to show the effect of paging through the collection view when it runs for the first time.</p>
+
+<p><img src="center /images/2013/04/label_xcode.png 400" alt="" /></p>
+
+<p>Next, we need to tell this <code>UICollectionViewCell</code> that it&rsquo;s actually an instance of our custom class.  Select the object, and in the <code>Identity</code> inspector change the <code>custom class</code> field to <code>CMFGalleryCell</code>.</p>
+
+<p><img src="center /images/2013/04/custom_class.png" alt="" /></p>
+
+<p>Once the object knows what it&rsquo;s supposed to be, we need to update the <code>CMFGalleryCell</code> class so that it can extract the <code>UICollectionViewCell</code> from the nib file when the need arises.  There&rsquo;s several ways of doing this - here&rsquo;s the way I tend to do it, in the <code>initWithFrame:</code> method:</p>
+
+<pre><code>- (id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        // Initialization code
+        NSArray *arrayOfViews = [[NSBundle mainBundle] loadNibNamed:@&quot;CMFGalleryCell&quot; owner:self options:nil];
+
+        if ([arrayOfViews count] &lt; 1) {
+            return nil;
+        }
+
+        if (![[arrayOfViews objectAtIndex:0] isKindOfClass:[UICollectionViewCell class]]) {
+            return nil;
+        }
+
+        self = [arrayOfViews objectAtIndex:0];
+    }
+
+    return self;
+}
+</code></pre>
+
+<p>Stepping through this, the first task is to call the superclass&rsquo;s <code>initWithFrame:</code> method.  Assuming that this succeeds, we can then grab the contents of the <code>xib</code> file into the <code>arrayOfViews</code> array.  This <em>should</em> have the <code>UICollectionViewCell</code> object as the first item in the array - but if that isn&rsquo;t the case, the two <code>if</code> statements will allow things to fail gracefully.</p>
+
+<p>Assuming things are where they&rsquo;re supposed to be, the penultimate line grabs the <code>UICollectionViewCell</code> from the <code>arrayOfViews</code>, and the last line returns it.</p>
+
+<p>##Feeding the collection view with cells</p>
+
+<p>Now we&rsquo;re ready to send the <code>UICollectionView</code> some cells to display.   Switch back to the view controller, and import the custom cell class:</p>
+
+<pre><code>#import &quot;CMFGallleryCell.h&quot;
+</code></pre>
+
+<p>Now we&rsquo;re in a position to register this class for use.  This needs to be done before the collectionView is displayed, so I tend to stick this in a <code>configureCollectionView</code> method which is called from <code>viewDidLoad:</code>:</p>
+
+<pre><code>- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    [self loadImages];
+    [self setupCollectionView];
+}
+</code></pre>
+
+<p>The <code>setupCollectionView</code> method is going to expand as we go along, but for the moment it needs to register the cell subclass for use:</p>
+
+<pre><code>-(void)setupCollectionView {
+    [self.collectionView registerClass:[CMFGalleryCell class] forCellWithReuseIdentifier:@&quot;cellIdentifier&quot;];
+}
+</code></pre>
+
+<p>That&rsquo;s pretty self-explanatory - it tells the collectionView that there&rsquo;s a class called <code>CMFGalleryCell</code> that will be associated with the reuse identifier <code>cellIdentifier</code></p>
+
+<p>Now we can start to implement the method that does the heavy lifting of cell creation:</p>
+
+<pre><code>-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CMFGalleryCell *cell = (CMFGalleryCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@&quot;cellIdentifier&quot; forIndexPath:indexPath];
+
+    return cell;
+}
+</code></pre>
+
+<p>A lot takes place behind the scenes here.  Every time the collection view needs a cell, it will call the <code>collectionView:cellForItemAtIndexPath:</code> method on its <code>dataSource</code>, and expect a <code>UICollectionViewCell</code> object to be returned.</p>
+
+<p>The method first attempts to dequeue an existing cell to save the memory overhead of creating a new one.  If for any reason there isn&rsquo;t a reusable cell available in the queue (for example, if it&rsquo;s the first cell being created) then behind the scenes, the collection view&rsquo;s <code>dataSource</code> object will create a new instance of one.   As far as we&rsquo;re concerned, we&rsquo;re guaranteed to get a cell returned - either a shiny new one, or one that&rsquo;s been used prevously and is ready for recycling.</p>
+
+<p>##Configuring the collection view at runtime</p>
+
+<p>We&rsquo;ve got to the point where there&rsquo;s a collection view and collection view cells (albeit ones that don&rsquo;t do anything yet).  In order to get the cells displayed correctly, there&rsquo;s a bit more configuration required.</p>
+
+<p>This means expanding the existing <code>setupCollectionView</code> method:</p>
+
+<pre><code>-(void)setupCollectionView {
+    [self.collectionView registerClass:[CVGGallleryCell class] forCellWithReuseIdentifier:@&quot;cellIdentifier&quot;];
+
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    [flowLayout setMinimumInteritemSpacing:0.0f];
+    [flowLayout setMinimumLineSpacing:0.0f];
+    [self.collectionView setPagingEnabled:YES];
+    [self.collectionView setCollectionViewLayout:flowLayout];
+}
+
+In order to know how to display content, the collection view relies on a `UICollectionViewLayout` object which provides the necessary information to allow the collection view to draw the cells into the user interface.
+
+The linear grid-based layout is sufficiently generic that Apple have provided a `UICollectionViewLayout` subclass called `UICollectionViewFlowLayout`.  Out of the box, this will draw lines of cells in a grid arrangement.  You don't need to understand too much about the detail at this stage, but these are the important characteristics that we need to implement in order to create the gallery view:
+</code></pre>
+
+<h3 id="creating-the-flow-layout"># Creating the flow layout</h3>
+
+<p>The flow layout is created with</p>
+
+<pre><code>UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+</code></pre>
+
+<h3 id="configuring-the-scroll-direction"># Configuring the scroll direction</h3>
+
+<p>Flow layouts can scroll in either vertical (up-and-down table view style) or horizontal (side-to-side gallery style) directions.  We&rsquo;re going to use horizontal:</p>
+
+<pre><code>[flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+</code></pre>
+
+<h3 id="setting-the-cell-spacing"># Setting the cell spacing</h3>
+
+<p>To get the seamless gallery effect, we need to setup the collection view to display the cells without any spacing:</p>
+
+<pre><code>[flowLayout setMinimumInteritemSpacing:0.0f];
+[flowLayout setMinimumLineSpacing:0.0f];
+</code></pre>
+
+<h3 id="setting-up-paging"># Setting up paging</h3>
+
+<p>Getting each image to &ldquo;snap&rdquo; to the screen as it scrolls is a nice touch, and <code>UICollectionView</code> provides that functionality out of the box:</p>
+
+<pre><code>[self.collectionView setPagingEnabled:YES];
+</code></pre>
+
+<h3 id="setting-the-item-size"># Setting the item size</h3>
+
+<p>The collection view needs be informed of the size of the item, which can be set statically or dynamically via a delegate protocol.  If you&rsquo;re only ever going to have one size of cell, then you can simple set the item size with:</p>
+
+<pre><code>[flowLayout setItemSize:CGSizeMake(320, 548)];
+</code></pre>
+
+<p>However, it can also be set dynamically through the <code>UICollectionViewDelegateFlowLayout</code> protocol.  To use this method, first switch to the view controller&rsquo;s header file and add the declaration for the protocol:</p>
+
+<pre><code>@interface CMFViewController : UIViewController &lt;UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout&gt;
+</code></pre>
+
+<p>Then switch back to the implementation file and add the collectionView:layout:sizeForItemAtIndexPath: method:</p>
+
+<pre><code>-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(320, 548);
+}
+</code></pre>
+
+<h3 id="applying-the-layout-to-the-collection-view"># Applying the layout to the collection view</h3>
+
+<p>Once the <code>UICollectionViewFlowLayout</code> is setup and configured, it needs to be applied to the collection view itself:</p>
+
+<pre><code>[self.collectionView setCollectionViewLayout:flowLayout];
+</code></pre>
+
+<p>At this point, if you build and run the project, you&rsquo;ll see a working collection view with paging cells:</p>
+
+<p><img src="center /images/2013/04/label_simulator.png 400" alt="" /></p>
+
+<p>##Configuring the cells at runtime</p>
+
+<p>Functional as this is, it doesn&rsquo;t yet look much like a gallery.  To get the images requires a bit more work, firstly in the view controller:</p>
+
+<h3 id="feeding-the-cells-with-data">Feeding the cells with data</h3>
+
+<p>Thinking back to the data that we&rsquo;re working with, we&rsquo;ve got an <code>NSArray</code> of <code>NSStrings</code> containing image filenames.  We&rsquo;re going to pass that filename to the cell, and then load the image into the cell.</p>
+
+<p>Passing the filename to the cell can be done when the cell is dequeued (or created) in the <code>collectionView:cellForItemAtIndexPath:</code> method:</p>
+
+<pre><code>-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CMFGalleryCell *cell = (CMFGalleryCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@&quot;cellIdentifier&quot; forIndexPath:indexPath];
+
+    NSString *imageName = [self.dataArray objectAtIndex:indexPath.row];
+    [cell setImageName:imageName];
+
+    [cell updateCell];
+
+    return cell;
+}
+</code></pre>
+
+<h3 id="loading-the-image-into-the-cell">Loading the image into the cell</h3>
+
+<p>We&rsquo;ll do this in the cell&rsquo;s <code>updateCell</code> method</p>
+
+<pre><code>-(void)updateCell {
+    NSString *sourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@&quot;Assets&quot;];
+    NSString *filename = [NSString stringWithFormat:@&quot;%@/%@&quot;, sourcePath, self.imageName];
+
+    UIImage *image = [UIImage imageWithContentsOfFile:filename];
+
+    [self.imageView setContentMode:UIViewContentModeScaleAspectFit];
+    [self.imageView setImage:image];
+}
+</code></pre>
+
+<p>One final tweak - switch to the cell&rsquo;s .xib file, remove the <code>UILabel</code> and change the background colour of the <code>UICollectionViewCell</code> to &lsquo;default&rsquo;.</p>
+
+<p>Run the app again, and now you&rsquo;ve got a paging gallery:</p>
+
+<p><img src="center /images/2013/04/paging_gallery.png 400" alt="" /></p>
+
+<h3 id="handling-device-rotation">Handling device rotation</h3>
+
+<p>At the moment, if you rotate the simulator (or device) you&rsquo;ll see an error in the console:</p>
+
+<pre><code>UICollectionGallery[26606:c07] the behavior of the UICollectionViewFlowLayout is not defined because:
+UICollectionGallery[26606:c07] the item height must be less that the height of the UICollectionView minus the section insets top and bottom values.
+</code></pre>
+
+<p>That&rsquo;s occuring because when the device rotates, the collection view cell is taller than the collection view itself.  We can silence this error by invalidating the <code>collectionViewLayout</code> before the rotation starts:</p>
+
+<pre><code>-(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [self.collectionView.collectionViewLayout invalidateLayout];
+}
+</code></pre>
+
+<p>But now there&rsquo;s a different problem - the collectionView&rsquo;s offsets are all over the place if you rotate when displaying something other than the first image.</p>
+
+<p><img src="center /images/2013/04/paging_error.png 400" alt="" /></p>
+
+<p>There&rsquo;s a couple of steps involved in fixing this:</p>
+
+<h3 id="making-the-collection-view-cell-size-dynamic"># Making the collection view cell size dynamic</h3>
+
+<p>We want the collection view cell to be the same size as the collection view, regardless of whether the device is in portrait or landscape orientation.  If we&rsquo;d set the collection view cell size statically (in the <code>setupCollectionView</code> method) that would be tricky - but we future-proofed ourselves by making this a dynamic method.</p>
+
+<p>The collection view cell size is controlled by the <code>collectionView:layout:sizeForItemAtIndexPath:</code> method - so we can update this to return whatever the current size of the collectionView is:</p>
+
+<pre><code>-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return self.collectionView.frame.size;
+}
+</code></pre>
+
+<h3 id="forcing-the-collection-view-to-update"># Forcing the collection view to update</h3>
+
+<p>If you run the app again, you&rsquo;ll see that the error still occurs.  That&rsquo;s because having changed the size of the collection view cells, we need to force the collection view to redraw itself with the correct offset.  We can do this while the device is rotating by hooking into the <code>didRotateFromInterfaceOrientation:</code> method and adjusting the <code>contentOffset</code> to move the collection view around.</p>
+
+<p>First, though, we need to capture how far the collection view is currently offset <em>before</em> the rotation starts.  Add a property to the class:</p>
+
+<pre><code>@property (nonatomic) int currentIndex;
+</code></pre>
+
+<p>And update the <code>willRotateToInterfaceOrientation:duration:</code> method:</p>
+
+<pre><code>CGPoint currentOffset = [self.collectionView contentOffset];
+self.currentIndex = currentOffset.x / self.collectionView.frame.size.width;
+</code></pre>
+
+<p>This gets the current offset&rsquo;s <code>x</code> value and divides this by the width of the collectionView to calculate how many by how many cells the collectionView is scrolled across.</p>
+
+<p>Now it&rsquo;s time to force the rotated collectionView in the right position.  This has to be done <em>after</em> the rotation has taken place, so involves updating the <code>didRotateFromInterfaceOrientation:</code> method.  This exploits the fact that <code>UICollectionView</code> inherits from <code>UIScrollView</code> and has a <code>contentOffset</code> property that can be updated:</p>
+
+<pre><code>-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    // Force realignment of cell being displayed
+    CGSize currentSize = self.collectionView.bounds.size;
+    float offset = self.currentIndex * currentSize.width;
+    [self.collectionView setContentOffset:CGPointMake(offset, 0)];
+}
+</code></pre>
+
+<p>This is simple enough - we get the size of the collectionView after it&rsquo;s rotated; and then calculate how far along the newly-sized collectionView the content has to be scrolled to match.</p>
+
+<p>If you run the project now, everything will fit into the right place on rotation, albeit with some nasty flickering as the content snaps into place.  It would be nicer if that was hidden, so we can update the <code>willRotateToInterfaceOrientation:duration:</code> method to hide the collectionView before the rotation starts:</p>
+
+<pre><code>-(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [self.collectionView setAlpha:0.0f];
+
+    [self.collectionView.collectionViewLayout invalidateLayout];
+
+    CGPoint currentOffset = [self.collectionView contentOffset];
+    self.currentIndex = currentOffset.x / self.collectionView.frame.size.width;
+}
+</code></pre>
+
+<p>And reveal it again once the rotation has completed:</p>
+
+<pre><code>-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:self.currentIndex inSection:0];
+
+    [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+
+    [UIView animateWithDuration:0.125f animations:^{
+        [self.collectionView setAlpha:1.0f];
+    }];
+}
+</code></pre>
+
+<p>I&rsquo;ve added a slight fade-in effect which visually smooths the animation a bit.</p>
+
+<h3 id="going-further">Going further</h3>
+
+<p>Although this example is based on a full-screen gallery, there&rsquo;s no reason why it can&rsquo;t be adapted to fit into a pre-existing interface.  It&rsquo;s just a case of amending the sizes of the collection view and cells, and tweaking the paging increments accordingly.</p>
+
+<h3 id="source-code">Source code</h3>
+
+<p>A complete project with source code is downloadable from <a href="https://github.com/timd/UICollectionViewGallery.git">https://github.com/timd/UICollectionViewGallery.git</a></p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2013%2f04%2f09%2fcreating-a-paged-photo-gallery-with-a-uicollectionview%2f - Creating%20a%20paged%20photo%20gallery%20with%20a%20UICollectionView by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

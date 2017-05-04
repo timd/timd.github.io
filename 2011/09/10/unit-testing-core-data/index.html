@@ -1,0 +1,390 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Unit testing Core Data &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Unit testing Core Data" />
+<meta property="og:description" content="The project I&rsquo;m working on at the moment is Core Data-based, and I&rsquo;m (attempting) to built it using a test-driven approach. In practice, there&rsquo;s at least as much development-driven testing as there is test-driven development, but I&rsquo;m using the fact that I&rsquo;m on a learning curve as my get-out-of-jail-free card.
+I&rsquo;m using GHUnit and OCMock as my test frameworks. Testing the view controllers and so on is fairly straight-forward so far, but I hit a major bump in the road when I started to try and test the Core Data related parts." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2011/09/10/unit-testing-core-data/" />
+
+
+
+<meta property="article:published_time" content="2011-09-10T11:59:23&#43;00:00"/>
+<meta property="article:modified_time" content="2011-09-10T11:59:23&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Unit testing Core Data">
+<meta itemprop="description" content="The project I&rsquo;m working on at the moment is Core Data-based, and I&rsquo;m (attempting) to built it using a test-driven approach. In practice, there&rsquo;s at least as much development-driven testing as there is test-driven development, but I&rsquo;m using the fact that I&rsquo;m on a learning curve as my get-out-of-jail-free card.
+I&rsquo;m using GHUnit and OCMock as my test frameworks. Testing the view controllers and so on is fairly straight-forward so far, but I hit a major bump in the road when I started to try and test the Core Data related parts.">
+
+
+<meta itemprop="dateModified" content="2011-09-10T11:59:23&#43;00:00" />
+<meta itemprop="wordCount" content="878">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Unit testing Core Data"/>
+<meta name="twitter:title" content="Unit testing Core Data"/>
+<meta name="twitter:description" content="The project I&rsquo;m working on at the moment is Core Data-based, and I&rsquo;m (attempting) to built it using a test-driven approach. In practice, there&rsquo;s at least as much development-driven testing as there is test-driven development, but I&rsquo;m using the fact that I&rsquo;m on a learning curve as my get-out-of-jail-free card.
+I&rsquo;m using GHUnit and OCMock as my test frameworks. Testing the view controllers and so on is fairly straight-forward so far, but I hit a major bump in the road when I started to try and test the Core Data related parts."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Unit testing Core Data</h1>
+                    <h2 class="headline">
+                    10 September 2011 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>The project I&rsquo;m working on at the moment is Core Data-based, and I&rsquo;m (attempting) to built it using a test-driven approach. In practice, there&rsquo;s at least as much development-driven testing as there is test-driven development, but I&rsquo;m using the fact that I&rsquo;m on a learning curve as my get-out-of-jail-free card.</p>
+
+<p>I&rsquo;m using GHUnit and OCMock as my test frameworks. Testing the view controllers and so on is fairly straight-forward so far, but I hit a major bump in the road when I started to try and test the Core Data related parts.</p>
+
+<p>While the app itself was working fine, the tests steadfastly refused to return any data. No errors, just empty result sets.</p>
+
+<p>What I&rsquo;d omitted to do in my testing frenzy was set up the Core Data environment correctly in my tests. You can&rsquo;t, as it turns out, rely on the app code creating it - you have to do so explicitly within your test suite.</p>
+
+<p>For the benefit of my outsourced memory and any subsequent Google hits, this is how I got it to work.</p>
+
+<p>Firstly, you need to import the CoreData headers:</p>
+
+<pre><code>#import &lt;CoreData/CoreData.h&gt;
+</code></pre>
+
+<p>and the headers for your NSManagedObject classes:</p>
+
+<pre><code>#import &quot;Trial.h&quot;
+</code></pre>
+
+<p>Then, add and synthesise a property to hold the Managed Object Context when it&rsquo;s created:</p>
+
+<pre><code>@property (nonatomic, retain) NSManagedObjectContext *moc;
+@synthesize moc;
+</code></pre>
+
+<p>Because I&rsquo;m using GHUnit, the methods in my test templete looks like this:</p>
+
+<pre><code>-(void)testSomething {
+  // This test should do something eventually
+}
+
+#pragma mark - Housekeeping
+
+- (BOOL)shouldRunOnMainThread {
+    // By default NO, but if you have a UI test or test dependent on running on the main thread return YES.
+    // Also an async test that calls back on the main thread, you'll probably want to return YES.
+    return NO;
+}
+
+- (void)setUpClass {
+    // Run at start of all tests in the class
+}
+
+- (void)tearDownClass {
+    // Run at end of all tests in the class
+}
+
+- (void)setUp {
+    // Run before each test method
+}
+
+- (void)tearDown {
+    // Run after each test method
+}
+</code></pre>
+
+<p>The key methods are <code>setupClass</code> and <code>tearDownClass</code>, which get run at the start and end of the test suite. These is where you create and destroy the Managed Object Context:</p>
+
+<pre><code>- (void)setUpClass {
+    // Run at start of all tests in the class
+    NSManagedObjectModel *mom = [NSManagedObjectModel mergedModelFromBundles:[NSBundle allBundles]];
+    NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
+
+    GHAssertTrue((int)[psc addPersistentStoreWithType:NSInMemoryStoreType configuration:nil URL:nil options:nil error:NULL], @&quot;Should be able to add in-memory store&quot;);
+
+    self.moc = [[NSManagedObjectContext alloc] init];
+    self.moc.persistentStoreCoordinator = psc;
+
+    [self createSeedData];
+}
+</code></pre>
+
+<p>There&rsquo;s a subtlety when creating the managed object model - this needs to load all bundles, hence the <code>[NSBundle allBundles]</code> parameter.</p>
+
+<pre><code>- (void)tearDownClass {
+    // Run at end of all tests in the class
+    self.moc = nil;
+}
+</code></pre>
+
+<p>This creates a sandbox MOC which you can mess about with to your heart&rsquo;s content - doing things like seeding a data set:</p>
+
+<pre><code>-(void)createSeedData {
+
+    NSArray *dataArray = [NSArray arrayWithObjects:@&quot;One&quot;, @&quot;Two&quot;, @&quot;Three&quot;, @&quot;Four&quot;, @&quot;Five&quot;, @&quot;Six&quot;, @&quot;Seven&quot;, @&quot;Eight&quot;, nil];
+
+    for (int i=0; i &lt; [dataArray count]; i++) {
+
+        Trial = [Trial alloc] initWithData:[dataArray objectAtIndex:i];
+
+        // Set up each trial - 4 get &quot;inprogress&quot; status
+                // and 3 get &quot;completed&quot; status
+
+    }
+
+}
+</code></pre>
+
+<p>What I&rsquo;m doing here is creating 8 Trial objects, and setting 4 of them as in progress and 3 as completed (the detail isn&rsquo;t that relevant for this example). This gets used later to test that the predicates selecting the Trials is working correctly.</p>
+
+<p>From here, it&rsquo;s simple enough to start testing (because I&rsquo;m paranoid, I added a test to check that the seed data was created correctly):</p>
+
+<pre><code>-(void)testSeedDataIsCreatedCorrectly {
+
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@&quot;Trial&quot; inManagedObjectContext:self.moc];
+    [fetchRequest setEntity:entity];
+
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@&quot;id&quot; ascending:NO];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+
+    [fetchRequest setSortDescriptors:sortDescriptors];
+
+    NSError *error = nil;
+    NSMutableArray *mutableFetchResults = [[self.moc executeFetchRequest:fetchRequest error:&amp;error] mutableCopy];
+    if (mutableFetchResults == nil) {
+        NSLog(@&quot;TrialSelectionVC: executeFetchRequest error: %@&quot;, [error localizedDescription]);
+    }
+
+    int resultsCount = [mutableFetchResults count];
+    GHAssertEquals(resultsCount, 8, @&quot;should be 8 objects in the test data, found %d&quot;, [mutableFetchResults count]);
+}
+</code></pre>
+
+<p>Testing the relevant bit of the view controller means injecting the test MOC into the class. In the production code, the MOC that&rsquo;s assigned to the view controller&rsquo;s managedObjectContext is the one that gets created in the <code>AppDelegate</code> - which obviously I don&rsquo;t have here:</p>
+
+<pre><code>-(void)testTrialsVCretrievesData {
+    // Create and fetch trials
+    TrialSelectionVC *trialVC = [[TrialSelectionVC alloc] init];
+
+    trialVC.managedObjectContext = self.moc;
+
+    NSMutableArray *results = [trialVC fetchTrials];
+
+    // Assert results are returned
+    GHAssertNotNil(results, @&quot;results array is nil&quot;);
+
+    // Assert that there should be three results
+    GHAssertEquals((int)[results count], 3, @&quot;there should be 3 results, %d were returned&quot;, [results count]);
+
+}
+</code></pre>
+
+<p>On the face of it, this seems like an <strong><em>awful</em></strong> lot of code just for testing purposes - but it&rsquo;s paid back as far as I&rsquo;m concerned. By being able to extract and test the data selection elements of the application in isolation, I&rsquo;m not having to do that by running the app itself.</p>
+
+<p>It also means that I can afford to bugger about with my data schema, and be able to get an instant check on whether I&rsquo;ve broken things downstream. In an ideal world that wouldn&rsquo;t happen anyway, but at least now I&rsquo;ve got some assurance that the app is somewhat less brittle than it might otherwise be.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2011%2f09%2f10%2funit-testing-core-data%2f - Unit%20testing%20Core%20Data by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

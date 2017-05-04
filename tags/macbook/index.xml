@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Macbook on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/macbook/</link>
+    <description>Recent content in Macbook on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Sat, 06 Aug 2011 19:46:41 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/macbook/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Why won&#39;t my *&amp;%^$&amp;* Magic Mouse work?</title>
+      <link>https://adoptioncurve.net/2011/08/06/why-wont-my-magic-mouse-work/</link>
+      <pubDate>Sat, 06 Aug 2011 19:46:41 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/08/06/why-wont-my-magic-mouse-work/</guid>
+      <description>If you&amp;rsquo;ve a) recently upgraded to Lion; and b) are shouting this a lot every time you wake your Macbook Pro up from sleep, I&amp;rsquo;ve got a fix for you.
+The symptoms are that once you&amp;rsquo;ve woken the Macbook up, your Magic Mouse has been disconnected. Clicking the &amp;lsquo;connect&amp;rsquo; option from the Bluetooth menu apparently connects to the mouse, but nothing happens. The only way to get it to work again is to open the mouse preferences pane, at which point it starts to work again.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xcode on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/xcode/</link>
+    <description>Recent content in Xcode on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Fri, 01 Feb 2013 09:54:44 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/xcode/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Selectively-disabling warnings with Xcode compiler flags</title>
+      <link>https://adoptioncurve.net/2013/02/01/selectively-disabling-warnings-with-xcode-compiler-flags/</link>
+      <pubDate>Fri, 01 Feb 2013 09:54:44 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2013/02/01/selectively-disabling-warnings-with-xcode-compiler-flags/</guid>
+      <description>Another update to iOS (this time to 6.1) means another update to Xcode (this time to 4.6). No doubt some bugs will be squashed while other new ones are introduced - but the most immediate change that I&amp;rsquo;ve noticed is that another new crop of warnings are being generated.
+I have the &amp;ldquo;treat warnings as errors&amp;rdquo; flag set by default on the basis that I&amp;rsquo;d rather know about a potential problem before it becomes an actual one.</description>
+    </item>
+    
+    <item>
+      <title>&#34;profile doesn&#39;t match application identifier&#34; problems in XCode</title>
+      <link>https://adoptioncurve.net/2011/07/07/profile-doesnt-match-application-identifier-problems-in-xcode/</link>
+      <pubDate>Thu, 07 Jul 2011 12:59:11 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/07/07/profile-doesnt-match-application-identifier-problems-in-xcode/</guid>
+      <description>Occasionally, you can end up in an XCode nightmare trying to get your app to play nicely with development and distribution certificates. One of the symptoms of this is being unable to select a profile, because they&amp;rsquo;re all greyed-out with the message &amp;ldquo;profile doesn&#39;t match Application Identified &#39;com.&amp;lt;whatever&amp;gt;.&amp;lt;etc&amp;gt;&#39;&amp;ldquo;
+This might be because the profiles are cocked-up, but if you&amp;rsquo;ve been through the download-certificate-and-add-to-Xcode dance, it might be because your application identifier doesn&amp;rsquo;t match that of the certificate.</description>
+    </item>
+    
+    <item>
+      <title>Fixing explosions caused by UITableView scrolling</title>
+      <link>https://adoptioncurve.net/2010/02/11/fixing-explosions-caused-by-uitableview-scrolling/</link>
+      <pubDate>Thu, 11 Feb 2010 20:36:10 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/02/11/fixing-explosions-caused-by-uitableview-scrolling/</guid>
+      <description>I came across a weird (well, weird to me) problem with a UITableView this evening. Basically, the situation is this:
+I&amp;rsquo;ve got a Tab Bar controller in my app&amp;rsquo;s main window; with three tabs:
+[![Screen shot 2010-02-11 at 20.31.52](http://www.adoptioncurve.net/archives/2010/02/fixing-explosions-caused-by-uitableview-scrolling.php/screen-shot-2010-02-11-at-20-31-52)
+The view in the first tab loads from another nib file (MeView.xib), which contains a navigation controller. The file&amp;rsquo;s owner has a class identify of &amp;lsquo;MeViewController&amp;rsquo;. The navigation controller contains a table view, with the delegate and data source set to &amp;lsquo;MeTableViewController&amp;rsquo;.</description>
+    </item>
+    
+  </channel>
+</rss>

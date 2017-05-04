@@ -1,0 +1,501 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Testing for cowards Part 2: Testing user interfaces &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Testing for cowards Part 2: Testing user interfaces" />
+<meta property="og:description" content="Introduction to part 2 This is the second of three posts (part 1 | part 3) that works thorough the presentation I gave at September&rsquo;s iOSDevUK conference in Aberystwyth. In the first, I covered the background to test-driven development of the simple traffic lights project I&rsquo;m using as an example; and looked at building the app&rsquo;s model layer using a test-driven approach.
+The code and tests can be cloned or downloaded from GitHub: https://github." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2013/09/09/testing-for-cowards-part-2-testing-user-interfaces/" />
+
+
+
+<meta property="article:published_time" content="2013-09-09T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2013-09-09T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Testing for cowards Part 2: Testing user interfaces">
+<meta itemprop="description" content="Introduction to part 2 This is the second of three posts (part 1 | part 3) that works thorough the presentation I gave at September&rsquo;s iOSDevUK conference in Aberystwyth. In the first, I covered the background to test-driven development of the simple traffic lights project I&rsquo;m using as an example; and looked at building the app&rsquo;s model layer using a test-driven approach.
+The code and tests can be cloned or downloaded from GitHub: https://github.">
+
+
+<meta itemprop="dateModified" content="2013-09-09T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1639">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Testing for cowards Part 2: Testing user interfaces"/>
+<meta name="twitter:title" content="Testing for cowards Part 2: Testing user interfaces"/>
+<meta name="twitter:description" content="Introduction to part 2 This is the second of three posts (part 1 | part 3) that works thorough the presentation I gave at September&rsquo;s iOSDevUK conference in Aberystwyth. In the first, I covered the background to test-driven development of the simple traffic lights project I&rsquo;m using as an example; and looked at building the app&rsquo;s model layer using a test-driven approach.
+The code and tests can be cloned or downloaded from GitHub: https://github."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Testing for cowards Part 2: Testing user interfaces</h1>
+                    <h2 class="headline">
+                    9 September 2013 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    
+
+<h3 id="introduction-to-part-2">Introduction to part 2</h3>
+
+<p>This is the second of three posts (<a href="/archives/2013/09/a-cowardly-test-o-phobes-presentation-from-iosdevuk/">part 1</a> | <a href="/archives/2013/09/testing-for-cowards-part-3-testing-the-full-interface/">part 3</a>) that works thorough the presentation I gave at September&rsquo;s <a href="http://www.iosdevuk.com">iOSDevUK</a> conference in Aberystwyth.  In the <a href="/archives/2013/09/a-cowardly-test-o-phobes-presentation-from-iosdevuk/">first</a>, I covered the background to test-driven development of the simple traffic lights project I&rsquo;m using as an example; and looked at building the app&rsquo;s model layer using a test-driven approach.</p>
+
+<p>The code and tests can be cloned or downloaded from GitHub: <a href="https://github.com/timd/TrafficLightTests">https://github.com/timd/TrafficLightTests</a>.</p>
+
+<p><img src="left /images/2013/09/app.png 200" alt="" /></p>
+
+<h3 id="setting-up-the-user-interface-for-testing">Setting up the user interface for testing</h3>
+
+<p>Once the model works, I switch attention to the user interface (specifically, the user interactions).  This is where the perception of iOS testing as difficult often arises - how do you test something that relies on a real live user touching something?</p>
+
+<p>The answer is to think of the interaction as involving two layers - there&rsquo;s the view layer, which the user touches; and the view controller which reacts to the touches with code.  So you&rsquo;re not interested in testing the touch itself - what you&rsquo;re <em>actually</em> testing is the <code>IBAction</code> method behind the scenes</p>
+
+<p>If you&rsquo;re happy to assume that the UI controls are actually linked to the underlying method (and you can test that the connections are made correctly if you want to) then the testing process is simply a case of making sure that your <code>didTapSomeButton</code> method does what it should do when the <code>someButton</code> gets tapped.</p>
+
+<p>The other UI testing question that crops up is how you can check the status of interface controls - what colour is the background of a <code>UIView</code> for example?</p>
+
+<p>The reason this becomes an issue is that <code>IBOutlets</code> are normally declared in the view controller&rsquo;s implementation file; and are encapsulated away from the view of the test.</p>
+
+<p>You <em>could</em> declare them in the header file, but that would break encapsulation and just feels a bit wrong - working code <em>shouldn&rsquo;t</em> have to change for the sake of tests.  The workaround is to declare all the private properties and methods that your test will need access to in a category on your view controller at the top of the test.  So the top of the <code>UITests</code> file looks like:</p>
+
+<pre><code>#import &quot;Kiwi.h&quot;
+#import &quot;ViewController.h&quot;
+#import &quot;AppDelegate.h&quot;
+#import &quot;LightEngine.h&quot;
+
+@interface ViewController (UITests)
+@property (nonatomic, weak) id delegate;
+@property (weak, nonatomic) IBOutlet UIView *upRed;
+@property (weak, nonatomic) IBOutlet UIView *upAmber;
+@property (weak, nonatomic) IBOutlet UIView *upGreen;
+@property (weak, nonatomic) IBOutlet UIView *downRed;
+@property (weak, nonatomic) IBOutlet UIView *downAmber;
+@property (weak, nonatomic) IBOutlet UIView *downGreen;
+@property (weak, nonatomic) IBOutlet UIImageView *stopImageview;
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (weak, nonatomic) IBOutlet UIButton *tickButton;
+@property (weak, nonatomic) IBOutlet UIButton *stopButton;
+@property (nonatomic, strong) NSArray *upLights;
+@property (nonatomic, strong) NSArray *downLights;
+- (IBAction)didTapStartButton:(id)sender;
+- (IBAction)didTapTickButton:(id)sender;
+- (IBAction)didTapStopButton:(id)sender;
+@end
+
+SPEC_BEGIN(UITests)
+
+// Tests start here
+
+SPEC_END
+</code></pre>
+
+<p>Having gained access to all the outlets and methods for testing without needing to expose them to other classes, there&rsquo;s one other step to make before the UI can be accessed by your tests.</p>
+
+<p>A live view controller uses the <code>initWithNibName:bundle:</code> method to load the xib file, and <code>loadView</code> to trigger the three view creation methods - <code>viewDidLoad</code>, <code>viewWillAppear:</code> and <code>viewDidAppear:</code></p>
+
+<p>The <code>loadView</code> method won&rsquo;t get triggered in a test - but you can force it by accessing the <code>view</code> property of the viewController with:</p>
+
+<pre><code>[myViewController view];
+</code></pre>
+
+<p>As soon as that property is accessed, the view lifecycle methods are triggered and all the outlets will be connected.  The full code at the top of the test looks like:</p>
+
+<pre><code> __block ViewController *vc = nil;
+
+    beforeEach(^{
+        vc = [[ViewController alloc] initWithNibName:@&quot;ViewController&quot; bundle:nil];
+        [vc view];
+    });
+</code></pre>
+
+<h3 id="testing-delegates">Testing delegates</h3>
+
+<p>The <code>LightEngine</code> object is connected to the view controller as a delegate, so testing that this is correctly wired up is an important step:</p>
+
+<pre><code>context(@&quot;when instantiated&quot;, ^{
+
+    it(@&quot;should have a delegate property&quot;, ^{
+        [[vc should] respondToSelector:@selector(delegate)];
+    });
+
+    it(@&quot;should have the delegate set&quot;, ^{
+        AppDelegate *appDelegate = [[AppDelegate alloc] init];
+        [appDelegate application:nil didFinishLaunchingWithOptions:nil];
+        [[(NSObject *)appDelegate.viewController.delegate should] conformToProtocol:@protocol(LightEngineProtocol)];
+    });
+
+});
+</code></pre>
+
+<p>This is pretty straight-forward - we instantiate an instance of <code>appDelegate</code> then fire the <code>application:didFinishLaunchingWithOptions:</code> method which is where the <code>LightEngine</code> is instantiated along with the view controller.</p>
+
+<p>There&rsquo;s one bit of Kiwi-specific wierdness - it&rsquo;s necessary to get cast the <code>appDelegate</code> to an <code>NSObject</code> to get the test to compile for some reason that I&rsquo;ve yet to fathom.</p>
+
+<h3 id="testing-the-user-interface">Testing the user interface</h3>
+
+<p>Assuming that you&rsquo;ve got the user interface into a state where the tests can get at it, you can then start testing it.  My approach is to start with the initial default state and test that everything is where I expect it to be - this can be useful if you want the UI to load with certain controls disabled, for example.  In this case, I want the lights to be black rather than the default gray, and the buttons in the correct state:</p>
+
+<pre><code>context(@&quot;when in the default state&quot;, ^{
+
+    it(@&quot;should show all lights as black&quot;, ^{
+        [[vc.upRed.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.upAmber.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.upGreen.backgroundColor should] equal:[UIColor blackColor]];
+
+        [[vc.downRed.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.downAmber.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.downGreen.backgroundColor should] equal:[UIColor blackColor]];
+    });
+
+    it(@&quot;should show the tick and stop buttons as greyed out&quot;, ^{
+        [[theValue(vc.tickButton.alpha) should] equal:theValue(0.5f)];
+        [[theValue(vc.stopButton.alpha) should] equal:theValue(0.5f)];
+    });
+
+    it(@&quot;should show the start button as active&quot;, ^{
+        [[theValue(vc.startButton.alpha) should] equal:theValue(1.0f)];
+    });
+
+});
+</code></pre>
+
+<p>As you can see from the tests above, the view controller exposes the <code>UIView</code> properties and buttons, which makes testing their states very easy.</p>
+
+<p>Once the default state is tested and working, then it&rsquo;s a case of doing the same for each of the user interactions.  First, the start button:</p>
+
+<pre><code>describe(@&quot;and handling the start button&quot;, ^{
+
+    it(@&quot;should turn both red lights on in response to the start button&quot;, ^{
+        [vc didTapStartButton:nil];
+        [[vc.upRed.backgroundColor should] equal:[UIColor redColor]];
+        [[vc.upAmber.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.upGreen.backgroundColor should] equal:[UIColor blackColor]];
+
+        [[vc.downRed.backgroundColor should] equal:[UIColor redColor]];
+        [[vc.downAmber.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.downGreen.backgroundColor should] equal:[UIColor blackColor]];
+    });
+
+    it(@&quot;should lock the 'tick' button until the start button has been tapped&quot;, ^{
+        [[theValue(vc.tickButton.enabled) should] equal:theValue(NO)];
+        [vc didTapStartButton:nil];
+        [[theValue(vc.tickButton.enabled) should] equal:theValue(YES)];
+    });
+
+    it(@&quot;should unlock the 'stop' button after the start button has been tapped&quot;, ^{
+        [[theValue(vc.stopButton.enabled) should] equal:theValue(NO)];
+        [vc didTapStartButton:nil];
+        [[theValue(vc.stopButton.enabled) should] equal:theValue(YES)];
+    });
+
+    it(@&quot;should show the stop and tick buttons as active after the start button has been tapped&quot;, ^{
+        [vc didTapStartButton:nil];
+        [[theValue(vc.stopButton.alpha) should] equal:theValue(1.0f)];
+        [[theValue(vc.tickButton.alpha) should] equal:theValue(1.0f)];
+    });
+
+    it(@&quot;should show the start button as inactive after the start button has been tapped&quot;, ^{
+        [vc didTapStartButton:nil];
+        [[theValue(vc.startButton.alpha) should] equal:theValue(0.5f)];
+    });
+
+});
+</code></pre>
+
+<p>When things get to the <code>tick</code> button, we can change approach slightly.  The button causes a <code>tick</code> method to be sent to the delegate, which is an ideal place to use a mock object.</p>
+
+<p>All we&rsquo;re testing here is that the correct message is sent by the view controller - we&rsquo;ve already tested what the delegate (in this case the <code>LightEngine</code>) will do. So there&rsquo;s not really any point in going to the effort of creating a real, live <code>LightEngine</code> instance when we can use a mock object instead.</p>
+
+<p>The mock will stand in for the <code>LightEngine</code> much as a stunt double will dive through the plate glass window instead of the movie star with the main billing.  So long as the mock looks and behaves like a <code>LightEngine</code>, the view controller will happily accept it as such. This is often referred to as &lsquo;duck typing&rsquo; - if it looks like a duck, walks like a duck and quacks like a duck, for our purposes it probably is a duck.</p>
+
+<p>Here&rsquo;s the code to do this:</p>
+
+<pre><code>describe(@&quot;and handling the tick button&quot;, ^{
+
+    it(@&quot;should send a 'tick' message to the delegate when the Tick button is tapped&quot;, ^{
+        id delegateMock = [KWMock mockForProtocol:@protocol(LightEngineProtocol)];
+        [[delegateMock should] conformToProtocol:@protocol(LightEngineProtocol)];
+        [vc setDelegate:delegateMock];
+        [[delegateMock should] receive:@selector(tick) andReturn:@164];
+        [vc didTapTickButton:nil];
+    });
+
+    it(@&quot;should show the tick button as active after each tick&quot;, ^{
+        [vc didTapStartButton:nil];
+        [[theValue(vc.tickButton.alpha) should] equal:theValue(1.0f)];
+        [vc didTapTickButton:nil];
+        [[theValue(vc.tickButton.alpha) should] equal:theValue(1.0f)];
+    });
+
+});
+</code></pre>
+
+<p>Here we&rsquo;re created an instance of the <code>KWMock</code> class and telling it to pretend to conform to the <code>LightEngineProtocol</code>.  There&rsquo;s a quick test to make sure that the mock has been created properly, and then the mock is set as the delegate of the view controller.</p>
+
+<p>Then we set an expectation - that the <code>delegateMock</code> will receive a <code>tick</code> message, and we tell it to return <code>@164</code> when it does.  That expectation set, we can then call the <code>didTapTickButton</code> method. If the test gets to the end and the mock <em>hasn&rsquo;t</em> received the <code>tick</code> message, the test will fail.</p>
+
+<p>At this point, the combination of <code>LightEngine</code> and UI tests will have verified that all aspects of the <code>tick</code> process are working correctly.  Next is handling the <code>stop</code> button:</p>
+
+<pre><code>describe(@&quot;and handling the stop button&quot;, ^{
+
+    beforeEach(^{
+        [vc didTapStartButton:nil];
+        [[theValue(vc.tickButton.enabled) should] beTrue];
+        [[theValue(vc.stopButton.enabled) should] beTrue];
+
+        [vc didTapStopButton:nil];
+    });
+
+    it(@&quot;should send the stopSequence message to the delegate when tapping the stop button&quot;, ^{
+        id delegateMock = [KWMock mockForProtocol:@protocol(LightEngineProtocol)];
+        [[delegateMock should] conformToProtocol:@protocol(LightEngineProtocol)];
+        [vc setDelegate:delegateMock];
+        [[delegateMock should] receive:@selector(stopSequence)];
+        [vc didTapStopButton:nil];
+    });
+
+    it(@&quot;should turn all lights black in response to the stop button&quot;, ^{
+        [[vc.upRed.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.upAmber.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.upGreen.backgroundColor should] equal:[UIColor blackColor]];
+
+        [[vc.downRed.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.downAmber.backgroundColor should] equal:[UIColor blackColor]];
+        [[vc.downGreen.backgroundColor should] equal:[UIColor blackColor]];
+    });
+
+    it(@&quot;should lock the tick and stop buttons after tapping the stop button&quot;, ^{
+        [[theValue(vc.tickButton.enabled) should] beFalse];
+        [[theValue(vc.stopButton.enabled) should] beFalse];
+    });
+
+    it(@&quot;should unlock the start button after tapping the stop button&quot;, ^{
+        [[theValue(vc.startButton.enabled) should] beTrue];
+    });
+
+    it(@&quot;should show the tick and stop buttons as inactive&quot;, ^{
+        [[theValue(vc.tickButton.alpha) should] equal:theValue(0.5f)];
+        [[theValue(vc.stopButton.alpha) should] equal:theValue(0.5f)];
+    });
+
+    it(@&quot;should show the start button as active&quot;, ^{
+        [[theValue(vc.startButton.alpha) should] equal:theValue(1.0f)];
+    });
+
+});
+</code></pre>
+
+<p>This set of tests is very similar to those which came before - the <code>beforeEach</code> block is where the <code>stop</code> button is tapped, and the tests are checking that the correct messages are sent; the lights change colour correctly, and the buttons get updated.</p>
+
+<h3 id="testing-the-user-interface-1">Testing the user interface</h3>
+
+<p>In the <a href="/archives/2013/09/testing-for-cowards-part-3-testing-the-full-interface/">next post</a>, I&rsquo;ll cover testing the methods that update the user interface in response to the <code>LightEngine</code> codes.</p>
+
+<p><a href="http://adoptioncurve.net/archives/2013/09/testing-for-cowards-part-3-testing-the-full-interface/">http://adoptioncurve.net/archives/2013/09/testing-for-cowards-part-3-testing-the-full-interface/</a></p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2013%2f09%2f09%2ftesting-for-cowards-part-2-testing-user-interfaces%2f - Testing%20for%20cowards%20Part%202%3a%20Testing%20user%20interfaces by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

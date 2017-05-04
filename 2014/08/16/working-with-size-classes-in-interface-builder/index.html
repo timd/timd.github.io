@@ -1,0 +1,461 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Working with size classes in Interface Builder &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Working with size classes in Interface Builder" />
+<meta property="og:description" content="Android used to be notorious amongst iOS developers for its practically infinite permutations of interface size. Viewed from the iOS world, this used to look like a problem, because iOS didn&rsquo;t really provide much in the way of support for building interfaces of different sizes.
+
+If you were building a universal app that supported both iPhone and iPad, there was a tendency to end up with a lot of if deviceType == kIpad-style code.
+
+AutoLayout was the first part of fixing that problem, and the job&rsquo;s been completed with iOS 8 and size classes.  This is probably the least-sexy feature introduced in 8, but it&rsquo;s definitely one of the more important.
+
+Some quick background on size classes
+
+There are currently two size classes - horizontal and vertical, and each one comes in two sizes - regular and compact. The current orientation of the device can be described as a combination of the sizes:
+
+
+Horizontal regular, vertical regular: iPad in either orientation
+Horizontal compact, vertical regular: iPhone portrait
+Horizontal regular, vertical compact: no current device
+Horizontal compact, vertical compact: iPhone landscape
+
+
+
+
+Storyboards and nib files now support these size classes - so you can think of them as having up to four different layouts contained within the same file. At the bottom of the Interface Builder window, there&rsquo;s now a control that allows you to switch between each combination:
+
+
+
+Every control or AutoLayout constraint can exist in one, several or all of the size classes. This means that you can build interfaces that change depending on device type and/or orientation without any code. Controls can appear or disappear, change size, or change arrangements - all based on the layout that you create in Interface Builder.
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/" />
+
+
+
+<meta property="article:published_time" content="2014-08-16T12:30:24&#43;00:00"/>
+<meta property="article:modified_time" content="2014-08-16T12:30:24&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Working with size classes in Interface Builder">
+<meta itemprop="description" content="Android used to be notorious amongst iOS developers for its practically infinite permutations of interface size. Viewed from the iOS world, this used to look like a problem, because iOS didn&rsquo;t really provide much in the way of support for building interfaces of different sizes.
+
+If you were building a universal app that supported both iPhone and iPad, there was a tendency to end up with a lot of if deviceType == kIpad-style code.
+
+AutoLayout was the first part of fixing that problem, and the job&rsquo;s been completed with iOS 8 and size classes.  This is probably the least-sexy feature introduced in 8, but it&rsquo;s definitely one of the more important.
+
+Some quick background on size classes
+
+There are currently two size classes - horizontal and vertical, and each one comes in two sizes - regular and compact. The current orientation of the device can be described as a combination of the sizes:
+
+
+Horizontal regular, vertical regular: iPad in either orientation
+Horizontal compact, vertical regular: iPhone portrait
+Horizontal regular, vertical compact: no current device
+Horizontal compact, vertical compact: iPhone landscape
+
+
+
+
+Storyboards and nib files now support these size classes - so you can think of them as having up to four different layouts contained within the same file. At the bottom of the Interface Builder window, there&rsquo;s now a control that allows you to switch between each combination:
+
+
+
+Every control or AutoLayout constraint can exist in one, several or all of the size classes. This means that you can build interfaces that change depending on device type and/or orientation without any code. Controls can appear or disappear, change size, or change arrangements - all based on the layout that you create in Interface Builder.
+
+">
+
+
+<meta itemprop="dateModified" content="2014-08-16T12:30:24&#43;00:00" />
+<meta itemprop="wordCount" content="1479">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Working with size classes in Interface Builder"/>
+<meta name="twitter:title" content="Working with size classes in Interface Builder"/>
+<meta name="twitter:description" content="Android used to be notorious amongst iOS developers for its practically infinite permutations of interface size. Viewed from the iOS world, this used to look like a problem, because iOS didn&rsquo;t really provide much in the way of support for building interfaces of different sizes.
+
+If you were building a universal app that supported both iPhone and iPad, there was a tendency to end up with a lot of if deviceType == kIpad-style code.
+
+AutoLayout was the first part of fixing that problem, and the job&rsquo;s been completed with iOS 8 and size classes.  This is probably the least-sexy feature introduced in 8, but it&rsquo;s definitely one of the more important.
+
+Some quick background on size classes
+
+There are currently two size classes - horizontal and vertical, and each one comes in two sizes - regular and compact. The current orientation of the device can be described as a combination of the sizes:
+
+
+Horizontal regular, vertical regular: iPad in either orientation
+Horizontal compact, vertical regular: iPhone portrait
+Horizontal regular, vertical compact: no current device
+Horizontal compact, vertical compact: iPhone landscape
+
+
+
+
+Storyboards and nib files now support these size classes - so you can think of them as having up to four different layouts contained within the same file. At the bottom of the Interface Builder window, there&rsquo;s now a control that allows you to switch between each combination:
+
+
+
+Every control or AutoLayout constraint can exist in one, several or all of the size classes. This means that you can build interfaces that change depending on device type and/or orientation without any code. Controls can appear or disappear, change size, or change arrangements - all based on the layout that you create in Interface Builder.
+
+"/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Working with size classes in Interface Builder</h1>
+                    <h2 class="headline">
+                    16 August 2014 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>Android used to be notorious amongst iOS developers for its practically infinite permutations of interface size. Viewed from the iOS world, this used to look like a problem, because iOS didn&rsquo;t really provide much in the way of support for building interfaces of different sizes.</p>
+
+<p>If you were building a universal app that supported both iPhone and iPad, there was a tendency to end up with a lot of <code>if deviceType == kIpad</code>-style code.</p>
+
+<p>AutoLayout was the first part of fixing that problem, and the job&rsquo;s been completed with iOS 8 and size classes.  This is probably the least-sexy feature introduced in 8, but it&rsquo;s definitely one of the more important.</p>
+
+<h3 id="some-quick-background-on-size-classes">Some quick background on size classes</h3>
+
+<p>There are currently two size classes - <code>horizontal</code> and <code>vertical</code>, and each one comes in two sizes - <code>regular</code> and <code>compact</code>. The current orientation of the device can be described as a combination of the sizes:</p>
+
+<ul>
+<li><code>Horizontal regular, vertical regular</code>: iPad in either orientation</li>
+<li><code>Horizontal compact, vertical regular</code>: iPhone portrait</li>
+<li><code>Horizontal regular, vertical compact</code>: no current device</li>
+<li><code>Horizontal compact, vertical compact</code>: iPhone landscape</li>
+</ul>
+
+<p><img src="/images/2014/08/sizeClasses.png 400" alt="" /></p>
+
+<p>Storyboards and nib files now support these size classes - so you can think of them as having up to four different layouts contained within the same file. At the bottom of the Interface Builder window, there&rsquo;s now a control that allows you to switch between each combination:</p>
+
+<p><img src="/images/2014/08/ibCombination.png 300" alt="" /></p>
+
+<p>Every control or AutoLayout constraint can exist in one, several or all of the size classes. This means that you can build interfaces that change depending on device type and/or orientation <em>without any code</em>. Controls can appear or disappear, change size, or change arrangements - all based on the layout that you create in Interface Builder.</p>
+
+<p></p>
+
+<h3 id="checking-size-classes">Checking size classes</h3>
+
+<p>To demonstrate how the size classes change as the device rotates, you can use the a new callback method that&rsquo;s called as the interface changes:</p>
+
+<pre><code>-(void)willTransitionToTraitCollection:(UITraitCollection *)newCollection
+             withTransitionCoordinator:(id&lt;UIViewControllerTransitionCoordinator&gt;)coordinator {
+    NSLog(@&quot;Trait collection = %@&quot;, newCollection);
+}
+</code></pre>
+
+<p>This will display the trait collection that each orientation triggers:</p>
+
+<pre><code>2014-08-16 19:04:49.785 Adaptr[6522:213857] Trait collection = &lt;UITraitCollection: 0x7fa983c13a10; _UITraitNameUserInterfaceIdiom = Phone, _UITraitNameDisplayScale = 2.000000, _UITraitNameHorizontalSizeClass = Compact, _UITraitNameVerticalSizeClass = Regular, _UITraitNameTouchLevel = 0, _UITraitNameInteractionModel = 1&gt;
+</code></pre>
+
+<h3 id="how-to-build-adaptive-layouts">How to build adaptive layouts</h3>
+
+<p>To demonstrate this, this is a simple universal app that changes layout depending on device and orientation.  You can <a href="https://github.com/timd/Adaptr">download the full project from here</a>, or follow along.  I&rsquo;m assuming that you&rsquo;re using Xcode 6 Beta 5 at a minimum.</p>
+
+<p>To start with, create a new universal Single View application. This will create an App Delegate, a view controller and a storyboard. I&rsquo;m going to ignore the code entirely, and focus on the Storyboard alone (if you&rsquo;re working with xib files, the process is exactly the same).</p>
+
+<p>Before getting going, it&rsquo;s worth doing a bit of tweaking to Xcode so that you can see what&rsquo;s going on. If the Assistant Editor isn&rsquo;t visible, open it on the right (<code>View</code> -&gt; <code>Assistant Editor</code> -&gt; <code>Assistant Editors on Right</code>) and then switch the Assistant Editor to <code>Preview</code> mode:</p>
+
+<p><img src="/images/2014/08/previewMode.png 400" alt="" /></p>
+
+<p>This will show a preview of the storyboard in the right hand pane - by default, it&rsquo;s set up for a 4&rdquo; iPhone. You can add other devices by clicking on the <code>+</code> icon at the bottom of the preview and selecting the device(s) that you need. They appear side-by-side in the preview pane, so if you haven&rsquo;t invested in a Thunderbolt Display so far, now would be a good time to do so.</p>
+
+<h3 id="the-basic-layout">The basic layout</h3>
+
+<p>By default, Interface Builder creates a Storyboard with a square &lsquo;Any, Any&rsquo; layout - in other words, anything you do with this layout will be common across all devices.</p>
+
+<p>We&rsquo;re going to start by centering a red block with a constant border. Drag a <code>UIView</code> object into the main view, set the size to 200 x 200, center it in the superview and set the background colour to red.  In the Storyboard, it will look like this:</p>
+
+<p><img src="/images/2014/08/storyboard.png 400" alt="" /></p>
+
+<p>However, if you look at the preview (or run the app in the Simulator) for each device, you&rsquo;ll see that things look very different:</p>
+
+<p><img src="/images/2014/08/previewOne.png 400" alt="" /></p>
+
+<p>To fix this, we need to add some AutoLayout constraints.  Add constraints to pin the leading, trailing, top and bottom spaces to 50 points:</p>
+
+<p><img src="/images/2014/08/constraints.png 400" alt="" /></p>
+
+<p>Run the app again, and this time the red block will be placed correctly regardless of which device you use (you can also change the size of the device in the Resizable Simulator, and the layout will still work.)</p>
+
+<p><img src="/images/2014/08/simulatorOne.png" alt="" /></p>
+
+<h3 id="altering-constraints-in-different-layouts">Altering constraints in different layouts</h3>
+
+<p>So far, we haven&rsquo;t done anything that previous versions of iOS and Xcode could do. To demonstrate how the layout can change between devices, we&rsquo;ll alter things so that in landscape, the red block fills the entire screen.</p>
+
+<p>To do this we need to change the layout classes that the constraints are added to. If you select a constraint in the object tree then view the Attributes inspector, you&rsquo;ll see an <code>Installed</code> checkbox, with a small <code>+</code> to the left:</p>
+
+<p><img src="/images/2014/08/attributesOne.png 400" alt="" /></p>
+
+<p>By default this constraint is installed in <em>all</em> layout classes - what we need to do is to add the appropriate layout classes so that the constraints can be added to the appropriate one.  Click the <code>+</code> button, then add a compact width, regular height layout:</p>
+
+<p><img src="/images/2014/08/sizeClassOne.png 400" alt="" /></p>
+
+<p>When you add the new layout, the constraint will be automatically added to both layouts - deselect the <code>Installed</code> checkbox to remove it from the default layout:</p>
+
+<p><img src="/images/2014/08/sizeClassTwo.png 300" alt="" /></p>
+
+<p>Repeat the same process for the other three constraints. As you remove the constraints from the default layout, you&rsquo;ll see them disappear from the main Interface Builder pane, and become greyed out in the view tree:</p>
+
+<p><img src="/images/2014/08/removedConstraints.png" alt="" /></p>
+
+<p>To see the size class where the constraints <em>are</em> active, change it using the selectors at the bottom of the Interface Builder pane:</p>
+
+<p><img src="/images/2014/08/changeConstraints.png 300" alt="" /></p>
+
+<p>Once you&rsquo;ve switched layout, you&rsquo;ll see them reappear:</p>
+
+<p><img src="/images/2014/08/reappearingConstraints.png" alt="" /></p>
+
+<p>If you run the app again in the iPhone Simulator everything will look fine in portrait orientation. Rotate into landscape, though, and things go horribly wrong - the red block disappears, albeit with a nice animation. This is because there are no layout contraints present in this layout class combination, so AutoLayout does its best to figure out what should happen and gets it wrong. To fix this, we need to add constraints for the landscape scenario.</p>
+
+<p>In Interface Builder, switch the layout class to Any width, Compact height:</p>
+
+<p><img src="/images/2014/08/anyCompact.png" alt="" /></p>
+
+<p>Now add four new AutoLayout contraints - leading, trailing, top and bottom spaces - and set the constant value for each one to 0. Note that each constraint is added to the Any, Compact layout and <em>not</em> the default:</p>
+
+<p><img src="/images/2014/08/redBlockTop.png 400" alt="" /></p>
+
+<p>Run the app again, and as you rotate the Simulator into landscape the red block will be animated to fill the screen:</p>
+
+<p><img src="/images/2014/08/fullRedBlock.png" alt="" /></p>
+
+<h3 id="adding-and-removing-views-in-different-layouts">Adding and removing views in different layouts</h3>
+
+<p>As well as adding. removing and changing contraints between different layouts, you can do the same thing with views and controls. This could allow you to build completely different interfaces in portrait and landscape orientations; or as an alternative to separate interfaces for different classes of device.</p>
+
+<p>To illustrate this, we&rsquo;ll update the current interface to add a white block that appears in landscape:</p>
+
+<p><img src="/images/2014/08/landscapeWhite.png" alt="" /></p>
+
+<p>Start by switching to Any width, Any height and adding a <code>UIView</code> to the interface. Make sure it&rsquo;s a sibling view of the red block, and set its background colour to white.</p>
+
+<p>Next, change to Any width, Compact height and add constraints to set a 50 point inset on all four edges.</p>
+
+<p>If you run the Simulator now, you&rsquo;ll see that the white block is the correct size and position in landscape, but the transition between landscape and portrait could be better:</p>
+
+<p><img src="/images/2014/08/inProgress.gif" alt="" /></p>
+
+<p>This is because the view animates between the constraints in each size class combination, and at the moment those in portrait are undefined.</p>
+
+<p>To fix this, switch to Compact width, Regular height and add constraints to centre the white block and fix its height and width to zero. You&rsquo;ll also need to reduce the height and width constraint priorities to 750 to prevent a clash between size and inset constraints.</p>
+
+<p><img src="/images/2014/08/finalConstraints.png 400" alt="" /></p>
+
+<p>This fixes the start point of the portrait-to-landscape animation, and the end point of the landscape-to-portrait. Because the start and end points are defined, the transition of the white block is smoothly animated:</p>
+
+<p><img src="/images/2014/08/final.gif" alt="" /></p>
+
+<h3 id="where-to-go-from-here">Where to go from here</h3>
+
+<p>By using size classes and constraints, it&rsquo;s going to be possible to build up responsive interfaces in a way that wasn&rsquo;t feasible before iOS8. As well as simplifying the management of device rotation, you can also create universal interfaces - something that should make targeting multiple device types a lot easier.</p>
+
+<p>The other interesting extrapolation here is that we&rsquo;ve now got all the tools we need to build interfaces for <em>any</em> size of device - whether it&rsquo;s an iPhone 6 with a large screen; or apps for Apple TV; or even CarPlay. Maybe the long-awaited Apple TV SDK might be on the way&hellip;?</p>
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2014%2f08%2f16%2fworking-with-size-classes-in-interface-builder%2f - Working%20with%20size%20classes%20in%20Interface%20Builder by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

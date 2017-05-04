@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ruby on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/ruby/</link>
+    <description>Recent content in Ruby on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Fri, 14 Jan 2011 16:06:08 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Getting Autotest to run on OS X</title>
+      <link>https://adoptioncurve.net/2011/01/14/getting-autotest-to-run-on-os-x/</link>
+      <pubDate>Fri, 14 Jan 2011 16:06:08 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/01/14/getting-autotest-to-run-on-os-x/</guid>
+      <description>Autotest is a Gem that does what it says on the tin - runs your RSpec test automatically. If you&amp;rsquo;re using a Mac, you can also use autotest-growl to get it to display Growl notifications, and autotest-fsevent to get it to watch the filesystem and trigger the tests when changes are made to the spec files.
+Installing it is a bit fiddly - this is what works for me, based on a bit of help from Jon Rowe:</description>
+    </item>
+    
+    <item>
+      <title>Getting Paperclip attachment sizes</title>
+      <link>https://adoptioncurve.net/2010/11/05/getting-paperclip-attachment-sizes/</link>
+      <pubDate>Fri, 05 Nov 2010 14:42:44 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/11/05/getting-paperclip-attachment-sizes/</guid>
+      <description>Another post from the &amp;ldquo;so I remember how to do this&amp;rdquo; series.
+I&amp;rsquo;m using Paperclip to handle file attachments (in this context to store profile images which have been retrieved from Facebook, although that&amp;rsquo;s not strictly relevant).
+Although you can constrain the size of the stored image in the Paperclipped model, like so:
+# Paperclip stuff has_attached_file :avatar, :styles =&amp;gt; { :medium =&amp;gt; &amp;quot;300x300&amp;gt;&amp;quot;, :thumb =&amp;gt; &amp;quot;100x100&amp;gt;&amp;quot; }  this will automatically maintain the aspect ratio of the image, so you&amp;rsquo;re never quite sure what x and y sizes you&amp;rsquo;ll end up with.</description>
+    </item>
+    
+    <item>
+      <title>Twittering the Shipping Forecast</title>
+      <link>https://adoptioncurve.net/2009/01/13/twittering-the-shipping-forecast-2/</link>
+      <pubDate>Tue, 13 Jan 2009 08:41:05 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/01/13/twittering-the-shipping-forecast-2/</guid>
+      <description>[![Twitter](http://www.twitter.com/shippingcast)One of the aspects of Twitter I like the most is the fact that it has an API. That makes it hackable in a way that appeals to my inner geek, so something I&amp;rsquo;ve been playing with for a while is creating Twitter bots. One of the first I made was @shippingcast, which takes the UK Shipping Forecast and squirts it out onto the web in a Twitter stream.
+Unless you&amp;rsquo;re British, the Shipping Forecast probably doesn&amp;rsquo;t mean a lot.</description>
+    </item>
+    
+  </channel>
+</rss>

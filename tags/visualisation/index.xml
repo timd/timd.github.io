@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Visualisation on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/visualisation/</link>
+    <description>Recent content in Visualisation on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Tue, 27 Jan 2009 21:39:34 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/visualisation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Code swarms</title>
+      <link>https://adoptioncurve.net/2009/01/27/code-swarms/</link>
+      <pubDate>Tue, 27 Jan 2009 21:39:34 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/01/27/code-swarms/</guid>
+      <description>To someone who&amp;rsquo;s not familiar with the concept of open-source development, it can be a difficult one to get their head around. &amp;ldquo;You mean people do this for free? And give their code away?&amp;rdquo; &amp;ldquo;Well, yes, they do.&amp;rdquo; If your default frame of reference is copyright and closed-source, this can be something of a head-spinner.
+This video visualises the &amp;ldquo;many hands make light work&amp;rdquo; paradigm at the heart of open source.</description>
+    </item>
+    
+  </channel>
+</rss>

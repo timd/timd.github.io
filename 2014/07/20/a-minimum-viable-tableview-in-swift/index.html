@@ -1,0 +1,636 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>A minimum viable tableView in Swift &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="A minimum viable tableView in Swift" />
+<meta property="og:description" content="This GitHub repo is a minimum viable implementation of a UITableView in Swift.  Here&rsquo;s a swift (badum, tish) tutorial on creating a UITableView using the new language.
+
+This code has been updated for Swift 1.0 and Xcode 6.0.1
+
+The project consists consists of a single storyboard with a table view control, and a view controller written in Swift:
+
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    let cellIdentifier = &quot;cellIdentifier&quot;
+    var tableData = [String]()
+    
+    @IBOutlet var tableView: UITableView?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Register the UITableViewCell class with the tableView
+        
+        
+        self.tableView?.registerClass(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
+        
+        // Setup table data
+        for index in 0...100 {
+            self.tableData.append(&quot;Item \(index)&quot;)
+        }
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    // UITableViewDataSource methods
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -&gt; Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int {
+        return tableData.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -&gt; UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifier) as UITableViewCell
+        
+        cell.textLabel?.text = self.tableData[indexPath.row]
+        
+        return cell
+    }
+    
+    // UITableViewDelegate methods
+    
+    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+
+        let alert = UIAlertController(title: &quot;Item selected&quot;, message: &quot;You selected item \(indexPath.row)&quot;, preferredStyle: UIAlertControllerStyle.Alert)
+    
+        alert.addAction(UIAlertAction(title: &quot;OK&quot;,
+                                      style: UIAlertActionStyle.Default,
+                                    handler: {
+                                        (alert: UIAlertAction!) in println(&quot;An alert of type \(alert.style.hashValue) was tapped!&quot;)
+                                    }))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+    }
+
+}
+
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2014/07/20/a-minimum-viable-tableview-in-swift/" />
+
+
+
+<meta property="article:published_time" content="2014-07-20T12:33:34&#43;00:00"/>
+<meta property="article:modified_time" content="2014-07-20T12:33:34&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="A minimum viable tableView in Swift">
+<meta itemprop="description" content="This GitHub repo is a minimum viable implementation of a UITableView in Swift.  Here&rsquo;s a swift (badum, tish) tutorial on creating a UITableView using the new language.
+
+This code has been updated for Swift 1.0 and Xcode 6.0.1
+
+The project consists consists of a single storyboard with a table view control, and a view controller written in Swift:
+
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    let cellIdentifier = &quot;cellIdentifier&quot;
+    var tableData = [String]()
+    
+    @IBOutlet var tableView: UITableView?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Register the UITableViewCell class with the tableView
+        
+        
+        self.tableView?.registerClass(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
+        
+        // Setup table data
+        for index in 0...100 {
+            self.tableData.append(&quot;Item \(index)&quot;)
+        }
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    // UITableViewDataSource methods
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -&gt; Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int {
+        return tableData.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -&gt; UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifier) as UITableViewCell
+        
+        cell.textLabel?.text = self.tableData[indexPath.row]
+        
+        return cell
+    }
+    
+    // UITableViewDelegate methods
+    
+    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+
+        let alert = UIAlertController(title: &quot;Item selected&quot;, message: &quot;You selected item \(indexPath.row)&quot;, preferredStyle: UIAlertControllerStyle.Alert)
+    
+        alert.addAction(UIAlertAction(title: &quot;OK&quot;,
+                                      style: UIAlertActionStyle.Default,
+                                    handler: {
+                                        (alert: UIAlertAction!) in println(&quot;An alert of type \(alert.style.hashValue) was tapped!&quot;)
+                                    }))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+    }
+
+}
+
+
+">
+
+
+<meta itemprop="dateModified" content="2014-07-20T12:33:34&#43;00:00" />
+<meta itemprop="wordCount" content="1045">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="A minimum viable tableView in Swift"/>
+<meta name="twitter:title" content="A minimum viable tableView in Swift"/>
+<meta name="twitter:description" content="This GitHub repo is a minimum viable implementation of a UITableView in Swift.  Here&rsquo;s a swift (badum, tish) tutorial on creating a UITableView using the new language.
+
+This code has been updated for Swift 1.0 and Xcode 6.0.1
+
+The project consists consists of a single storyboard with a table view control, and a view controller written in Swift:
+
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    let cellIdentifier = &quot;cellIdentifier&quot;
+    var tableData = [String]()
+    
+    @IBOutlet var tableView: UITableView?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Register the UITableViewCell class with the tableView
+        
+        
+        self.tableView?.registerClass(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
+        
+        // Setup table data
+        for index in 0...100 {
+            self.tableData.append(&quot;Item \(index)&quot;)
+        }
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    // UITableViewDataSource methods
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -&gt; Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int {
+        return tableData.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -&gt; UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifier) as UITableViewCell
+        
+        cell.textLabel?.text = self.tableData[indexPath.row]
+        
+        return cell
+    }
+    
+    // UITableViewDelegate methods
+    
+    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+
+        let alert = UIAlertController(title: &quot;Item selected&quot;, message: &quot;You selected item \(indexPath.row)&quot;, preferredStyle: UIAlertControllerStyle.Alert)
+    
+        alert.addAction(UIAlertAction(title: &quot;OK&quot;,
+                                      style: UIAlertActionStyle.Default,
+                                    handler: {
+                                        (alert: UIAlertAction!) in println(&quot;An alert of type \(alert.style.hashValue) was tapped!&quot;)
+                                    }))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+    }
+
+}
+
+
+"/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>A minimum viable tableView in Swift</h1>
+                    <h2 class="headline">
+                    20 July 2014 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p><a href="https://github.com/timd/SwiftTable">This GitHub repo</a> is a minimum viable implementation of a <code>UITableView</code> in Swift.  Here&rsquo;s a swift (badum, tish) tutorial on creating a <code>UITableView</code> using the new language.</p>
+
+<p><em>This code has been updated for Swift 1.0 and Xcode 6.0.1</em></p>
+
+<p>The project consists consists of a single storyboard with a table view control, and a view controller written in Swift:</p>
+
+<pre><code>class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    let cellIdentifier = &quot;cellIdentifier&quot;
+    var tableData = [String]()
+    
+    @IBOutlet var tableView: UITableView?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Register the UITableViewCell class with the tableView
+        
+        
+        self.tableView?.registerClass(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
+        
+        // Setup table data
+        for index in 0...100 {
+            self.tableData.append(&quot;Item \(index)&quot;)
+        }
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    // UITableViewDataSource methods
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -&gt; Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int {
+        return tableData.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -&gt; UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifier) as UITableViewCell
+        
+        cell.textLabel?.text = self.tableData[indexPath.row]
+        
+        return cell
+    }
+    
+    // UITableViewDelegate methods
+    
+    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+
+        let alert = UIAlertController(title: &quot;Item selected&quot;, message: &quot;You selected item \(indexPath.row)&quot;, preferredStyle: UIAlertControllerStyle.Alert)
+    
+        alert.addAction(UIAlertAction(title: &quot;OK&quot;,
+                                      style: UIAlertActionStyle.Default,
+                                    handler: {
+                                        (alert: UIAlertAction!) in println(&quot;An alert of type \(alert.style.hashValue) was tapped!&quot;)
+                                    }))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+    }
+
+}
+</code></pre>
+
+<p></p>
+
+<h3 id="housekeeping">Housekeeping</h3>
+
+<p>There are three upfront pieces of housekeeping that we need to do:</p>
+
+<ul>
+<li><p>create a <code>String</code> constant as a cell identifier (Swift is clever enough to infer the fact that it&rsquo;s a <code>String</code> when we define the constant):</p>
+
+<p><code>let cellIdentifier = &quot;cellIdentifier&quot;</code></p></li>
+
+<li><p>define an <code>Array</code> variable to contain the table&rsquo;s data. This is an <code>Array</code> of <code>Strings</code>, and we initialize this as empty as we declare it:</p>
+
+<p><code>var tableData = [String]()</code></p></li>
+
+<li><p>define a <code>UITableView</code> outlet to connect the table in the Storyboard:</p>
+
+<p><code>@IBOutlet var tableView: UITableView?</code></p>
+
+<p>The outlet&rsquo;s defined as an optional, because it won&rsquo;t exist until the view has been instantiated (that&rsquo;s a similar approach to declaring outlets as <code>weak</code> with Objective-C).</p></li>
+</ul>
+
+<p>You&rsquo;ll also need to setup the Storyboard with a <code>UITableView</code> object that connects with the view controller as <code>dataSource</code> and <code>delegate</code>, and connects the view controller&rsquo;s <code>tableView</code> outlet with the table view.</p>
+
+<h3 id="registering-a-uitableviewcell-class-with-the-table">Registering a UITableViewCell class with the table</h3>
+
+<p>So that the table can use <code>UITableViewCell</code> objects, we&rsquo;ll need to register the <code>UITableViewCell</code> class for use with the <code>cellIdentifier</code> that we created in the stage above.  The most logical place to do this is in the <code>viewDidLoad</code> method:</p>
+
+<pre><code>self.tableView?.registerClass(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
+</code></pre>
+
+<p>Swift&rsquo;s way of returning the class name for use with the <code>registerClass</code> method is subtly different from Objective-C - rather than using something along the lines of <code>[UICollectionViewCell class]</code>, in Swift you use <code>UICollectionViewCell.self</code>.</p>
+
+<h3 id="creating-some-table-data">Creating some table data</h3>
+
+<p>Next, we need to create some data for the table to work with.  This is going to be held in the <code>tableData</code> array:</p>
+
+<pre><code>for index in 0...100 {
+    self.tableData.append(&quot;Item \(index)&quot;)
+}
+</code></pre>
+
+<p>This uses Swift&rsquo;s <code>for-in</code> loop to create 100 <code>Strings</code> and append them to the <code>tableData</code> array.  The <code>\(...)</code> format is a <em>huge</em> improvement on the legacy <code>NSString stringWithFormat:</code> style&hellip;</p>
+
+<h3 id="telling-the-table-about-sections-and-rows">Telling the table about sections and rows</h3>
+
+<p>The <code>UITableView</code> datasource methods haven&rsquo;t changed in iOS8 - you still need to inform the table how many sections and rows it will have.</p>
+
+<p>(Technically, the table view will assume that it has one section unless you tell it otherwise, but I usually implement the <code>numberOfSectionsInTableview</code> method out of sheer habit):</p>
+
+<pre><code>func numberOfSectionsInTableView(tableView: UITableView) -&gt; Int {
+    return 1
+}
+</code></pre>
+
+<p>There&rsquo;s no practical difference between the Swift and Objective-C versions, other than the syntactic differences - the method has am external parameter name of <code>tableView</code>, and returns an <code>Int</code>.</p>
+
+<p>The same is also true of the <code>tableView:numberOfRowsInSection:</code> method:</p>
+
+<pre><code>func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int {
+    return tableData.count
+}
+</code></pre>
+
+<h3 id="creating-and-returning-cells">Creating and returning cells</h3>
+
+<p>Now that the table view knows how many sections and rows it has, the final step in a minimal implementation is to create and return cells on demand:</p>
+
+<pre><code>func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath!) -&gt; UITableViewCell! {
+    var cell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifier) as UITableViewCell
+    cell.textLabel.text = self.tableData[indexPath.row]
+    return cell
+}
+</code></pre>
+
+<p>Once again, this is very straight-forward: we dequeue a cell with the appropriate identifier, configure its contents, and return it to the table view.  The <code>as</code> operator is <a href="https://developer.apple.com/library/prerelease/mac/documentation/Swift/Conceptual/Swift_Programming_Language/TypeCasting.html#//apple_ref/doc/uid/TP40014097-CH22-XID_445">force-downcasting</a> whatever is returned from the <code>tableView</code> into a <code>UITableViewCell</code>.</p>
+
+<h3 id="cell-selection">Cell selection</h3>
+
+<p>Although that&rsquo;s all that&rsquo;s needed to get the table view up and running, here&rsquo;s how a simple <code>UITableViewDelegate</code> method is implemented:</p>
+
+<pre><code>func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    let alert = UIAlertController(title: &quot;Item selected&quot;, message: &quot;You selected item \(indexPath.row)&quot;, preferredStyle: UIAlertControllerStyle.Alert)
+    alert.addAction(UIAlertAction(title: &quot;OK&quot;, style: UIAlertActionStyle.Cancel, handler: nil))
+    self.presentViewController(alert, animated: true, completion: nil)
+}
+</code></pre>
+
+<p>This method is fired when a cell is selected - no change there.  Here, we&rsquo;re creating an instance of <code>UIAlertController</code> which is the iOS8 replacement for the venerable <code>UIAlert</code> control:</p>
+
+<pre><code>let alert = UIAlertController(title: &quot;Item selected&quot;, message: &quot;You selected item \(indexPath.row)&quot;, preferredStyle: UIAlertControllerStyle.Alert)
+</code></pre>
+
+<p>A vanilla <code>UIAlertController</code> doesn&rsquo;t have any user controls, so we need to add a <code>UIAlertAction</code> to it:</p>
+
+<pre><code>alert.addAction(UIAlertAction(title: &quot;OK&quot;, style: UIAlertActionStyle.Cancel, handler: nil))
+</code></pre>
+
+<p>And then finally present the controller:</p>
+
+<pre><code>self.presentViewController(alert, animated: true, completion: nil)
+</code></pre>
+
+<p>You&rsquo;ll notice that the last <code>handler</code> parameter of the <code>UIAlertAction</code> takes a block: this means that you can implement whatever actions you want to occur once the button has been tapped in-place, rather than having to link the alert controller to the view controller through a delegate.</p>
+
+<p>That makes for much less code, and also keeps the action together with <code>UIAlertController</code> (helping to make the code more readable).</p>
+
+<p>If you wanted to log something to the console, say, you could implement this:</p>
+
+<pre><code>    alert.addAction(UIAlertAction(title: &quot;OK&quot;,
+                                  style: UIAlertActionStyle.Default,
+                                handler: {
+                                    (alert: UIAlertAction!) in println(&quot;An alert of type \(alert.style.hashValue) was tapped!&quot;)
+                                }))
+</code></pre>
+
+<p>It&rsquo;s compact, certainly, but this is an example of something that does make me wonder why quite so many people rave about Swift as being more readable than Objective-C - I&rsquo;m really not sure this is actually <em>so</em> much of an improvement.</p>
+
+<h3 id="summary">Summary</h3>
+
+<p>One of the killer features of Swift is the backwards-compatibility of it with the existing legacy of Objective-C and the iOS frameworks.  This is a good example of how the basic design patterns of the controls haven&rsquo;t changed at all - moving to Swift is just a case of getting to grips with the new syntax and language features.</p>
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2014%2f07%2f20%2fa-minimum-viable-tableview-in-swift%2f - A%20minimum%20viable%20tableView%20in%20Swift by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

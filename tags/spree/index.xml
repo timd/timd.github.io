@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spree on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/spree/</link>
+    <description>Recent content in Spree on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Wed, 11 May 2011 18:27:57 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/spree/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Fixing problems with Spree installations</title>
+      <link>https://adoptioncurve.net/2011/05/11/fixing-problems-with-spree-installations/</link>
+      <pubDate>Wed, 11 May 2011 18:27:57 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/05/11/fixing-problems-with-spree-installations/</guid>
+      <description>If you&amp;rsquo;re trying to install Spree from the documentation, you&amp;rsquo;re likely to hit a couple of errors along the way.
+The first one relates to Spree itself:
+fatal: remote error: Could not find Repository spree/spree-static-content  This is due to a typo in the documentation - replace the line in your Gem file which reads
+gem &#39;spree_static_content&#39;, :git =&amp;gt; &#39;git://github.com/spree/spree-static-content.git&#39;  with
+gem &#39;spree_static_content&#39;, :git =&amp;gt; &#39;git://github.com/spree/spree_static_content.git&#39;  The second issue is MySQL related: it blows up with this error:</description>
+    </item>
+    
+  </channel>
+</rss>

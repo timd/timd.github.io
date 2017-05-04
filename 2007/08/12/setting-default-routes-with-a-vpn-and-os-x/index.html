@@ -1,0 +1,259 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Setting default routes with a VPN and OS X &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Setting default routes with a VPN and OS X" />
+<meta property="og:description" content="Setting up a VPN connection in OS X is incredibly simple - just use the Internet Connect wizard, and away you go. But if you use the wizard to set up a VPN connection, it assumes that you want all traffic to go down the VPN tunnel. That&rsquo;s fine in some circumstances, but it can be a pain if the upstream connection to the Internet at the VPN end is slow - and in any case, it&rsquo;s most likely to be adding additional hops to your destination if that destination isn&rsquo;t at the VPN end." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2007/08/12/setting-default-routes-with-a-vpn-and-os-x/" />
+
+
+
+<meta property="article:published_time" content="2007-08-12T11:54:35&#43;00:00"/>
+<meta property="article:modified_time" content="2007-08-12T11:54:35&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Setting default routes with a VPN and OS X">
+<meta itemprop="description" content="Setting up a VPN connection in OS X is incredibly simple - just use the Internet Connect wizard, and away you go. But if you use the wizard to set up a VPN connection, it assumes that you want all traffic to go down the VPN tunnel. That&rsquo;s fine in some circumstances, but it can be a pain if the upstream connection to the Internet at the VPN end is slow - and in any case, it&rsquo;s most likely to be adding additional hops to your destination if that destination isn&rsquo;t at the VPN end.">
+
+
+<meta itemprop="dateModified" content="2007-08-12T11:54:35&#43;00:00" />
+<meta itemprop="wordCount" content="475">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Setting default routes with a VPN and OS X"/>
+<meta name="twitter:title" content="Setting default routes with a VPN and OS X"/>
+<meta name="twitter:description" content="Setting up a VPN connection in OS X is incredibly simple - just use the Internet Connect wizard, and away you go. But if you use the wizard to set up a VPN connection, it assumes that you want all traffic to go down the VPN tunnel. That&rsquo;s fine in some circumstances, but it can be a pain if the upstream connection to the Internet at the VPN end is slow - and in any case, it&rsquo;s most likely to be adding additional hops to your destination if that destination isn&rsquo;t at the VPN end."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Setting default routes with a VPN and OS X</h1>
+                    <h2 class="headline">
+                    12 August 2007 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>Setting up a VPN connection in OS X is incredibly simple - just use the Internet Connect wizard, and away you go.  But if you use the wizard to set up a VPN connection, it assumes that you want <strong>all</strong> traffic to go down the VPN tunnel.   That&rsquo;s fine in some circumstances, but it can be a pain if the upstream connection to the Internet at the VPN end is slow - and in any case, it&rsquo;s most likely to be adding additional hops to your destination if that destination isn&rsquo;t at the VPN end.  A much better scenario would be for normal traffic to go via the default Internet route, and only VPN-specific traffic to go via the VPN.</p>
+
+<p>It&rsquo;s quite easy to fix, but it does involve a certain amount of command line wrangling.  The process goes like this:</p>
+
+<blockquote>
+<ul>
+<li><p>Fire up a terminal session and go to the /etc/ppp directory with cd /etc/ppp   Then create a subdirectory in here called peers if it doesn&rsquo;t already exist.  You&rsquo;ll probably need to invoke sudo to do this so that you get root privileges - so the command will be sudo mkdir peers</p></li>
+
+<li><p>Create a file in here with the same name as your VPN connection - so for example, my VPN connection is called &lsquo;Headshift&rsquo;, so I create a file called Headshift by using sudo touch Headshift (this is case-sensitive, so make sure that the case of your VPN connection name and the file agree)</p></li>
+
+<li><p>Open up this file and edit it to include the line &lsquo;nodefaultroute&rsquo; - sudo nano Headshift, entering the line then saving the file will do the trick here.</p></li>
+
+<li><p>Restart the VPN connection, and check that the default routes have changed.  You can do this by using the netstat -rn command in a terminal window.   This will throw back a whole chunk of data, but the part we&rsquo;re interested in is right at the start.  The top line is the default route which shows the gateway which all traffic will go through - this should show the IP address for your default network connection.  In my case, it&rsquo;s the Airport interface which is listed as en1, with a default gateway of 192.168.1.1, but this will change depending on the setup.</p></li>
+
+<li><p>Further down the list will be the entry for the network at the other end of the VPN connection, and this will show it&rsquo;s gateway as ppp0, which is the VPN link.  So for example, if the network at the other end is 172.168.1.0, then you&rsquo;ll see an entry for 172.168.0 in the list with a gateway of ppp0</p></li>
+
+<li><p>You can also check this by doing a traceroute to a host on the VPN-connected network, which should show that the packets are passing across the VPN link; then tracerouting to an Internet host, which will go via the default LAN connection.</p></li>
+</ul>
+</blockquote>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2007%2f08%2f12%2fsetting-default-routes-with-a-vpn-and-os-x%2f - Setting%20default%20routes%20with%20a%20VPN%20and%20OS%20X by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

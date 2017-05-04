@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Public Sector on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/public-sector/</link>
+    <description>Recent content in Public Sector on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Thu, 05 Feb 2009 09:01:04 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/public-sector/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Broken Buying</title>
+      <link>https://adoptioncurve.net/2009/02/05/broken-buying/</link>
+      <pubDate>Thu, 05 Feb 2009 09:01:04 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/02/05/broken-buying/</guid>
+      <description>[![Bust]At the UK Government Bar Camp last weekend, there was a lot of discussion in many of the sessions about public sector procurement - particularly IT procurement.
+Basically, it&amp;rsquo;s broken.
+I was acutely aware of this before I turned up at the barcamp, because I&amp;rsquo;d spend a significant proportion of the previous week wrestling with a full-on OJEU-style procurement exercise. After collating the last 3 years&amp;rsquo;-worth of financial results, the company directors&amp;rsquo; inside leg measurements, and writing 2-page CVs for everyone who may or may not be involved in the project should we be awarded the contract, we basically ended up have to provide a detailed specification of a system that hasn&amp;rsquo;t been designed yet.</description>
+    </item>
+    
+  </channel>
+</rss>

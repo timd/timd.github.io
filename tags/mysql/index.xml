@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mysql on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/mysql/</link>
+    <description>Recent content in Mysql on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Wed, 07 Apr 2010 11:57:03 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>If MySQL processes won&#39;t start after a reboot...</title>
+      <link>https://adoptioncurve.net/2010/04/07/if-mysql-processes-wont-start-after-a-reboot/</link>
+      <pubDate>Wed, 07 Apr 2010 11:57:03 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/04/07/if-mysql-processes-wont-start-after-a-reboot/</guid>
+      <description>&amp;hellip;it could be because your network interfaces configuration has become messed up.
+If you&amp;rsquo;ve a) just restarted your *nix server, and b) get an error like this when trying to fire up a MySQL process:
+ERROR 2002 (HY000): Can&#39;t connect to local MySQL server through socket &#39;/var/run/mysqld/mysqld.sock&#39;
+you probably need to check that a loopback address exists.
+If the results of an ifconfig command don&amp;rsquo;t show an lo interface, that&amp;rsquo;s why the MySQL process is falling over - by default, it listens on 127.</description>
+    </item>
+    
+    <item>
+      <title>Getting OpenOffice to talk to MAMP and MySQL</title>
+      <link>https://adoptioncurve.net/2010/03/27/getting-openoffice-to-talk-to-mamp-and-mysql/</link>
+      <pubDate>Sat, 27 Mar 2010 15:22:01 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/03/27/getting-openoffice-to-talk-to-mamp-and-mysql/</guid>
+      <description>For reasons that are too dull to go into, I needed to convert from a Dbase database to a MySQL database. OpenOffice can read both types, which means that you can create a new MySQL database, open the DBF version and then drag the records across.
+The prerequisite to this is being able to get OpenOffice to connect to the MySQL database. There are instructions here, and tucked away at the bottom is a note about forcing MySQL to use TCP/IP rather than sockets.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,981 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Work on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/categories/work/</link>
+    <description>Recent content in Work on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Wed, 31 Aug 2011 09:15:44 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/categories/work/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>&#34;I just sit at a typewriter and curse a bit&#34;*</title>
+      <link>https://adoptioncurve.net/2011/08/31/i-just-sit-at-a-typewriter-and-curse-a-bit/</link>
+      <pubDate>Wed, 31 Aug 2011 09:15:44 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/08/31/i-just-sit-at-a-typewriter-and-curse-a-bit/</guid>
+      <description>[![http://www.flickr.com/photos/arfried/367423493/]![](images2011/08/367423493_3cd9b54ac1_m.jpg) Earlier in the year I was approached by the nice people at Apress, who asked me if I was interested in writing a book. I&amp;rsquo;m still not entirely sure why they approached me - are all the people who know what they&amp;rsquo;re talking about tied up with more interesting stuff? - but flattery gets you a long way with me, so I said yes.
+Provisionally titled &amp;ldquo;Pro iOS Table Views&amp;rdquo;, the book&amp;rsquo;s going to cover the UITableView and associated gubbins to a level of detail that most iOS titles can&amp;rsquo;t do.</description>
+    </item>
+    
+    <item>
+      <title>Dog turds as a metaphor for business banking</title>
+      <link>https://adoptioncurve.net/2011/04/26/dog-turds-as-a-metaphor-for-business-banking/</link>
+      <pubDate>Tue, 26 Apr 2011 14:07:07 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/04/26/dog-turds-as-a-metaphor-for-business-banking/</guid>
+      <description>Up until recently, I&amp;rsquo;d been labouring under the happy illusion that while most banks view their retail customers as somewhat annoying pond scum, you&amp;rsquo;d generally get a better experience if you were a business customer. That was, until I had the joyous experience of dealing with HSBC (or more specifically, their Merchant Services arm).
+I&amp;rsquo;m in the process of building a site for a client which will (eventually) have an online store.</description>
+    </item>
+    
+    <item>
+      <title>Tumblr: getting interaction right</title>
+      <link>https://adoptioncurve.net/2010/01/07/tumblr-getting-interaction-right/</link>
+      <pubDate>Thu, 07 Jan 2010 11:48:17 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/01/07/tumblr-getting-interaction-right/</guid>
+      <description>Tumblr is a fascinating example of how to get user generated and community sites right. Fundamentally it&amp;rsquo;s a microblogging platform, but I think this sells it very short of the whole picture. It&amp;rsquo;s succeeding by taking the interaction patterns that are part of a whole variety of other services, and creating something which is more than the sum of the parts.
+Not only is it a compelling user experience, but it&amp;rsquo;s also become the basis of some very interesting virtual communities.</description>
+    </item>
+    
+    <item>
+      <title>That was the year that was</title>
+      <link>https://adoptioncurve.net/2009/12/31/that-was-the-year-that-was/</link>
+      <pubDate>Thu, 31 Dec 2009 22:21:15 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/12/31/that-was-the-year-that-was/</guid>
+      <description>2009 has been a interesting year, mostly in the Chinese sense. It started with big changes personally (isn&amp;rsquo;t moving house supposed to be the second most stressful life event?) and it&amp;rsquo;s ending with big changes professionally. There&amp;rsquo;s been a lot of stuff that&amp;rsquo;s happened that I&amp;rsquo;m really proud of, a lot of stuff that I&amp;rsquo;d rather forget.
+January is always a bit of a weird month, mainly because of the family ritual of disappearing off to the Lake District for the third week.</description>
+    </item>
+    
+    <item>
+      <title>Time to move on</title>
+      <link>https://adoptioncurve.net/2009/12/14/time-to-move-on/</link>
+      <pubDate>Mon, 14 Dec 2009 10:08:05 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/12/14/time-to-move-on/</guid>
+      <description>After two and a half years, I&amp;rsquo;ll be leaving Headshift in the New Year. Put like that, it doesn&amp;rsquo;t seem all that long, but then again thinking about everything that I&amp;rsquo;ve worked in that period it feels like a lot longer. I&amp;rsquo;ve had the opportunity to work with some incredibly talented people on some utterly unique and fascinating projects, so the decision to go has not been an easy one to make.</description>
+    </item>
+    
+    <item>
+      <title>What&#39;s an API and why do I want one?</title>
+      <link>https://adoptioncurve.net/2009/06/03/whats-an-api-and-why-do-i-want-one/</link>
+      <pubDate>Wed, 03 Jun 2009 21:00:41 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/06/03/whats-an-api-and-why-do-i-want-one/</guid>
+      <description>[cross-posted from the Headshift blog]
+That&amp;rsquo;s a question I was asked a few days ago by a client. It&amp;rsquo;s a fair question, too - there&amp;rsquo;s no point in building features into systems unless they provide some benefit, so why would you want to spend time and effort doing this? And for that matter, what exactly IS an API?
+The acronym stands for &amp;ldquo;application programming interface&amp;rdquo;, which is a typically over-engineered way of saying &amp;ldquo;means of putting information in and getting information out of your system without having to type it yourself&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Unblocking the blockers</title>
+      <link>https://adoptioncurve.net/2009/01/28/unblocking-the-blockers/</link>
+      <pubDate>Wed, 28 Jan 2009 14:57:57 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/01/28/unblocking-the-blockers/</guid>
+      <description>[![door]Controversy over whether time spent on social media sites is wasted or productive is nothing new - anyone who&amp;rsquo;s been around the block for long enough will remember similar discussions around email rollouts. And no doubt there will have been the same arguments about putting electric telephones on people&amp;rsquo;s desks.
+The problem is often manifested when someone, somewhere, takes the decision to block access to one or other tool. At best, that reaction is down to a lack of understanding that social tools are becoming increasingly important to the way that people work.</description>
+    </item>
+    
+    <item>
+      <title>The (white) elephant in the room</title>
+      <link>https://adoptioncurve.net/2009/01/28/the-white-elephant-in-the-room/</link>
+      <pubDate>Wed, 28 Jan 2009 08:56:17 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/01/28/the-white-elephant-in-the-room/</guid>
+      <description>[![Elephant]Politicians and IT usually go together like fish and bicycles. The story of public-sector IT in the UK is generally one of grandiose over-budget failures at the top end of the scale, and low-level outsourced inadequacies at the other. The same is also true in the private sector, of course, but the public sector situation gets a higher profile by the fact that it&amp;rsquo;s &amp;ldquo;our&amp;rdquo; money that&amp;rsquo;s being wasted and it&amp;rsquo;s more difficult to sweep the disasters under the carpet.</description>
+    </item>
+    
+    <item>
+      <title>Crackberries in the Oval Office</title>
+      <link>https://adoptioncurve.net/2008/11/18/crackberries-in-the-oval-office/</link>
+      <pubDate>Tue, 18 Nov 2008 10:30:26 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/11/18/crackberries-in-the-oval-office/</guid>
+      <description>I suppose it might just be a convenient excuse to kick the habit, but I really don&amp;rsquo;t get why it&amp;rsquo;s necessary for Barack Obama to hand over his Blackberry when he enters the Oval Office:
+ Lose the BlackBerry? Yes He Can, Maybe
+For years, like legions of other professionals, Mr. Obama has been all but addicted to his BlackBerry. The device has rarely been far from his side — on most days, it was fastened to his belt — to provide a singular conduit to the outside world as the bubble around him grew tighter and tighter throughout his campaign.</description>
+    </item>
+    
+    <item>
+      <title>Organising in 3D</title>
+      <link>https://adoptioncurve.net/2008/10/27/organising-in-3d/</link>
+      <pubDate>Mon, 27 Oct 2008 09:06:53 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/10/27/organising-in-3d/</guid>
+      <description>This has been kicking around at the back of my subconscious for a while, partly born of frustration with organisation systems like GTD. It&amp;rsquo;s not that there&amp;rsquo;s fundamental flaws with them, so much as there are fundamental limitations to how organised I can be. That&amp;rsquo;s partly why I don&amp;rsquo;t have a lot of time for 43 Folder-style blogs - the constant striving towards GTD nirvana strikes me as too reminiscent of Catholic attitudes to sin.</description>
+    </item>
+    
+    <item>
+      <title>Market Tweets</title>
+      <link>https://adoptioncurve.net/2008/10/25/market-tweets/</link>
+      <pubDate>Sat, 25 Oct 2008 08:45:17 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/10/25/market-tweets/</guid>
+      <description>I&amp;rsquo;ve been playing around with making things Twitter again, inspired by Tower Bridge and my previous efforts with the Shipping Forecast. The bridge has been very &amp;ldquo;successful&amp;rdquo;, at least judged by the off-Twitter attention that it got - I&amp;rsquo;m not completely happy with the Shipping Forecast though, because I think I&amp;rsquo;m trying to push too much information into 140 characters.
+So my latest attempts are four stock market indexes - the FTSE-100, the DAX-30, the Dow Jones Industrial Average and the Nikkei 225.</description>
+    </item>
+    
+    <item>
+      <title>More than just a website</title>
+      <link>https://adoptioncurve.net/2008/10/25/more-than-just-a-website/</link>
+      <pubDate>Sat, 25 Oct 2008 05:41:14 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/10/25/more-than-just-a-website/</guid>
+      <description>One of the things that I try and emphasise when talking to clients is that a website is much more than it first appears. It&amp;rsquo;s better to think of a site as an application in its own right, in the same way as you&amp;rsquo;d think of a web browser, or an inventory management system, or (if you really, really have to) a spreadsheet.
+On a technical level, that means using REST techniques when building the site.</description>
+    </item>
+    
+    <item>
+      <title>Left hand, right hand</title>
+      <link>https://adoptioncurve.net/2008/10/23/left-hand-right-hand/</link>
+      <pubDate>Thu, 23 Oct 2008 07:32:20 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/10/23/left-hand-right-hand/</guid>
+      <description>On the left:
+ The government has committed the UK to cut greenhouse gas emissions by 80% by the middle of this century.
+Climate Change and Energy Secretary Ed Miliband said the current 60% target would be replaced by a higher goal.
+ And on the right:
+ The government is fighting to head off a backbench rebellion over its plans to exclude aviation and shipping from the UK&amp;rsquo;s greenhouse gas targets.</description>
+    </item>
+    
+    <item>
+      <title>Pointy haired, or fluffy?</title>
+      <link>https://adoptioncurve.net/2008/10/21/pointy-haired-or-fluffy/</link>
+      <pubDate>Tue, 21 Oct 2008 07:43:06 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/10/21/pointy-haired-or-fluffy/</guid>
+      <description>[Crossposted from the Headshift blog]
+A few posts ago I mentioned some models of human motivation that might help answer the question, &amp;ldquo;why would anyone bother contributing to social media?&amp;rdquo; The best known model is Maslow&amp;rsquo;s hierarchy of needs, but as several commenters pointed out, it&amp;rsquo;s a pretty simplistic model that doesn&amp;rsquo;t really stand up to much close scrutiny.
+There&amp;rsquo;s any number of alternative models to choose from (intriguingly, most of the research seems to date from the early Sixties for some reason).</description>
+    </item>
+    
+    <item>
+      <title>Data and Government 2.0</title>
+      <link>https://adoptioncurve.net/2008/10/08/data-and-government-20/</link>
+      <pubDate>Wed, 08 Oct 2008 19:16:31 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/10/08/data-and-government-20/</guid>
+      <description>[Cross-posted from the Headshift blog]
+mashup*, who bill themselves as a &amp;ldquo;membership based community of executives, entrepreneurs and investors affected by and working within the commercial application of digital technology, products and services&amp;rdquo; put on an event last night looking at &amp;ldquo;Data and Government 2.0&amp;rdquo;.
+It was held at the splendidly-named Speechly Bircham, which despite sounding like a character from The Avengers is actually a law firm with rather swish offices off Fetter Lane.</description>
+    </item>
+    
+    <item>
+      <title>Recession isn&#39;t sharpening this act up</title>
+      <link>https://adoptioncurve.net/2008/10/07/recession-isnt-sharpening-this-act-up/</link>
+      <pubDate>Tue, 07 Oct 2008 15:24:42 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/10/07/recession-isnt-sharpening-this-act-up/</guid>
+      <description>Picking flaws with recruitment agencies is something of a shooting-fish-in-a-barrel process at the best of times, but since the financial climate has become cloudier it seems that desperation has begun to set in.
+I never, ever, ever - and I mean ever - deal with an agency that sends me an unsolicited CV. It&amp;rsquo;s rude, it&amp;rsquo;s unprofessional and it betrays a certain lack of competence on the part of the candidate if they&amp;rsquo;re allowing themselves to be represented by an agency that pulls stunts like this.</description>
+    </item>
+    
+    <item>
+      <title>It&#39;s (less grim) up north</title>
+      <link>https://adoptioncurve.net/2008/10/07/its-less-grim-up-north/</link>
+      <pubDate>Tue, 07 Oct 2008 07:30:23 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/10/07/its-less-grim-up-north/</guid>
+      <description>A neat example of the differences between the UK and Sweden:
+ Sweden&amp;rsquo;s Foreign Minister calls his new Mac &amp;lsquo;a new world&amp;rsquo;
+Former Swedish Prime Minister (and now Foreign Minister) Carl Bildt has, &amp;ldquo;after much reflection, examination and discussion&amp;rdquo; decided to switch to a Mac. (link)
+ This being the UK, we&amp;rsquo;d have some Ministerial nonentity regurgitating a press release written by a Microsoft marketing-droid about the value placed on the strategic partnership between them and the UK government.</description>
+    </item>
+    
+    <item>
+      <title>Why do people contribute to social media?</title>
+      <link>https://adoptioncurve.net/2008/10/05/why-do-people-contribute-to-social-media/</link>
+      <pubDate>Sun, 05 Oct 2008 19:22:45 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/10/05/why-do-people-contribute-to-social-media/</guid>
+      <description>[Crossposted from the Headshift blog]
+On the face of things, it&amp;rsquo;s a tricky question - why would someone spend valuable time and effort contributing to something like Wikipedia? In a work environment, how can you persuade people to contribute their hard-won expertise and knowledge into a corporate wiki when they&amp;rsquo;re already doing perfectly well at their jobs with that knowledge secure inside their heads?
+These are key questions when trying to maximise the chances of a successful social media implementation.</description>
+    </item>
+    
+    <item>
+      <title>If you can see this, it works.</title>
+      <link>https://adoptioncurve.net/2008/10/04/if-you-can-see-this-it-works/</link>
+      <pubDate>Sat, 04 Oct 2008 18:58:16 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/10/04/if-you-can-see-this-it-works/</guid>
+      <description>If you can see this, it means that the server migration has worked and the DNS has updated successfully.
+Hoorah.</description>
+    </item>
+    
+    <item>
+      <title>Social Leverage Points</title>
+      <link>https://adoptioncurve.net/2008/10/03/social-leverage-points/</link>
+      <pubDate>Fri, 03 Oct 2008 21:03:25 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/10/03/social-leverage-points/</guid>
+      <description>[Cross-posted from the Headshift blog]
+One of the advantages of working somewhere surrounded by really smart people is that you get to hear about what they think are really cool ideas.
+Tom Taylor&amp;rsquo;s personal blog led me to a paper by Donella Meadows, late of the Sustainability Institute on &amp;ldquo;Leverage Points: Places To Intervene In A System&amp;rdquo;. It&amp;rsquo;s an explanation - crystal clear, and from the point of view of systems theory - about what leverage points are, and how they can be used to influence systems.</description>
+    </item>
+    
+    <item>
+      <title>Quantity or Quality? Measuring Enterprise 2.0</title>
+      <link>https://adoptioncurve.net/2008/09/25/quantity-or-quality-measuring-enterprise-20/</link>
+      <pubDate>Thu, 25 Sep 2008 13:25:11 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/09/25/quantity-or-quality-measuring-enterprise-20/</guid>
+      <description>[Crossposted from the Headshift blog]
+One of the most common barriers to adoption of social software in enterprise settings is the perception that using social media isn&amp;rsquo;t &amp;ldquo;real work&amp;rdquo;. Instead the term &amp;ldquo;social&amp;rdquo; in &amp;ldquo;social media&amp;rdquo; is seen as a synonym for frivolous and time-wasting.
+To an extent, there are aspects of social media that reinforce this stereotype - Facebook is often cited as the poster-child for this problem. Give your staff access to Facebook, runs the argument, and they&amp;rsquo;ll spend all their time poking and throwing sheep at each other.</description>
+    </item>
+    
+    <item>
+      <title>The Future Of The Web, and the Past Of Panel Events</title>
+      <link>https://adoptioncurve.net/2008/07/09/the-future-of-the-web-and-the-past-of-panel-events/</link>
+      <pubDate>Wed, 09 Jul 2008 15:55:36 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/07/09/the-future-of-the-web-and-the-past-of-panel-events/</guid>
+      <description>It&amp;rsquo;s said that you should never meet your heroes in case they turn out to be a disappointment. That&amp;rsquo;s not something that&amp;rsquo;s ever really bothered me before - the chances of bumping into Asterix and Biggles is fairly low - but I was a bit apprehensive about seeing Tim Berners-Lee speak at NESTA&amp;rsquo;s The Future Of The Web event last night. In the event it was a bit of a disappointment, although nothing to do with the man himself.</description>
+    </item>
+    
+    <item>
+      <title>Social contracts</title>
+      <link>https://adoptioncurve.net/2008/04/09/social-contracts/</link>
+      <pubDate>Wed, 09 Apr 2008 07:56:07 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/04/09/social-contracts/</guid>
+      <description>Spotted on Hugh McLeods&amp;rsquo;s blog - &amp;ldquo;how does a software company make money, if all software is free?&amp;rdquo; - an observation about the difference between closed-source aka Microsoft and open-source:
+ It took me a while to figure this out, but what applies to Open Source, also applies to Microsoft.
+When you buy a Microsoft product, you&amp;rsquo;re not just getting ones and zeros. There&amp;rsquo;s also a form of &amp;ldquo;social contract&amp;rdquo; implicit in the commercial transaction.</description>
+    </item>
+    
+    <item>
+      <title>Apparently we *are* all doomed</title>
+      <link>https://adoptioncurve.net/2008/04/04/apparently-we-are-all-doomed/</link>
+      <pubDate>Fri, 04 Apr 2008 16:00:29 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/04/04/apparently-we-are-all-doomed/</guid>
+      <description>This week&amp;rsquo;s New Scientist cover story is about the &amp;ldquo;Collapse of Civilisation&amp;rdquo;, and it&amp;rsquo;s well worth reading - as if the sub-prime banking crisis isn&amp;rsquo;t enough, civilisation is only two square meals away from collapse at any given moment.
+I&amp;rsquo;ve been reading Jared Diamond&amp;rsquo;s Collapse, which explores the reasons why a number of formerly successful civilisations disappeared. He focusses primarily on ecological factors as he&amp;rsquo;s mainly concerned with ancient societies - the New Scientist article looks at modern Western civilisation, but their conclusions are equally gloomy - basically, modern civilisation is amazingly vulnerable.</description>
+    </item>
+    
+    <item>
+      <title>Downing Street Twitters</title>
+      <link>https://adoptioncurve.net/2008/04/03/downing-street-twitters/</link>
+      <pubDate>Thu, 03 Apr 2008 22:47:53 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/04/03/downing-street-twitters/</guid>
+      <description>I&amp;rsquo;m fairly late to the party on this one, but Downing Street is Twittering. As is HMGov, which came first - both being official UK Government presences in the Twittersphere.
+My initial reaction was &amp;ldquo;meh&amp;rdquo; - about the very last thing anyone on the planet needs is yet another conduit for the tedious, unadventurous, corporate and just plain bland waffle that characterises the spoutings of central Government PR. After 11 years of New Labour media management, my default setting when hearing anything emanating from government is - to misquote Jeremy Paxman - &amp;ldquo;why are the lying bastards lying to me?</description>
+    </item>
+    
+    <item>
+      <title>Hugh&#39;s Law and Twitter</title>
+      <link>https://adoptioncurve.net/2008/03/26/hughs-law-and-twitter/</link>
+      <pubDate>Wed, 26 Mar 2008 19:52:53 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/03/26/hughs-law-and-twitter/</guid>
+      <description>Richard Stacey of the Social Media revolution (in 15 minutes per week) points to a sudden jump in the number of his Twitter followers and wonders if that&amp;rsquo;s start of Hugh&amp;rsquo;s Law coming into play.
+I&amp;rsquo;m not sure that&amp;rsquo;s the case. Hugh&amp;rsquo;s Law certainly applies to a lot of social networks - I more-or-less gave up on Facebook a while ago because the signal-to-noise ratio fell below acceptable levels amidst the welter of zombie biting and groups campaigning for Richard Hammond to plait his nasal hair (OK, that last one might be a slight exaggeration, but only a slight one).</description>
+    </item>
+    
+    <item>
+      <title>Digital dark ages?</title>
+      <link>https://adoptioncurve.net/2008/03/05/digital-dark-ages/</link>
+      <pubDate>Wed, 05 Mar 2008 00:20:51 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/03/05/digital-dark-ages/</guid>
+      <description>Last weekend I was in the process of clearing out some of the junk that seems to accumulate around my life, and came across a box of CDs. It represented about 50% of my physical music library and a good 10 years or so of building a music collection, going back to some of the first CDs I ever bought in the early 1990s.
+After the ritual process of ratching through the box going &amp;ldquo;ooh&amp;rdquo; and &amp;ldquo;aah&amp;rdquo; over the memories that my increasingly-dodgy taste in music seems to remind me of, I was all set to pass them on to Oxfam for someone else to add to their collection.</description>
+    </item>
+    
+    <item>
+      <title>I&#39;ll go and hand myself in, then</title>
+      <link>https://adoptioncurve.net/2008/02/28/ill-go-and-hand-myself-in-then/</link>
+      <pubDate>Thu, 28 Feb 2008 09:05:49 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/02/28/ill-go-and-hand-myself-in-then/</guid>
+      <description>The Metropolitan Police have launched a campaign to make sure we all stay frightened alert for the imminent threat of being gunned down by trigger-happy coppers blown to bits by suicide bombers.
+There are several suspicious behaviour traits, apparently - taking pictures, owning more than one mobile phone, and - er - apparently, using doors.
+Since at last count I had three mobile phones, at least twenty cameras of various description, and a front door, I suppose I&amp;rsquo;d better save someone else the trouble and go and hand myself in&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>A picture&#39;s worth a thousand words</title>
+      <link>https://adoptioncurve.net/2008/02/24/a-pictures-worth-a-thousand-words/</link>
+      <pubDate>Sun, 24 Feb 2008 13:55:30 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/02/24/a-pictures-worth-a-thousand-words/</guid>
+      <description>As it&amp;rsquo;s Sunday, the British railway system is running at restricted capacity because of engineering works - something that always comes as something of a surprise to anyone who&amp;rsquo;s used to rail services in continental Europe, as they seem to manage to fit their engineering work around running trains.
+Chiltern Railways serves the London to Birmingham via Aylesbury route, and as privatised rail franchises go, it&amp;rsquo;s run pretty well. It&amp;rsquo;s the route that I commute on daily, and the service is generally not bad - although longer trains in the morning wouldn&amp;rsquo;t go amiss at peak periods.</description>
+    </item>
+    
+    <item>
+      <title>Headshift are hiring</title>
+      <link>https://adoptioncurve.net/2008/02/20/headshift-are-hiring/</link>
+      <pubDate>Wed, 20 Feb 2008 23:08:31 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/02/20/headshift-are-hiring/</guid>
+      <description>Headshift are hiring at the moment - in fact we&amp;rsquo;re almost at the point of having to beat off clients with a stick, so extra pairs of hands would come in really handy right about now.
+If you&amp;rsquo;re a project manager, Rails developer, Confluence guru, CSS god or have mastered the dark arts of UI and IA design, then we&amp;rsquo;d really, really like to hear from you. We&amp;rsquo;re nice people that don&amp;rsquo;t bite, have virtually limitless supplies of organic bananas and chocolate Hobnobs in the office, and we also get to work on some of the coolest cutting-edge social software projects with interesting clients.</description>
+    </item>
+    
+    <item>
+      <title>Twitter figleafs</title>
+      <link>https://adoptioncurve.net/2008/02/20/twitter-figleafs/</link>
+      <pubDate>Wed, 20 Feb 2008 10:16:00 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/02/20/twitter-figleafs/</guid>
+      <description>A rather interesting comment cropped up in response to one of my automated delicious postings, and it got me thinking about what Twitter is, and why it&amp;rsquo;s so successful. Although the central premise of Twitter is simplicity and brevity - &amp;ldquo;what are you doing right now?&amp;rdquo;
+Part of the appeal is watching how Twitter users bend and subvert those limitations for their own ends - status updates like those generated by Sandy, for example, or the way in which conversations can flow across the &amp;ldquo;twittersphere&amp;rdquo; (have I coined a new phrase there, or is that as annoying as blogosphere?</description>
+    </item>
+    
+    <item>
+      <title>More thoughts on the iPhone etc</title>
+      <link>https://adoptioncurve.net/2008/02/17/more-thoughts-on-the-iphone-etc/</link>
+      <pubDate>Sun, 17 Feb 2008 19:17:11 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/02/17/more-thoughts-on-the-iphone-etc/</guid>
+      <description>The more I think about this, the more I&amp;rsquo;m certain that the iPhone is symptomatic of bigger changes than simply being a well-designed handset that lifts the design bar has been lifted a number of notches. The likes of Nokia and Motorola are going to have to improve on their UIs and form factors to compete. But it goes further than this - the impact on the economics of the networks could be significant as well.</description>
+    </item>
+    
+    <item>
+      <title>After two days with an iPhone</title>
+      <link>https://adoptioncurve.net/2008/02/17/after-two-days-with-an-iphone/</link>
+      <pubDate>Sun, 17 Feb 2008 17:33:56 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/02/17/after-two-days-with-an-iphone/</guid>
+      <description>When the iPhone initially went on sale, I was fairly ambivalent them and didn&amp;rsquo;t immediately rush out and queue outside the Apple store at midnight. A couple of things made me change my mind - firstly O2 dropped their tariffs to something approaching reasonable value for money (or at least parity with my existing TMobile contract); and I had a good play with iPhones belonging to Aral and Pedro while I was at LIFT08.</description>
+    </item>
+    
+    <item>
+      <title>Information hubs in a post-email world</title>
+      <link>https://adoptioncurve.net/2008/02/15/information-hubs-in-a-post-email-world/</link>
+      <pubDate>Fri, 15 Feb 2008 10:20:45 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/02/15/information-hubs-in-a-post-email-world/</guid>
+      <description>I came across an interesting summary article from MIT titled &amp;ldquo;In today&amp;rsquo;s knowledge-based economy, it pays to be an &amp;lsquo;information hub&amp;rsquo;&amp;rdquo;, based on some research looking at email flows:
+ &amp;ldquo;The researchers found that information workers whose strong e-mail networks allow them to receive new information sooner than their peers — or to receive more pieces of new information — are likely to be more productive than their less well-connected counterparts.</description>
+    </item>
+    
+    <item>
+      <title>Interviewette at LIFT</title>
+      <link>https://adoptioncurve.net/2008/02/14/interviewette-at-lift/</link>
+      <pubDate>Thu, 14 Feb 2008 19:12:56 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/02/14/interviewette-at-lift/</guid>
+      <description>While I was at LIFT08 in Geneva, I was interviewed by Nicolas Charbax [not his full name, but I&amp;rsquo;ve lost his business card and can&amp;rsquo;t see his name on his websites] who was filming quick interviews with a whole variety of LIFT attendees and presenters. It&amp;rsquo;s made me realise two things - one: that I&amp;rsquo;m never destined for a career that involves standing in front of a camera; and two: that technology has moved on a bit since I last held a VHS camera with a separate tape recorder - Nicholas was using a hand-held HD camera the size of a water pistol.</description>
+    </item>
+    
+    <item>
+      <title>LIFT &#39;08</title>
+      <link>https://adoptioncurve.net/2008/02/09/lift-08/</link>
+      <pubDate>Sat, 09 Feb 2008 18:05:04 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/02/09/lift-08/</guid>
+      <description>I&amp;rsquo;ve been at LIFT08 in Geneva for the past few days - my first time to Switzerland, and my first time to LIFT itself. It&amp;rsquo;s not your typical conference by any means - it&amp;rsquo;s not difficult to be blown away by the sheer &amp;ldquo;uncorporateness&amp;rdquo; of it all, there&amp;rsquo;s no &amp;ldquo;you will learn the following X things&amp;rdquo; bullet point-led approach and instead it&amp;rsquo;s about making you think.
+The first conference of this kind that I went to was Reboot in Copenhagen - I went under my own steam rather than under the aegis of an employer (partly because of the lack of aforementioned &amp;ldquo;you will learn X things&amp;rdquo;).</description>
+    </item>
+    
+    <item>
+      <title>Off to Geneva</title>
+      <link>https://adoptioncurve.net/2008/02/04/off-to-geneva/</link>
+      <pubDate>Mon, 04 Feb 2008 21:38:24 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/02/04/off-to-geneva/</guid>
+      <description>I&amp;rsquo;m off to Geneva for LIFT08. See you there&amp;hellip;
+[(http://www.liftconference.com)
+Technorati Tags: blogging, geek</description>
+    </item>
+    
+    <item>
+      <title>Tickling with iGTD</title>
+      <link>https://adoptioncurve.net/2008/01/29/tickling-with-igtd/</link>
+      <pubDate>Tue, 29 Jan 2008 22:12:01 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/01/29/tickling-with-igtd/</guid>
+      <description>This is one for the &amp;ldquo;why didn&amp;rsquo;t I think of this before?&amp;rdquo; list. I&amp;rsquo;m more-or-less settled on iGTD for managing my somewhat pale attempt at a GTD system, but it was bugging me that dated tasks - i.e. those that I&amp;rsquo;ve got to do on a specific day - don&amp;rsquo;t really fit into it all that well. There is a due date field, but that&amp;rsquo;s a bit clunky and wasn&amp;rsquo;t really cutting it - neither was sticking reminders as appointments in iCal, because that was fouling up the sync with my Zimbra calendar.</description>
+    </item>
+    
+    <item>
+      <title>LIFT08 trailer</title>
+      <link>https://adoptioncurve.net/2008/01/19/lift08-trailer/</link>
+      <pubDate>Sat, 19 Jan 2008 12:21:07 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/01/19/lift08-trailer/</guid>
+      <description>Technorati Tags: blogging, geek</description>
+    </item>
+    
+    <item>
+      <title>We could use some of this.</title>
+      <link>https://adoptioncurve.net/2007/12/18/we-could-use-some-of-this/</link>
+      <pubDate>Tue, 18 Dec 2007 21:31:58 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/12/18/we-could-use-some-of-this/</guid>
+      <description>Downsize DC:
+ &amp;ldquo;Terrorists aim to cause fear, and by feeling fear we&amp;rsquo;ve given them what they want.
+We believe it&amp;rsquo;s possible to win the war on terror instantly. All we have to do is stop being afraid, and stop acting out of fear.&amp;rdquo;
+Downsize DC: I Am Not Afraid
+ </description>
+    </item>
+    
+    <item>
+      <title>Unexpected positive consequences</title>
+      <link>https://adoptioncurve.net/2007/12/16/unexpected-positive-consequences/</link>
+      <pubDate>Sun, 16 Dec 2007 12:33:28 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/12/16/unexpected-positive-consequences/</guid>
+      <description>Sometimes the law of unexpected (positive) consequences throws up something that makes you stop, slap your forehead and ask &amp;ldquo;why didn&amp;rsquo;t I think of that?&amp;rdquo;
+Hacking a Wii remote to perform Minority Report-style mid-air fingertip tracking and then extending this idea to convert any surface and a projector into an interactive whiteboard is one of those ideas. It&amp;rsquo;s the brainchild of Johnny Chung Lee who&amp;rsquo;s a post-grad researcher at Carnegie-Mellon, and he&amp;rsquo;s not just a Wii hacker - there&amp;rsquo;s a 45-foot tall slingshot, a $14 Steadicam and high speed photography of smashing beer bottles.</description>
+    </item>
+    
+    <item>
+      <title>Green Thing is Website Of The Day</title>
+      <link>https://adoptioncurve.net/2007/11/28/green-thing-is-website-of-the-day/</link>
+      <pubDate>Wed, 28 Nov 2007 17:33:15 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/11/28/green-thing-is-website-of-the-day/</guid>
+      <description>Green Thing has been selected by the Steve Wright programme on BBC Radio 2 as their Website Of The Day. I did that! (well, part of it -the real hard work was done by Tom and Colin&amp;hellip;)</description>
+    </item>
+    
+    <item>
+      <title>Getting passworded RSS feeds in Mail.app working</title>
+      <link>https://adoptioncurve.net/2007/11/28/getting-passworded-rss-feeds-in-mailapp-working/</link>
+      <pubDate>Wed, 28 Nov 2007 10:06:59 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/11/28/getting-passworded-rss-feeds-in-mailapp-working/</guid>
+      <description>Password-protected RSS feeds in Mail are a royal PITA to set up - basically Mail.app doesn&amp;rsquo;t support password authentication natively (or at least it doesn&amp;rsquo;t support entering the uid/passwords natively.) Here&amp;rsquo;s a sneaky work-around:
+ Add the feed into Mail.app as normal, and let it whinge about not having a password
+ Go to Safari, and set it to be the default RSS reader if it isn&amp;rsquo;t already
+ Drop the feed URL into the address field, and respond to the authentication challenge - and allow the details to be saved into your Keychain</description>
+    </item>
+    
+    <item>
+      <title>More cat changes</title>
+      <link>https://adoptioncurve.net/2007/11/24/more-cat-changes/</link>
+      <pubDate>Sat, 24 Nov 2007 16:20:11 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/11/24/more-cat-changes/</guid>
+      <description>Ack. Another Leopard change that&amp;rsquo;s cost me half-an-hour of messing around: lookupd is gone, replaced instead by dscacheutil.
+So now flushing the DNS cache is done by dscacheutil -flushcache.
+Technorati Tags: mac, osx, unix</description>
+    </item>
+    
+    <item>
+      <title>We&#39;re all going to hell in a handbasket, and it&#39;s all the fault of  &lt;insert minority here&gt;</title>
+      <link>https://adoptioncurve.net/2007/11/23/were-all-going-to-hell-in-a-handbasket-and-its-all-the-fault-of-insert-minority-here/</link>
+      <pubDate>Fri, 23 Nov 2007 12:32:13 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/11/23/were-all-going-to-hell-in-a-handbasket-and-its-all-the-fault-of-insert-minority-here/</guid>
+      <description>The Daily Mail pretty much sums up every I don&amp;rsquo;t stand for - a never-ending stream of petty &amp;ldquo;oh-woe-is-me-the world&amp;rsquo;s-going-to-hell-in-a-handbasket-and-has-been-since-the-60s-and-I-blame-the-immigrants-and
+-single-mothers-and-the-BBC&amp;rdquo; spluttery conservatism. Apart from anything else, it&amp;rsquo;s the home of wingnut-in-chief Melanie Phillips, although I&amp;rsquo;m never quite sure how she manages to get to a keyboard to write her pieces - to read them you&amp;rsquo;d assume that she spends all her time cowering under her bed waiting for the Islamic fundamentalist apocolypse that&amp;rsquo;s supposed to be on the way.</description>
+    </item>
+    
+    <item>
+      <title>Dear god, can they be *more* stupid?</title>
+      <link>https://adoptioncurve.net/2007/11/21/dear-god-can-they-be-more-stupid/</link>
+      <pubDate>Wed, 21 Nov 2007 21:49:32 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/11/21/dear-god-can-they-be-more-stupid/</guid>
+      <description>I&amp;rsquo;m still shaking my head over Datagate. Mainly over the sheer incompetent idiocy that personifies Alistair Darling. Here&amp;rsquo;s the exchanges in the Commons yesterday, courtesy of Hansard and They Work For You:
+In reply to George Osborne, he said this:
+ The last point that the hon. Gentleman makes is in relation to identity cards. The key thing about identity cards is, of course, that they will mean that information is protected by personal biometric information.</description>
+    </item>
+    
+    <item>
+      <title>And you seriously expect us to trust you with ID cards?</title>
+      <link>https://adoptioncurve.net/2007/11/20/and-you-seriously-expect-us-to-trust-you-with-id-cards/</link>
+      <pubDate>Tue, 20 Nov 2007 19:56:25 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/11/20/and-you-seriously-expect-us-to-trust-you-with-id-cards/</guid>
+      <description>This story just gets better and better. First it was 7 million, now it&amp;rsquo;s 25 million - the names, addresses and dates of birth for every child in the UK, and bank account and National Insurance numbers of their parents burnt onto two CDs and sent off in the internal post, only to be lost in transit.
+A few things strike me here. First is that there&amp;rsquo;s one person stupid enough not to realise that this might not be such a good idea, and that self-same person has the admin privileges to be able to dump 25 million records onto a CD.</description>
+    </item>
+    
+    <item>
+      <title>Coffee, wifi and OS choice</title>
+      <link>https://adoptioncurve.net/2007/11/15/coffee-wifi-and-os-choice/</link>
+      <pubDate>Thu, 15 Nov 2007 08:55:21 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/11/15/coffee-wifi-and-os-choice/</guid>
+      <description>There&amp;rsquo;s a row of shops just down the road from the office which is over-populated with coffee shops and eateries - within a line of three units, there&amp;rsquo;s an outpost of the ubiquitous Starbucks, a Portugese-run greasy-spoon-style cafe and a Sicilian coffee bar. What fascinates me is the despite the manifest superiority of the coffee, the food and the whole retail experience in the independents, people still queue up for the drek that is Starbucks.</description>
+    </item>
+    
+    <item>
+      <title>Inside out IT</title>
+      <link>https://adoptioncurve.net/2007/11/14/inside-out-it/</link>
+      <pubDate>Wed, 14 Nov 2007 23:05:47 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/11/14/inside-out-it/</guid>
+      <description>This post from Andrew McAfee hit the nail right on the head for me, in summing up the attitude of many corporate IT functions to the world outside their empires:
+ &amp;ldquo;Among the least kind terms I hear used to describe IT organizations are ‘priesthood’ and ‘empire.’ These words imply a belief that corporate IT departments consciously exclude outsiders and outside influences, and are concerned primarily with expanding themselves.&amp;rdquo;
+ That&amp;rsquo;s certainly been my experience - in fact, in a previous life the IT function went as far as housing itself in a separate building, and restricted access to the rest of the business - the customers - to a few senior managers and the service desk function.</description>
+    </item>
+    
+    <item>
+      <title>Oops - the Revenue has lost your data</title>
+      <link>https://adoptioncurve.net/2007/10/08/oops-the-revenue-has-lost-your-data/</link>
+      <pubDate>Mon, 08 Oct 2007 12:28:41 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/10/08/oops-the-revenue-has-lost-your-data/</guid>
+      <description>BBC: Revenue laptop theft investigated
+ Hundreds of people could be at risk of identity fraud after a laptop holding sensitive information was stolen from an HM Revenue and Customs worker.
+The laptop was stolen from the boot of an HMRC car last month.
+ So, are we all reassured about the prospect of 51 separate pieces of identifying information being held on our super-soaraway ID cards??</description>
+    </item>
+    
+    <item>
+      <title>Schadenfreude</title>
+      <link>https://adoptioncurve.net/2007/09/15/schadenfreude/</link>
+      <pubDate>Sat, 15 Sep 2007 10:50:48 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/09/15/schadenfreude/</guid>
+      <description>Schadenfreude - ?a?d?n?f???d? - a German word meaning &amp;lsquo;pleasure taken from someone else&amp;rsquo;s misfortune&amp;rsquo;, and experienced on hearing the news that SCO has filed for Chapter 11 bankruptcy protection.</description>
+    </item>
+    
+    <item>
+      <title>404 - your marketing cannot be found</title>
+      <link>https://adoptioncurve.net/2007/09/14/404-your-marketing-cannot-be-found/</link>
+      <pubDate>Fri, 14 Sep 2007 08:20:39 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/09/14/404-your-marketing-cannot-be-found/</guid>
+      <description>I&amp;rsquo;m no expert, but if you have to email your customers to explain that no, your site isn&amp;rsquo;t broken, it&amp;rsquo;s just your latest marketing campaign - well, that&amp;rsquo;s not particularly effective marketing.
+Pingdom is a site monitoring site that monitors sites, and does it quite well - unfortunately their marketing folks aren&amp;rsquo;t quite as good as their monitoring. This is the email I got this morning:
+[![Picture 1]</description>
+    </item>
+    
+    <item>
+      <title>The Cult Of The Amateur Troll</title>
+      <link>https://adoptioncurve.net/2007/09/05/the-cult-of-the-amateur-troll/</link>
+      <pubDate>Wed, 05 Sep 2007 21:43:52 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/09/05/the-cult-of-the-amateur-troll/</guid>
+      <description>Finally getting around to taking advantage of the fact that at any given moment there&amp;rsquo;s twenty more-or-less interesting things going on in London, I went to the Royal Society of Arts last night to hear a debate between Andrew Keen, author of The Cult Of The Amateur and Tim Montgomery. I&amp;rsquo;d not actually heard of Montgomery before - but as he&amp;rsquo;s apparently influential in Tory blogging circles, that&amp;rsquo;s not altogether suprising.</description>
+    </item>
+    
+    <item>
+      <title>A taxonomy of Facebook scepticism</title>
+      <link>https://adoptioncurve.net/2007/08/23/a-taxonomy-of-facebook-scepticism/</link>
+      <pubDate>Thu, 23 Aug 2007 07:22:01 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/08/23/a-taxonomy-of-facebook-scepticism/</guid>
+      <description>A couple of interesting Facebook-related items cropped up in my feeds this morning:
+JP Rangaswami has come up with a taxonomy of Facebook sceptics:
+ Hrrumph Steak: This is the type of person who goes red in the face when you ask him whether he’s actually used Facebook at all, and remains embarrassedly silent. Dead meat in more ways than one.
+Billy Slow-Mates: This guy is actually nothing more than a shy late adopter, waiting to see what his friends do.</description>
+    </item>
+    
+    <item>
+      <title>Blocking out your surroundings</title>
+      <link>https://adoptioncurve.net/2007/08/16/blocking-out-your-surroundings/</link>
+      <pubDate>Thu, 16 Aug 2007 09:20:55 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/08/16/blocking-out-your-surroundings/</guid>
+      <description>The advantage of working in an open-plan office is that it&amp;rsquo;s easy to interact with your colleagues; the downside to working in an open-plan office is that it&amp;rsquo;s easy to be distracted by your colleagues interacting. Short of locking yourself away in an empty closet or meeting room, the next best anti-distraction technique is to plug your ears with sound to block out the distractions, and with an iPod or iTunes running it&amp;rsquo;s really easy to do.</description>
+    </item>
+    
+    <item>
+      <title>Changes</title>
+      <link>https://adoptioncurve.net/2007/08/15/changes/</link>
+      <pubDate>Wed, 15 Aug 2007 15:03:33 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/08/15/changes/</guid>
+      <description>Via Ben Hammersley, Joe Gregorio on change:
+ There are two rules for any change in technology.
+The first is that there will be a dedicated core, those that are heavily invested, either monetarily or professionally, in the status quo, and they will resist any change.
+Oh yeah, the second rule?
+Change doesn&amp;rsquo;t care about your investment.
+ The context of the quote was Java and XML, but it applies equally to anything in the technology field.</description>
+    </item>
+    
+    <item>
+      <title>Facebook opening up (slightly)</title>
+      <link>https://adoptioncurve.net/2007/08/14/facebook-opening-up-slightly/</link>
+      <pubDate>Tue, 14 Aug 2007 22:03:37 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/08/14/facebook-opening-up-slightly/</guid>
+      <description>One of the reasons I&amp;rsquo;ve never really become that excited over Facebook is the fact that it&amp;rsquo;s pretty much a walled garden - the first rule of Facebook is never to talk (externally) about Facebook.
+That seems to be changing slightly - there&amp;rsquo;s now RSS feeds available for your friends&amp;rsquo; status updates, which plays nicely with a standard RSS reader.
+Small steps, but ones which need to be taken&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Greenwash</title>
+      <link>https://adoptioncurve.net/2007/07/14/greenwash/</link>
+      <pubDate>Sat, 14 Jul 2007 11:18:44 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/07/14/greenwash/</guid>
+      <description>This is worthy of a true &amp;lsquo;wtf?&amp;rsquo; moment.
+ Some people!
+ They leave all their electrics on standby. They crank the heating right up – and then throw all the windows open when they get too hot. They’ve got a bigger carbon footprint than a Sasquatch with a foot full of bunions. &amp;gt; &amp;gt;
+ If this sounds like someone you know, they need to be
+ grassed up immediately – and you’re just the person to do it!</description>
+    </item>
+    
+    <item>
+      <title>I&#39;d love to try Silverlight, but...</title>
+      <link>https://adoptioncurve.net/2007/07/09/id-love-to-try-silverlight-but/</link>
+      <pubDate>Mon, 09 Jul 2007 10:42:06 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/07/09/id-love-to-try-silverlight-but/</guid>
+      <description>[![Picture 2]Ahem.
+[![Picture 3]Guess 10 &amp;lt; 8 in Redmond&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Mindmapping wikis</title>
+      <link>https://adoptioncurve.net/2007/06/25/mindmapping-wikis/</link>
+      <pubDate>Mon, 25 Jun 2007 07:55:36 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/06/25/mindmapping-wikis/</guid>
+      <description>This site is pure genius, combining as it does two of my favourite obsessions - Wikipedia and mind maps.
+Wikimindmap
+The idea is really simple - enter a search term for Wikipedia, and the site constructs a mind-map style arrangement of the links on the Wikipedia page, with the main result in the centre and the other links on the page spread out as nodes of the map.
+The mind map itself is a modified version of the Flash browser for Freemind, so it should be relatively straightforward to adapt for behind-the-firewall wikis.</description>
+    </item>
+    
+    <item>
+      <title>21st Century SDK</title>
+      <link>https://adoptioncurve.net/2007/06/22/21st-century-sdk/</link>
+      <pubDate>Fri, 22 Jun 2007 10:16:19 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/06/22/21st-century-sdk/</guid>
+      <description>I completely missed the announcement of this, but Web21C is a series of APIs for BT&amp;rsquo;s 21st Century Network, the next-generation IP-based telecomms network that&amp;rsquo;s being rolled out.
+It&amp;rsquo;s a number of APIs to core 21CN services - SMS, voice calls, conference calls, location, authentication and so on. They&amp;rsquo;ve created an SDK which allows these services to be embedded into web apps, as well as test environment - in a particularly nice touch, there are seven virtual SIP phones for testing, each one with it&amp;rsquo;s own particular quirks.</description>
+    </item>
+    
+    <item>
+      <title>Common Pitfalls of Building Social Web Applications and How to Avoid Them</title>
+      <link>https://adoptioncurve.net/2007/06/20/common-pitfalls-of-building-social-web-applications-and-how-to-avoid-them/</link>
+      <pubDate>Wed, 20 Jun 2007 15:24:44 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/06/20/common-pitfalls-of-building-social-web-applications-and-how-to-avoid-them/</guid>
+      <description>Part 1
+Part 2
+(via Bokardo.com)</description>
+    </item>
+    
+    <item>
+      <title>Twittering behind the firewall</title>
+      <link>https://adoptioncurve.net/2007/06/17/twittering-behind-the-firewall/</link>
+      <pubDate>Sun, 17 Jun 2007 16:15:43 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/06/17/twittering-behind-the-firewall/</guid>
+      <description>Over the last few weeks I&amp;rsquo;ve slowly become addicted to Twitter, and I got to thinking about how Twitter could fit into a corporate environment. It&amp;rsquo;s a bit difficult to see where it could work at first, largely because it&amp;rsquo;s actually quite difficult to explain exactly what Twitter is, and how it works. In some ways it&amp;rsquo;s like IM presence, but more dynamic - my IM status reflects what I&amp;rsquo;m doing, but in a very non-granular kind of way.</description>
+    </item>
+    
+    <item>
+      <title>Management != Control</title>
+      <link>https://adoptioncurve.net/2007/06/15/management-control/</link>
+      <pubDate>Fri, 15 Jun 2007 09:03:43 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/06/15/management-control/</guid>
+      <description>Over on the Fast Forward blog there&amp;rsquo;s the best skewering I&amp;rsquo;ve read for a long while of what I&amp;rsquo;ve come to think of as the military-industrial knowledge management industry:
+ Knowledge Management is and has always been a misnomer: knowledge cannot be managed.
+Have you ever used something identified as a ‘Knowledge Management’ technology? Did it increase your ability to think or act? How much effort was required on your part?</description>
+    </item>
+    
+    <item>
+      <title>One step at a time</title>
+      <link>https://adoptioncurve.net/2007/06/15/one-step-at-a-time/</link>
+      <pubDate>Fri, 15 Jun 2007 08:49:23 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/06/15/one-step-at-a-time/</guid>
+      <description>Humour me for a moment as I celebrate a small - but satisfying nonetheless - victory of sorts. A WordPress-powered blog, built on PHP &amp;amp; MySQL no less, has just gone live for a client extranet in this so-Microsoft-centric-it-bleeds-server-licenses environment. It&amp;rsquo;s not much, but you have to take your prizes where you can&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Nabaztag bedtime</title>
+      <link>https://adoptioncurve.net/2007/06/15/nabaztag-bedtime/</link>
+      <pubDate>Fri, 15 Jun 2007 00:05:20 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/06/15/nabaztag-bedtime/</guid>
+      <description>Call me a geek if you like (OK, I asked for that one) but getting hold of a Nabaztag seemed like a really good idea. Having something other than a beige box (or strictly speaking, an Appley-white one) as the means to interact with the interweb is fascinating - I&amp;rsquo;d love to drop a few around the office just to see people&amp;rsquo;s reactions.
+Only it&amp;rsquo;s just told me that it&amp;rsquo;s one in the morning, in a far-too enthusiastic tone.</description>
+    </item>
+    
+    <item>
+      <title>Atlassian - 8 ways to use a wiki</title>
+      <link>https://adoptioncurve.net/2007/06/14/atlassian-8-ways-to-use-a-wiki/</link>
+      <pubDate>Thu, 14 Jun 2007 11:57:11 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/06/14/atlassian-8-ways-to-use-a-wiki/</guid>
+      <description>http://blogs.atlassian.com/news/2007/05/15_ways_to_use.html</description>
+    </item>
+    
+    <item>
+      <title>Welcome to the mainstream</title>
+      <link>https://adoptioncurve.net/2007/06/13/welcome-to-the-mainstream/</link>
+      <pubDate>Wed, 13 Jun 2007 10:48:05 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/06/13/welcome-to-the-mainstream/</guid>
+      <description>Here&amp;rsquo;s a sure sign that Twitter has gone mainstream - &amp;ldquo;connection spam&amp;rdquo; from accounts attempting to be the first to gather 1,000 friends&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Innovation-free zones</title>
+      <link>https://adoptioncurve.net/2007/06/05/innovation-free-zones/</link>
+      <pubDate>Tue, 05 Jun 2007 13:53:19 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/06/05/innovation-free-zones/</guid>
+      <description>I&amp;rsquo;d like to say that I was surprised to read this (from Scott Gavin):
+ I was at a small conference/workshop recently called ‘Social Software in the Enterprise’. We were there to discuss how social software is changing the way businesses operate and innovate from within&amp;hellip;
+&amp;hellip;The first response was from a guy opposite who quite bluntly said he was there to find out about this ’stuff’ so they can prevent anyone using/doing it.</description>
+    </item>
+    
+    <item>
+      <title>Ambient oops</title>
+      <link>https://adoptioncurve.net/2007/06/04/ambient-oops/</link>
+      <pubDate>Mon, 04 Jun 2007 08:55:09 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/06/04/ambient-oops/</guid>
+      <description>This is topical - the CEO of Plazes was supposed to be speaking at Next Web in Amsterdam, but cancelled citing family problems. Then his own product showed him actually attending Reboot in Copenhagen, and the Next Web people got a bit upset. Eventually it turns out that it&amp;rsquo;s down to misunderstandings on both parties&amp;rsquo; accounts, and some snarky blog posts get redacted.
+The details aren&amp;rsquo;t really that important, but it&amp;rsquo;s a great illustration about how presence tools can lead to these kind of snafus.</description>
+    </item>
+    
+    <item>
+      <title>Ambient intimacy, or ambient openness?</title>
+      <link>https://adoptioncurve.net/2007/06/03/ambient-intimacy-or-ambient-openness/</link>
+      <pubDate>Sun, 03 Jun 2007 19:37:40 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/06/03/ambient-intimacy-or-ambient-openness/</guid>
+      <description>&lt;p&gt;One of the best presentations I saw at Reboot was &lt;a href=&#34;http://disambiguity.com/&#34;&gt;Leisa Reichelt&amp;rsquo;s&lt;/a&gt; &amp;ldquo;&lt;a href=&#34;http://www.disambiguity.com/ambient-intimacy/&#34;&gt;Ambient Intimacy&lt;/a&gt;&amp;rdquo;.   She was talking about something I&amp;rsquo;ve been wondering about for a while - that as a result of blogs, Flickr and the rest of the social software tools it&amp;rsquo;s possible to know someone else far better than they know you.  In one way, that&amp;rsquo;s the same as the relationship between a member of the public and a celebrity, but the point of ambient intimacy is that it&amp;rsquo;s now also possible to be the relationship between &amp;ldquo;normal&amp;rdquo; people.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s not just about basic stats, either - ASL and so on.   If you add together all the social tools that it&amp;rsquo;s possible to use, you can end up knowing so much more - my Flickr stream showing where I&amp;rsquo;ve been, for example.  And delicious is a very effective way of finding out what I&amp;rsquo;m interested in now, and what&amp;rsquo;s interested me in the past.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Reboot</title>
+      <link>https://adoptioncurve.net/2007/06/03/reboot/</link>
+      <pubDate>Sun, 03 Jun 2007 19:23:54 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/06/03/reboot/</guid>
+      <description>Reboot was amazing. I didn&amp;rsquo;t really know what to expect, and reading some of the reactions to previous years&amp;rsquo; made me wonder if it didn&amp;rsquo;t sometimes verge towards the religious - but it lived up to the hype. If I&amp;rsquo;d spent the two days ignoring the sessions completely and just sat around in the sun talking to people, it would have been worth going, so the people and the sessions made for something unique.</description>
+    </item>
+    
+    <item>
+      <title>Bloody Skype</title>
+      <link>https://adoptioncurve.net/2007/05/30/bloody-skype/</link>
+      <pubDate>Wed, 30 May 2007 04:50:20 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/05/30/bloody-skype/</guid>
+      <description>I&amp;rsquo;m in the throes of trying to change my Skype password, having locked my account out with an incorrect cached password on a laptop which I hadn&amp;rsquo;t used for a while. So I go to the Skype website, punch in my details, and ask for a password reset. OK, says the site - wait for a token to arrive in your email, then follow the instructions.
+So I wait. And wait.</description>
+    </item>
+    
+    <item>
+      <title>Killer wifi routers eating babies</title>
+      <link>https://adoptioncurve.net/2007/05/28/killer-wifi-routers-eating-babies/</link>
+      <pubDate>Mon, 28 May 2007 08:49:27 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/05/28/killer-wifi-routers-eating-babies/</guid>
+      <description>This is really funny, and pretty much sums up the appalling Panorama &amp;ldquo;documentary&amp;rdquo; on wifi last week. Which was the one time I&amp;rsquo;ve ever felt mad enough to follow through with a complaint, and it&amp;rsquo;s not like I don&amp;rsquo;t ever watch politicians lying on Newsnight&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Pretty (but) terrifying</title>
+      <link>https://adoptioncurve.net/2007/05/26/pretty-but-terrifying/</link>
+      <pubDate>Sat, 26 May 2007 01:42:57 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/05/26/pretty-but-terrifying/</guid>
+      <description>Via John Naughton&amp;rsquo;s Memex 1.1, this is one of the most amazing pieces of visualisation I&amp;rsquo;ve seen in ages. It&amp;rsquo;s flight path data from the FAA plotted in various different ways against a background of the United States, showing the patterns that get created by the mass of aircraft as they fly over the US.
+And while it&amp;rsquo;s absolutely hypnotic to watch, it&amp;rsquo;s also quite frankly terrifying. Because each of the 15,000 or so dots represents an airliner, burning fossil fuels and spewing mega-tonnes of carbon into the planetary ecosystem - so it&amp;rsquo;s a graphical representation of why as a species we&amp;rsquo;re pretty much doomed.</description>
+    </item>
+    
+    <item>
+      <title>The human cost of guerilla marketing</title>
+      <link>https://adoptioncurve.net/2007/05/22/the-human-cost-of-guerilla-marketing/</link>
+      <pubDate>Tue, 22 May 2007 11:23:46 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/05/22/the-human-cost-of-guerilla-marketing/</guid>
+      <description>Thursday is National Escargot Day, apparently - I know this because along with everyone else on the Manchester Airport train this morning, I was greeted by a snail as I boarded.
+(Which was actually a marketing droid dressed in a snail costume, complete with shell and feelers, handing out flyers for Cafe Rouge.)
+Morning isn&amp;rsquo;t the best time of the day for your average commuter, and it certainly wasn&amp;rsquo;t for the snail - from the expression on his face you&amp;rsquo;d have thought that he was going to share the same fate as the escargots he was attempting to promote.</description>
+    </item>
+    
+    <item>
+      <title>Ministers 2.0</title>
+      <link>https://adoptioncurve.net/2007/05/21/ministers-20/</link>
+      <pubDate>Mon, 21 May 2007 19:26:44 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/05/21/ministers-20/</guid>
+      <description>You know that a technology has hit mainstream when the politicians start namedropping it in their speeches:
+ The argument is simple. We need the distribution of power to match the dispersal of information. We need the coordination of action to match the nature of interdependence. And in both tasks the social, economic and technological relationships that mark the world of Web 2.0 need to be exported to the political realm.</description>
+    </item>
+    
+    <item>
+      <title>An alternative to lorem ipsum</title>
+      <link>https://adoptioncurve.net/2007/05/18/an-alternative-to-lorem-ipsum/</link>
+      <pubDate>Fri, 18 May 2007 09:32:14 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/05/18/an-alternative-to-lorem-ipsum/</guid>
+      <description>I&amp;rsquo;ve got the Lorum Ipsum generator bookmarked as a quick way of creating nonsense content , but this makes an entertaining change from cod Latin:
+The Post-Modernism generator
+With the bonus that you actually have to read it quite closely to realise that it&amp;rsquo;s bullshit&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>A cracking explanation of Enterprise 2.0</title>
+      <link>https://adoptioncurve.net/2007/05/17/a-cracking-explanation-of-enterprise-20/</link>
+      <pubDate>Thu, 17 May 2007 16:10:47 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/05/17/a-cracking-explanation-of-enterprise-20/</guid>
+      <description>(And a further demonstration of how Slideshare rocks&amp;hellip;)</description>
+    </item>
+    
+    <item>
+      <title>The &#34;Be Very Afraid&#34; tour</title>
+      <link>https://adoptioncurve.net/2007/05/17/the-be-very-afraid-tour/</link>
+      <pubDate>Thu, 17 May 2007 13:14:53 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/05/17/the-be-very-afraid-tour/</guid>
+      <description>Eben Moglen, who knows a thing or two about this:</description>
+    </item>
+    
+    <item>
+      <title>09 F9 11 02 9D 74 E3 5B D8 41 56 C5 63 56 88 C0</title>
+      <link>https://adoptioncurve.net/2007/05/03/09_f9_11_02_9d_74_e3_5b_d8_41_56_c5_63_56_88_c0/</link>
+      <pubDate>Thu, 03 May 2007 09:25:25 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/05/03/09_f9_11_02_9d_74_e3_5b_d8_41_56_c5_63_56_88_c0/</guid>
+      <description>09 F9 11 02 9D 74 E3 5B D8 41 56 C5 63 56 88 C0
+Aren&amp;rsquo;t numbers fascinating?</description>
+    </item>
+    
+    <item>
+      <title>Make 396 Friends In Your Life...But Lose 363 Of Them</title>
+      <link>https://adoptioncurve.net/2007/04/23/make_396_friends_in_your_lifebut_lose_363_of_them/</link>
+      <pubDate>Mon, 23 Apr 2007 16:30:10 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/04/23/make_396_friends_in_your_lifebut_lose_363_of_them/</guid>
+      <description>Via Caterina.net, a &amp;lsquo;taxonomy&amp;rsquo; of friendship patterns: Time Pressured Brits Make 396 Friends In Their Life&amp;hellip;But Lose 363 Of Them
+  Friendship Cultivators - friends mean a lot to them and they spend a significant amount of their time nurturing friendships. They&amp;rsquo;re always arranging get togethers and are in constant touch with friends online and on the phone
+ Friendship Pruners - make and drop friends quickly according to how useful they are.</description>
+    </item>
+    
+    <item>
+      <title>One for the bookmarks bar</title>
+      <link>https://adoptioncurve.net/2007/04/23/one_for_the_bookmarks_bar/</link>
+      <pubDate>Mon, 23 Apr 2007 15:31:20 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/04/23/one_for_the_bookmarks_bar/</guid>
+      <description>URL shortening services seem to have been around for a long while, like TinyURL and the like. But I&amp;rsquo;ve never seen one that&amp;rsquo;s easier to use than utlTea, mainly because of their IM integration. Add them to your googletalk or Jabber contacts list, then just IM them with the long URL and the shortened version is sent by return. About as quick as it can get, and another damn fine use of IM - it&amp;rsquo;s not just kids chatting&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Theory X, Theory Y</title>
+      <link>https://adoptioncurve.net/2007/04/20/theory_x_theory_y/</link>
+      <pubDate>Fri, 20 Apr 2007 11:45:23 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/04/20/theory_x_theory_y/</guid>
+      <description>In the space of one day comes two posts which sum up the opposite ends of the whole &amp;ldquo;how does my working pattern fit into your culture&amp;rdquo; debate.
+Web Worker Daily has come up with the concepts of busyness versus burst - or to put it crudely, bums on seats versus getting the job done. The core of this is that there&amp;rsquo;s a disconnect between the two - that if your corporate culture is based on busyness, or presenteeism, or clocking-in and out, or another form of &amp;ldquo;I care less about what you&amp;rsquo;re doing than I about the fact that I can see you&amp;rdquo;, then the ways of working of an always-on, always-connected pattern of activity are in conflict with the</description>
+    </item>
+    
+    <item>
+      <title>We were too damned lazy...</title>
+      <link>https://adoptioncurve.net/2007/04/13/we_were_too_damned_lazy/</link>
+      <pubDate>Fri, 13 Apr 2007 20:57:49 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/04/13/we_were_too_damned_lazy/</guid>
+      <description>&amp;ldquo;If flying-saucer creatures or angels or whatever were to come here in a hundred years, say, and find us gone like the dinosaurs, what might be a good message for humanity to leave for them, maybe carved in great big letters on a Grand Canyon wall? Here is this old poop&amp;rsquo;s suggestion: WE PROBABLY COULD HAVE SAVED OURSELVES, BUT WERE TOO DAMNED LAZY TO TRY VERY HARD&amp;hellip;&amp;rdquo;
+&amp;ndash; Kurt Vonnegut (via Doonesbury)</description>
+    </item>
+    
+    <item>
+      <title>CBI says we&#39;re all malingering skivers</title>
+      <link>https://adoptioncurve.net/2007/04/10/cbi_says_were_all_malingering_skivers/</link>
+      <pubDate>Tue, 10 Apr 2007 15:40:38 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/04/10/cbi_says_were_all_malingering_skivers/</guid>
+      <description>The CBI seldom misses a chance to bang on about what a bunch of idle, work-shy layabouts the Great British Workforce is, and how we should all be boiled down for glue like the ungrateful skiving wretches that we are. (&amp;ldquo;When I were a lad we lived in a cardboard box and got the plague for fun. And we were grateful to live on coal!)
+And they&amp;rsquo;re not shy of whipping up some dubious statistics to prove the point (and further cement their rightful position of the last bastion of true Victorian send-em-up-the-chimneys capitalism).</description>
+    </item>
+    
+    <item>
+      <title>Oh, FFS...</title>
+      <link>https://adoptioncurve.net/2007/04/10/oh_ffs/</link>
+      <pubDate>Tue, 10 Apr 2007 15:30:01 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/04/10/oh_ffs/</guid>
+      <description>BBC: Weblogs &amp;lsquo;need content warning&amp;rsquo;
+Get a grip&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Five Steps to Get Yourself in a Mood to Work</title>
+      <link>https://adoptioncurve.net/2007/04/05/five_steps_to_get_yourself_in_a_mood_to_work/</link>
+      <pubDate>Thu, 05 Apr 2007 12:18:35 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/04/05/five_steps_to_get_yourself_in_a_mood_to_work/</guid>
+      <description>Web Worker Daily lists 5 ways you can get into a work mindset if you&amp;rsquo;re a terminal procrastinator (or even just easily distracted:)
+ Hereâ€™s a five step process for putting yourself in a productive mood. Modify it to suit your needs and temperament.
+ There&amp;rsquo;s mention of a couple of noise-generating apps that you can use to block out your surroundings - one of the best one&amp;rsquo;s I&amp;rsquo;ve found for Windows is Aire Freshener which can play a whole variety of sounds from running mountain streams to heartbeats to helicopters.</description>
+    </item>
+    
+    <item>
+      <title>Going to Reboot</title>
+      <link>https://adoptioncurve.net/2007/03/23/going_to_reboot/</link>
+      <pubDate>Fri, 23 Mar 2007 11:04:54 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/03/23/going_to_reboot/</guid>
+      <description>I&amp;rsquo;ll see you in Copenhagen on May 31st if you&amp;rsquo;re going&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Make the Start button redundant</title>
+      <link>https://adoptioncurve.net/2007/03/23/make_the_start_button_redundant/</link>
+      <pubDate>Fri, 23 Mar 2007 11:03:30 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/03/23/make_the_start_button_redundant/</guid>
+      <description>Here&amp;rsquo;s one for the Mac fanboys (and girls) who have to work in a Windows-only environment - _the _killer app for Macs is Quicksilver, an application launcher and much, much more. You hit a trigger key combination (usually Apple-space), type the first few letters of the application or file that you want to launch/open, and Quicksilver searches rapidly through the files on the disk and fires up the one you&amp;rsquo;re after.</description>
+    </item>
+    
+    <item>
+      <title>Open source politics, or the usual approach?</title>
+      <link>https://adoptioncurve.net/2007/03/21/open_source_politics_or_the_usual_approach/</link>
+      <pubDate>Wed, 21 Mar 2007 14:31:57 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/03/21/open_source_politics_or_the_usual_approach/</guid>
+      <description>Tory Shadow Chancellor George Osbourne&amp;rsquo;s speech about open source politics has been widely reported all over the place, most of it suprisingly positive. Although there was a quantity of &amp;ldquo;yah, boo, politicians don&amp;rsquo;t know what they&amp;rsquo;re talking about&amp;rdquo; responses, many people seem to have been suprised by his comments about open source:
+ &amp;ldquo;Taking into account the experience of companies and public sector bodies, it is estimated that the Government could save at least 5% of its annual IT bill if more open source software was used as part of a more effective procurement strategy.</description>
+    </item>
+    
+    <item>
+      <title>Consolidating before the corporate market&#39;s cracked</title>
+      <link>https://adoptioncurve.net/2007/03/20/consolidating_before_the_corporate_markets_cracked/</link>
+      <pubDate>Tue, 20 Mar 2007 17:15:48 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/03/20/consolidating_before_the_corporate_markets_cracked/</guid>
+      <description>Robert Scoble is wondering whether there&amp;rsquo;s another consolidation due, this time in the Web 2.0 industry. It&amp;rsquo;s a persuasive argument - more and more startups with business models based on advertising, all chasing a static pool of advertising dollars. Eventually, something&amp;rsquo;s got to give.
+This got me thinking about how many of the current breed of Web 2.0 startups are going to be able to make the transition into the corporate market.</description>
+    </item>
+    
+    <item>
+      <title>12 ways to pimp your office</title>
+      <link>https://adoptioncurve.net/2007/03/14/12_ways_to_pimp_your_office/</link>
+      <pubDate>Wed, 14 Mar 2007 17:04:21 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/03/14/12_ways_to_pimp_your_office/</guid>
+      <description>None of which I will ever live long enough to see in any of my future workplaces, unfortunately.
+Probably because I don&amp;rsquo;t work at any of these companies&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Locking in</title>
+      <link>https://adoptioncurve.net/2007/03/07/locking_in/</link>
+      <pubDate>Wed, 07 Mar 2007 20:23:07 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/03/07/locking_in/</guid>
+      <description>JP Rangaswami makes an interesting point about whether you can consider MS Office documents as a form of DRM, or at least as a form of lock-in:
+ Somewhere inside my head, there is no difference between my buying a song via the iTunes store and my creating a spreadsheet via Microsoft Excel.
+ &amp;hellip;
+How come people donâ€™t feel the same way about Office documents? Isnâ€™t that a form of DRM?</description>
+    </item>
+    
+  </channel>
+</rss>

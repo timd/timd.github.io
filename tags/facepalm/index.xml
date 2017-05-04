@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Facepalm on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/facepalm/</link>
+    <description>Recent content in Facepalm on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Sun, 21 Nov 2010 19:08:11 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/facepalm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Open Firmware facepalms</title>
+      <link>https://adoptioncurve.net/2010/11/21/open-firmware-facepalms/</link>
+      <pubDate>Sun, 21 Nov 2010 19:08:11 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/11/21/open-firmware-facepalms/</guid>
+      <description>Note to self:
+If you&amp;rsquo;re trying to install a new 750Gb hard drive into a Macbook Pro, and it keeps refusing to boot off the new disk and a DVD and into Hardware Diagnostics, it might just be because you enabled an Open Firmware password, and then promptly forgot about it.
+Disabling said Open Firmware password will magically resolve all your problems.
+Muppet.</description>
+    </item>
+    
+  </channel>
+</rss>

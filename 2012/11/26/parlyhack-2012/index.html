@@ -1,0 +1,276 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>ParlyHack 2012 &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="ParlyHack 2012" />
+<meta property="og:description" content="This past weekend I took a trip down to London for Rewired State&rsquo;s second UK Parliament Hackday. Part of Parliament Week, it was an open hack using a whole variety of data derived from Parliament and House of Lords activity.
+I ended up missing out on the actual Parliament tour for administrivial reasons, but that did at least allow for a leisurely breakfast at one of Shoreditch&rsquo;s less achingly-trendy coffee joints." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2012/11/26/parlyhack-2012/" />
+
+
+
+<meta property="article:published_time" content="2012-11-26T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2012-11-26T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="ParlyHack 2012">
+<meta itemprop="description" content="This past weekend I took a trip down to London for Rewired State&rsquo;s second UK Parliament Hackday. Part of Parliament Week, it was an open hack using a whole variety of data derived from Parliament and House of Lords activity.
+I ended up missing out on the actual Parliament tour for administrivial reasons, but that did at least allow for a leisurely breakfast at one of Shoreditch&rsquo;s less achingly-trendy coffee joints.">
+
+
+<meta itemprop="dateModified" content="2012-11-26T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="852">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="ParlyHack 2012"/>
+<meta name="twitter:title" content="ParlyHack 2012"/>
+<meta name="twitter:description" content="This past weekend I took a trip down to London for Rewired State&rsquo;s second UK Parliament Hackday. Part of Parliament Week, it was an open hack using a whole variety of data derived from Parliament and House of Lords activity.
+I ended up missing out on the actual Parliament tour for administrivial reasons, but that did at least allow for a leisurely breakfast at one of Shoreditch&rsquo;s less achingly-trendy coffee joints."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>ParlyHack 2012</h1>
+                    <h2 class="headline">
+                    26 November 2012 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>This past weekend I took a trip down to London for <a href="http://rewiredstate.org/">Rewired State&rsquo;s</a> second <a href="http://rewiredstate.org/hacks/parliament-2012">UK Parliament Hackday</a>. Part of <a href="http://www.parliamentweek.org">Parliament Week</a>, it was an open hack using a whole variety of data derived from Parliament and House of Lords activity.</p>
+
+<p>I ended up missing out on the actual Parliament tour for administrivial reasons, but that did at least allow for a leisurely breakfast at one of Shoreditch&rsquo;s less achingly-trendy coffee joints. The caffiene, as it turned out, was needed.</p>
+
+<p>The weekend kicked off withe a tour through the available data. A of it lot was the kind of stuff that I was already familiar with through Hansard and TheyWorkForYou, but I was immediately caught by the data from the annunciators. These are screens dotted around the Parlimentary estate that display information about what&rsquo;s going on - what kind of business is being transacted, who&rsquo;s speaking, what the subject is about and so on. They also control the division bells, which are sounded whenever there&rsquo;s a vote to be taken.</p>
+
+<p>The idea is that any MP or Lord who hears the bell then hightails it to the division lobby, stopping only to leave their brains behind. Once there, they then file obediently through the &lsquo;Aye&rsquo; or &lsquo;No&rsquo; lobbies according to how the party whips tell them to think. OK, I&rsquo;m going to try and not be cynical for the rest of this post. The division bell is a real, actual, ringing bell, and can be heard (apparently) anywhere on the Parliamentary estate.</p>
+
+<p>Hilariously, there are also bells in several of the local hostelries around the Westminster area - draw your own conclusions, but votes tend to take place late at night.</p>
+
+<p>This immediately struck me - as well as <a href="https://twitter.com/smlittley">Sam</a>, <a href="https://twitter.com/smsm1">Shaun</a> and <a href="https://twitter.com/alistair">Alistair</a>, - as a 19th century process which was ripe for improvement. So we set to, me building an iOS app, and they variously hacking with Python and Rails and Twilio. The end result is <a href="http://hacks.rewiredstate.org/events/parlyhack-2012/fred">Bernard</a>, a service that takes the information displayed on the annunciators and broadcasts it via push notifications to iOS clients, SMS broadcasts, a web front end and text-to-speech calls.</p>
+
+<p><img src="/images/2012/11/Screen-Shot-2012-11-26-at-19.44.171-545x1024.png" alt="" /></p>
+
+<p>Challenge number one was the source data. The annunciator system is entirely proprietary, very old and was conceived in a time before networks, never mind the internet. The nice Parly people gave us a dump of the data for 4 hours in the Lords last Thursday, and we went from there.</p>
+
+<p>It turned out to not have been a particularly busy day in the Lords, which in some ways was probably a good thing due to the quite frankly baroque syntax of the data. With a lot of Python parsing and some educated guesses, we ended up with a JSON feed of activity, people and process data, together with division bell alerts.</p>
+
+<p>The iOS app uses push notifications over Apple&rsquo;s cloud infrastructure. Getting this up and running was actually suprisingly easy thanks to some step-by-step guides on generating the certificate pairs needed to authenticate the push server with the Apple cloud. Getting an app to subscribe to pushes is one line of code, and reacting to notifications doesn&rsquo;t take much more.</p>
+
+<p>Considering the engineering challenges of the entire infrastructure, the client end is remarkably hassle-free to build. Push notifications are limited to a tiny 256 byte JSON payload, so there&rsquo;s not a lot of information can be supplied on one. In the end, I implemented it by stuffing the alert type into the notification and using that to trigger a call back to Bernard&rsquo;s API. That publishes the data as a JSON feed, so the apps then consumes the JSON data and displays the results.</p>
+
+<p>Towards the end of the day on Sunday things got a bit more sophisticated, as I plugged in a TheyWorkForYou parser that I&rsquo;d written previously so that additional information about the speaker could be downloaded and displayed.</p>
+
+<p><img src="/images/2012/11/Screen-Shot-2012-11-26-at-19.48.43-159x300.png" alt="" /></p>
+
+<p>Division bell notifications work slightly differently - they pop up an alert using the native Notification Center functions if the Bernard app isn&rsquo;t running; or a custom view inside the app if it is.</p>
+
+<p>All this was hacked together between midday on Saturday and 3pm on Sunday, with a few hours inbetween for sleep. Graceful, elegant code it is not - but the data parsing pieces are completely backed by unit tests, as building them test-first is actually far quicker than the debuggy alternative.</p>
+
+<p>Demoing at the show and tell didn&rsquo;t quite work either, as the iPhone refused to talk to the projector. The fallback point-a-video-camera-at-the-screen approach must have worked well enough, though, because the judges gave us the What&rsquo;s Happening Now category award. I&rsquo;ve now got a bottle of <a href="http://pic.twitter.com%2Flrzm9amG">Speaker Bercow&rsquo;s Single Malt Scotch Whiskey</a> to enjoy for our efforts. Details of Bernard are <a href="http://hacks.rewiredstate.org/events/parlyhack-2012/fred">here</a>, the main code is <a href="https://github.com/toastwaffle/rsparly2012">here</a>, and the iOS app is <a href="https://github.com/timd/DivisionBell">here</a>.</p>
+
+<p>Why Bernard? Because we were asked for a name for the project after not enough sleep, and put on the spot we came up with Bernard after <a href="http://en.wikipedia.org/wiki/Yes_Minister#Bernard_Woolley">Bernard Woolley</a>, Principal Private Secretary to the Rt Hon Jim Hacker MP. It&rsquo;s a cultural reference for the over-40s, at least.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2012%2f11%2f26%2fparlyhack-2012%2f - ParlyHack%202012 by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

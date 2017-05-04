@@ -1,0 +1,281 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Changing the Airport MAC address with OS X &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Changing the Airport MAC address with OS X" />
+<meta property="og:description" content="If you walk past a fancy-looking bin in the City of London, there&rsquo;s a chance it may have recorded details of any wifi-enabled devices you happen to be carrying.
+Tom Taylor figured out the way that this was being done - the bins are recording the MAC address of the wifi interface, and pointed out that it&rsquo;s possible to change this if you&rsquo;re running OS X.
+The chances of a bin sniffing the address of a Macbook are fairly slim unless you happen to be using it within wifi range - but there are situations where it&rsquo;s actually useful to change the address." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2013/08/12/changing-the-airport-mac-address-with-os-x/" />
+
+
+
+<meta property="article:published_time" content="2013-08-12T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2013-08-12T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Changing the Airport MAC address with OS X">
+<meta itemprop="description" content="If you walk past a fancy-looking bin in the City of London, there&rsquo;s a chance it may have recorded details of any wifi-enabled devices you happen to be carrying.
+Tom Taylor figured out the way that this was being done - the bins are recording the MAC address of the wifi interface, and pointed out that it&rsquo;s possible to change this if you&rsquo;re running OS X.
+The chances of a bin sniffing the address of a Macbook are fairly slim unless you happen to be using it within wifi range - but there are situations where it&rsquo;s actually useful to change the address.">
+
+
+<meta itemprop="dateModified" content="2013-08-12T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="295">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Changing the Airport MAC address with OS X"/>
+<meta name="twitter:title" content="Changing the Airport MAC address with OS X"/>
+<meta name="twitter:description" content="If you walk past a fancy-looking bin in the City of London, there&rsquo;s a chance it may have recorded details of any wifi-enabled devices you happen to be carrying.
+Tom Taylor figured out the way that this was being done - the bins are recording the MAC address of the wifi interface, and pointed out that it&rsquo;s possible to change this if you&rsquo;re running OS X.
+The chances of a bin sniffing the address of a Macbook are fairly slim unless you happen to be using it within wifi range - but there are situations where it&rsquo;s actually useful to change the address."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Changing the Airport MAC address with OS X</h1>
+                    <h2 class="headline">
+                    12 August 2013 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>If you walk past a fancy-looking bin in the City of London, there&rsquo;s a chance it <a href="http://www.theatlanticcities.com/politics/2013/08/recycling-bin-following-you/6475/">may have recorded details of any wifi-enabled devices you happen to be carrying</a>.</p>
+
+<p><a href="http://scraplab.net">Tom Taylor</a> figured out <a href="http://scraplab.net/measures-countermeasures/">the way that this was being done</a> - the bins are recording the MAC address of the wifi interface, and pointed out that it&rsquo;s possible to change this if you&rsquo;re running OS X.</p>
+
+<p>The chances of a bin sniffing the address of a Macbook are fairly slim unless you happen to be using it within wifi range - but there are situations where it&rsquo;s actually useful to change the address.  Tom&rsquo;s example was reconnecting to time-limited public wifi, but there are plenty of others.</p>
+
+<p>It&rsquo;s not tricky to do, just fiddly - so here&rsquo;s a quick-and-dirty script that changes the MAC address of a Macbook&rsquo;s built-in Airport adaptor to a random value (it assumes that the Airport adaptor is known by the system as <code>eth0</code>, but I&rsquo;ve never come across a Macbook where that wasn&rsquo;t the case.)</p>
+
+<p>{% codeblock lang:bash)
+#!/bin/bash</p>
+
+<p>mac=<code>openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//'</code>
+echo &ldquo;Changing Wifi MAC address to $mac&rdquo;</p>
+
+<p>ifconfig en0 ether $mac</p>
+
+<p>echo &ldquo;Turning Airport off&hellip;&rdquo;
+/usr/sbin/networksetup -setairportpower en0 off</p>
+
+<p>sleep 5</p>
+
+<p>echo &ldquo;Turning Airport on&hellip;&rdquo;
+/usr/sbin/networksetup -setairportpower en0 on</p>
+
+<p>sleep 5
+newmac=<code>ifconfig en0 ether | grep '[a-f0-9][a-f0-9]:[a-f0-9][a-f0-9]:[a-f0-9][a-f0-9]:[a-f0-9][a-f0-9]:[a-f0-9][a-f0-9]:[a-f0-9][a-f0-9]'</code>
+newip=<code>ifconfig en0 inet</code></p>
+
+<p>echo &ldquo;Airport MAC address: $newmac&rdquo;
+echo &ldquo;Airport IP address: $newip&rdquo;
+{% endcodeblock)</p>
+
+<p>To use this, create a text file called <code>macChange.sh</code> or similar (the <code>.sh</code> extension is the important bit) and then make it executable with <code>chmod +x macChange.sh</code></p>
+
+<p>You can then run it with <code>sudo ./macChange.sh</code> any time you want to alter the MAC address - the script changes it, then bounces the Airport adaptor to make sure the change takes effect.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2013%2f08%2f12%2fchanging-the-airport-mac-address-with-os-x%2f - Changing%20the%20Airport%20MAC%20address%20with%20OS%20X by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Panda on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/panda/</link>
+    <description>Recent content in Panda on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Sun, 24 May 2009 18:22:14 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/panda/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Howduino and panda hacking</title>
+      <link>https://adoptioncurve.net/2009/05/24/howduino-and-panda-hacking/</link>
+      <pubDate>Sun, 24 May 2009 18:22:14 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/05/24/howduino-and-panda-hacking/</guid>
+      <description>I spent yesterday in Liverpool at Howduino - billed as a &amp;ldquo;one day event about connecting the internet to the real world, breathing life into inanimate objects and creating new ways to interact with things&amp;rdquo;, it took place at FACT (somewhere that&amp;rsquo;s worthy of a blog post in itself).
+Imagine a room full of geeks, artists and hackers who&amp;rsquo;d been let loose with soldering irons and toys, and then throw in the capabilities of Arduino boards.</description>
+    </item>
+    
+    <item>
+      <title>Panda vivisection redux</title>
+      <link>https://adoptioncurve.net/2009/05/05/panda-vivisection-redux/</link>
+      <pubDate>Tue, 05 May 2009 19:43:41 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/05/05/panda-vivisection-redux/</guid>
+      <description>[![Market Bear]Signing up for Howduino in Liverpool on May 23rd has been a bit of a kick up the proverbial for my otherwise somewhat-moribund Market Bear project. The panda is now vivisected and has LEDs for eyes, with a rather alarming trail of wires leading from his tail. Getting the LEDs to sit in place was something of a challenge, but I eventually hit on the idea of threading two legs of the LED through a four-hole button, and using the other two holes of the button to secure it with thread to the inside of the panda&amp;rsquo;s &amp;ldquo;eye sockets&amp;rdquo;.</description>
+    </item>
+    
+  </channel>
+</rss>

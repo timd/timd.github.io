@@ -1,0 +1,370 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Testing asynchronous code in Swift &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Testing asynchronous code in Swift" />
+<meta property="og:description" content="Asynchronous code is both hard to test; and important to test.
+It&rsquo;s important, because it often handles some of the most critical and yet unreliable parts of an app - in other words, networking.
+It&rsquo;s hard because it&rsquo;s, well, asynchronous. One of the two jokes in software engineering goes something like &ldquo;Some people, when faced with a problem, think &lsquo;I know, I&rsquo;ll use threading&rsquo;. Now problems have two they.&rdquo;" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/" />
+
+
+
+<meta property="article:published_time" content="2015-10-02T21:28:25&#43;00:00"/>
+<meta property="article:modified_time" content="2015-10-02T21:28:25&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Testing asynchronous code in Swift">
+<meta itemprop="description" content="Asynchronous code is both hard to test; and important to test.
+It&rsquo;s important, because it often handles some of the most critical and yet unreliable parts of an app - in other words, networking.
+It&rsquo;s hard because it&rsquo;s, well, asynchronous. One of the two jokes in software engineering goes something like &ldquo;Some people, when faced with a problem, think &lsquo;I know, I&rsquo;ll use threading&rsquo;. Now problems have two they.&rdquo;">
+
+
+<meta itemprop="dateModified" content="2015-10-02T21:28:25&#43;00:00" />
+<meta itemprop="wordCount" content="766">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Testing asynchronous code in Swift"/>
+<meta name="twitter:title" content="Testing asynchronous code in Swift"/>
+<meta name="twitter:description" content="Asynchronous code is both hard to test; and important to test.
+It&rsquo;s important, because it often handles some of the most critical and yet unreliable parts of an app - in other words, networking.
+It&rsquo;s hard because it&rsquo;s, well, asynchronous. One of the two jokes in software engineering goes something like &ldquo;Some people, when faced with a problem, think &lsquo;I know, I&rsquo;ll use threading&rsquo;. Now problems have two they.&rdquo;"/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Testing asynchronous code in Swift</h1>
+                    <h2 class="headline">
+                    2 October 2015 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    
+
+<p>Asynchronous code is both hard to test; and important to test.</p>
+
+<p>It&rsquo;s important, because it often handles some of the most critical and yet unreliable parts of an app - in other words, networking.</p>
+
+<p>It&rsquo;s hard because it&rsquo;s, well, asynchronous. One of the two jokes in software engineering goes something like &ldquo;Some people, when faced with a problem, think &lsquo;I know, I&rsquo;ll use threading&rsquo;. Now problems have two they.&rdquo;</p>
+
+<p>The standard rhythm of a unit test goes like this:</p>
+
+<ul>
+<li>set up the preconditions for the test, to get the system into a known state</li>
+<li>make some assertions about what result you&rsquo;re looking for</li>
+<li>fire the functions under test</li>
+<li>verify that the assertions were met</li>
+</ul>
+
+<p>The problem with asynchronous code is that the third and final steps don&rsquo;t always come in that order, particularly if you&rsquo;re attemping to test a long-running operation. It can still be churning away as your verification takes place - and your tests are unlikely to pass in that kind of scenario.</p>
+
+<p>Fortunately, there are ways around this. It&rsquo;s not especially pretty, but it does work.</p>
+
+<p>##waitForExpectations</p>
+
+<p>The key to testing async code in Swift is using the <code>waitForExpectationWithTimeout</code> feature of the <code>XCTest</code> framework.  An expectation in this context is just a flag that tells the test code &ldquo;I&rsquo;m done, you can check your assertions now&rdquo;.</p>
+
+<p>The expectation will hang around and wait for the fulfillment message, which gives the async code a chance to complete before the assertions are checked.</p>
+
+<p>There are three stages involved in setting this up:</p>
+
+<ul>
+<li>Creating an expectation</li>
+<li>Calling the async function, and then flagging that the expection has been fulfilled when your code has comepleted</li>
+<li>Wrapping the assertions inside a <code>waitForExpectationWithTimeout block</code> so that they will wait for the fulfillment to occor.</li>
+</ul>
+
+<h3 id="creating-the-expectation">Creating the expectation</h3>
+
+<p>This is quite simple. At the top of your test function, create an expectation with</p>
+
+<pre><code class="language-swift">let asyncExpectation = expectationWithDescription(&quot;longRunningFunction&quot;)
+</code></pre>
+
+<p>This needs to be done <em>before</em> you call the async code.</p>
+
+<h3 id="fulfilling-the-expectation">Fulfilling the expectation</h3>
+
+<p>With the expectation created, you need to signal that it&rsquo;s fulfilled after your asynchronous code completes. Here&rsquo;s an example of a function that fires off a network request, and takes a completion handler as a parameter to process the data that&rsquo;s returned:</p>
+
+<pre><code class="language-swift">func networkManager.getDataFromApiForUser(user: User, completionHandler: (userData: NSData?, error: NSError?) -&gt; () )
+</code></pre>
+
+<p>In normal situations, you&rsquo;d use this function with something like this:</p>
+
+<pre><code class="language-swift">networkManager.getDataFromApiForUser(testUser, completionHandler: { (userData, error) -&gt; () in 
+	
+	... handle the error if one occurs
+	...
+	... otherwise process the userData object
+	
+)}
+</code></pre>
+
+<p>Testing the function in a unit test is very similar:</p>
+
+<pre><code class="language-swift">networkManager.getDataFromApiForUser(testUser, completionHandler: { (userData, error) -&gt; () in 
+
+	... handle the error if one occurs
+	...
+	... otherwise process the userData object
+
+	expectation.fulfill()
+	
+)}
+</code></pre>
+
+<p>The key difference is that last line - <code>expectation.fulfill()</code>. What we&rsquo;re doing here is to signal to the <code>asyncExpectation</code> that everything is completed, and it&rsquo;s now safe to check the assertions.</p>
+
+<h3 id="checking-the-assertions">Checking the assertions</h3>
+
+<p>Assertions in this context are just the usual <code>XCTest</code> assertions that you&rsquo;ll already be familar with. What&rsquo;s different is that we wrap them in a <code>waitForExpectationsWithTimeout</code> block:</p>
+
+<pre><code class="language-swift">self.waitForExpectationsWithTimeout(5) { error in
+	
+	XCTestAssertNil(error, &quot;Something went horribly wrong&quot;)
+	XCTestAssertEqual(testUser.orders.count, 10)
+	
+}
+</code></pre>
+
+<p>This function will do two things - firstly, it will wait for a maximum of five seconds before giving up and failing. This prevents you from locking up the tests in an infinite loop if something goes wrong with the code under test. How long to wait is dependent on the kind of processing that&rsquo;s taking place - but ideally shouldn&rsquo;t be so long that it locks up the test suite unncessarily.</p>
+
+<p>Secondly, it will fire the <code>XCTest</code> expectations as soon as the <code>expectation.fulfill()</code> function is called.  By triggering that at the end of the chunk of async code, you&rsquo;re preventing the assertions racing away and being checked before the function under test has had a chance to complete.</p>
+
+<h3 id="putting-it-all-together">Putting it all together</h3>
+
+<p>Putting that all together in a example test looks like this:</p>
+
+<pre><code class="language-swift">func testUserOrdersAreRetrievedFromApiAndProcessed() {
+
+	let asyncExpectation = expectationWithDescription(&quot;longRunningFunction&quot;)
+	
+	let testUser = User.initWithName(&quot;Foo&quot; andAccountNumber: 1234)
+	
+	networkManager.getDataFromApiForUser(testUser, completionHandler: { (userData, error) -&gt; () in 
+		
+		... handle the error if one occurs 
+		...
+		... otherwise process the userData object
+		
+		expectation.fulfill()
+		
+	)}
+	
+	self.waitForExpectationsWithTimeout(5) { error in
+		
+		XCTestAssertNil(error, &quot;Something went horribly wrong&quot;)
+		XCTestAssertEqual(testUser.orders.count, 10)
+		
+	}
+
+}
+</code></pre>
+
+<p>It&rsquo;s not the cleanest looking test code you&rsquo;ll ever write, especially if you&rsquo;re not a fan of the <code>Junit</code>-style syntax of the <code>XCTest</code> framework - but it works. And given how important asynchronous code like network requests or long-running processing tends to be to an app, it&rsquo;s worth sacrificing a little style for the reassurance that high test coverage will provide.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2015%2f10%2f02%2ftesting-asynchronous-code-in-swift%2f - Testing%20asynchronous%20code%20in%20Swift by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

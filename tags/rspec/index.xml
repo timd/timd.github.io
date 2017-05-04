@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rspec on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/rspec/</link>
+    <description>Recent content in Rspec on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Fri, 14 Jan 2011 16:06:08 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/rspec/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Getting Autotest to run on OS X</title>
+      <link>https://adoptioncurve.net/2011/01/14/getting-autotest-to-run-on-os-x/</link>
+      <pubDate>Fri, 14 Jan 2011 16:06:08 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/01/14/getting-autotest-to-run-on-os-x/</guid>
+      <description>Autotest is a Gem that does what it says on the tin - runs your RSpec test automatically. If you&amp;rsquo;re using a Mac, you can also use autotest-growl to get it to display Growl notifications, and autotest-fsevent to get it to watch the filesystem and trigger the tests when changes are made to the spec files.
+Installing it is a bit fiddly - this is what works for me, based on a bit of help from Jon Rowe:</description>
+    </item>
+    
+  </channel>
+</rss>

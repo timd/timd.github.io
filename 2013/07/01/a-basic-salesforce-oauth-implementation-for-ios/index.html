@@ -1,0 +1,462 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>A basic Salesforce OAuth implementation for iOS &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="A basic Salesforce OAuth implementation for iOS" />
+<meta property="og:description" content="Accessing Salesforce from an iOS app requires two things - the Salesforce iOS SDK, and OAuth. The SDK wraps up authentication and accessing the SDK, and authentication is provided using an OAuth2.0 process.
+The current version 1.0 of the SDK includes a sample app which implements the OAuth workflow - but if the sample code was any more complex and baroque, it would have gilt cherubs on it. It works by hijacking the app delegate, and is a masterprice of &ldquo;and then a miracle occurs&rdquo; design." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2013/07/01/a-basic-salesforce-oauth-implementation-for-ios/" />
+
+
+
+<meta property="article:published_time" content="2013-07-01T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2013-07-01T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="A basic Salesforce OAuth implementation for iOS">
+<meta itemprop="description" content="Accessing Salesforce from an iOS app requires two things - the Salesforce iOS SDK, and OAuth. The SDK wraps up authentication and accessing the SDK, and authentication is provided using an OAuth2.0 process.
+The current version 1.0 of the SDK includes a sample app which implements the OAuth workflow - but if the sample code was any more complex and baroque, it would have gilt cherubs on it. It works by hijacking the app delegate, and is a masterprice of &ldquo;and then a miracle occurs&rdquo; design.">
+
+
+<meta itemprop="dateModified" content="2013-07-01T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1456">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="A basic Salesforce OAuth implementation for iOS"/>
+<meta name="twitter:title" content="A basic Salesforce OAuth implementation for iOS"/>
+<meta name="twitter:description" content="Accessing Salesforce from an iOS app requires two things - the Salesforce iOS SDK, and OAuth. The SDK wraps up authentication and accessing the SDK, and authentication is provided using an OAuth2.0 process.
+The current version 1.0 of the SDK includes a sample app which implements the OAuth workflow - but if the sample code was any more complex and baroque, it would have gilt cherubs on it. It works by hijacking the app delegate, and is a masterprice of &ldquo;and then a miracle occurs&rdquo; design."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>A basic Salesforce OAuth implementation for iOS</h1>
+                    <h2 class="headline">
+                    1 July 2013 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    
+
+<p>Accessing Salesforce from an iOS app requires two things - the Salesforce iOS SDK, and OAuth.   The SDK wraps up authentication and accessing the SDK, and authentication is provided using an OAuth2.0 process.</p>
+
+<p>The current version 1.0 of the SDK includes a sample app which implements the OAuth workflow - but if the sample code was any more complex and baroque, it would have gilt cherubs on it. It works by hijacking the app delegate, and is a masterprice of <em>&ldquo;and then a miracle occurs&rdquo;</em> design.</p>
+
+<p>The new 2.0 version of the SDK will (allegedly) improve this by NOT hijacking the app delegate - but there&rsquo;s no sample code to see whether this is the case yet.  The sample app also assumes that you want the authorisation process to happen as the app fires up, which may not be the case if access to the Salesforce backend is optional or happens further down the app&rsquo;s workflow.</p>
+
+<p>Having wrestled with this for a few days on my current project, I&rsquo;ve managed to come up with this process, which is a self-contained Salesforce authentication workflow that can be dropped into an app at any point.   It relies on the Salesforce SDK, but doesn&rsquo;t need any of their app delegate-based code to be implemented.</p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<ul>
+<li><p>You&rsquo;ve got an iOS app with at least one view controller (the <code>Single View</code> template for example).</p></li>
+
+<li><p>You&rsquo;ve installed the <a href="https://github.com/forcedotcom/SalesforceMobileSDK-iOS">Salesforce SDK</a> from the <code>unstable20</code> branch as per the README instructions.  This is <strong>important</strong> - failing to run the install scripts will mean the SDK&rsquo;s dependencies will not be installed, and nothing will work.</p></li>
+
+<li><p>You&rsquo;ve created an app on Salesforce, and you&rsquo;ve got the OAuth consumer key.</p></li>
+</ul>
+
+<h2 id="the-process-in-outline">The process in outline</h2>
+
+<p>Implementing a complete Salesforce OAuth process has 5 steps:</p>
+
+<ol>
+<li>Define the constants for OAuth consumer key and redirect URIs</li>
+<li>Create a property to hold a reference to an instance of the Salesforce OAuth coordinator class</li>
+<li>Conform the view controller to the <code>SFOAuthCoordinatorDelegate</code> protocol, and define the three required methods</li>
+<li>Setup the <code>SFOAuthCoordinator</code> instance</li>
+<li>Setup the <code>SFAccountManager</code> instance</li>
+</ol>
+
+<p>Once those steps are complete, you&rsquo;re able to trigger the authentication process before calling Salesforce&rsquo;s REST API.</p>
+
+<h2 id="the-setup-process">The setup process</h2>
+
+<h3 id="define-the-oauth-constants"># Define the OAuth constants</h3>
+
+<p>At the top of the view controller, drop in four static <code>NSString</code> constants. These define:</p>
+
+<ul>
+<li>the <strong>OAuth consumer key</strong> that uniquely identifies the app</li>
+<li>the <strong>OAuth redirect URI</strong> that defines the endpoint that&rsquo;s called if the authentication process is successful</li>
+<li>the <strong>OAuth login domain</strong> for the user account</li>
+<li>The <strong>Salesforce user account identifier</strong></li>
+</ul>
+
+<p>These will be used by the <code>SFAccountManager</code> class to configure the OAuth parameters:</p>
+
+<p>{% codeblock lang:objc)
+static NSString *const kOAuthConsumerKey = @&rdquo;&lt; your app OAuth key &gt;&ldquo;;
+static NSString *const kOAuthRedirectURI = @&ldquo;<a href="https://salesforce.com/services/oauth2/success&quot;">https://salesforce.com/services/oauth2/success&quot;</a>;
+static NSString *const kOAuthLoginDomain = @&rdquo;&lt; your login domain &gt;&ldquo;;
+static NSString *const kUserAccountIdentifier = @&ldquo;user&rdquo;;
+{% endcodeblock)</p>
+
+<h3 id="define-a-property-for-the-salesforce-oauth-coordinator">Define a property for the Salesforce OAuth coordinator</h3>
+
+<p>The OAuth coordinator is the central part of the OAuth process - it manages the communications with the Salesforce end and displays the Salesforce login window in a <code>UIWebView</code>.  It then returns the results of the authentication to its delegate, which allows success or failure scenarios to be handled.  You&rsquo;ll need to include the <code>SFAccountManager</code> header:</p>
+
+<p>{% codeblock lang:objc)
+#import &ldquo;SFAccountManager.h&rdquo;
+{% endcodeblock)</p>
+
+<p>and declare the property:</p>
+
+<p>{% codeblock lang:objc)
+@property (nonatomic, strong) SFOAuthCoordinator *coordinator;
+{% endcodeblock)</p>
+
+<h3 id="conform-the-class-to-the-sfoauthcoordinatordelegate-protocol">Conform the class to the SFOAuthCoordinatorDelegate protocol</h3>
+
+<p>The SFOAuthCoordinator class handles the comms with the Salesforce OAuth endpoint.  It calls back to its delegate as the authentication process starts, and then with the results - success or failure.  This means that the class initiating the authentication process needs to be declared as the <code>SFOAuthCoordinatorDelegate</code> and implement the three callback methods.</p>
+
+<p>{% codeblock lang:objc)
+@interface MyViewController () <SFOAuthCoordinatorDelegate>
+{% endcodeblock)</p>
+
+<p>The first method called by the authentication workflow is the <code>oauthCoordinator:didBeginAuthenticationWithView:</code> method.  The <code>view</code> parameter will be a <code>UIWebView</code> containing the Salesforce HTML login page - you&rsquo;re responsible for inserting that into the view hierarchy of your app.</p>
+
+<p>This example will add the login page to the view controller&rsquo;s view and make it full-screen:</p>
+
+<p>{% codeblock lang:objc)
+-(void) oauthCoordinator:(SFOAuthCoordinator *)coordinator didBeginAuthenticationWithView:(UIWebView *)view {
+    [[self view] addSubview:view];
+    [view setFrame:CGRectMake(0,0,self.view.frame.size.width, self.view.frame.size.height)];
+}
+{% endcodeblock)</p>
+
+<p>There&rsquo;s nothing to stop you presenting this modally or in a popover if that suits your app better, though.</p>
+
+<p>Once the user has entered their login details into the form, the Salesforce backend will attempt to authenticate them using the credentials they&rsquo;ve provided.  Depending on the results, the <code>SFOAuthCoordinator</code> will call back to its delegate with a success or failure report.</p>
+
+<p>In the case of failure, you&rsquo;re responsible for removing the login view from the view hierarchy and providing some kind of suitable notification to the user - here, it&rsquo;s just logging the error to the console:</p>
+
+<p>{% codeblock lang:objc)
+-(void)oauthCoordinator:(SFOAuthCoordinator *)coordinator didFailWithError:(NSError *)error authInfo:(SFOAuthInfo *)info {
+    [coordinator.view removeFromSuperview];
+    NSLog(@&ldquo;error = %@&rdquo;, error);
+    NSLog(@&ldquo;authInfo = %@&rdquo;, info);
+}
+{% endcodeblock)</p>
+
+<p>If the authentication was successful, you again need to remove the login view from the view hierarchy - but you can also cache the OAuth credentials that are passed back, and pass the <code>SFOAuthCoordinator</code> instance to the <code>SFRestAPI</code> class that you&rsquo;ll use in a moment to talk to the SalesForce API.</p>
+
+<p>This means that the <code>SFRestAPI</code> class can use the cached credentials to authenticate itself every time it talks to the API - the alternative would be forcing the user to authenticate every time a call was made to the API.</p>
+
+<p>{% codeblock lang:objc)
+- (void)oauthCoordinatorDidAuthenticate:(SFOAuthCoordinator *)coordinator {
+    [coordinator.view removeFromSuperview];
+    [[SFRestAPI sharedInstance] setCoordinator:coordinator];
+    [SFAccountManager sharedInstance].credentials = coordinator.credentials;
+}
+{% endcodeblock)</p>
+
+<h3 id="setup-the-sfoauthcoordinator"># Setup the SFOAuthCoordinator</h3>
+
+<p>That&rsquo;s implemented all the delegate methods - but before any of these methods will be invoked and the authentication process started, we need to set up the <code>SFOAuthCoordinator</code> instance.  I put this in a separate method, and then call that as the view controller is loaded:</p>
+
+<p>{% codeblock lang:objc)
+- (void)setupCoordinator {</p>
+
+<pre><code>// create a new coordinator if one doesn't already exist
+if (!self.coordinator) {
+
+    NSString *appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString*)kCFBundleNameKey];
+    NSString *loginDomain = kOAuthLoginDomain;
+    NSString *accountIdentifier = kUserAccountIdentifier;
+
+    NSString *fullKeychainIdentifier = [NSString stringWithFormat:@&quot;%@-%@-%@&quot;,appName,accountIdentifier,loginDomain];
+
+    SFOAuthCredentials *creds = [[SFOAuthCredentials alloc] initWithIdentifier:fullKeychainIdentifier
+                                                                      clientId:kOAuthConsumerKey
+                                                                     encrypted:NO];
+
+    [creds setDomain:loginDomain];
+    [creds setRedirectUri:kOAuthRedirectURI];
+
+    self.coordinator = [[SFOAuthCoordinator alloc] initWithCredentials:creds];
+    [self.coordinator setScopes:[NSSet setWithObjects:@&quot;web&quot;,@&quot;api&quot;,nil]];
+    [self.coordinator setDelegate:self];
+
+}
+</code></pre>
+
+<p>}
+{% endcodeblock)</p>
+
+<p>Stepping through this method, firstly we check if there&rsquo;s an existing instance of the <code>SFOAuthCoordinator</code> class.  If one doesn&rsquo;t exist, then we need to create it with the relevant app name, login domain and account identifier.</p>
+
+<p>These are used to create an instance of the <code>SFOAuthCredentials</code> class, which in tern is used to initialise the <code>coordinator</code> property.  Then finally we set the API scopes of the <code>coordinator</code>, and point its delegate property at this view controller.</p>
+
+<h3 id="setup-the-sfaccountmanager-object">Setup the SFAccountManager object</h3>
+
+<p>Once the <code>SFOAuthCoordinator</code> has been set up, we can then do the same for the <code>SFAccountManager</code> instance that&rsquo;s provided for us by the Salesforce SDK.</p>
+
+<p>Similar to the process of setting up the <code>SFOAuthCoordinator</code>, I put this in a separate method and call it as the view controller is loaded:</p>
+
+<p>{% codeblock lang:objc)
+-(void)setupAccountManager {
+    [SFAccountManager setLoginHost:kOAuthLoginDomain];
+    [SFAccountManager setClientId:kOAuthConsumerKey];
+    [SFAccountManager setRedirectUri:kOAuthRedirectURI];
+    [SFAccountManager setCurrentAccountIdentifier:kUserAccountIdentifier];
+}
+{% endcodeblock)</p>
+
+<p>This sets the login host, client ID, redirect URI and account identifier ready for the authentication process to be triggered.</p>
+
+<p>Both the <code>setupCoordinator</code> and <code>setupAccountManager</code> methods can be called as the view controller is loaded:</p>
+
+<p>{% codeblock lang:objc)
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self setupCoordinator];
+    [self setupAccountManager];
+}
+{% endcodeblock)</p>
+
+<h2 id="authenticating-with-salesforce">Authenticating with Salesforce</h2>
+
+<p>At this point, all the moving parts are in place, and we&rsquo;re ready to actually authenticate.  How this is triggered is dependent on your app&rsquo;s workflow - but here&rsquo;s how you could kick things off in response to a button tap:</p>
+
+<p>{% codeblock lang:objc)
+-(IBAction)didTapLoginButton:(id)sender {
+    [self.coordinator authenticate];
+}
+{% endcodeblock)</p>
+
+<p>As far as the user is concerned, all the OAuth process is invisible. They&rsquo;ll see a login screen being loaded as full-screen view where they can enter their Salesforce credentials.  Once the authentication completes - either successfully or unsuccessfully - that screen will disappear and they can now carry on.</p>
+
+<p>Once successfully authenticated, your app can start calling the REST API on behalf of the user - here&rsquo;s a quick example using the <code>SFRestAPI</code> class:</p>
+
+<p>{% codeblock lang:objc)
+- (IBAction)didTapCallApiButton:(id)sender {</p>
+
+<pre><code>[[SFRestAPI sharedInstance] performSOQLQuery:@&quot;SELECT id FROM Account&quot; failBlock:^(NSError *error) {
+    NSLog(@&quot;Error = %@&quot;, error);
+} completeBlock:^(NSDictionary *dict) {
+    NSLog(@&quot;%@&quot;, dict);
+}];
+</code></pre>
+
+<p>}
+{% endcodeblock)</p>
+
+<p>Because the <code>SFRestAPI</code> provides <code>sharedInstance</code> as an app-wide singleton, you can call it from anywhere in your app - you don&rsquo;t need to pass it around as a property.</p>
+
+<p>Logging out is also straight-forward:</p>
+
+<p>{% codeblock lang:objc)
+- (IBAction)didTapLogoutButton:(id)sender {
+    [self.coordinator revokeAuthentication];
+}
+{% endcodeblock)</p>
+
+<h2 id="wrapping-up-the-whole-process">Wrapping up the whole process</h2>
+
+<p>The whole process as a single file can be downloaded from <a href="https://gist.github.com/timd/5899845">this gist</a>.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2013%2f07%2f01%2fa-basic-salesforce-oauth-implementation-for-ios%2f - A%20basic%20Salesforce%20OAuth%20implementation%20for%20iOS by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

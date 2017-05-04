@@ -1,0 +1,351 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>My Git workflow &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="My Git workflow" />
+<meta property="og:description" content="The first time I encountered Git, I was confused. Pushing and pulling and branching and merging all sound straight-forward in and of themselves, but when you&rsquo;re first trying to figure out what to do when it can rapidly descend into witchcraft. Neither was I particularly organised about how I managed code and deployment - it was all a bit ad-hoc, which works fine for a while but eventually has the potential for accidental cockups." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2011/05/24/my-git-workflow/" />
+
+
+
+<meta property="article:published_time" content="2011-05-24T21:40:54&#43;00:00"/>
+<meta property="article:modified_time" content="2011-05-24T21:40:54&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="My Git workflow">
+<meta itemprop="description" content="The first time I encountered Git, I was confused. Pushing and pulling and branching and merging all sound straight-forward in and of themselves, but when you&rsquo;re first trying to figure out what to do when it can rapidly descend into witchcraft. Neither was I particularly organised about how I managed code and deployment - it was all a bit ad-hoc, which works fine for a while but eventually has the potential for accidental cockups.">
+
+
+<meta itemprop="dateModified" content="2011-05-24T21:40:54&#43;00:00" />
+<meta itemprop="wordCount" content="1172">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="My Git workflow"/>
+<meta name="twitter:title" content="My Git workflow"/>
+<meta name="twitter:description" content="The first time I encountered Git, I was confused. Pushing and pulling and branching and merging all sound straight-forward in and of themselves, but when you&rsquo;re first trying to figure out what to do when it can rapidly descend into witchcraft. Neither was I particularly organised about how I managed code and deployment - it was all a bit ad-hoc, which works fine for a while but eventually has the potential for accidental cockups."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>My Git workflow</h1>
+                    <h2 class="headline">
+                    24 May 2011 
+                    <br>
+                    
+                    
+                        
+                            <a href="https://adoptioncurve.net/tags/git">git</a>
+                        
+                            <a href="https://adoptioncurve.net/tags/howto">howto</a>
+                        
+                    
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>The first time I encountered <a href="http://git-scm.com/">Git</a>, I was confused.  Pushing and pulling and branching and merging all sound straight-forward in and of themselves, but when you&rsquo;re first trying to figure out what to do when it can rapidly descend into witchcraft.  Neither was I particularly organised about how I managed code and deployment - it was all a bit ad-hoc, which works fine for a while but eventually has the potential for accidental cockups.</p>
+
+<p>What helped me to get my head around the processes was following other people&rsquo;s workflows to see how they managed.  There&rsquo;s lots of documentation around for Git, but it didn&rsquo;t really sink in until I saw it being used in practice.</p>
+
+<p>If enough clever people do enough clever things often enough, eventually some processes emerge, and that&rsquo;s exactly what Git Flow is.   It&rsquo;s a set of macros that sit on top of raw Git, and set up branches for you, ready to use with a suggested workflow.  It&rsquo;s designed for a full-on development environment complete with staging, hotfixes and all the trimmings - but can be condensed down to the point where you just use the bits that are relevant.  This is how it works for me.</p>
+
+<p>Git Flow works with three main branches - master, which I&rsquo;ll come back to; develop, which is the main day-to-day branch; and features, which are a series of short-lived branches.</p>
+
+<p>My process runs like this:</p>
+
+<p>Create the project, and run git flow to get the initial branch structure set up.  I use the defaults, and just ignore the branches I don&rsquo;t need like hotfixes.</p>
+
+<pre><code>    git flow init
+
+
+
+
+    &lt; work through the prompts, using the defaults &gt;
+
+
+
+
+    &lt; edit the project's readme file &gt;
+
+
+
+
+    git add .
+    git commit -am &quot;Initial commit on master branch&quot;
+    git push origin develop
+</code></pre>
+
+<p>That creates that initial version on the develop branch, which I&rsquo;ll then deploy to the server (of which more later)  That way there&rsquo;s a &lsquo;ground zero&rsquo; version of the project.  You don&rsquo;t <em>need</em> to do this, but it suits my slightly OCD tendencies.  Apart from anything I always feel better for having made that first commit, because it feels like the project has Started.</p>
+
+<p>Then I use git-flow to start a feature.</p>
+
+<pre><code>    git flow feature start &lt;feature name&gt;
+    &lt; edit the feature's readme file &gt;
+    git add .
+    git commit -am &quot;Initial commit on feature XXX&quot;
+    git push origin feature
+</code></pre>
+
+<p>A feature for me corresponds either to a user story, or to a chunk of functionality that seems to be discretely definable.   It might be less than a story if it&rsquo;s just something quick - I know this breaks the story-driven development conventions to an extent, but the point is to make the process work for you rather than the other way around.  Mentally I&rsquo;m trying to structure the development process so that there aren&rsquo;t any dependencies between features.</p>
+
+<p>I also push the features to the remote repository.  There are two schools of thought about this, one being that it&rsquo;s not really necessary and clutters up the repository.  I prefer to look at it from the point of view of the remote repo also being part of my backup, so the tradeoff is worth it over the long term.</p>
+
+<p>When a feature&rsquo;s complete, I use git flow to close and merge it back to the develop branch; which is then pushed back to the repo.</p>
+
+<pre><code>    git flow feature finish
+
+
+
+
+    git push origin develop
+</code></pre>
+
+<p>While I&rsquo;m working on the feature, I&rsquo;ll often use a temporary &ldquo;throw away&rdquo; branch to try things that I&rsquo;m not sure about.   The cost of branching with Git is so low that it&rsquo;s worth creating a new branch and throwing it away later, rather than trying to undo code changes:</p>
+
+<pre><code>    git checkout -b &lt;temporary branch&gt;
+
+
+
+
+    do stuff, add and commit
+</code></pre>
+
+<p>If the code doesn&rsquo;t work, then I can throw the branch away:</p>
+
+<p>git checkout</p>
+
+<pre><code>    git branch -d -f &lt;temporary branch&gt;
+</code></pre>
+
+<p>Or merge I&rsquo;ll merge something successful into the feature that I&rsquo;m working on:</p>
+
+<pre><code>    git checkout
+    git merge --no-ff
+</code></pre>
+
+<p>There seem to be two schools of thought about the &ldquo;best&rdquo; way to merge branches - personally I prefer the &ndash;no-ff method because it preserves the temporary branch and the associated history.  Viewing that in the commit tree gives me a clearer picture of what happened, to my mind at least.</p>
+
+<p>The final step in the process is the release branch, which in my workflow is the one that gets deployed to the staging server for final tweaking and QA.  That&rsquo;s created from the develop branch:</p>
+
+<pre><code>    git flow release start
+</code></pre>
+
+<p>That gets deployed, and any final tweaks made with the usual add / commit / push cycle.   Once the staging version gets signed off, it&rsquo;s time to complete the release:</p>
+
+<pre><code>    git flow release finish
+</code></pre>
+
+<p>The magic behind the scenes is that this automagically gets merged back into the master branch.  If you work on the basis that your production server only ever deploys from master, it becomes a fairly robust process.</p>
+
+<p>To get the code from my local development environment out into the real world, ideally I&rsquo;ll have a three-server setup and use Capistrano to automate things as far as possible.   The day-to-day development stuff runs on one called &lsquo;develop&rsquo;, which deploys code from the develop branch.  That gets deployed as often as there are changes on the develop branch.  Sometimes this gets blurred a bit - features might get deployed if there&rsquo;s a good reason for it, but the point is not to get anally retentive about the process and do what&rsquo;s need to get the job done.</p>
+
+<p>The second server or instance is for staging - that&rsquo;s the behind-the-live-curtain version that the client can play with.   That gets deployed from the develop branch - so once a feature is completed and merged in, it can be pushed out to the world to be signed off.</p>
+
+<p>The final piece of the jigsaw is the &ldquo;live&rdquo; server - called live, for want of a better term - which runs the code from the master branch.</p>
+
+<p>Because I try to use Capistrano to automate deployment, it&rsquo;s relatively trivial to nail this all down - the multi-stage functions of Capistrano means that you can abstract out the stage-specific settings from the main body of configuration.  In this case I set the production script to deploy from the master branch, and the staging script to deploy from the release branch.  The advantage of doing it this way is that I can&rsquo;t accidentally deploy the wrong version out to the live environment.</p>
+
+<p>The point about all of this is not that this is the One True Path to successfully using Git - it&rsquo;s what works for me.  It&rsquo;s also not my invention - I&rsquo;m just using the functionality that Git Flow provides, and tweaking it to fit my way of working.  Hopefully someone will also find it useful, either as it stands - or even better, using it as the basis to come up with something even better.  Such is the joy of open source :-)</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2011%2f05%2f24%2fmy-git-workflow%2f - My%20Git%20workflow by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

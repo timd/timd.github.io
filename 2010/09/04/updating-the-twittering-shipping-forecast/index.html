@@ -1,0 +1,275 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Updating the Twittering Shipping Forecast &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Updating the Twittering Shipping Forecast" />
+<meta property="og:description" content="Back at the beginning of last year, I put up a post about how I built the Shipping Forecast Twitter bot.
+Since then it&rsquo;s been chuntering away quietly - or at least it did until the Met Office in their infinite wisdom decided to change the layout of the page that is scraped for data by my Ruby script.
+Strictly speaking, I don&rsquo;t actually have any room for complaint - I&rsquo;m probably breaking all kinds of terms of service by scraping their site for content." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2010/09/04/updating-the-twittering-shipping-forecast/" />
+
+
+
+<meta property="article:published_time" content="2010-09-04T02:58:00&#43;00:00"/>
+<meta property="article:modified_time" content="2010-09-04T02:58:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Updating the Twittering Shipping Forecast">
+<meta itemprop="description" content="Back at the beginning of last year, I put up a post about how I built the Shipping Forecast Twitter bot.
+Since then it&rsquo;s been chuntering away quietly - or at least it did until the Met Office in their infinite wisdom decided to change the layout of the page that is scraped for data by my Ruby script.
+Strictly speaking, I don&rsquo;t actually have any room for complaint - I&rsquo;m probably breaking all kinds of terms of service by scraping their site for content.">
+
+
+<meta itemprop="dateModified" content="2010-09-04T02:58:00&#43;00:00" />
+<meta itemprop="wordCount" content="872">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Updating the Twittering Shipping Forecast"/>
+<meta name="twitter:title" content="Updating the Twittering Shipping Forecast"/>
+<meta name="twitter:description" content="Back at the beginning of last year, I put up a post about how I built the Shipping Forecast Twitter bot.
+Since then it&rsquo;s been chuntering away quietly - or at least it did until the Met Office in their infinite wisdom decided to change the layout of the page that is scraped for data by my Ruby script.
+Strictly speaking, I don&rsquo;t actually have any room for complaint - I&rsquo;m probably breaking all kinds of terms of service by scraping their site for content."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Updating the Twittering Shipping Forecast</h1>
+                    <h2 class="headline">
+                    4 September 2010 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>Back at the beginning of last year, <a href="http://www.adoptioncurve.net/archives/2009/01/twittering-the-shipping-forecast-2.php">I put up a post about how I built</a> the <a href="http://www.twitter.com/shippingcast">Shipping Forecast Twitter bot</a>.</p>
+
+<p>Since then it&rsquo;s been chuntering away quietly - or at least it did until the Met Office in their infinite wisdom decided to change the layout of the page that is scraped for data by my Ruby script.</p>
+
+<p>Strictly speaking, I don&rsquo;t actually have any room for complaint - I&rsquo;m probably breaking all kinds of terms of service by scraping their site for content.  It&rsquo;s also their site, to do with as they see fit.  So moaning about &ldquo;them&rdquo; breaking &ldquo;my&rdquo; bot is somewhat churlish.</p>
+
+<p>However, as the Met Office are a &ldquo;trading fund&rdquo; - for which read quasi-public sector body that takes tax monies to produce information, and then sells that information back to the people who&rsquo;ve already paid for it - the chance of them providing any kind of open data is minimal.  So seeking not permission, but forgiveness - and scraping the data - is really the only option.</p>
+
+<p>The other issue with the Met Office is that they are your typical public sector organisation when it comes to semantically-valid, standards-compliant web design.  That is to say, they wouldn&rsquo;t know semantically-valid, standards-compliant web design if it fell out of tree onto them.   The page source looks like it was rendered by Microsoft Office&rsquo;s &ldquo;save as HTML&rdquo; function.</p>
+
+<p>So all this makes the whole scraping job ever so slightly more complex.  For the geeks, obsessives and anyone else who might be interested, this is how I did it - the second time around.</p>
+
+<p>There are two options for retrieving the source data - either the flat printable version of the forecast, or the whizzy (for a given value of whizzy) interactive map page.  The former is pretty useless for scraping purposes, because there&rsquo;s no structure in the document.  The latter is also fairly useless, because the map is created client-side by a rolling dirtball of Javascript.</p>
+
+<p>While it works fine in a Javascript-enabled browser, it doesn&rsquo;t work using a server-side command-line retrieval tool like cURL or wget.   Instead of getting the HTML source for the map page, you get the &ldquo;you need to enable Javascript in your browser&rdquo; error page, which defaults to the flat printable version of the forecast data.</p>
+
+<p>This had me stumped for a while, until I hit on the idea of sidestepping the webpage entirely.   Poking around the source I discovered that when the page is loaded, the embedded Javascript functions grabs a small external file containing the actual forecast data, and parses that to build up the map-based view.</p>
+
+<p>Because Javascript runs client-side, that data file <em>has</em> to be publicly-accessible - otherwise there&rsquo;d be no way of creating the page in the first place.  If a browser can download it, so can my script - so that&rsquo;s exactly what it does.</p>
+
+<p>The other advantage is that the data isn&rsquo;t embedded within HTML, so it&rsquo;s much easier for the script to parse - no messing about with Xpath and so on.  Needless to say, this being the Met Office it&rsquo;s NOT in a useful and open format like JSON - so it does need <em>some</em> munging - but it&rsquo;s still less hassle than a whole series of Xpath queries.</p>
+
+<p>The other major change to the bot is to deal with the consequences of the <a href="http://www.informationweek.com/news/software/web_services/showArticle.jhtml?articleID=225700613">OAuthapocalypse</a> - the rather nicely-named decision by Twitter to switch off basic username/password authentication to their API.  That&rsquo;s actually a good thing - OAuth is a far more robust and secure authentication process, even if Twitter&rsquo;s implementation has a <a href="http://arstechnica.com/security/guides/2010/09/twitter-a-case-study-on-how-to-do-oauth-wrong.ars">flaw or two</a>.  But it did mean that having taken the easy option at the outset, I needed to retrofit all my bots with OAuth if they were going to continue working.</p>
+
+<p>OAuth isn&rsquo;t the most straight-forward process to get your head around, and I cheated slightly.  The first part of the process is simple enough - register your app with Twitter and get a pair of credentials that it then uses to identify itself.  The second is trickier - getting access from the app to a Twitter account involves requesting permission from the user in return for which the app is issued with a temporary pair of access tokens.  These then need to be exchanged for a permanent pair which get used to control the app&rsquo;s ability to post to the user&rsquo;s stream.</p>
+
+<p><a href="http://richt.co.uk/">Richard Taylor</a> has produced a <a href="http://github.com/moomerman/twitter_oauth">Twitter-specific OAuth library for Ruby</a>, but I was being a bit slow that day and found it a bit fiddly to get the authorisation process working.  So I cheated, and used the T<a href="http://github.com/joshthecoder/tweepy">weepy Python library</a>.  <a href="http://jmillerinc.com/"> Jeff Miller</a> has a <a href="http://jmillerinc.com/2010/05/31/twitter-from-the-command-line-in-python-using-oauth/">very thorough writeup</a> on his blog which shows how to use Tweepy from the command line to grab all the required tokens, and from there it was a simple process of plugging those into the Ruby code.</p>
+
+<p>After that, <a href="http://www.adoptioncurve.net/projects">all my bots</a> are now updated to use OAuth, which has the added advantage of providing a whole load more status and diagnostic information from the Twiiter API.  Given that the API can be temperamental, the feedback allows much more defensive coding to create scripts which can cope with the odd glitch now and again.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2010%2f09%2f04%2fupdating-the-twittering-shipping-forecast%2f - Updating%20the%20Twittering%20Shipping%20Forecast by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

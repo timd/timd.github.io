@@ -1,0 +1,344 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Collection View updates in iOS10, part 1 &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Collection View updates in iOS10, part 1" />
+<meta property="og:description" content="Following WWDC, iOS 10 is now out in beta form ahead of a probable release in the autumn. There are a whole load of brand-new features, but also some tweaks to existing ones, and UICollectionView is no exception.
+Although UICollectionView is a highly-performant control, Apple haven&rsquo;t let it stand still. One of the most interesting new features is designed to improve the performance of collection views with expensive data sources." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/" />
+
+
+
+<meta property="article:published_time" content="2016-06-25T14:34:26&#43;00:00"/>
+<meta property="article:modified_time" content="2016-06-25T14:34:26&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Collection View updates in iOS10, part 1">
+<meta itemprop="description" content="Following WWDC, iOS 10 is now out in beta form ahead of a probable release in the autumn. There are a whole load of brand-new features, but also some tweaks to existing ones, and UICollectionView is no exception.
+Although UICollectionView is a highly-performant control, Apple haven&rsquo;t let it stand still. One of the most interesting new features is designed to improve the performance of collection views with expensive data sources.">
+
+
+<meta itemprop="dateModified" content="2016-06-25T14:34:26&#43;00:00" />
+<meta itemprop="wordCount" content="1088">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Collection View updates in iOS10, part 1"/>
+<meta name="twitter:title" content="Collection View updates in iOS10, part 1"/>
+<meta name="twitter:description" content="Following WWDC, iOS 10 is now out in beta form ahead of a probable release in the autumn. There are a whole load of brand-new features, but also some tweaks to existing ones, and UICollectionView is no exception.
+Although UICollectionView is a highly-performant control, Apple haven&rsquo;t let it stand still. One of the most interesting new features is designed to improve the performance of collection views with expensive data sources."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Collection View updates in iOS10, part 1</h1>
+                    <h2 class="headline">
+                    25 June 2016 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    
+
+<p>Following WWDC, iOS 10 is now out in beta form ahead of a probable release in the autumn. There are a whole load of brand-new features, but also some tweaks to existing ones, and UICollectionView is no exception.</p>
+
+<p>Although UICollectionView is a highly-performant control, Apple haven&rsquo;t let it stand still. One of the most interesting new features is designed to improve the performance of collection views with expensive data sources.</p>
+
+<p>##Background
+The aim for any iOS application is to run the UI at the full 60 frames per second, to deliver a completely smooth scrolling performance. Any frame rate significantly lower than this will manifest itself by dropped frames and stuttery performance.</p>
+
+<p>60fps equates to 16.67ms per frame, which isn&rsquo;t long if you&rsquo;re dealing with drawing collection view cells using data from slow sources. The trick to high performance collecion views is to get the <code>cellForItemAtIndexPath</code> to return a cell as fast as possible, but this can be difficult. Techniques like asynchronous fetching of images can help, but these aren&rsquo;t a miracle cure.</p>
+
+<blockquote>
+<p>Note: This technique is also available to use with <code>UITableView</code> - just replace references to <code>UICollectionView</code> with <code>UITableView</code>, and the implementation patterns are identical.</p>
+</blockquote>
+
+<p>##Prefetching</p>
+
+<p>In iOS10, Apple have introduced a new <code>UICollectionViewDataSource</code> protocol extension called <code>UICollectionViewDataSourcePrefetching</code>.</p>
+
+<p>This introduces a new property on <code>UICollectionView</code> called <code>prefetchDataSource</code>.  This is a class that implements two <code>UICollectionViewDataSourcePrefetching</code> protocol functions:</p>
+
+<ul>
+<li><p><code>collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath])</code></p></li>
+
+<li><p><code>collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath])</code></p></li>
+</ul>
+
+<p>The <code>prefetchItemsAt indexPaths:</code> function is called by the collection view when it looks like the scrolling rate of the collection view will outstrip the ability of <code>cellForItemAtIndexPath</code> to deliver cells in a timely manner.</p>
+
+<p>The collection view passes in an <code>Array</code> of <code>NSIndexPaths</code> for cells that are likely to be needed in the future. This gives you an opportunity to update the data source that underlies the collection view.  For example, if your data source was an <code>Array</code> of images, you could call out to the network to download the images and insert them into the data source so that they are ready to be used by the <code>cellForRowAtIndexPath</code> function.</p>
+
+<p>The second method is normally called when the scrolling direction changes. The reasoning for this is that you&rsquo;re likely to be prefetching data well in advance of the cells being displayed - if those cells won&rsquo;t now get displayed because the collection view is scrolling away from them, you may as well cancel whatever operation it is that you&rsquo;re carrying out to update the data source.  Again, the index paths of the cells in question are passed in as an <code>Array</code> of <code>NSIndexPaths</code>.</p>
+
+<p>##Implementing pre-fetching</p>
+
+<p>To take advantage of the new prefetch feature, you&rsquo;ll need to do four things:</p>
+
+<ul>
+<li>Conform a class to the <code>UICollectionViewDataSourcePrefetching</code> protocol</li>
+<li>Implement the <code>collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath])</code> function to update the collection view&rsquo;s <code>dataSource</code></li>
+<li>Optionally, implement the <code>collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath])</code> function to cancel any in-flight prefetching operations</li>
+<li>Set the conforming class as the <code>collectionView</code>&rsquo;s <code>prefetchDataSource</code> property.</li>
+</ul>
+
+<h3 id="conforming-to-uicollectionviewdatasourceprefetching">Conforming to <code>UICollectionViewDataSourcePrefetching</code></h3>
+
+<p>This isn&rsquo;t difficult: just mark your data source as implementing the protocol:</p>
+
+<pre><code>class MyViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDataSourcePrefetching {
+	...
+}
+</code></pre>
+
+<h3 id="implementing-prefetching">Implementing prefetching</h3>
+
+<p>Prefetching is implementing with the <code>collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath])</code> function. There the collection view passes in an <code>Array</code> of <code>NSIndexPaths</code>, one for each of the cells that are likely to be displayed.</p>
+
+<p>Your job here is to iterate across this array, and update the collection view&rsquo;s data source accordingly:</p>
+
+<pre><code>func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+
+    for indexPath in indexPaths {
+		
+		... expensive operation to retrieve some data...
+		
+        dataArray[indexPath.row] = retrievedData
+		
+    }
+    
+}
+</code></pre>
+
+<p>There are a couple of important points to note here: the first is that you&rsquo;re <em>only</em> updating the collection view&rsquo;s underlying data source - not returning any data directly.  This could be as simple as updating an <code>Array</code> of strings (as above), or more complex like updating a CoreData or Realm model.</p>
+
+<p>The second point to bear in mind is that after the prefetch has taken place, there&rsquo;s no guarantee when, or if, that retrieved will be used. The collection view&rsquo;s scroll rate could slow down; or the direction reverse entirely.</p>
+
+<p>For this reason, there is a chance that time-critical data could be stale by the time it&rsquo;s displayed. Whether this is a factor that you need to consider will of course depend on the nature of the data being displayed.</p>
+
+<h3 id="implenting-prefetch-cancellation">Implenting prefetch cancellation</h3>
+
+<p>To an extent, requests for prefetches are a bit of a guess - the collection view is attempting to optimise for an uncertain future state that might not actually come to pass.  For example, if the scroll rate slows, or reverses altogether, there&rsquo;s a chance that the cells for which prefetch has been requested may never actually be displayed.</p>
+
+<p>In this situation, any inflight prefetch would be wasted effort. Rather than make redundant requests, the <code>UICollectionViewDataSourcePrefetch</code> protocol defines a function to cancel outstanding requests: <code>collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath])</code></p>
+
+<p>This is called if the collection view decides that prefetching would be over-optimisation - it passes an <code>Array</code> of <code>NSIndexPaths</code> as the function&rsquo;s parameter, and it&rsquo;s up to you to iterate over those and cancel any requests where it makes sense to do so.</p>
+
+<h3 id="hooking-up-the-prefetch-delegate-to-the-collection-view">Hooking up the prefetch delegate to the collection view</h3>
+
+<p>With the class conforming to the protocol, and with one or both of the functions implemented, you need to add it as a <code>prefetchDataSource</code> to the collection view.</p>
+
+<p>This is as simple as updating the property (here, we&rsquo;re assuming that the collection view controller is acting as its own <code>prefetchDataSource</code>):</p>
+
+<pre><code>collectionView.prefetchDataSource = self
+</code></pre>
+
+<p>This has to be done <em>before</em> any calls to any of the <code>UICollectionViewDataSource</code> protocol functions, so it probably makes sense to do so at the same time as setting up the collection view&rsquo;s other properties, such as cell registration.</p>
+
+<p>##Conclusion
+<code>UICollectionView</code> is a high-performance control to begin with, with a significant amount of &lsquo;under the hood&rsquo; optimisation going on that we don&rsquo;t see. Prefetching is another tool to eke out even more performance, especially in situations where getting the source data for display in collection view cells is expensive or slow.</p>
+
+<p>However, there&rsquo;s a saying that &ldquo;premature optimisation is the root of all evil&rdquo; in code, so it&rsquo;s not a magic bullet. And don&rsquo;t overlook the fact that often the most expensive part of the process is compositing the collection view cell itself. But if you&rsquo;re looking to squeeze out the last drops of performance to make your collection views as smooth as possible, prefetching may be worth a try.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2016%2f06%2f25%2fcollection-view-updates-in-ios10%2f - Collection%20View%20updates%20in%20iOS10%2c%20part%201 by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

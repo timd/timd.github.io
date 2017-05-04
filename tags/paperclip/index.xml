@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Paperclip on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/paperclip/</link>
+    <description>Recent content in Paperclip on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Fri, 05 Nov 2010 14:42:44 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/paperclip/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Getting Paperclip attachment sizes</title>
+      <link>https://adoptioncurve.net/2010/11/05/getting-paperclip-attachment-sizes/</link>
+      <pubDate>Fri, 05 Nov 2010 14:42:44 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/11/05/getting-paperclip-attachment-sizes/</guid>
+      <description>Another post from the &amp;ldquo;so I remember how to do this&amp;rdquo; series.
+I&amp;rsquo;m using Paperclip to handle file attachments (in this context to store profile images which have been retrieved from Facebook, although that&amp;rsquo;s not strictly relevant).
+Although you can constrain the size of the stored image in the Paperclipped model, like so:
+# Paperclip stuff has_attached_file :avatar, :styles =&amp;gt; { :medium =&amp;gt; &amp;quot;300x300&amp;gt;&amp;quot;, :thumb =&amp;gt; &amp;quot;100x100&amp;gt;&amp;quot; }  this will automatically maintain the aspect ratio of the image, so you&amp;rsquo;re never quite sure what x and y sizes you&amp;rsquo;ll end up with.</description>
+    </item>
+    
+  </channel>
+</rss>

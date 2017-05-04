@@ -1,0 +1,4506 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://adoptioncurve.net/post/2017-05-04-outboard-brains/</loc>
+    <lastmod>2017-05-04T18:40:50+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/</loc>
+    <lastmod>2017-04-30T14:47:19+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/about/</loc>
+    <lastmod>2017-04-17T18:27:19+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/</loc>
+    <lastmod>2016-06-25T16:39:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/</loc>
+    <lastmod>2016-06-25T14:34:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/</loc>
+    <lastmod>2015-10-02T21:28:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/</loc>
+    <lastmod>2015-09-30T21:41:02+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/</loc>
+    <lastmod>2015-03-08T14:06:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/</loc>
+    <lastmod>2014-12-04T14:40:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/</loc>
+    <lastmod>2014-08-16T12:30:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2014/08/02/the-many-forms-of-swift-functions-a-cheatsheet/</loc>
+    <lastmod>2014-08-02T16:19:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2014/07/20/a-minimum-viable-tableview-in-swift/</loc>
+    <lastmod>2014-07-20T12:33:34+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2014/07/16/creating-a-draggable-uicollectionviewcell/</loc>
+    <lastmod>2014-07-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2014/07/10/mocking-uicollectionviewlayouts/</loc>
+    <lastmod>2014-07-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2014/07/08/time-for-a-change/</loc>
+    <lastmod>2014-07-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2014/06/08/why-swift-isnt-going-to-change-the-app-industry-just-yet/</loc>
+    <lastmod>2014-06-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2014/05/29/the-cowardly-test-phobes-guide-to-ios-testing-networks/</loc>
+    <lastmod>2014-05-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2014/05/25/loading-a-storyboard-programatically/</loc>
+    <lastmod>2014-05-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2014/05/25/the-cowardly-test-o-phobes-guide-to-ios-testing/</loc>
+    <lastmod>2014-05-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2013/11/18/creating-image-callouts-in-omnigraffle/</loc>
+    <lastmod>2013-11-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2013/11/18/universal-principles/</loc>
+    <lastmod>2013-11-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2013/11/09/introducing-actsasbeacon/</loc>
+    <lastmod>2013-11-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2013/10/06/removing-storyboards-from-xcode-5-s-default-single-view-app-template/</loc>
+    <lastmod>2013-10-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2013/09/09/a-cowardly-test-o-phobes-presentation-from-iosdevuk/</loc>
+    <lastmod>2013-09-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2013/09/09/testing-for-cowards-part-2-testing-user-interfaces/</loc>
+    <lastmod>2013-09-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2013/09/09/testing-for-cowards-part-3-testing-the-full-interface/</loc>
+    <lastmod>2013-09-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2013/08/12/changing-the-airport-mac-address-with-os-x/</loc>
+    <lastmod>2013-08-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2013/07/25/batch-resizing-of-images-with-mogrify/</loc>
+    <lastmod>2013-07-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2013/07/02/building-a-circular-gallery-with-a-uicollectionview/</loc>
+    <lastmod>2013-07-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2013/07/01/a-basic-salesforce-oauth-implementation-for-ios/</loc>
+    <lastmod>2013-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2013/06/17/exploitation/</loc>
+    <lastmod>2013-06-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2013/05/21/a-better-way-of-managing-xcode-scripts/</loc>
+    <lastmod>2013-05-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2013/04/26/how-a-navigation-based-app-fits-together/</loc>
+    <lastmod>2013-04-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2013/04/09/creating-a-paged-photo-gallery-with-a-uicollectionview/</loc>
+    <lastmod>2013-04-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2013/04/06/hacking-the-government-kebabs/</loc>
+    <lastmod>2013-04-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2013/02/15/more-on-block-in-objective-c-but-still-without-tears/</loc>
+    <lastmod>2013-02-15T16:26:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2013/02/15/blocks-in-objective-c-without-tears/</loc>
+    <lastmod>2013-02-15T10:25:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2013/02/09/unit-testing-uiimageviews/</loc>
+    <lastmod>2013-02-09T13:20:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2013/02/01/selectively-disabling-warnings-with-xcode-compiler-flags/</loc>
+    <lastmod>2013-02-01T09:54:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/12/20/unit-testing-ios-user-interfaces-without-tears/</loc>
+    <lastmod>2012-12-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/12/10/unit-testing-view-controllers/</loc>
+    <lastmod>2012-12-10T17:26:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/12/10/unit-testing-uitabbarcontroller-actions/</loc>
+    <lastmod>2012-12-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/12/03/setting-up-mogenerator-in-xcode-4-dot-5/</loc>
+    <lastmod>2012-12-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/11/26/parlyhack-2012/</loc>
+    <lastmod>2012-11-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/11/23/testing-asynchronous-network-code-with-kiwi/</loc>
+    <lastmod>2012-11-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/11/12/creating-random-test-data-with-ruby-and-faker/</loc>
+    <lastmod>2012-11-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/11/09/some-initial-thoughts-on-using-an-ipad-mini/</loc>
+    <lastmod>2012-11-09T11:30:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/11/06/some-initial-thoughts-on-the-13-retina-macbook-pro/</loc>
+    <lastmod>2012-11-06T19:24:02+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/10/02/mocking-network-requests-with-ohhttpstubs/</loc>
+    <lastmod>2012-10-02T15:47:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/09/28/calling-objective-c-methods-from-javascript-in-a-uiwebview/</loc>
+    <lastmod>2012-09-28T09:00:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/09/19/a-simple-uicollectionview-tutorial/</loc>
+    <lastmod>2012-09-19T17:02:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/09/10/test-driven-development-of-an-objective-c-category-with-kiwi/</loc>
+    <lastmod>2012-09-10T13:29:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/09/04/some-interesting-north-news/</loc>
+    <lastmod>2012-09-04T13:20:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/08/02/working-with-file-diffs-in-sourcetree/</loc>
+    <lastmod>2012-08-02T07:57:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/07/07/scaling-a-uiview-in-response-to-changes-in-uiscrollview-zoom/</loc>
+    <lastmod>2012-07-07T20:11:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/06/26/how-to-do-hackdays-right/</loc>
+    <lastmod>2012-06-26T18:51:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/06/13/adding-non-standard-fonts-to-ios5-apps/</loc>
+    <lastmod>2012-06-13T09:14:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/05/16/adding-photos-to-the-iphone-simulator/</loc>
+    <lastmod>2012-05-16T08:45:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/04/06/using-the-camer-of-ios-simulators/</loc>
+    <lastmod>2012-04-06T07:33:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/04/01/where-to-put-the-registernib-method-in-a-table-view-controller/</loc>
+    <lastmod>2012-04-01T17:15:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/03/22/webkit-limit-on-retina-jpg-image-display-duncan-davidson/</loc>
+    <lastmod>2012-03-22T09:48:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/03/13/creating-table-views-with-storyboards/</loc>
+    <lastmod>2012-03-13T21:18:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/02/29/how-i-want-my-tv-remote-to-work/</loc>
+    <lastmod>2012-02-29T17:11:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/02/23/picturing-privacy/</loc>
+    <lastmod>2012-02-23T14:44:34+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/02/16/more-clear-cleverness-showing-new-screens/</loc>
+    <lastmod>2012-02-16T10:06:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/02/15/how-to-do-clear-style-swiping-in-ios-tables/</loc>
+    <lastmod>2012-02-15T12:52:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/01/26/compare-and-contrast/</loc>
+    <lastmod>2012-01-26T22:49:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/01/23/waking-up-at-5am-to-code/</loc>
+    <lastmod>2012-01-23T14:13:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2012/01/18/blacked-out/</loc>
+    <lastmod>2012-01-18T08:00:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/11/30/sliding-clocks-around-the-screen-a-la-path/</loc>
+    <lastmod>2011-11-30T16:57:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/09/25/accessing-controls-in-uiview-subviews/</loc>
+    <lastmod>2011-09-25T11:56:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/09/10/unit-testing-core-data/</loc>
+    <lastmod>2011-09-10T11:59:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/09/08/goodbye-to-all-that-reflections-of-a-gop-operative-who-left-the-cult-truthout/</loc>
+    <lastmod>2011-09-08T06:14:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/09/08/goodbye-delicious-hello-pinboard/</loc>
+    <lastmod>2011-09-08T05:48:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/09/05/testing-iphone-view-controllers-the-carbon-emitter/</loc>
+    <lastmod>2011-09-05T13:05:22+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/09/01/links-for-2011-08-31/</loc>
+    <lastmod>2011-09-01T00:20:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/31/a-simple-way-to-create-custom-rounded-rect-buttons-c2ab-the-pocket-cyclone/</loc>
+    <lastmod>2011-08-31T09:17:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/31/i-just-sit-at-a-typewriter-and-curse-a-bit/</loc>
+    <lastmod>2011-08-31T09:15:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/31/the-shape-of-song/</loc>
+    <lastmod>2011-08-31T08:58:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/31/defagoscoconutkit-github/</loc>
+    <lastmod>2011-08-31T08:56:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/31/gowallaafnetworking-github/</loc>
+    <lastmod>2011-08-31T08:55:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/31/links-for-2011-08-30/</loc>
+    <lastmod>2011-08-31T00:20:55+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/30/the-ad-contrarian-advertising-and-the-future-of-apple/</loc>
+    <lastmod>2011-08-30T18:56:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/30/a-facebook-reusable-class-indie-dev-stories/</loc>
+    <lastmod>2011-08-30T14:41:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/30/itunes-connect-app-statusc2a0update-blog-use-your-loaf/</loc>
+    <lastmod>2011-08-30T07:32:28+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/28/links-for-2011-08-27/</loc>
+    <lastmod>2011-08-28T00:20:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/27/richard-stallman/</loc>
+    <lastmod>2011-08-27T02:19:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/27/gowallaafnetworking-github-2/</loc>
+    <lastmod>2011-08-27T01:32:55+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/20/links-for-2011-08-19/</loc>
+    <lastmod>2011-08-20T00:20:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/19/rawengstackscrollview-github/</loc>
+    <lastmod>2011-08-19T13:38:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/19/bobmccunecore-animation-demos-github/</loc>
+    <lastmod>2011-08-19T13:37:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/19/escozquickdialog-github/</loc>
+    <lastmod>2011-08-19T13:36:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/19/lets-meet-and-work-e28093-places-to-freelance-around-london/</loc>
+    <lastmod>2011-08-19T13:34:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/17/links-for-2011-08-16/</loc>
+    <lastmod>2011-08-17T00:11:02+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/16/reusable-collapsable-table-view-for-ios-codeproject/</loc>
+    <lastmod>2011-08-16T09:21:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/12/links-for-2011-08-11/</loc>
+    <lastmod>2011-08-12T00:11:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/11/the-public-domain-review/</loc>
+    <lastmod>2011-08-11T10:41:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/09/links-for-2011-08-08/</loc>
+    <lastmod>2011-08-09T00:20:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/08/load-and-access-custom-fonts-in-ios-apps/</loc>
+    <lastmod>2011-08-08T11:02:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/06/why-wont-my-magic-mouse-work/</loc>
+    <lastmod>2011-08-06T19:46:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/06/links-for-2011-08-05/</loc>
+    <lastmod>2011-08-06T00:10:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/05/ios-integration-testing/</loc>
+    <lastmod>2011-08-05T17:02:46+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/05/abusing-uiviewcontrollers-the-carbon-emitter/</loc>
+    <lastmod>2011-08-05T17:00:34+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/04/links-for-2011-08-03/</loc>
+    <lastmod>2011-08-04T00:10:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/03/uiscrollview-paging-hack/</loc>
+    <lastmod>2011-08-03T07:42:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/03/links-for-2011-08-02/</loc>
+    <lastmod>2011-08-03T00:11:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/02/fast-scrolling-in-tweetie-with-uitableview/</loc>
+    <lastmod>2011-08-02T12:42:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/02/links-for-2011-08-01/</loc>
+    <lastmod>2011-08-02T00:20:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/01/nimbus-main-page/</loc>
+    <lastmod>2011-08-01T22:10:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/01/sheffield-round-walk-sponsored-by-till-roll-man-thermal-streamline-rolls-supplier/</loc>
+    <lastmod>2011-08-01T22:09:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/01/how-do-i-test-my-code-with-minitest/</loc>
+    <lastmod>2011-08-01T22:08:02+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/08/01/just-few-tuts-derailed_duke-now-test-any-website-using-cucumber-as-an-independent-testing-utility/</loc>
+    <lastmod>2011-08-01T22:06:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/07/29/links-for-2011-07-28/</loc>
+    <lastmod>2011-07-29T00:22:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/07/28/feds-approve-44k-doctor-reimbursement-for-using-drchronoe28099s-ipad-app-techcrunch/</loc>
+    <lastmod>2011-07-28T14:39:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/07/28/links-for-2011-07-27/</loc>
+    <lastmod>2011-07-28T02:03:28+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/07/27/cooliris-toolkit-open-source-toolkit-for-ios-applications-by-cooliris-inc-google-project-hosting/</loc>
+    <lastmod>2011-07-27T19:08:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/07/26/links-for-2011-07-25/</loc>
+    <lastmod>2011-07-26T00:31:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/07/25/billys-booze-blog-c2bb-a-top-ten-of-whiskies-under-50/</loc>
+    <lastmod>2011-07-25T10:39:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/07/25/selecting-multiple-uitableview-rows/</loc>
+    <lastmod>2011-07-25T10:01:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/07/25/free-and-enterprise-api-management-and-infrastructure/</loc>
+    <lastmod>2011-07-25T08:45:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/07/20/links-for-2011-07-19/</loc>
+    <lastmod>2011-07-20T00:10:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/07/19/skeleton-beautiful-boilerplate-for-responsive-mobile-friendly-development/</loc>
+    <lastmod>2011-07-19T08:33:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/07/19/links-for-2011-07-18/</loc>
+    <lastmod>2011-07-19T00:11:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/07/18/understanding-ios-4-backgrounding-and-delegate-messaging-cocoanetics/</loc>
+    <lastmod>2011-07-18T10:56:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/07/18/links-for-2011-07-17/</loc>
+    <lastmod>2011-07-18T00:10:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/07/17/objective-c-cocoa-on-the-command-line/</loc>
+    <lastmod>2011-07-17T16:51:22+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/07/17/post-grabber-sniffs-out-post-data-generates-curl-scripts/</loc>
+    <lastmod>2011-07-17T16:50:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/07/16/links-for-2011-07-15/</loc>
+    <lastmod>2011-07-16T00:11:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/07/15/elements-of-design-a-web-design-showcase/</loc>
+    <lastmod>2011-07-15T12:14:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/07/15/mobile-ui-patterns-e280ba-lists/</loc>
+    <lastmod>2011-07-15T12:13:46+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/07/15/ios-ui-patterns-beta/</loc>
+    <lastmod>2011-07-15T12:13:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/07/12/links-for-2011-07-11/</loc>
+    <lastmod>2011-07-12T00:10:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/07/11/fixing-freeview/</loc>
+    <lastmod>2011-07-11T18:52:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/07/11/custom-ui-component-database-for-ios-and-mac-os-x-cocoa-controls/</loc>
+    <lastmod>2011-07-11T17:26:14+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/07/11/speeding-up-table-view-cell-loading-withc2a0uinib-blog-use-your-loaf/</loc>
+    <lastmod>2011-07-11T17:24:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/07/11/ultimate-css-gradient-generator-colorzilla-com/</loc>
+    <lastmod>2011-07-11T16:23:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/07/11/miniajax-com-highlighting-rich-experiences-on-the-web/</loc>
+    <lastmod>2011-07-11T14:51:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/07/11/16-jquery-menus-with-beautiful-animations-for-developers-djdesignerlab/</loc>
+    <lastmod>2011-07-11T14:39:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/07/07/profile-doesnt-match-application-identifier-problems-in-xcode/</loc>
+    <lastmod>2011-07-07T12:59:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/06/30/links-for-2011-06-29/</loc>
+    <lastmod>2011-06-30T00:11:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/06/29/the-complete-list-of-cocos2d-tools-learn-master-cocos2d-game-development/</loc>
+    <lastmod>2011-06-29T16:50:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/06/18/links-for-2011-06-17/</loc>
+    <lastmod>2011-06-18T00:11:14+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/06/17/test-driven-development-for-iphone-e28093/</loc>
+    <lastmod>2011-06-17T03:27:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/06/17/www-hans-eric-com-c2bb-tutorial-getting-started-with-uispec/</loc>
+    <lastmod>2011-06-17T03:24:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/06/17/documentation-uispec-uispec-documentation-behavior-driven-development-for-the-iphone-google-project-hosting/</loc>
+    <lastmod>2011-06-17T03:24:02+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/06/13/creating-full-screen-ios-modal-views/</loc>
+    <lastmod>2011-06-13T19:59:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/06/07/links-for-2011-06-06/</loc>
+    <lastmod>2011-06-07T00:21:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/06/06/open-source-iphone-apps-list-e28093-real-app-store-code-examples-iphone-ios-4-ipad-sdk-development-tutorial-and-programming-tips/</loc>
+    <lastmod>2011-06-06T22:42:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/06/06/rules-from-a-user-to-software-developers/</loc>
+    <lastmod>2011-06-06T22:31:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/06/03/links-for-2011-06-02/</loc>
+    <lastmod>2011-06-03T00:01:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/06/01/links-for-2011-05-31/</loc>
+    <lastmod>2011-06-01T00:20:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/05/27/links-for-2011-05-26/</loc>
+    <lastmod>2011-05-27T00:20:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/05/24/my-git-workflow/</loc>
+    <lastmod>2011-05-24T21:40:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/05/24/links-for-2011-05-23/</loc>
+    <lastmod>2011-05-24T00:10:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/05/18/pages-that-can-be-overridden-in-refinerycms/</loc>
+    <lastmod>2011-05-18T10:04:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/05/11/fixing-strange-sftp-connection-refusals/</loc>
+    <lastmod>2011-05-11T18:36:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/05/11/fixing-problems-with-spree-installations/</loc>
+    <lastmod>2011-05-11T18:27:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/05/07/links-for-2011-05-06/</loc>
+    <lastmod>2011-05-07T00:01:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/05/04/git-for-cowards/</loc>
+    <lastmod>2011-05-04T12:15:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/05/04/links-for-2011-05-03/</loc>
+    <lastmod>2011-05-04T00:10:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/05/03/wewatch-on-the-iphone-part-2/</loc>
+    <lastmod>2011-05-03T17:02:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/05/02/links-for-2011-05-01/</loc>
+    <lastmod>2011-05-02T00:20:55+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/04/27/links-for-2011-04-26/</loc>
+    <lastmod>2011-04-27T00:20:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/04/26/dog-turds-as-a-metaphor-for-business-banking/</loc>
+    <lastmod>2011-04-26T14:07:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/04/20/creating-custom-cells-in-an-iphone-tableview/</loc>
+    <lastmod>2011-04-20T13:50:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/04/07/wewatch-on-the-iphone/</loc>
+    <lastmod>2011-04-07T09:07:30+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/04/05/links-for-2011-04-04/</loc>
+    <lastmod>2011-04-05T00:10:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/03/31/links-for-2011-03-30/</loc>
+    <lastmod>2011-03-31T00:10:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/03/27/paging-baron-pandastein/</loc>
+    <lastmod>2011-03-27T18:44:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/03/24/links-for-2011-03-23/</loc>
+    <lastmod>2011-03-24T00:01:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/03/16/links-for-2011-03-15/</loc>
+    <lastmod>2011-03-16T00:10:46+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/03/05/links-for-2011-03-04/</loc>
+    <lastmod>2011-03-05T00:01:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/03/04/links-for-2011-03-03/</loc>
+    <lastmod>2011-03-04T00:01:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/03/03/start-with-a-vision-of-what-you-want/</loc>
+    <lastmod>2011-03-03T22:27:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/03/03/links-for-2011-03-02/</loc>
+    <lastmod>2011-03-03T00:01:14+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/03/01/links-for-2011-02-28/</loc>
+    <lastmod>2011-03-01T00:01:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/02/28/links-for-2011-02-27/</loc>
+    <lastmod>2011-02-28T00:01:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/02/25/links-for-2011-02-24/</loc>
+    <lastmod>2011-02-25T00:01:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/02/24/links-for-2011-02-23/</loc>
+    <lastmod>2011-02-24T00:01:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/02/23/links-for-2011-02-22/</loc>
+    <lastmod>2011-02-23T00:20:46+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/01/15/links-for-2011-01-14/</loc>
+    <lastmod>2011-01-15T00:03:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/01/14/getting-autotest-to-run-on-os-x/</loc>
+    <lastmod>2011-01-14T16:06:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/01/14/links-for-2011-01-13/</loc>
+    <lastmod>2011-01-14T00:03:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/01/13/links-for-2011-01-12/</loc>
+    <lastmod>2011-01-13T00:04:02+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/01/12/links-for-2011-01-11/</loc>
+    <lastmod>2011-01-12T00:03:28+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/01/07/links-for-2011-01-06/</loc>
+    <lastmod>2011-01-07T00:03:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2011/01/01/links-for-2010-12-31/</loc>
+    <lastmod>2011-01-01T00:02:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/12/16/creating-and-using-test-facebook-accounts/</loc>
+    <lastmod>2010-12-16T15:54:22+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/12/09/links-for-2010-12-08/</loc>
+    <lastmod>2010-12-09T00:20:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/12/08/links-for-2010-12-07/</loc>
+    <lastmod>2010-12-08T00:21:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/12/07/links-for-2010-12-06/</loc>
+    <lastmod>2010-12-07T00:20:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/12/06/links-for-2010-12-05/</loc>
+    <lastmod>2010-12-06T00:20:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/12/03/yet-another-list-of-ruby-and-rails-resources/</loc>
+    <lastmod>2010-12-03T19:40:14+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/12/01/links-for-2010-11-30/</loc>
+    <lastmod>2010-12-01T00:10:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/11/30/links-for-2010-11-29/</loc>
+    <lastmod>2010-11-30T00:21:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/11/24/links-for-2010-11-23/</loc>
+    <lastmod>2010-11-24T00:20:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/11/22/what-did-the-romans-ever-do-for-us/</loc>
+    <lastmod>2010-11-22T22:14:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/11/21/luddites/</loc>
+    <lastmod>2010-11-21T19:11:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/11/21/open-firmware-facepalms/</loc>
+    <lastmod>2010-11-21T19:08:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/11/20/links-for-2010-11-19/</loc>
+    <lastmod>2010-11-20T00:11:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/11/19/links-for-2010-11-18/</loc>
+    <lastmod>2010-11-19T00:20:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/11/17/interesting-north/</loc>
+    <lastmod>2010-11-17T08:17:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/11/07/fixing-a-missing-ethernet-adaptor-in-ubuntu-on-vmware/</loc>
+    <lastmod>2010-11-07T20:05:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/11/06/links-for-2010-11-05/</loc>
+    <lastmod>2010-11-06T00:20:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/11/05/getting-paperclip-attachment-sizes/</loc>
+    <lastmod>2010-11-05T14:42:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/11/04/scraping-red-dots/</loc>
+    <lastmod>2010-11-04T08:42:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/10/29/links-for-2010-10-28/</loc>
+    <lastmod>2010-10-29T00:11:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/10/25/links-for-2010-10-24/</loc>
+    <lastmod>2010-10-25T00:10:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/10/19/links-for-2010-10-18/</loc>
+    <lastmod>2010-10-19T00:31:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/10/14/sold-out/</loc>
+    <lastmod>2010-10-14T20:55:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/10/08/links-for-2010-10-07/</loc>
+    <lastmod>2010-10-08T00:31:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/09/30/auto-tweaking-facebook-app-settings-between-live-and-local-instances/</loc>
+    <lastmod>2010-09-30T10:39:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/09/29/links-for-2010-09-28/</loc>
+    <lastmod>2010-09-29T00:31:30+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/09/28/links-for-2010-09-27/</loc>
+    <lastmod>2010-09-28T00:31:14+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/09/27/links-for-2010-09-26/</loc>
+    <lastmod>2010-09-27T00:31:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/09/26/links-for-2010-09-25/</loc>
+    <lastmod>2010-09-26T00:31:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/09/11/links-for-2010-09-10/</loc>
+    <lastmod>2010-09-11T00:31:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/09/06/links-for-2010-09-05/</loc>
+    <lastmod>2010-09-06T00:31:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/09/05/links-for-2010-09-04/</loc>
+    <lastmod>2010-09-05T00:31:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/09/04/updating-the-twittering-shipping-forecast/</loc>
+    <lastmod>2010-09-04T02:58:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/08/18/links-for-2010-08-17/</loc>
+    <lastmod>2010-08-18T00:31:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/08/17/links-for-2010-08-16/</loc>
+    <lastmod>2010-08-17T00:31:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/08/09/links-for-2010-08-08/</loc>
+    <lastmod>2010-08-09T00:30:46+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/08/03/links-for-2010-08-02/</loc>
+    <lastmod>2010-08-03T00:31:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/07/31/links-for-2010-07-30/</loc>
+    <lastmod>2010-07-31T00:31:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/07/29/links-for-2010-07-28/</loc>
+    <lastmod>2010-07-29T00:31:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/07/28/tbig-society-in-tnorth/</loc>
+    <lastmod>2010-07-28T16:49:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/07/28/links-for-2010-07-27/</loc>
+    <lastmod>2010-07-28T00:31:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/07/27/creating-facebook-events-with-the-php-sdk/</loc>
+    <lastmod>2010-07-27T13:35:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/07/27/links-for-2010-07-26/</loc>
+    <lastmod>2010-07-27T00:31:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/07/26/links-for-2010-07-25/</loc>
+    <lastmod>2010-07-26T00:31:14+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/07/23/links-for-2010-07-22/</loc>
+    <lastmod>2010-07-23T00:31:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/07/19/links-for-2010-07-18/</loc>
+    <lastmod>2010-07-19T00:31:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/07/17/links-for-2010-07-16/</loc>
+    <lastmod>2010-07-17T00:31:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/07/15/grabbing-data-from-the-facebook-api/</loc>
+    <lastmod>2010-07-15T17:12:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/07/14/links-for-2010-07-13/</loc>
+    <lastmod>2010-07-14T00:31:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/07/10/links-for-2010-07-09/</loc>
+    <lastmod>2010-07-10T00:31:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/07/06/links-for-2010-07-05/</loc>
+    <lastmod>2010-07-06T00:31:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/07/05/links-for-2010-07-04/</loc>
+    <lastmod>2010-07-05T00:31:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/07/03/links-for-2010-07-02/</loc>
+    <lastmod>2010-07-03T00:31:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/06/30/links-for-2010-06-29/</loc>
+    <lastmod>2010-06-30T00:31:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/06/29/links-for-2010-06-28/</loc>
+    <lastmod>2010-06-29T00:31:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/06/28/links-for-2010-06-27/</loc>
+    <lastmod>2010-06-28T00:31:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/06/22/links-for-2010-06-21/</loc>
+    <lastmod>2010-06-22T00:31:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/06/11/links-for-2010-06-10/</loc>
+    <lastmod>2010-06-11T00:31:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/06/10/the-peoples-front-of-bcs/</loc>
+    <lastmod>2010-06-10T15:14:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/06/08/dog-sonar/</loc>
+    <lastmod>2010-06-08T08:37:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/06/08/links-for-2010-06-07/</loc>
+    <lastmod>2010-06-08T00:31:30+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/05/28/links-for-2010-05-27/</loc>
+    <lastmod>2010-05-28T00:31:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/05/26/links-for-2010-05-25/</loc>
+    <lastmod>2010-05-26T00:31:34+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/05/22/links-for-2010-05-21/</loc>
+    <lastmod>2010-05-22T00:31:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/05/21/links-for-2010-05-20/</loc>
+    <lastmod>2010-05-21T00:31:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/05/19/links-for-2010-05-18/</loc>
+    <lastmod>2010-05-19T00:31:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/05/16/links-for-2010-05-15/</loc>
+    <lastmod>2010-05-16T00:31:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/05/14/links-for-2010-05-13/</loc>
+    <lastmod>2010-05-14T00:31:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/05/08/links-for-2010-05-07/</loc>
+    <lastmod>2010-05-08T00:31:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/05/05/links-for-2010-05-04/</loc>
+    <lastmod>2010-05-05T00:31:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/05/04/links-for-2010-05-03/</loc>
+    <lastmod>2010-05-04T00:31:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/05/02/links-for-2010-05-01/</loc>
+    <lastmod>2010-05-02T00:30:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/04/30/interesting-north-go-for-nov-13th/</loc>
+    <lastmod>2010-04-30T20:58:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/04/30/some-initial-ipad-thoughts/</loc>
+    <lastmod>2010-04-30T20:19:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/04/29/links-for-2010-04-28/</loc>
+    <lastmod>2010-04-29T00:31:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/04/28/links-for-2010-04-27/</loc>
+    <lastmod>2010-04-28T00:31:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/04/25/links-for-2010-04-24/</loc>
+    <lastmod>2010-04-25T00:30:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/04/21/links-for-2010-04-20/</loc>
+    <lastmod>2010-04-21T00:31:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/04/14/links-for-2010-04-13/</loc>
+    <lastmod>2010-04-14T00:31:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/04/12/links-for-2010-04-11/</loc>
+    <lastmod>2010-04-12T00:31:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/04/09/a-brief-note-about-abstentions/</loc>
+    <lastmod>2010-04-09T10:12:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/04/08/the-debill-and-why-were-really-screwed/</loc>
+    <lastmod>2010-04-08T12:36:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/04/07/if-mysql-processes-wont-start-after-a-reboot/</loc>
+    <lastmod>2010-04-07T11:57:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/04/06/an-open-letter-to-nick-clegg-mp/</loc>
+    <lastmod>2010-04-06T23:24:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/04/06/links-for-2010-04-05/</loc>
+    <lastmod>2010-04-06T00:31:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/04/01/links-for-2010-03-31/</loc>
+    <lastmod>2010-04-01T00:31:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/03/31/links-for-2010-03-30/</loc>
+    <lastmod>2010-03-31T00:30:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/03/29/links-for-2010-03-28/</loc>
+    <lastmod>2010-03-29T00:30:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/03/28/rewired-culture/</loc>
+    <lastmod>2010-03-28T10:46:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/03/28/a-listed-buildings-app-for-the-iphone/</loc>
+    <lastmod>2010-03-28T10:45:14+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/03/28/links-for-2010-03-27/</loc>
+    <lastmod>2010-03-28T00:30:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/03/27/getting-openoffice-to-talk-to-mamp-and-mysql/</loc>
+    <lastmod>2010-03-27T15:22:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/03/26/links-for-2010-03-25/</loc>
+    <lastmod>2010-03-26T00:30:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/03/24/links-for-2010-03-23/</loc>
+    <lastmod>2010-03-24T00:30:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/03/23/demand-that-the-deb-gets-scrutinised/</loc>
+    <lastmod>2010-03-23T12:49:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/03/15/last-chance-to-sink-the-digital-economy-bill/</loc>
+    <lastmod>2010-03-15T18:44:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/03/13/monthly-weeknotes/</loc>
+    <lastmod>2010-03-13T18:39:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/03/13/getting-an-iphones-uuid-number-for-ad-hoc-app-deployment/</loc>
+    <lastmod>2010-03-13T10:49:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/03/12/links-for-2010-03-11/</loc>
+    <lastmod>2010-03-12T00:31:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/03/09/links-for-2010-03-08/</loc>
+    <lastmod>2010-03-09T00:31:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/03/07/links-for-2010-03-06/</loc>
+    <lastmod>2010-03-07T00:31:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/03/04/vodafone-apps-and-dumb-pipes-in-the-sky/</loc>
+    <lastmod>2010-03-04T12:42:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/03/01/server-moves/</loc>
+    <lastmod>2010-03-01T16:02:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/02/26/its-interesting-up-north/</loc>
+    <lastmod>2010-02-26T23:06:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/02/26/links-for-2010-02-25/</loc>
+    <lastmod>2010-02-26T00:05:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/02/25/some-random-terrorism-related-numbers/</loc>
+    <lastmod>2010-02-25T15:04:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/02/25/rules-of-the-game/</loc>
+    <lastmod>2010-02-25T12:27:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/02/25/too-big-to-succeed/</loc>
+    <lastmod>2010-02-25T09:16:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/02/24/links-for-2010-02-23/</loc>
+    <lastmod>2010-02-24T00:07:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/02/23/robbery-for-fun-and-profit/</loc>
+    <lastmod>2010-02-23T09:39:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/02/23/links-for-2010-02-22/</loc>
+    <lastmod>2010-02-23T00:04:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/02/19/links-for-2010-02-18/</loc>
+    <lastmod>2010-02-19T00:06:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/02/18/links-for-2010-02-17/</loc>
+    <lastmod>2010-02-18T00:07:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/02/17/local-and-social-and-argy/</loc>
+    <lastmod>2010-02-17T15:25:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/02/15/links-for-2010-02-14/</loc>
+    <lastmod>2010-02-15T00:06:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/02/12/ifridge/</loc>
+    <lastmod>2010-02-12T02:29:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/02/11/fixing-explosions-caused-by-uitableview-scrolling/</loc>
+    <lastmod>2010-02-11T20:36:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/02/10/what-does-twitter-smell-like/</loc>
+    <lastmod>2010-02-10T14:17:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/02/09/links-for-2010-02-08/</loc>
+    <lastmod>2010-02-09T00:05:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/02/05/weeks-3-and-4/</loc>
+    <lastmod>2010-02-05T19:05:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/02/05/links-for-2010-02-04/</loc>
+    <lastmod>2010-02-05T00:06:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/02/02/links-for-2010-02-01/</loc>
+    <lastmod>2010-02-02T00:08:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/01/28/links-for-2010-01-27/</loc>
+    <lastmod>2010-01-28T00:05:28+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/01/23/links-for-2010-01-22/</loc>
+    <lastmod>2010-01-23T00:05:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/01/22/week-2/</loc>
+    <lastmod>2010-01-22T16:54:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/01/21/links-for-2010-01-20/</loc>
+    <lastmod>2010-01-21T00:07:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/01/16/week-1/</loc>
+    <lastmod>2010-01-16T20:04:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/01/12/links-for-2010-01-11/</loc>
+    <lastmod>2010-01-12T00:07:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/01/09/links-for-2010-01-08/</loc>
+    <lastmod>2010-01-09T00:04:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/01/08/links-for-2010-01-07/</loc>
+    <lastmod>2010-01-08T00:06:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/01/07/tumblr-getting-interaction-right/</loc>
+    <lastmod>2010-01-07T11:48:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2010/01/01/russell-says-it-better-than-i-can/</loc>
+    <lastmod>2010-01-01T14:23:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/12/31/2009-the-best-bits/</loc>
+    <lastmod>2009-12-31T23:00:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/12/31/that-was-the-year-that-was/</loc>
+    <lastmod>2009-12-31T22:21:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/12/31/links-for-2009-12-30/</loc>
+    <lastmod>2009-12-31T00:08:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/12/27/links-for-2009-12-26/</loc>
+    <lastmod>2009-12-27T00:03:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/12/26/links-for-2009-12-25/</loc>
+    <lastmod>2009-12-26T00:04:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/12/21/links-for-2009-12-20/</loc>
+    <lastmod>2009-12-21T00:05:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/12/20/links-for-2009-12-19/</loc>
+    <lastmod>2009-12-20T00:05:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/12/19/links-for-2009-12-18/</loc>
+    <lastmod>2009-12-19T00:06:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/12/18/links-for-2009-12-17/</loc>
+    <lastmod>2009-12-18T00:05:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/12/17/links-for-2009-12-16/</loc>
+    <lastmod>2009-12-17T00:31:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/12/16/links-for-2009-12-15/</loc>
+    <lastmod>2009-12-16T00:06:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/12/14/time-to-move-on/</loc>
+    <lastmod>2009-12-14T10:08:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/12/10/links-for-2009-12-09/</loc>
+    <lastmod>2009-12-10T00:08:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/12/06/links-for-2009-12-05/</loc>
+    <lastmod>2009-12-06T00:05:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/12/05/links-for-2009-12-04/</loc>
+    <lastmod>2009-12-05T00:06:30+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/12/03/links-for-2009-12-02/</loc>
+    <lastmod>2009-12-03T00:07:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/11/30/links-for-2009-11-29/</loc>
+    <lastmod>2009-11-30T00:07:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/11/24/links-for-2009-11-23/</loc>
+    <lastmod>2009-11-24T00:06:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/11/21/links-for-2009-11-20/</loc>
+    <lastmod>2009-11-21T00:04:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/11/20/links-for-2009-11-19/</loc>
+    <lastmod>2009-11-20T00:06:55+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/11/16/links-for-2009-11-15/</loc>
+    <lastmod>2009-11-16T00:05:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/11/15/links-for-2009-11-14/</loc>
+    <lastmod>2009-11-15T00:05:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/11/14/links-for-2009-11-13/</loc>
+    <lastmod>2009-11-14T00:04:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/11/13/links-for-2009-11-12/</loc>
+    <lastmod>2009-11-13T00:06:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/11/11/links-for-2009-11-10/</loc>
+    <lastmod>2009-11-11T00:05:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/11/05/links-for-2009-11-04/</loc>
+    <lastmod>2009-11-05T00:08:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/11/04/links-for-2009-11-03/</loc>
+    <lastmod>2009-11-04T00:07:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/11/03/links-for-2009-11-02/</loc>
+    <lastmod>2009-11-03T00:05:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/11/02/links-for-2009-11-01/</loc>
+    <lastmod>2009-11-02T00:04:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/10/30/links-for-2009-10-29/</loc>
+    <lastmod>2009-10-30T00:06:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/10/29/links-for-2009-10-28/</loc>
+    <lastmod>2009-10-29T00:05:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/10/28/links-for-2009-10-27/</loc>
+    <lastmod>2009-10-28T00:05:30+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/10/27/links-for-2009-10-26/</loc>
+    <lastmod>2009-10-27T00:08:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/10/22/links-for-2009-10-21/</loc>
+    <lastmod>2009-10-22T00:06:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/10/21/links-for-2009-10-20/</loc>
+    <lastmod>2009-10-21T00:06:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/10/14/links-for-2009-10-13/</loc>
+    <lastmod>2009-10-14T00:06:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/10/06/links-for-2009-10-05/</loc>
+    <lastmod>2009-10-06T00:06:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/10/05/links-for-2009-10-04/</loc>
+    <lastmod>2009-10-05T00:07:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/10/03/links-for-2009-10-02/</loc>
+    <lastmod>2009-10-03T00:06:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/10/01/links-for-2009-09-30/</loc>
+    <lastmod>2009-10-01T00:07:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/09/22/nested-if-statements-with-movable-type/</loc>
+    <lastmod>2009-09-22T12:10:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/09/13/morse-code-at-interesting09/</loc>
+    <lastmod>2009-09-13T08:45:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/08/27/links-for-2009-08-26/</loc>
+    <lastmod>2009-08-27T00:07:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/08/07/links-for-2009-08-06/</loc>
+    <lastmod>2009-08-07T00:08:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/08/03/im-going-to-talk-at-interesting/</loc>
+    <lastmod>2009-08-03T17:21:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/08/03/links-for-2009-08-02/</loc>
+    <lastmod>2009-08-03T00:05:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/07/30/links-for-2009-07-29/</loc>
+    <lastmod>2009-07-30T00:07:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/07/29/links-for-2009-07-28/</loc>
+    <lastmod>2009-07-29T00:05:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/07/27/links-for-2009-07-26/</loc>
+    <lastmod>2009-07-27T00:04:02+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/07/20/links-for-2009-07-19/</loc>
+    <lastmod>2009-07-20T00:06:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/07/16/links-for-2009-07-15/</loc>
+    <lastmod>2009-07-16T00:06:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/07/13/teenage-tweets/</loc>
+    <lastmod>2009-07-13T14:58:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/07/13/links-for-2009-07-12/</loc>
+    <lastmod>2009-07-13T00:02:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/07/10/links-for-2009-07-09/</loc>
+    <lastmod>2009-07-10T00:10:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/07/07/rebooting-britain/</loc>
+    <lastmod>2009-07-07T08:00:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/07/06/links-for-2009-07-05/</loc>
+    <lastmod>2009-07-06T00:04:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/07/02/links-for-2009-07-01/</loc>
+    <lastmod>2009-07-02T00:07:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/06/16/links-for-2009-06-15/</loc>
+    <lastmod>2009-06-16T00:06:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/06/12/links-for-2009-06-11/</loc>
+    <lastmod>2009-06-12T00:16:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/06/09/links-for-2009-06-08/</loc>
+    <lastmod>2009-06-09T00:06:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/06/06/links-for-2009-06-05/</loc>
+    <lastmod>2009-06-06T00:04:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/06/05/links-for-2009-06-04/</loc>
+    <lastmod>2009-06-05T00:04:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/06/03/whats-an-api-and-why-do-i-want-one/</loc>
+    <lastmod>2009-06-03T21:00:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/05/29/links-for-2009-05-28/</loc>
+    <lastmod>2009-05-29T00:05:28+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/05/27/links-for-2009-05-26/</loc>
+    <lastmod>2009-05-27T00:08:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/05/25/links-for-2009-05-24/</loc>
+    <lastmod>2009-05-25T00:04:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/05/24/howduino-and-panda-hacking/</loc>
+    <lastmod>2009-05-24T18:22:14+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/05/24/links-for-2009-05-23/</loc>
+    <lastmod>2009-05-24T00:34:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/05/23/links-for-2009-05-22/</loc>
+    <lastmod>2009-05-23T00:07:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/05/22/links-for-2009-05-21/</loc>
+    <lastmod>2009-05-22T00:38:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/05/16/links-for-2009-05-15/</loc>
+    <lastmod>2009-05-16T00:05:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/05/14/national-express-miss-the-cluetrain/</loc>
+    <lastmod>2009-05-14T11:38:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/05/11/links-for-2009-05-10/</loc>
+    <lastmod>2009-05-11T00:04:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/05/05/panda-vivisection-redux/</loc>
+    <lastmod>2009-05-05T19:43:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/05/04/links-for-2009-05-03/</loc>
+    <lastmod>2009-05-04T00:08:22+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/05/02/links-for-2009-05-01/</loc>
+    <lastmod>2009-05-02T00:08:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/05/01/links-for-2009-04-30/</loc>
+    <lastmod>2009-05-01T00:07:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/04/29/links-for-2009-04-28/</loc>
+    <lastmod>2009-04-29T00:06:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/04/24/links-for-2009-04-23/</loc>
+    <lastmod>2009-04-24T00:06:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/04/22/links-for-2009-04-21/</loc>
+    <lastmod>2009-04-22T00:05:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/04/21/links-for-2009-04-20/</loc>
+    <lastmod>2009-04-21T00:06:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/04/16/links-for-2009-04-16/</loc>
+    <lastmod>2009-04-16T20:02:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/04/09/links-for-2009-04-08/</loc>
+    <lastmod>2009-04-09T00:05:28+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/04/07/links-for-2009-04-06/</loc>
+    <lastmod>2009-04-07T00:07:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/04/03/links-for-2009-04-02/</loc>
+    <lastmod>2009-04-03T00:05:02+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/04/02/mashed-up-expenses/</loc>
+    <lastmod>2009-04-02T16:12:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/04/01/links-for-2009-03-31/</loc>
+    <lastmod>2009-04-01T00:07:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/03/31/links-for-2009-03-30/</loc>
+    <lastmod>2009-03-31T00:06:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/03/24/links-for-2009-03-23/</loc>
+    <lastmod>2009-03-24T00:04:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/03/21/links-for-2009-03-20/</loc>
+    <lastmod>2009-03-21T00:04:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/03/19/links-for-2009-03-18/</loc>
+    <lastmod>2009-03-19T00:06:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/03/18/links-for-2009-03-17/</loc>
+    <lastmod>2009-03-18T00:06:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/03/16/links-for-2009-03-15/</loc>
+    <lastmod>2009-03-16T00:02:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/03/15/links-for-2009-03-14/</loc>
+    <lastmod>2009-03-15T00:04:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/03/13/links-for-2009-03-12/</loc>
+    <lastmod>2009-03-13T00:05:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/03/12/toy-abuse-for-fun-and-nonprofit/</loc>
+    <lastmod>2009-03-12T18:56:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/03/11/links-for-2009-03-10/</loc>
+    <lastmod>2009-03-11T00:06:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/03/10/links-for-2009-03-09/</loc>
+    <lastmod>2009-03-10T00:07:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/03/09/links-for-2009-03-08/</loc>
+    <lastmod>2009-03-09T00:04:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/03/08/links-for-2009-03-07/</loc>
+    <lastmod>2009-03-08T00:04:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/03/07/links-for-2009-03-06/</loc>
+    <lastmod>2009-03-07T00:05:22+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/03/06/links-for-2009-03-05/</loc>
+    <lastmod>2009-03-06T00:03:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/02/26/links-for-2009-02-25/</loc>
+    <lastmod>2009-02-26T00:03:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/02/21/links-for-2009-02-20/</loc>
+    <lastmod>2009-02-21T00:06:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/02/20/links-for-2009-02-19/</loc>
+    <lastmod>2009-02-20T00:03:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/02/17/narcoleptic-macbooks/</loc>
+    <lastmod>2009-02-17T12:02:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/02/16/links-for-2009-02-15/</loc>
+    <lastmod>2009-02-16T00:02:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/02/15/links-for-2009-02-14/</loc>
+    <lastmod>2009-02-15T00:05:34+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/02/12/links-for-2009-02-12/</loc>
+    <lastmod>2009-02-12T20:32:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/02/10/links-for-2009-02-09/</loc>
+    <lastmod>2009-02-10T00:04:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/02/09/links-for-2009-02-08/</loc>
+    <lastmod>2009-02-09T00:04:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/02/08/links-for-2009-02-07/</loc>
+    <lastmod>2009-02-08T00:04:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/02/07/links-for-2009-02-06/</loc>
+    <lastmod>2009-02-07T00:04:22+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/02/06/links-for-2009-02-05/</loc>
+    <lastmod>2009-02-06T00:05:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/02/05/broken-buying/</loc>
+    <lastmod>2009-02-05T09:01:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/02/05/links-for-2009-02-04/</loc>
+    <lastmod>2009-02-05T00:07:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/02/02/links-for-2009-02-01/</loc>
+    <lastmod>2009-02-02T00:03:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/28/unblocking-the-blockers/</loc>
+    <lastmod>2009-01-28T14:57:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/28/the-white-elephant-in-the-room/</loc>
+    <lastmod>2009-01-28T08:56:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/28/links-for-2009-01-27/</loc>
+    <lastmod>2009-01-28T00:04:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/27/code-swarms/</loc>
+    <lastmod>2009-01-27T21:39:34+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/27/links-for-2009-01-26/</loc>
+    <lastmod>2009-01-27T00:03:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/26/links-for-2009-01-25/</loc>
+    <lastmod>2009-01-26T00:03:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/25/learning-to-think-like-a-programmer-geek/</loc>
+    <lastmod>2009-01-25T20:27:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/25/links-for-2009-01-24/</loc>
+    <lastmod>2009-01-25T00:03:55+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/23/ive-been-climbing-mountains-again/</loc>
+    <lastmod>2009-01-23T16:25:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/23/links-for-2009-01-22/</loc>
+    <lastmod>2009-01-23T00:05:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/22/links-for-2009-01-21/</loc>
+    <lastmod>2009-01-22T00:05:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/20/today-i-climbed-a-mountain/</loc>
+    <lastmod>2009-01-20T16:29:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/19/lyddle-end-ideas/</loc>
+    <lastmod>2009-01-19T21:03:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/18/links-for-2009-01-17/</loc>
+    <lastmod>2009-01-18T00:03:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/16/if-youve-nothing-to-hide-youve-got-nothing-to-fear/</loc>
+    <lastmod>2009-01-16T08:46:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/15/links-for-2009-01-14/</loc>
+    <lastmod>2009-01-15T00:05:46+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/14/bursting-a-stock-market-bubble/</loc>
+    <lastmod>2009-01-14T10:53:28+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/14/twittering-thames/</loc>
+    <lastmod>2009-01-14T07:10:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/14/links-for-2009-01-13/</loc>
+    <lastmod>2009-01-14T00:07:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/13/twittering-the-pips/</loc>
+    <lastmod>2009-01-13T10:10:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/13/twittering-the-shipping-forecast-2/</loc>
+    <lastmod>2009-01-13T08:41:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/13/links-for-2009-01-12/</loc>
+    <lastmod>2009-01-13T00:05:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/12/links-for-2009-01-11/</loc>
+    <lastmod>2009-01-12T00:03:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/11/irony/</loc>
+    <lastmod>2009-01-11T10:00:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/11/links-for-2009-01-10/</loc>
+    <lastmod>2009-01-11T00:04:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/10/links-for-2009-01-09/</loc>
+    <lastmod>2009-01-10T00:07:30+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/09/links-for-2009-01-08/</loc>
+    <lastmod>2009-01-09T00:06:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/08/iplaying-offline/</loc>
+    <lastmod>2009-01-08T08:16:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/08/links-for-2009-01-07/</loc>
+    <lastmod>2009-01-08T00:04:30+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/06/links-for-2009-01-05/</loc>
+    <lastmod>2009-01-06T00:05:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/05/links-for-2009-01-04/</loc>
+    <lastmod>2009-01-05T00:04:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/03/links-for-2009-01-02/</loc>
+    <lastmod>2009-01-03T00:03:28+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/02/new-year-new-look/</loc>
+    <lastmod>2009-01-02T22:32:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/02/links-for-2009-01-01/</loc>
+    <lastmod>2009-01-02T00:03:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2009/01/01/links-for-2008-12-31/</loc>
+    <lastmod>2009-01-01T00:02:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/12/31/links-for-2008-12-30/</loc>
+    <lastmod>2008-12-31T00:03:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/12/29/links-for-2008-12-28/</loc>
+    <lastmod>2008-12-29T00:01:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/12/28/nailed/</loc>
+    <lastmod>2008-12-28T07:06:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/12/27/links-for-2008-12-26/</loc>
+    <lastmod>2008-12-27T00:03:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/12/25/links-for-2008-12-24/</loc>
+    <lastmod>2008-12-25T00:04:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/12/24/christmas-reading/</loc>
+    <lastmod>2008-12-24T16:39:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/12/24/links-for-2008-12-23/</loc>
+    <lastmod>2008-12-24T00:06:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/12/22/links-for-2008-12-21/</loc>
+    <lastmod>2008-12-22T00:01:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/12/20/links-for-2008-12-19/</loc>
+    <lastmod>2008-12-20T00:04:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/12/19/links-for-2008-12-18/</loc>
+    <lastmod>2008-12-19T00:04:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/12/17/links-for-2008-12-16/</loc>
+    <lastmod>2008-12-17T00:03:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/12/15/links-for-2008-12-14/</loc>
+    <lastmod>2008-12-15T00:03:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/12/10/links-for-2008-12-09/</loc>
+    <lastmod>2008-12-10T00:05:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/12/07/links-for-2008-12-06/</loc>
+    <lastmod>2008-12-07T00:04:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/12/06/links-for-2008-12-05/</loc>
+    <lastmod>2008-12-06T00:03:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/12/03/links-for-2008-12-02/</loc>
+    <lastmod>2008-12-03T00:04:34+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/12/01/links-for-2008-11-30/</loc>
+    <lastmod>2008-12-01T00:04:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/11/28/links-for-2008-11-27/</loc>
+    <lastmod>2008-11-28T00:02:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/11/19/links-for-2008-11-18/</loc>
+    <lastmod>2008-11-19T00:04:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/11/18/crackberries-in-the-oval-office/</loc>
+    <lastmod>2008-11-18T10:30:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/11/18/links-for-2008-11-17/</loc>
+    <lastmod>2008-11-18T00:14:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/10/27/organising-in-3d/</loc>
+    <lastmod>2008-10-27T09:06:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/10/25/market-tweets/</loc>
+    <lastmod>2008-10-25T08:45:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/10/25/more-than-just-a-website/</loc>
+    <lastmod>2008-10-25T05:41:14+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/10/23/cheap-and-cheerful/</loc>
+    <lastmod>2008-10-23T11:05:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/10/23/left-hand-right-hand/</loc>
+    <lastmod>2008-10-23T07:32:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/10/22/more-accessible/</loc>
+    <lastmod>2008-10-22T12:33:30+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/10/21/pointy-haired-or-fluffy/</loc>
+    <lastmod>2008-10-21T07:43:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/10/08/data-and-government-20/</loc>
+    <lastmod>2008-10-08T19:16:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/10/07/recession-isnt-sharpening-this-act-up/</loc>
+    <lastmod>2008-10-07T15:24:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/10/07/its-less-grim-up-north/</loc>
+    <lastmod>2008-10-07T07:30:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/10/05/why-do-people-contribute-to-social-media/</loc>
+    <lastmod>2008-10-05T19:22:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/10/04/if-you-can-see-this-it-works/</loc>
+    <lastmod>2008-10-04T18:58:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/10/04/links-for-2008-10-03/</loc>
+    <lastmod>2008-10-04T00:04:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/10/03/social-leverage-points/</loc>
+    <lastmod>2008-10-03T21:03:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/10/03/links-for-2008-10-02/</loc>
+    <lastmod>2008-10-03T00:04:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/10/02/links-for-2008-10-01/</loc>
+    <lastmod>2008-10-02T00:02:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/09/30/links-for-2008-09-29/</loc>
+    <lastmod>2008-09-30T00:03:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/09/29/links-for-2008-09-28/</loc>
+    <lastmod>2008-09-29T00:02:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/09/26/links-for-2008-09-25/</loc>
+    <lastmod>2008-09-26T00:03:55+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/09/25/quantity-or-quality-measuring-enterprise-20/</loc>
+    <lastmod>2008-09-25T13:25:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/09/25/links-for-2008-09-24/</loc>
+    <lastmod>2008-09-25T00:04:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/09/23/links-for-2008-09-22/</loc>
+    <lastmod>2008-09-23T00:31:28+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/09/22/links-for-2008-09-21/</loc>
+    <lastmod>2008-09-22T01:31:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/09/21/links-for-2008-09-20/</loc>
+    <lastmod>2008-09-21T00:33:02+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/09/20/links-for-2008-09-19/</loc>
+    <lastmod>2008-09-20T01:32:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/09/18/links-for-2008-09-17/</loc>
+    <lastmod>2008-09-18T00:36:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/09/17/links-for-2008-09-16/</loc>
+    <lastmod>2008-09-17T02:32:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/09/16/links-for-2008-09-15/</loc>
+    <lastmod>2008-09-16T00:31:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/09/06/links-for-2008-09-05/</loc>
+    <lastmod>2008-09-06T01:33:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/09/04/links-for-2008-09-03/</loc>
+    <lastmod>2008-09-04T01:33:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/09/03/links-for-2008-09-02/</loc>
+    <lastmod>2008-09-03T02:32:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/09/01/links-for-2008-08-31/</loc>
+    <lastmod>2008-09-01T00:34:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/08/29/links-for-2008-08-28/</loc>
+    <lastmod>2008-08-29T02:02:22+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/08/25/links-for-2008-08-24/</loc>
+    <lastmod>2008-08-25T03:01:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/08/23/links-for-2008-08-22/</loc>
+    <lastmod>2008-08-23T02:32:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/08/22/links-for-2008-08-21/</loc>
+    <lastmod>2008-08-22T03:02:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/07/29/fryphone-20/</loc>
+    <lastmod>2008-07-29T08:02:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/07/24/omfg-were-all-going-to-die/</loc>
+    <lastmod>2008-07-24T07:33:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/07/11/collateral-damage/</loc>
+    <lastmod>2008-07-11T19:13:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/07/09/the-future-of-the-web-and-the-past-of-panel-events/</loc>
+    <lastmod>2008-07-09T15:55:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/06/09/hms-bebo/</loc>
+    <lastmod>2008-06-09T21:23:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/06/04/everything-that-is-wrong-and-broken-with-corporate-it-summed-up-in-a-single-sad-sentence/</loc>
+    <lastmod>2008-06-04T07:51:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/05/28/political-will-is-a-renewable-resource-which-is-why-we-havent-got-any/</loc>
+    <lastmod>2008-05-28T06:25:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/05/13/links-for-2008-05-13/</loc>
+    <lastmod>2008-05-13T00:53:22+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/05/08/links-for-2008-05-08/</loc>
+    <lastmod>2008-05-08T00:45:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/05/01/links-for-2008-05-01/</loc>
+    <lastmod>2008-05-01T00:45:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/04/28/links-for-2008-04-28/</loc>
+    <lastmod>2008-04-28T00:41:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/04/27/links-for-2008-04-27/</loc>
+    <lastmod>2008-04-27T00:43:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/04/24/links-for-2008-04-24/</loc>
+    <lastmod>2008-04-24T00:44:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/04/23/links-for-2008-04-23/</loc>
+    <lastmod>2008-04-23T00:49:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/04/22/links-for-2008-04-22/</loc>
+    <lastmod>2008-04-22T00:52:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/04/21/links-for-2008-04-21/</loc>
+    <lastmod>2008-04-21T00:46:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/04/20/etymotics-er6i-earphones/</loc>
+    <lastmod>2008-04-20T14:03:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/04/20/links-for-2008-04-20/</loc>
+    <lastmod>2008-04-20T00:44:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/04/17/links-for-2008-04-17/</loc>
+    <lastmod>2008-04-17T00:48:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/04/14/links-for-2008-04-14/</loc>
+    <lastmod>2008-04-14T01:02:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/04/13/links-for-2008-04-13/</loc>
+    <lastmod>2008-04-13T00:47:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/04/09/social-contracts/</loc>
+    <lastmod>2008-04-09T07:56:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/04/09/links-for-2008-04-09/</loc>
+    <lastmod>2008-04-09T00:43:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/04/08/links-for-2008-04-08/</loc>
+    <lastmod>2008-04-08T00:51:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/04/07/links-for-2008-04-07/</loc>
+    <lastmod>2008-04-07T00:45:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/04/06/plans-for-satellite-tags-shelved/</loc>
+    <lastmod>2008-04-06T16:33:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/04/06/have-you-got-my-fingers/</loc>
+    <lastmod>2008-04-06T11:33:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/04/06/theyll-be-prising-his-gun-from-his-cold-dead-fingers-then/</loc>
+    <lastmod>2008-04-06T09:33:30+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/04/06/links-for-2008-04-06/</loc>
+    <lastmod>2008-04-06T00:38:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/04/04/apparently-we-are-all-doomed/</loc>
+    <lastmod>2008-04-04T16:00:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/04/04/wont-somebody-please-think-of-the-children/</loc>
+    <lastmod>2008-04-04T09:10:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/04/04/links-for-2008-04-04/</loc>
+    <lastmod>2008-04-04T00:48:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/04/03/mobile-green-screen/</loc>
+    <lastmod>2008-04-03T23:17:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/04/03/downing-street-twitters/</loc>
+    <lastmod>2008-04-03T22:47:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/04/02/links-for-2008-04-02/</loc>
+    <lastmod>2008-04-02T00:53:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/03/31/links-for-2008-03-31/</loc>
+    <lastmod>2008-03-31T00:39:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/03/30/links-for-2008-03-30/</loc>
+    <lastmod>2008-03-30T00:37:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/03/29/twittering-the-shipping-forecast/</loc>
+    <lastmod>2008-03-29T15:55:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/03/26/hughs-law-and-twitter/</loc>
+    <lastmod>2008-03-26T19:52:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/03/24/reciprocateable-ambient-intimacy/</loc>
+    <lastmod>2008-03-24T16:37:46+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/03/24/links-for-2008-03-24/</loc>
+    <lastmod>2008-03-24T00:33:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/03/20/links-for-2008-03-20/</loc>
+    <lastmod>2008-03-20T00:35:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/03/18/links-for-2008-03-18/</loc>
+    <lastmod>2008-03-18T00:32:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/03/16/tragedy-of-the-wifi-commons/</loc>
+    <lastmod>2008-03-16T19:22:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/03/16/porcine-cosmetics-or-something-new/</loc>
+    <lastmod>2008-03-16T11:01:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/03/13/links-for-2008-03-13/</loc>
+    <lastmod>2008-03-13T00:57:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/03/12/twitter-updates-for-2008-03-12/</loc>
+    <lastmod>2008-03-12T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/03/11/twitter-updates-for-2008-03-11/</loc>
+    <lastmod>2008-03-11T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/03/10/twitter-updates-for-2008-03-10/</loc>
+    <lastmod>2008-03-10T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/03/09/links-for-2008-03-09/</loc>
+    <lastmod>2008-03-09T00:34:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/03/08/twitter-updates-for-2008-03-08/</loc>
+    <lastmod>2008-03-08T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/03/08/links-for-2008-03-08/</loc>
+    <lastmod>2008-03-08T00:33:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/03/07/twitter-updates-for-2008-03-07/</loc>
+    <lastmod>2008-03-07T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/03/07/installing-and-fettling-subversion/</loc>
+    <lastmod>2008-03-07T21:47:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/03/07/links-for-2008-03-07/</loc>
+    <lastmod>2008-03-07T00:38:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/03/06/twitter-updates-for-2008-03-06/</loc>
+    <lastmod>2008-03-06T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/03/05/twitter-updates-for-2008-03-05/</loc>
+    <lastmod>2008-03-05T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/03/05/digital-dark-ages/</loc>
+    <lastmod>2008-03-05T00:20:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/03/04/twitter-updates-for-2008-03-04/</loc>
+    <lastmod>2008-03-04T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/03/03/twitter-updates-for-2008-03-03/</loc>
+    <lastmod>2008-03-03T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/03/02/twitter-updates-for-2008-03-02/</loc>
+    <lastmod>2008-03-02T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/03/02/links-for-2008-03-02/</loc>
+    <lastmod>2008-03-02T00:35:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/03/01/twitter-updates-for-2008-03-01/</loc>
+    <lastmod>2008-03-01T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/29/twitter-updates-for-2008-02-29/</loc>
+    <lastmod>2008-02-29T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/29/links-for-2008-02-29/</loc>
+    <lastmod>2008-02-29T00:47:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/28/twitter-updates-for-2008-02-28/</loc>
+    <lastmod>2008-02-28T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/28/faster-deeper-sleepier/</loc>
+    <lastmod>2008-02-28T09:19:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/28/ill-go-and-hand-myself-in-then/</loc>
+    <lastmod>2008-02-28T09:05:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/27/twitter-updates-for-2008-02-27/</loc>
+    <lastmod>2008-02-27T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/26/twitter-updates-for-2008-02-26/</loc>
+    <lastmod>2008-02-26T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/26/links-for-2008-02-26/</loc>
+    <lastmod>2008-02-26T00:42:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/25/twitter-updates-for-2008-02-25/</loc>
+    <lastmod>2008-02-25T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/24/twitter-updates-for-2008-02-24/</loc>
+    <lastmod>2008-02-24T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/24/a-pictures-worth-a-thousand-words/</loc>
+    <lastmod>2008-02-24T13:55:30+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/24/links-for-2008-02-24/</loc>
+    <lastmod>2008-02-24T00:32:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/23/twitter-updates-for-2008-02-23/</loc>
+    <lastmod>2008-02-23T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/22/twitter-updates-for-2008-02-22/</loc>
+    <lastmod>2008-02-22T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/22/links-for-2008-02-22/</loc>
+    <lastmod>2008-02-22T00:36:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/21/twitter-updates-for-2008-02-21/</loc>
+    <lastmod>2008-02-21T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/21/links-for-2008-02-21/</loc>
+    <lastmod>2008-02-21T00:43:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/20/twitter-updates-for-2008-02-20/</loc>
+    <lastmod>2008-02-20T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/20/headshift-are-hiring/</loc>
+    <lastmod>2008-02-20T23:08:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/20/twitter-figleafs/</loc>
+    <lastmod>2008-02-20T10:16:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/20/links-for-2008-02-20/</loc>
+    <lastmod>2008-02-20T00:40:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/19/twitter-updates-for-2008-02-19/</loc>
+    <lastmod>2008-02-19T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/19/links-for-2008-02-19/</loc>
+    <lastmod>2008-02-19T00:35:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/18/twitter-updates-for-2008-02-18/</loc>
+    <lastmod>2008-02-18T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/17/twitter-updates-for-2008-02-17/</loc>
+    <lastmod>2008-02-17T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/17/more-thoughts-on-the-iphone-etc/</loc>
+    <lastmod>2008-02-17T19:17:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/17/after-two-days-with-an-iphone/</loc>
+    <lastmod>2008-02-17T17:33:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/16/twitter-updates-for-2008-02-16/</loc>
+    <lastmod>2008-02-16T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/16/links-for-2008-02-16/</loc>
+    <lastmod>2008-02-16T00:40:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/15/twitter-updates-for-2008-02-15/</loc>
+    <lastmod>2008-02-15T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/15/information-hubs-in-a-post-email-world/</loc>
+    <lastmod>2008-02-15T10:20:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/15/links-for-2008-02-15/</loc>
+    <lastmod>2008-02-15T00:40:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/14/twitter-updates-for-2008-02-14/</loc>
+    <lastmod>2008-02-14T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/14/interviewette-at-lift/</loc>
+    <lastmod>2008-02-14T19:12:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/14/links-for-2008-02-14/</loc>
+    <lastmod>2008-02-14T00:39:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/13/twitter-updates-for-2008-02-13/</loc>
+    <lastmod>2008-02-13T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/13/links-for-2008-02-13/</loc>
+    <lastmod>2008-02-13T00:46:34+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/12/twitter-updates-for-2008-02-12/</loc>
+    <lastmod>2008-02-12T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/11/twitter-updates-for-2008-02-11/</loc>
+    <lastmod>2008-02-11T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/10/twitter-updates-for-2008-02-10/</loc>
+    <lastmod>2008-02-10T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/10/links-for-2008-02-10/</loc>
+    <lastmod>2008-02-10T00:32:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/09/twitter-updates-for-2008-02-09/</loc>
+    <lastmod>2008-02-09T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/09/lift-08/</loc>
+    <lastmod>2008-02-09T18:05:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/08/twitter-updates-for-2008-02-08/</loc>
+    <lastmod>2008-02-08T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/07/twitter-updates-for-2008-02-07/</loc>
+    <lastmod>2008-02-07T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/06/twitter-updates-for-2008-02-06/</loc>
+    <lastmod>2008-02-06T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/05/twitter-updates-for-2008-02-05/</loc>
+    <lastmod>2008-02-05T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/05/links-for-2008-02-05/</loc>
+    <lastmod>2008-02-05T00:44:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/04/twitter-updates-for-2008-02-04/</loc>
+    <lastmod>2008-02-04T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/04/off-to-geneva/</loc>
+    <lastmod>2008-02-04T21:38:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/04/links-for-2008-02-04/</loc>
+    <lastmod>2008-02-04T00:43:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/03/twitter-updates-for-2008-02-03/</loc>
+    <lastmod>2008-02-03T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/03/links-for-2008-02-03/</loc>
+    <lastmod>2008-02-03T00:32:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/02/twitter-updates-for-2008-02-02/</loc>
+    <lastmod>2008-02-02T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/02/1079/</loc>
+    <lastmod>2008-02-02T23:35:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/02/01/twitter-updates-for-2008-02-01/</loc>
+    <lastmod>2008-02-01T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/01/30/twitter-updates-for-2008-01-30/</loc>
+    <lastmod>2008-01-30T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/01/29/twitter-updates-for-2008-01-29/</loc>
+    <lastmod>2008-01-29T23:59:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/01/29/tickling-with-igtd/</loc>
+    <lastmod>2008-01-29T22:12:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/01/25/links-for-2008-01-25/</loc>
+    <lastmod>2008-01-25T00:37:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/01/24/links-for-2008-01-24/</loc>
+    <lastmod>2008-01-24T00:52:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/01/21/links-for-2008-01-21/</loc>
+    <lastmod>2008-01-21T00:32:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/01/20/links-for-2008-01-20/</loc>
+    <lastmod>2008-01-20T00:35:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/01/19/lift08-trailer/</loc>
+    <lastmod>2008-01-19T12:21:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/01/15/i-aint-dead/</loc>
+    <lastmod>2008-01-15T23:32:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/01/14/links-for-2008-01-14/</loc>
+    <lastmod>2008-01-14T00:37:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2008/01/13/links-for-2008-01-13/</loc>
+    <lastmod>2008-01-13T00:40:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/12/18/we-could-use-some-of-this/</loc>
+    <lastmod>2007-12-18T21:31:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/12/16/unexpected-positive-consequences/</loc>
+    <lastmod>2007-12-16T12:33:28+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/11/28/green-thing-is-website-of-the-day/</loc>
+    <lastmod>2007-11-28T17:33:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/11/28/getting-passworded-rss-feeds-in-mailapp-working/</loc>
+    <lastmod>2007-11-28T10:06:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/11/24/more-cat-changes/</loc>
+    <lastmod>2007-11-24T16:20:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/11/23/were-all-going-to-hell-in-a-handbasket-and-its-all-the-fault-of-insert-minority-here/</loc>
+    <lastmod>2007-11-23T12:32:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/11/21/dear-god-can-they-be-more-stupid/</loc>
+    <lastmod>2007-11-21T21:49:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/11/20/and-you-seriously-expect-us-to-trust-you-with-id-cards/</loc>
+    <lastmod>2007-11-20T19:56:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/11/15/coffee-wifi-and-os-choice/</loc>
+    <lastmod>2007-11-15T08:55:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/11/14/inside-out-it/</loc>
+    <lastmod>2007-11-14T23:05:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/10/28/ming-the-clam-is-oldest-animal/</loc>
+    <lastmod>2007-10-28T20:47:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/10/28/whats-thrashing-my-macbook-disk/</loc>
+    <lastmod>2007-10-28T20:36:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/10/08/oops-the-revenue-has-lost-your-data/</loc>
+    <lastmod>2007-10-08T12:28:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/10/04/tweaking-mamp-pro-settings/</loc>
+    <lastmod>2007-10-04T17:41:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/09/15/september-15th/</loc>
+    <lastmod>2007-09-15T11:01:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/09/15/schadenfreude/</loc>
+    <lastmod>2007-09-15T10:50:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/09/14/404-your-marketing-cannot-be-found/</loc>
+    <lastmod>2007-09-14T08:20:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/09/05/the-cult-of-the-amateur-troll/</loc>
+    <lastmod>2007-09-05T21:43:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/09/04/oh-woe-well-have-to-walk/</loc>
+    <lastmod>2007-09-04T08:00:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/08/24/a-minor-wtf-moment/</loc>
+    <lastmod>2007-08-24T08:42:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/08/23/a-taxonomy-of-facebook-scepticism/</loc>
+    <lastmod>2007-08-23T07:22:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/08/16/blocking-out-your-surroundings/</loc>
+    <lastmod>2007-08-16T09:20:55+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/08/15/changes/</loc>
+    <lastmod>2007-08-15T15:03:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/08/14/facebook-opening-up-slightly/</loc>
+    <lastmod>2007-08-14T22:03:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/08/12/setting-default-routes-with-a-vpn-and-os-x/</loc>
+    <lastmod>2007-08-12T11:54:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/07/14/greenwash/</loc>
+    <lastmod>2007-07-14T11:18:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/07/09/id-love-to-try-silverlight-but/</loc>
+    <lastmod>2007-07-09T10:42:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/07/05/if-richard-rogers-made-toys/</loc>
+    <lastmod>2007-07-05T06:18:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/07/04/testing-mobiblogr/</loc>
+    <lastmod>2007-07-04T07:40:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/06/25/mindmapping-wikis/</loc>
+    <lastmod>2007-06-25T07:55:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/06/22/21st-century-sdk/</loc>
+    <lastmod>2007-06-22T10:16:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/06/20/common-pitfalls-of-building-social-web-applications-and-how-to-avoid-them/</loc>
+    <lastmod>2007-06-20T15:24:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/06/17/twittering-behind-the-firewall/</loc>
+    <lastmod>2007-06-17T16:15:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/06/15/management-control/</loc>
+    <lastmod>2007-06-15T09:03:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/06/15/one-step-at-a-time/</loc>
+    <lastmod>2007-06-15T08:49:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/06/15/nabaztag-bedtime/</loc>
+    <lastmod>2007-06-15T00:05:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/06/14/atlassian-8-ways-to-use-a-wiki/</loc>
+    <lastmod>2007-06-14T11:57:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/06/13/previewing-ie-mangling/</loc>
+    <lastmod>2007-06-13T11:36:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/06/13/welcome-to-the-mainstream/</loc>
+    <lastmod>2007-06-13T10:48:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/06/05/openoffice-goes-aqua-alpha/</loc>
+    <lastmod>2007-06-05T14:08:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/06/05/innovation-free-zones/</loc>
+    <lastmod>2007-06-05T13:53:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/06/04/should-i-feel-insulted/</loc>
+    <lastmod>2007-06-04T09:13:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/06/04/ambient-oops/</loc>
+    <lastmod>2007-06-04T08:55:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/06/03/ambient-intimacy-or-ambient-openness/</loc>
+    <lastmod>2007-06-03T19:37:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/06/03/reboot/</loc>
+    <lastmod>2007-06-03T19:23:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/05/30/bloody-skype/</loc>
+    <lastmod>2007-05-30T04:50:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/05/28/killer-wifi-routers-eating-babies/</loc>
+    <lastmod>2007-05-28T08:49:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/05/26/pretty-but-terrifying/</loc>
+    <lastmod>2007-05-26T01:42:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/05/22/the-human-cost-of-guerilla-marketing/</loc>
+    <lastmod>2007-05-22T11:23:46+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/05/21/ministers-20/</loc>
+    <lastmod>2007-05-21T19:26:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/05/18/an-alternative-to-lorem-ipsum/</loc>
+    <lastmod>2007-05-18T09:32:14+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/05/17/a-cracking-explanation-of-enterprise-20/</loc>
+    <lastmod>2007-05-17T16:10:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/05/17/the-be-very-afraid-tour/</loc>
+    <lastmod>2007-05-17T13:14:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/05/03/09_f9_11_02_9d_74_e3_5b_d8_41_56_c5_63_56_88_c0/</loc>
+    <lastmod>2007-05-03T09:25:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/04/24/rss_in_plain_english_/</loc>
+    <lastmod>2007-04-24T11:31:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/04/24/making_wikis_work_at_novell/</loc>
+    <lastmod>2007-04-24T11:16:34+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/04/23/make_396_friends_in_your_lifebut_lose_363_of_them/</loc>
+    <lastmod>2007-04-23T16:30:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/04/23/one_for_the_bookmarks_bar/</loc>
+    <lastmod>2007-04-23T15:31:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/04/20/theory_x_theory_y/</loc>
+    <lastmod>2007-04-20T11:45:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/04/13/we_were_too_damned_lazy/</loc>
+    <lastmod>2007-04-13T20:57:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/04/10/cbi_says_were_all_malingering_skivers/</loc>
+    <lastmod>2007-04-10T15:40:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/04/10/oh_ffs/</loc>
+    <lastmod>2007-04-10T15:30:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/04/05/connecting_rails_to_a_sql_server/</loc>
+    <lastmod>2007-04-05T14:23:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/04/05/five_steps_to_get_yourself_in_a_mood_to_work/</loc>
+    <lastmod>2007-04-05T12:18:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/03/23/going_to_reboot/</loc>
+    <lastmod>2007-03-23T11:04:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/03/23/make_the_start_button_redundant/</loc>
+    <lastmod>2007-03-23T11:03:30+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/03/21/open_source_politics_or_the_usual_approach/</loc>
+    <lastmod>2007-03-21T14:31:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/03/20/consolidating_before_the_corporate_markets_cracked/</loc>
+    <lastmod>2007-03-20T17:15:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/03/14/12_ways_to_pimp_your_office/</loc>
+    <lastmod>2007-03-14T17:04:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/03/14/mobiles_on_the_ward/</loc>
+    <lastmod>2007-03-14T14:14:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/2007/03/07/locking_in/</loc>
+    <lastmod>2007-03-07T20:23:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/#bcstransform/</loc>
+    <lastmod>2010-06-10T15:14:15+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/#bsitnorth/</loc>
+    <lastmod>2010-07-28T16:49:42+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/#debill/</loc>
+    <lastmod>2010-04-08T12:36:36+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/1/</loc>
+    <lastmod>2010-02-05T19:05:01+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/adhoc/</loc>
+    <lastmod>2010-03-13T10:49:49+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/api/</loc>
+    <lastmod>2010-07-15T17:12:21+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/app/</loc>
+    <lastmod>2010-03-28T10:45:14+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/apple/</loc>
+    <lastmod>2011-08-06T19:46:41+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/applications/</loc>
+    <lastmod>2009-06-03T21:00:41+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/apps/</loc>
+    <lastmod>2010-03-04T12:42:58+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/arduino/</loc>
+    <lastmod>2009-05-24T18:22:14+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/autotest/</loc>
+    <lastmod>2011-01-14T16:06:08+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/bbc/</loc>
+    <lastmod>2009-01-08T08:16:04+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/bcs/</loc>
+    <lastmod>2010-06-10T15:14:15+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/bdd/</loc>
+    <lastmod>2013-02-09T13:20:04+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/bigsociety/</loc>
+    <lastmod>2010-07-28T16:49:42+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/blog/</loc>
+    <lastmod>2009-01-02T22:32:42+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/calayer/</loc>
+    <lastmod>2012-07-07T20:11:57+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/categories/change/</loc>
+    <lastmod>2012-02-23T14:44:34+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/cluetrain/</loc>
+    <lastmod>2009-05-14T11:38:39+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/cms/</loc>
+    <lastmod>2011-05-18T10:04:40+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/code/</loc>
+    <lastmod>2012-04-06T07:33:16+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/configuration/</loc>
+    <lastmod>2010-11-07T20:05:05+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/content/</loc>
+    <lastmod>2009-01-08T08:16:04+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/delicious/</loc>
+    <lastmod>2011-09-08T05:48:07+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/design/</loc>
+    <lastmod>2011-05-03T17:02:59+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/development/</loc>
+    <lastmod>2011-07-07T12:59:11+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/dog/</loc>
+    <lastmod>2010-06-08T08:37:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/dotgov/</loc>
+    <lastmod>2010-11-22T22:14:48+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/electronics/</loc>
+    <lastmod>2009-05-24T18:22:14+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/enterprise/</loc>
+    <lastmod>2009-06-03T21:00:41+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/ethernet/</loc>
+    <lastmod>2010-11-07T20:05:05+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/facebook/</loc>
+    <lastmod>2010-12-16T15:54:22+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/facepalm/</loc>
+    <lastmod>2010-11-21T19:08:11+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/fell/</loc>
+    <lastmod>2009-01-20T16:29:27+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/geek/</loc>
+    <lastmod>2009-01-25T20:27:19+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/git/</loc>
+    <lastmod>2011-05-24T21:40:54+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/government/</loc>
+    <lastmod>2009-07-07T08:00:12+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/graph/</loc>
+    <lastmod>2010-07-15T17:12:21+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/hack/</loc>
+    <lastmod>2009-03-12T18:56:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/hacking/</loc>
+    <lastmod>2010-03-28T10:45:14+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/hacks/</loc>
+    <lastmod>2009-05-24T18:22:14+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/heritage/</loc>
+    <lastmod>2010-03-28T10:45:14+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/howto/</loc>
+    <lastmod>2011-05-24T21:40:54+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/hsbc/</loc>
+    <lastmod>2011-04-26T14:07:07+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/ideas/</loc>
+    <lastmod>2010-06-08T08:37:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/interesting/</loc>
+    <lastmod>2010-04-30T20:58:54+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/interestingnorth/</loc>
+    <lastmod>2010-04-30T20:58:54+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/ios/</loc>
+    <lastmod>2013-02-15T16:26:07+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/ios5/</loc>
+    <lastmod>2012-04-06T07:33:16+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/ipad/</loc>
+    <lastmod>2010-04-30T20:19:42+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/iphone/</loc>
+    <lastmod>2011-06-13T19:59:38+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/iplayer/</loc>
+    <lastmod>2009-01-08T08:16:04+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/javascript/</loc>
+    <lastmod>2012-09-28T09:00:27+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/kiwi/</loc>
+    <lastmod>2012-09-10T13:29:58+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/lake-district/</loc>
+    <lastmod>2009-01-20T16:29:27+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/lakedistrict/</loc>
+    <lastmod>2009-01-23T16:25:44+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/langdale/</loc>
+    <lastmod>2009-01-23T16:25:44+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/links/</loc>
+    <lastmod>2011-09-08T05:48:07+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/categories/links/</loc>
+    <lastmod>2012-03-22T09:48:48+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/linux/</loc>
+    <lastmod>2011-05-11T18:36:03+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/luddites/</loc>
+    <lastmod>2010-11-21T19:11:13+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/lyddleend2050/</loc>
+    <lastmod>2009-01-19T21:03:54+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/macbook/</loc>
+    <lastmod>2011-08-06T19:46:41+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/mamp/</loc>
+    <lastmod>2010-03-27T15:22:01+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/mashup/</loc>
+    <lastmod>2009-04-02T16:12:10+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/me/</loc>
+    <lastmod>2009-08-03T17:21:37+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/meme/</loc>
+    <lastmod>2010-02-23T09:39:59+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/mobile/</loc>
+    <lastmod>2010-03-04T12:42:58+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/mountain/</loc>
+    <lastmod>2009-01-20T16:29:27+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/movabletype/</loc>
+    <lastmod>2009-09-22T12:10:25+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/mt/</loc>
+    <lastmod>2009-09-22T12:10:25+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/muppet/</loc>
+    <lastmod>2010-11-21T19:08:11+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/mysql/</loc>
+    <lastmod>2010-04-07T11:57:03+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/nationalexpress/</loc>
+    <lastmod>2009-05-14T11:38:39+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/nxec/</loc>
+    <lastmod>2009-05-14T11:38:39+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/objective-c/</loc>
+    <lastmod>2011-09-25T11:56:35+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/objectivec/</loc>
+    <lastmod>2013-02-15T16:26:07+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/openoffice/</loc>
+    <lastmod>2010-03-27T15:22:01+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/opensource/</loc>
+    <lastmod>2009-01-28T08:56:17+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/panda/</loc>
+    <lastmod>2009-05-24T18:22:14+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/paperclip/</loc>
+    <lastmod>2010-11-05T14:42:44+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/paranoia/</loc>
+    <lastmod>2010-02-23T09:39:59+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/php/</loc>
+    <lastmod>2010-07-27T13:35:27+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/pinboard/</loc>
+    <lastmod>2011-09-08T05:48:07+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/pips/</loc>
+    <lastmod>2009-01-13T10:10:04+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/categories/play/</loc>
+    <lastmod>2012-09-04T13:20:35+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/pleaserobme/</loc>
+    <lastmod>2010-02-23T09:39:59+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/politics/</loc>
+    <lastmod>2010-03-15T18:44:10+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/post/</loc>
+    <lastmod>2017-05-04T18:40:50+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/privacy/</loc>
+    <lastmod>2012-02-23T14:44:34+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/procurement/</loc>
+    <lastmod>2009-02-05T09:01:04+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/programming/</loc>
+    <lastmod>2009-06-03T21:00:41+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/projects/</loc>
+    <lastmod>2009-03-12T18:56:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/public-sector/</loc>
+    <lastmod>2009-02-05T09:01:04+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/rail/</loc>
+    <lastmod>2009-05-14T11:38:39+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/rails/</loc>
+    <lastmod>2011-05-18T10:04:40+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/reboot/</loc>
+    <lastmod>2009-07-07T08:00:12+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/refinerycms/</loc>
+    <lastmod>2011-05-18T10:04:40+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/rewiredstate/</loc>
+    <lastmod>2010-11-22T22:14:48+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/riverthames/</loc>
+    <lastmod>2009-01-14T07:10:16+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/rspec/</loc>
+    <lastmod>2011-01-14T16:06:08+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/ruby/</loc>
+    <lastmod>2011-01-14T16:06:08+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/rubyonrails/</loc>
+    <lastmod>2010-12-03T19:40:14+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/sftp/</loc>
+    <lastmod>2011-05-11T18:36:03+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/socialmedia/</loc>
+    <lastmod>2009-01-28T14:57:57+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/sonar/</loc>
+    <lastmod>2010-06-08T08:37:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/spree/</loc>
+    <lastmod>2011-05-11T18:27:57+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/ta/</loc>
+    <lastmod>2009-05-14T11:38:39+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/tableview/</loc>
+    <lastmod>2012-04-01T17:15:09+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/tableviews/</loc>
+    <lastmod>2012-02-16T10:06:35+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/</loc>
+    <lastmod>2010-06-10T15:14:15+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/tar/</loc>
+    <lastmod>2009-05-14T11:38:39+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/tdd/</loc>
+    <lastmod>2013-02-09T13:20:04+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/categories/technical/</loc>
+    <lastmod>2015-10-02T21:28:25+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/teenagers/</loc>
+    <lastmod>2009-07-13T14:58:54+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/testing/</loc>
+    <lastmod>2013-02-09T13:20:04+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/thinking/</loc>
+    <lastmod>2009-01-25T20:27:19+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/tories/</loc>
+    <lastmod>2009-01-28T08:56:17+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/trains/</loc>
+    <lastmod>2009-05-14T11:38:39+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/travel/</loc>
+    <lastmod>2009-05-14T11:38:39+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/trends/</loc>
+    <lastmod>2009-07-13T14:58:54+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/twitter/</loc>
+    <lastmod>2009-07-13T14:58:54+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/ubuntu/</loc>
+    <lastmod>2010-11-07T20:05:05+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/ui/</loc>
+    <lastmod>2011-04-07T09:07:30+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/uitableview/</loc>
+    <lastmod>2012-04-01T17:15:09+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/uiview/</loc>
+    <lastmod>2012-07-07T20:11:57+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/uiwebview/</loc>
+    <lastmod>2012-09-28T09:00:27+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/ux/</loc>
+    <lastmod>2011-04-07T09:07:30+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/visualisation/</loc>
+    <lastmod>2009-01-27T21:39:34+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/vmware/</loc>
+    <lastmod>2010-11-07T20:05:05+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/vodafone/</loc>
+    <lastmod>2010-03-04T12:42:58+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/vodafone360/</loc>
+    <lastmod>2010-03-04T12:42:58+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/vome/</loc>
+    <lastmod>2012-02-23T14:44:34+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/week1/</loc>
+    <lastmod>2010-01-16T20:04:13+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/week2/</loc>
+    <lastmod>2010-01-22T16:54:29+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/weeknotes/</loc>
+    <lastmod>2010-03-13T18:39:53+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/categories/weeknotes/</loc>
+    <lastmod>2010-03-13T18:39:53+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/wewatch/</loc>
+    <lastmod>2011-05-03T17:02:59+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/categories/work/</loc>
+    <lastmod>2011-08-31T09:15:44+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/tags/xcode/</loc>
+    <lastmod>2013-02-01T09:54:44+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/</loc>
+    <lastmod>2017-05-04T18:40:50+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

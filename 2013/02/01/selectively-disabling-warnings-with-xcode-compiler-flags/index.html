@@ -1,0 +1,278 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Selectively-disabling warnings with Xcode compiler flags &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Selectively-disabling warnings with Xcode compiler flags" />
+<meta property="og:description" content="Another update to iOS (this time to 6.1) means another update to Xcode (this time to 4.6). No doubt some bugs will be squashed while other new ones are introduced - but the most immediate change that I&rsquo;ve noticed is that another new crop of warnings are being generated.
+I have the &ldquo;treat warnings as errors&rdquo; flag set by default on the basis that I&rsquo;d rather know about a potential problem before it becomes an actual one." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2013/02/01/selectively-disabling-warnings-with-xcode-compiler-flags/" />
+
+
+
+<meta property="article:published_time" content="2013-02-01T09:54:44&#43;00:00"/>
+<meta property="article:modified_time" content="2013-02-01T09:54:44&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Selectively-disabling warnings with Xcode compiler flags">
+<meta itemprop="description" content="Another update to iOS (this time to 6.1) means another update to Xcode (this time to 4.6). No doubt some bugs will be squashed while other new ones are introduced - but the most immediate change that I&rsquo;ve noticed is that another new crop of warnings are being generated.
+I have the &ldquo;treat warnings as errors&rdquo; flag set by default on the basis that I&rsquo;d rather know about a potential problem before it becomes an actual one.">
+
+
+<meta itemprop="dateModified" content="2013-02-01T09:54:44&#43;00:00" />
+<meta itemprop="wordCount" content="501">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Selectively-disabling warnings with Xcode compiler flags"/>
+<meta name="twitter:title" content="Selectively-disabling warnings with Xcode compiler flags"/>
+<meta name="twitter:description" content="Another update to iOS (this time to 6.1) means another update to Xcode (this time to 4.6). No doubt some bugs will be squashed while other new ones are introduced - but the most immediate change that I&rsquo;ve noticed is that another new crop of warnings are being generated.
+I have the &ldquo;treat warnings as errors&rdquo; flag set by default on the basis that I&rsquo;d rather know about a potential problem before it becomes an actual one."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Selectively-disabling warnings with Xcode compiler flags</h1>
+                    <h2 class="headline">
+                    1 February 2013 
+                    <br>
+                    
+                    
+                        
+                            <a href="https://adoptioncurve.net/tags/ios">iOS</a>
+                        
+                            <a href="https://adoptioncurve.net/tags/objectivec">objectivec</a>
+                        
+                            <a href="https://adoptioncurve.net/tags/xcode">xcode</a>
+                        
+                    
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>Another update to iOS (this time to 6.1) means another update to Xcode (this time to 4.6).  No doubt some bugs will be squashed while other new ones are introduced - but the most immediate change that I&rsquo;ve noticed is that another new crop of warnings are being generated.</p>
+
+<p>I have the &ldquo;treat warnings as errors&rdquo; flag set by default on the basis that I&rsquo;d rather know about a potential problem before it becomes an actual one.  That&rsquo;s fine for my code, but using 3rd-party libraries means that I&rsquo;m mixing in code that may not necessarily have used that approach.</p>
+
+<p>Since starting to use Xcode 4.6, there&rsquo;s a whole set of new warnings that have popped up in the project I&rsquo;m currently working on - and that grates on my probably-overly-anally-retentive habits.</p>
+
+<p>There are several options for clearing errors in 3rd-party libraries:</p>
+
+<ul>
+<li><p><strong>Fixing the errors</strong>.  This will obviously get rid of the warnings, but comes with a problem.  I&rsquo;ve now effectively forked the code, which means I&rsquo;ll have uncommitted changes sitting around in Git.  That&rsquo;s even more fingernails-down-blackboard to me than compiler warnings, so this isn&rsquo;t an option.</p></li>
+
+<li><p><strong>Fork the 3rd-party library and fix the errors</strong>.  That&rsquo;s probably the right thing to do from an open-source perspective, especially if I then create a pull request to the library&rsquo;s author.  But it also means I&rsquo;ll need to remember to switch the library back as and when the warnings get removed in the main project; and as a casual user of the library rather than a core contributor, I&rsquo;m probably not best-placed to do this anyway.</p></li>
+
+<li><p><strong>Turn off &ldquo;treat warnings as errors&rdquo; altogether</strong>.  Not an option, as this would hide future warnings of my own creation.</p></li>
+
+<li><p><strong>Selectively disable the warnings</strong>.  This is usually my preferred option.  If the code used to work, still compiles and doesn&rsquo;t fall over, then I&rsquo;m reasonably happy that the root cause lies with Xcode&rsquo;s opinions rather something fundamentally nasty.  I&rsquo;m not alone in working with the errors as warnings setting, so it will proably only be a matter of time before the library is updated.  So overall, this feels like a reasonable compromise.</p></li>
+</ul>
+
+<p>Selectively-disabling the warnings is similar to disabling ARC on a per-file basis.  In the target&rsquo;s Build Settings tab, you can double-click the problem file and add <code>-w -Xanalyzer -analyzer-disable-checker</code> as a compiler flag.</p>
+
+<p><img src="/images/2013/02/Screen-Shot-2013-02-01-at-09.52.57.png" alt="" /></p>
+
+<p>This will prevent the analyzer checking the file at all, which won&rsquo;t trigger the warnings.   As it&rsquo;s handled as a compile-time issue, the change is applied at the Xcode level and won&rsquo;t affect the Git status of the library files themselves.</p>
+
+<p>The downside to this approach is that the file will be ignored.  However, if you&rsquo;re applying this to 3rd-party code that you&rsquo;re not going to touch, this is probably not going to cause any issues in the short-term.  Updating 3rd-party code is best done by forking the library onto your own repo anyway, in which case you <em>should</em> have &lsquo;treat warnings as errors&rsquo; turned on as it&rsquo;s now your own code.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2013%2f02%2f01%2fselectively-disabling-warnings-with-xcode-compiler-flags%2f - Selectively-disabling%20warnings%20with%20Xcode%20compiler%20flags by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

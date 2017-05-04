@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Opensource on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/opensource/</link>
+    <description>Recent content in Opensource on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Wed, 28 Jan 2009 08:56:17 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/opensource/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The (white) elephant in the room</title>
+      <link>https://adoptioncurve.net/2009/01/28/the-white-elephant-in-the-room/</link>
+      <pubDate>Wed, 28 Jan 2009 08:56:17 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/01/28/the-white-elephant-in-the-room/</guid>
+      <description>[![Elephant]Politicians and IT usually go together like fish and bicycles. The story of public-sector IT in the UK is generally one of grandiose over-budget failures at the top end of the scale, and low-level outsourced inadequacies at the other. The same is also true in the private sector, of course, but the public sector situation gets a higher profile by the fact that it&amp;rsquo;s &amp;ldquo;our&amp;rdquo; money that&amp;rsquo;s being wasted and it&amp;rsquo;s more difficult to sweep the disasters under the carpet.</description>
+    </item>
+    
+  </channel>
+</rss>

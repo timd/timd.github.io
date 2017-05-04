@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Graph on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/graph/</link>
+    <description>Recent content in Graph on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Thu, 15 Jul 2010 17:12:21 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/graph/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Grabbing data from the Facebook API</title>
+      <link>https://adoptioncurve.net/2010/07/15/grabbing-data-from-the-facebook-api/</link>
+      <pubDate>Thu, 15 Jul 2010 17:12:21 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/07/15/grabbing-data-from-the-facebook-api/</guid>
+      <description>One of the projects I&amp;rsquo;m currently working on needs has a large chunk of Facebook integration. It&amp;rsquo;s thrown up a couple of problems around groups and group permissions:
+ the need to figure out which groups a user belongs to
+ which of those groups the user has &amp;ldquo;write&amp;rdquo; permissions for.
+  The Facebook API is a bit of a moving target with all the various updates and changes going on, and documentation is a bit sparse.</description>
+    </item>
+    
+  </channel>
+</rss>

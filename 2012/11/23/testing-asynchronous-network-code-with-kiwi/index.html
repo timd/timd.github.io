@@ -1,0 +1,365 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Testing asynchronous network code with Kiwi &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Testing asynchronous network code with Kiwi" />
+<meta property="og:description" content="I&rsquo;m working on an iOS app that pulls data down from the TheyWorkForYou API, and because it&rsquo;s the Right Thing To Do, I&rsquo;m attempting to build it test-first. That&rsquo;s not as straight-forward as it perhaps should be with Objective-C, and nor is it made any easier by the asynchronous nature of a lot of the iOS SDK. So this post is by way of an outboard brain explanation for a) me, when I&rsquo;ve forgotten what I did in a couple of weeks and b) anyone else who stumbles across this through the magic of Google." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2012/11/23/testing-asynchronous-network-code-with-kiwi/" />
+
+
+
+<meta property="article:published_time" content="2012-11-23T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2012-11-23T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Testing asynchronous network code with Kiwi">
+<meta itemprop="description" content="I&rsquo;m working on an iOS app that pulls data down from the TheyWorkForYou API, and because it&rsquo;s the Right Thing To Do, I&rsquo;m attempting to build it test-first. That&rsquo;s not as straight-forward as it perhaps should be with Objective-C, and nor is it made any easier by the asynchronous nature of a lot of the iOS SDK. So this post is by way of an outboard brain explanation for a) me, when I&rsquo;ve forgotten what I did in a couple of weeks and b) anyone else who stumbles across this through the magic of Google.">
+
+
+<meta itemprop="dateModified" content="2012-11-23T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="839">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Testing asynchronous network code with Kiwi"/>
+<meta name="twitter:title" content="Testing asynchronous network code with Kiwi"/>
+<meta name="twitter:description" content="I&rsquo;m working on an iOS app that pulls data down from the TheyWorkForYou API, and because it&rsquo;s the Right Thing To Do, I&rsquo;m attempting to build it test-first. That&rsquo;s not as straight-forward as it perhaps should be with Objective-C, and nor is it made any easier by the asynchronous nature of a lot of the iOS SDK. So this post is by way of an outboard brain explanation for a) me, when I&rsquo;ve forgotten what I did in a couple of weeks and b) anyone else who stumbles across this through the magic of Google."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Testing asynchronous network code with Kiwi</h1>
+                    <h2 class="headline">
+                    23 November 2012 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>I&rsquo;m working on an iOS app that pulls data down from the <a href="http://www.theyworkforyou.com">TheyWorkForYou</a> API, and because it&rsquo;s the Right Thing To Do, I&rsquo;m attempting to build it test-first. That&rsquo;s not as straight-forward as it perhaps should be with Objective-C, and nor is it made any easier by the asynchronous nature of a lot of the iOS SDK. So this post is by way of an outboard brain explanation for a) me, when I&rsquo;ve forgotten what I did in a couple of weeks and b) anyone else who stumbles across this through the magic of Google.</p>
+
+<p>The app is communicating with the API through a standalone class which can be used anywhere within the app. I&rsquo;m using the <a href="https://github.com/AFNetworking/AFNetworking">AFNetworking</a> library, so I&rsquo;ve created a singleton as a subclass of <code>AFHTTPclient</code>.</p>
+
+<p>This client calls the API using a block-based syntax and has a success block and a failure block. These blocks are executed asynchronously on a background thread, so in order for the comms class to pass data back to the rest of the application, it does so through a delegate protocol. The API client declares a protocol with a method called <code>apiRepliedWithResponse</code> that takes a single parameter (either the data that&rsquo;s been received from the API, or <code>nil</code> in the case of errors).</p>
+
+<p>This method is implemented in the API client&rsquo;s delegate, and gets called from within the success and failure blocks. Any object that wishes to use the API client needs to implement the delegate protocol, and handle the responses from the API client. <strong>Testing this</strong> ****Testing this throws up some interesting problems - I&rsquo;m using the <a href="https://github.com/allending/Kiwi">Kiwi</a> testing framework which has a nice RSpec-like syntax as well as all the testing bells and whistles that you might need.</p>
+
+<p>The first issue is that the API client is making asynchronous calls - therefore you need to add a delay inbetween calling the method under test, and making any assertions about the results. If the assertion is made too quickly, the asynchronous method won&rsquo;t have had time to complete, and the assertion will fail.</p>
+
+<p>This problem gets dealt with by Kiwi&rsquo;s <code>shouldEventually</code> assertion, of which more shortly. The second issue is what to test? There are two things that need to be checked - firstly that the delegate method gets called at all; and secondly that the correct parameter is passed back. The process here is to create a mock object that pretends to conform to the API client&rsquo;s protocol, then set this mock object as the API client&rsquo;s delegate.</p>
+
+<p>We can then set an assertion that the delegate method gets called; and check that the data which is returned is in fact what we were expecting. So here&rsquo;s the process in detail:</p>
+
+<ul>
+<li>create a mock that &ldquo;conforms&rdquo; to the API client&rsquo;s delegate protocol</li>
+</ul>
+
+<pre><code>id delegateMock = [KWMock mockForProtocol:@protocol(TWFYClientDelegate)];
+</code></pre>
+
+<ul>
+<li>create an object containing the data that will be sent back</li>
+</ul>
+
+<p>e.g. if it&rsquo;s an <code>NSString</code> of value &ldquo;<code>foo</code>&rdquo; that&rsquo;s expected back, you&rsquo;ll need to create an <code>NSString</code> of value &ldquo;<code>foo</code>&rdquo;. In my case, I&rsquo;m asserting that I&rsquo;m getting back an <code>NSData</code> representation of a JSON file:</p>
+
+<pre><code>NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@&quot;getPerson&quot; ofType:@&quot;json&quot;];
+NSData *response = [NSData dataWithContentsOfFile:filePath];
+</code></pre>
+
+<ul>
+<li>set the mock as the API client&rsquo;s delegate:</li>
+</ul>
+
+<pre><code>[theClient setDelegate:delegateMock];
+</code></pre>
+
+<ul>
+<li>set the assertion that the mock should *eventually* be called with the method and response object (using Kiwi, this is <code>shouldEventually</code>):</li>
+</ul>
+
+<pre><code>[[[delegateMock shouldEventually] receive] apiRepliedWithResponse:response];
+</code></pre>
+
+<ul>
+<li>call the method under test:</li>
+</ul>
+
+<pre><code>[client getDataForPerson:theMP];
+</code></pre>
+
+<p>To remove the dependency on the API itself, I&rsquo;m using the <a href="https://github.com/AliSoftware/OHHTTPStubs">OHHTTPStubs</a> library - this intercepts any calls to the network inside the API client, and returns a canned response:</p>
+
+<pre><code>[OHHTTPStubs addRequestHandler:^OHHTTPStubsResponse*(NSURLRequest *request, BOOL onlyCheck) {
+    return [OHHTTPStubsResponse responseWithFile:@&quot;getPerson.json&quot;
+                                         contentType:@&quot;text/json&quot;
+                                        responseTime:OHHTTPStubsDownloadSpeedEDGE];
+        }];
+</code></pre>
+
+<p>Here&rsquo;s the full test:</p>
+
+<pre><code>it(@&quot;should receive some data if passed a valid MP object&quot;, ^{
+
+    // Create the dummy MP object to send through to the TWFYClient
+    MP *theMP = [MP createEntity];
+    [theMP setPerson_id:@10900];
+
+    // Create the expected response object as an NSData representation of the getPerson.json file
+    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@&quot;getPerson&quot; ofType:@&quot;json&quot;];
+    NSData *response = [NSData dataWithContentsOfFile:filePath];
+
+    // Create a mock object to act as the TWFY delegate, and make it 'conform' to
+    // the TWFYClientDelegate protocol
+    id delegateMock = [KWMock mockForProtocol:@protocol(TWFYClientDelegate)];
+
+    // Set the client's delegate property
+    [client setDelegate:delegateMock];
+
+    // Set the assertion that eventually there should an 'apiRepliedWithResponse' message,
+    // and it will have the response object as a parameter
+    [[[delegateMock shouldEventually] receive] apiRepliedWithResponse:response];
+
+    // Call the method under test
+    [client getDataForPerson:theMP];
+
+});
+</code></pre>
+
+<p>And the method that it&rsquo;s testing:</p>
+
+<pre><code>-(void)getDataForPerson:(id)person {
+
+    [self stubNetworkCall];
+
+    // Convert to person
+    MP *theMP = nil;
+    if ([person isKindOfClass:[MP class]]) {
+        theMP = (MP *)person;
+    } else {
+        [self.delegate apiRepliedWithResponse:nil];
+        return;
+    }
+
+    // Build API call
+    // getPerson?key=ABCD&amp;id=12345
+    NSString *personID = [NSString stringWithFormat:@&quot;%@&quot;, [theMP person_id]];
+    NSString *call = [NSString stringWithFormat:@&quot;%@getPerson?key=%@&amp;id=%@&quot;, kAPIEndpointURL, kAPIKey, personID];
+
+    // Call TWFY API
+    [self getPath:call parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+        [self.delegate apiRepliedWithResponse:responseObject];
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
+        [self.delegate apiRepliedWithResponse:nil];
+
+    }];
+
+}
+</code></pre>
+
+<p>No doubt there are far more elegant ways of achieving the same results, but this is now working nicely.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2012%2f11%2f23%2ftesting-asynchronous-network-code-with-kiwi%2f - Testing%20asynchronous%20network%20code%20with%20Kiwi by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

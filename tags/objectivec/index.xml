@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Objectivec on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/objectivec/</link>
+    <description>Recent content in Objectivec on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Fri, 15 Feb 2013 16:26:07 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/objectivec/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>More on blocks in Objective-C (but still without tears)</title>
+      <link>https://adoptioncurve.net/2013/02/15/more-on-block-in-objective-c-but-still-without-tears/</link>
+      <pubDate>Fri, 15 Feb 2013 16:26:07 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2013/02/15/more-on-block-in-objective-c-but-still-without-tears/</guid>
+      <description>&lt;p&gt;This is the second part of a two-part look at blocks in Objective-C - you can find &lt;a href=&#34;http://www.adoptioncurve.net/archives/2013/02/blocks-in-objective-c-without-tears.php&#34;&gt;the first part here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;blocks-in-detail&#34;&gt;Blocks in detail&lt;/h3&gt;
+
+&lt;p&gt;Apple provides some pretty detailed documentation on blocks with as complete a definition as I’ve ever seen – so let’s look at that and use it as a starting point.&lt;/p&gt;
+
+&lt;p&gt;According to Apple, a block is:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&amp;hellip;an anonymous inline collection of code that:&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Has a typed argument list just like a function&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Has an inferred or declared return type&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Can capture state from the lexical scope within which it’s defined&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Can optionally modify the state of the lexical scope&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Can share the potential for modification with other blocks defined within the same lexical scope&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Can continue to share and modify state defined within the lexical scope (the stack frame) after the lexical scope (the stack frame) has been destroyed.&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;OK, let’s do this again in English.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Blocks in Objective-C (without tears)</title>
+      <link>https://adoptioncurve.net/2013/02/15/blocks-in-objective-c-without-tears/</link>
+      <pubDate>Fri, 15 Feb 2013 10:25:32 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2013/02/15/blocks-in-objective-c-without-tears/</guid>
+      <description>&lt;p&gt;Blocks are a feature of Objective-C 2.0, and were introduced to iOS in version 4.0. They’re a fantastically-useful feature of the language, and they’re being used in more and more places as Apple introduces new classes into the iOS SDK. Apple clearly see blocks as being central to the way that iOS is going to evolve in the future.&lt;/p&gt;
+
+&lt;p&gt;Understanding what blocks are, and how they work, is key to being able to exploit the features of the SDK. At first glance blocks can seem a bit impenetrable – their syntax isn’t as clear as other parts of Objective-C, and there’s a certain amount of apparent black magic taking place behind the scenes.&lt;/p&gt;
+
+&lt;p&gt;But once you get to grips with blocks, you’ll quickly realise how powerful and flexible they can be; and you’ll be well-placed to deal with the evolution of Objective-C and the iOS SDK in the future.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Unit testing UIImageViews</title>
+      <link>https://adoptioncurve.net/2013/02/09/unit-testing-uiimageviews/</link>
+      <pubDate>Sat, 09 Feb 2013 13:20:04 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2013/02/09/unit-testing-uiimageviews/</guid>
+      <description>The scenario:
+Your code updates a UIImageView, and you want to test that the change has taken place successfully.
+The problem:
+Once an image has been loaded into a UIImage object it becomes a cached binary representation with no metadata. You can&amp;rsquo;t ask a UIImage for the filename of the original image file. That makes testing difficult, and an image not being updated correctly is a high-impact problem.
+The workaround:</description>
+    </item>
+    
+    <item>
+      <title>Selectively-disabling warnings with Xcode compiler flags</title>
+      <link>https://adoptioncurve.net/2013/02/01/selectively-disabling-warnings-with-xcode-compiler-flags/</link>
+      <pubDate>Fri, 01 Feb 2013 09:54:44 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2013/02/01/selectively-disabling-warnings-with-xcode-compiler-flags/</guid>
+      <description>Another update to iOS (this time to 6.1) means another update to Xcode (this time to 4.6). No doubt some bugs will be squashed while other new ones are introduced - but the most immediate change that I&amp;rsquo;ve noticed is that another new crop of warnings are being generated.
+I have the &amp;ldquo;treat warnings as errors&amp;rdquo; flag set by default on the basis that I&amp;rsquo;d rather know about a potential problem before it becomes an actual one.</description>
+    </item>
+    
+    <item>
+      <title>Calling Objective-C methods from JavaScript in a UIWebView</title>
+      <link>https://adoptioncurve.net/2012/09/28/calling-objective-c-methods-from-javascript-in-a-uiwebview/</link>
+      <pubDate>Fri, 28 Sep 2012 09:00:27 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/09/28/calling-objective-c-methods-from-javascript-in-a-uiwebview/</guid>
+      <description>The East Coast Time Line app I&amp;rsquo;ve just finished building includes a 360-degree virtual reality panorama section, which puts you &amp;ldquo;inside&amp;rdquo; several of the coaches in the National Railway Museum&amp;rsquo;s collection. It&amp;rsquo;s created with the KRPano plugin that uses a set of tiles to build an HTML5 plugin that can be zoomed and rotated, either manually or with the aid of the device&amp;rsquo;s gyroscope.
+The panorama itself is full-screen, so to provide a navigation back to the rest of the app there&amp;rsquo;s a floating toolbar that drops down from the top of the view in response to a tap.</description>
+    </item>
+    
+  </channel>
+</rss>

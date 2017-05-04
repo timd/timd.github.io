@@ -1,0 +1,417 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Testing throwing functions in Swift &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Testing throwing functions in Swift" />
+<meta property="og:description" content="Swift introducted the concept of throwing functions to iOS as an alternative to the NSError-based approach that hails from the Objective-C days.
+Put simply, a throwing function allows an Error type to be returned if something goes wrong, which can then be caught in a do-try-catch boock and handled by our code.
+The error type can be defined as an Enum that conforms to the Error protocol:
+enum MyThrowingError: Error { case tooShort case tooLong }  This allows us to throw two types of error: MyThrowingError." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/" />
+
+
+
+<meta property="article:published_time" content="2017-04-30T14:47:19&#43;02:00"/>
+<meta property="article:modified_time" content="2017-04-30T14:47:19&#43;02:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Testing throwing functions in Swift">
+<meta itemprop="description" content="Swift introducted the concept of throwing functions to iOS as an alternative to the NSError-based approach that hails from the Objective-C days.
+Put simply, a throwing function allows an Error type to be returned if something goes wrong, which can then be caught in a do-try-catch boock and handled by our code.
+The error type can be defined as an Enum that conforms to the Error protocol:
+enum MyThrowingError: Error { case tooShort case tooLong }  This allows us to throw two types of error: MyThrowingError.">
+
+
+<meta itemprop="dateModified" content="2017-04-30T14:47:19&#43;02:00" />
+<meta itemprop="wordCount" content="737">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Testing throwing functions in Swift"/>
+<meta name="twitter:title" content="Testing throwing functions in Swift"/>
+<meta name="twitter:description" content="Swift introducted the concept of throwing functions to iOS as an alternative to the NSError-based approach that hails from the Objective-C days.
+Put simply, a throwing function allows an Error type to be returned if something goes wrong, which can then be caught in a do-try-catch boock and handled by our code.
+The error type can be defined as an Enum that conforms to the Error protocol:
+enum MyThrowingError: Error { case tooShort case tooLong }  This allows us to throw two types of error: MyThrowingError."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Testing throwing functions in Swift</h1>
+                    <h2 class="headline">
+                    30 April 2017 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>Swift introducted the concept of <em>throwing functions</em> to iOS as an alternative to the <code>NSError</code>-based approach that hails from the Objective-C days.</p>
+
+<p>Put simply, a throwing function allows an <code>Error</code> type to be returned if something goes wrong, which can then be <code>caught</code> in a <code>do-try-catch</code> boock and handled by our code.</p>
+
+<p>The error type can be defined as an <code>Enum</code> that conforms to the <code>Error</code> protocol:</p>
+
+<pre><code>enum MyThrowingError: Error {
+   case tooShort
+   case tooLong
+}
+</code></pre>
+
+<p>This allows us to throw two types of error: <code>MyThrowingError.tooShort</code> and <code>MyThrowingError.tooLong</code></p>
+
+<p>Here&rsquo;s an example of a function that uses this error type - it takes a <code>String</code> parameter and throws a <code>.tooShort</code> error if it has less than 5 characters, or a <code>.tooLong</code> error if it has more than 10 characters.  The fact that it can throw errors is shown by the <code>throws</code> keyword before the return type:</p>
+
+<pre><code>func someThrowingFunction(aParam: String) throws -&gt; String {
+        
+        if aParam.characters.count &lt; 5 {
+            throw MyThrowingError.tooShort
+        }
+        
+        if aParam.characters.count &gt; 10 {
+            throw MyThrowingError.tooLong
+        }
+        
+        return &quot;Did something with &quot; + aParam
+        
+    }
+</code></pre>
+
+<p>We could use the function like this:</p>
+
+<pre><code>        let myThrower = MyThrowingClass()
+        
+        do {
+            
+            try let result = myThroyour.someThrowingFunction(aParam: myString)
+            // do something with result
+            
+        } catch let error as MyThrowingError {
+            
+            switch error {
+                
+            case .tooShort:
+                // Do something with a too short scenario
+                
+            case .tooLong:
+                // Do something with a too long scenario
+
+            }
+            
+        } catch {
+            
+            // Handle any non-MyThrowingError situations
+            
+        }
+</code></pre>
+
+<p>That&rsquo;s all very youll, but what about testing? Ideally, you want to test that the right errors are thrown in the right situation.</p>
+
+<p>Here&rsquo;s an example of an <code>XCTest</code> case to test that a <code>.tooShort</code> error is thrown when the parameter provided is too short (testing for a <code>.tooLong</code> error will look almost exactly the same)</p>
+
+<pre><code>    func test_WhenProvidedWithTooShortParameter_shouldThrowTooShortError() {
+        
+        let throwingClass = MyThrowingClass()
+        
+        do {
+            
+            let _ = try throwingClass.someThrowingFunction(aParam: &quot;123&quot;)
+            
+        } catch let error as MyThrowingError {
+            
+            XCTAssertEqual(error, MyThrowingError.tooShort)
+            
+        } catch {
+            
+            XCTFail(&quot;Unidentififed error thrown&quot;)
+        }
+        
+    }
+</code></pre>
+
+<p>To test that the function works correctly, you still need to handle the possibility of an error being thrown - the test case will look like this:</p>
+
+<pre><code>    func test_WhenProvidedWithParameterInRange_shouldReturnCorrectOutput() {
+        
+        let throwingClass = MyThrowingClass()
+
+        do {
+            
+            let result = try throwingClass.someThrowingFunction(aParam: &quot;1235678&quot;)
+            XCTAssertEqual(&quot;Did something with 1235678&quot;, result)
+            
+        } catch let error {
+            
+            XCTFail(&quot;Unidentififed error thrown: \(error.localizedDescription)&quot;)
+        }
+        
+    }
+</code></pre>
+
+<p>Here, you&rsquo;re testing that the returned string is what you expected it to be, but there is also an additional failure case in the event of an error being received. Because our <code>MyThrowingError</code> inherits from the base <code>Error</code> class, you don&rsquo;t need to handle <code>MyThrowingError</code> situations separately - if there&rsquo;s been an error thrown the test has failed, and you can just fail the test.</p>
+
+<p>We can take error cases one stage further by passing parameters in. A common use-case for this is communicating with an API - often they&rsquo;ll return an error with some kind of diagnostic. If you want to pass that back to the calling function, you can add a parameter to the error type:</p>
+
+<pre><code>enum MyThrowingError: Error {
+    case tooShort
+    case tooLong
+    case kaboom(message: String)
+}
+</code></pre>
+
+<p>Then when this error is thrown, you can add some further information:</p>
+
+<pre><code>if aParam == &quot;bang&quot; {
+	throw MyThrowingError.kaboom(message: &quot;You're only supposed to blow the bloody doors off!&quot;)
+}
+</code></pre>
+
+<p>To test this involves an extra step. You need to conform the custom error type to the <code>Equatable</code> protocol so that it can be tested in an XCTAssert - it&rsquo;s a bit verbose, but relatively straight-forward:</p>
+
+<pre><code>extension MyThrowingError: Equatable {
+    
+    static func == (lhs: MyThrowingError, rhs: MyThrowingError) -&gt; Bool {
+        
+        switch (lhs, rhs) {
+        case (.tooShort, .tooShort):
+            return true;
+            
+        case (.tooLong, .tooLong):
+            return true;
+            
+        case (.kaboom(let leftMessage), .kaboom(let rightMessage)):
+            return leftMessage == rightMessage
+            
+        default:
+            return false;
+        }
+    }
+}
+</code></pre>
+
+<p>This is defining what should happen when equating one <code>MyThrowingError</code> with another - in the case of <code>.tooShort</code> and <code>.tooLong</code> it&rsquo;s simple, but in the case of <code>.kaboom</code> you need to compare the message strings that arrive with the error.</p>
+
+<p>The test for this looks like:</p>
+
+<pre><code>func test_WhenProvidedWithParameterCausingExplosion_shouldThrowKaboomError() {
+    
+    let throwingClass = MyThrowingClass()
+    
+    do {
+        
+        let _ = try throwingClass.someThrowingFunction(aParam: &quot;plan&quot;)
+        
+    } catch let error as MyThrowingError {
+        
+        XCTAssertEqual(error, MyThrowingError.kaboom(message: &quot;You're only supposed to blow the bloody doors off!&quot;))
+        
+    } catch {
+        
+        XCTFail(&quot;Unidentififed error thrown&quot;)
+    }
+    
+}
+</code></pre>
+
+<p>Here you&rsquo;re using the custom <code>==</code> condition that was define in the extension to compare the message that arrives with the one that you&rsquo;re testing for.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2fpost%2f2017-04-30-testing-throwing-functions-in-swift%2f - Testing%20throwing%20functions%20in%20Swift by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

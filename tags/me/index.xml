@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Me on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/me/</link>
+    <description>Recent content in Me on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Mon, 03 Aug 2009 17:21:37 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/me/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>I&#39;m going to talk at Interesting</title>
+      <link>https://adoptioncurve.net/2009/08/03/im-going-to-talk-at-interesting/</link>
+      <pubDate>Mon, 03 Aug 2009 17:21:37 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/08/03/im-going-to-talk-at-interesting/</guid>
+      <description>[UPDATED: slides from the day and some waffle available here]
+[![559228171_96c29cc898_m](http://www.adoptioncurve.net/archives/2009/08/im-going-to-talk-at-interesting.php/559228171_96c29cc898_m)[Russell Davies](http://russelldavies.typepad.com)&#39; Interesting &amp;ldquo;conferences&amp;rdquo; are about the best value-for-money day out you can find - £20 gets you into a gathering of 350 people at Conway Hall to see 20-odd talks on interesting topics. In the two years it&amp;rsquo;s been going they&amp;rsquo;ve ranged from Lego as a cure for global warming, the geophysics of World Of Warcraft, to why horse are scared of crisp packets.</description>
+    </item>
+    
+    <item>
+      <title>New Year, new look.</title>
+      <link>https://adoptioncurve.net/2009/01/02/new-year-new-look/</link>
+      <pubDate>Fri, 02 Jan 2009 22:32:42 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/01/02/new-year-new-look/</guid>
+      <description>This blog has been sadly neglected of late, despite the river of pseudo-content that flows into it courtesy of my del.icio.us links. At work, I&amp;rsquo;m surrounded by people whose blogs are erudite, beautiful to the eye and regularly updated, so over the Christmas downtime I decided to hack away to improve at least one of those factors, and replace what was meant to be a temporary stop-gap template that lasted something like two years.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rails on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/rails/</link>
+    <description>Recent content in Rails on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Wed, 18 May 2011 10:04:40 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/rails/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Pages that can be overridden in RefineryCMS</title>
+      <link>https://adoptioncurve.net/2011/05/18/pages-that-can-be-overridden-in-refinerycms/</link>
+      <pubDate>Wed, 18 May 2011 10:04:40 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/05/18/pages-that-can-be-overridden-in-refinerycms/</guid>
+      <description>This is a list of pages, stylesheets, controllers and models that can be overriden within a default Refinerycms installation:
+Views
+app/views/shared/_content_page.html.erb app/views/shared/_draft_page_message.html.erb app/views/shared/_footer.html.erb app/views/shared/_google_analytics.html.erb app/views/shared/_head.html.erb app/views/shared/_header.html.erb app/views/shared/_html_tag.html.erb app/views/shared/_ie6check.html.erb app/views/shared/_javascripts.html.erb app/views/shared/_menu.html.erb app/views/shared/_menu_branch.html.erb app/views/shared/_message.html.erb app/views/shared/_no_script.html.erb app/views/shared/_site_bar.html.erb app/views/admin/_head.html.erb app/views/admin/_javascripts.html.erb app/views/admin/_menu.html.erb app/views/admin/dashboard/_actions.html.erb app/views/admin/dashboard/_additional_dashboard_menu_items.html.erb app/views/admin/dashboard/_recent_activity.html.erb app/views/admin/dashboard/_recent_inquiries.html.erb app/views/admin/dashboard/_records.html.erb app/views/admin/dashboard/index.html.erb app/views/admin/dashboard/index.rss.builder app/views/admin/dialogs/show.html.erb app/views/admin/images/_actions.html.erb app/views/admin/images/_existing_image.html.erb app/views/admin/images/_form.html.erb app/views/admin/images/_grid_view.html.erb app/views/admin/images/_images.html.erb app/views/admin/images/_list_view.html.erb app/views/admin/images/_list_view_image.html.erb app/views/admin/images/_records.html.erb app/views/admin/images/edit.html.erb app/views/admin/images/index.html.erb app/views/admin/images/insert.html.erb app/views/admin/images/new.html.erb app/views/admin/pages/_actions.html.erb app/views/admin/pages/_form.html.erb app/views/admin/pages/_form_advanced_options.html.erb app/views/admin/pages/_form_advanced_options_seo.html.erb app/views/admin/pages/_form_fields_after_title.html.erb app/views/admin/pages/_form_new_page_parts.html.erb app/views/admin/pages/_form_page_parts.html.erb app/views/admin/pages/_locale_picker.html.erb app/views/admin/pages/_page.html.erb app/views/admin/pages/_page_part_field.html.erb app/views/admin/pages/_records.html.erb app/views/admin/pages/_sortable_list.html.erb app/views/admin/pages/edit.html.erb app/views/admin/pages/index.</description>
+    </item>
+    
+    <item>
+      <title>Fixing problems with Spree installations</title>
+      <link>https://adoptioncurve.net/2011/05/11/fixing-problems-with-spree-installations/</link>
+      <pubDate>Wed, 11 May 2011 18:27:57 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/05/11/fixing-problems-with-spree-installations/</guid>
+      <description>If you&amp;rsquo;re trying to install Spree from the documentation, you&amp;rsquo;re likely to hit a couple of errors along the way.
+The first one relates to Spree itself:
+fatal: remote error: Could not find Repository spree/spree-static-content  This is due to a typo in the documentation - replace the line in your Gem file which reads
+gem &#39;spree_static_content&#39;, :git =&amp;gt; &#39;git://github.com/spree/spree-static-content.git&#39;  with
+gem &#39;spree_static_content&#39;, :git =&amp;gt; &#39;git://github.com/spree/spree_static_content.git&#39;  The second issue is MySQL related: it blows up with this error:</description>
+    </item>
+    
+    <item>
+      <title>Getting Autotest to run on OS X</title>
+      <link>https://adoptioncurve.net/2011/01/14/getting-autotest-to-run-on-os-x/</link>
+      <pubDate>Fri, 14 Jan 2011 16:06:08 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/01/14/getting-autotest-to-run-on-os-x/</guid>
+      <description>Autotest is a Gem that does what it says on the tin - runs your RSpec test automatically. If you&amp;rsquo;re using a Mac, you can also use autotest-growl to get it to display Growl notifications, and autotest-fsevent to get it to watch the filesystem and trigger the tests when changes are made to the spec files.
+Installing it is a bit fiddly - this is what works for me, based on a bit of help from Jon Rowe:</description>
+    </item>
+    
+    <item>
+      <title>Yet Another List Of Ruby And Rails Resources</title>
+      <link>https://adoptioncurve.net/2010/12/03/yet-another-list-of-ruby-and-rails-resources/</link>
+      <pubDate>Fri, 03 Dec 2010 19:40:14 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/12/03/yet-another-list-of-ruby-and-rails-resources/</guid>
+      <description>One of the problems with learning Rails is knowing which of the thousands of resources to use. There are an ever-increasing number of books, blogs, screencasts and tutorials to choose from, all with their own take and idiosyncrasies. This is by no means a definitive list, but it&amp;rsquo;s the resources that I&amp;rsquo;ve found most useful.
+The canonical site The main site for all things Rails is rubyonrails.org, which is also the place to go for the source code and API documentation.</description>
+    </item>
+    
+    <item>
+      <title>Getting Paperclip attachment sizes</title>
+      <link>https://adoptioncurve.net/2010/11/05/getting-paperclip-attachment-sizes/</link>
+      <pubDate>Fri, 05 Nov 2010 14:42:44 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/11/05/getting-paperclip-attachment-sizes/</guid>
+      <description>Another post from the &amp;ldquo;so I remember how to do this&amp;rdquo; series.
+I&amp;rsquo;m using Paperclip to handle file attachments (in this context to store profile images which have been retrieved from Facebook, although that&amp;rsquo;s not strictly relevant).
+Although you can constrain the size of the stored image in the Paperclipped model, like so:
+# Paperclip stuff has_attached_file :avatar, :styles =&amp;gt; { :medium =&amp;gt; &amp;quot;300x300&amp;gt;&amp;quot;, :thumb =&amp;gt; &amp;quot;100x100&amp;gt;&amp;quot; }  this will automatically maintain the aspect ratio of the image, so you&amp;rsquo;re never quite sure what x and y sizes you&amp;rsquo;ll end up with.</description>
+    </item>
+    
+    <item>
+      <title>Code swarms</title>
+      <link>https://adoptioncurve.net/2009/01/27/code-swarms/</link>
+      <pubDate>Tue, 27 Jan 2009 21:39:34 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/01/27/code-swarms/</guid>
+      <description>To someone who&amp;rsquo;s not familiar with the concept of open-source development, it can be a difficult one to get their head around. &amp;ldquo;You mean people do this for free? And give their code away?&amp;rdquo; &amp;ldquo;Well, yes, they do.&amp;rdquo; If your default frame of reference is copyright and closed-source, this can be something of a head-spinner.
+This video visualises the &amp;ldquo;many hands make light work&amp;rdquo; paradigm at the heart of open source.</description>
+    </item>
+    
+  </channel>
+</rss>

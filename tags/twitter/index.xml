@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Twitter on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/twitter/</link>
+    <description>Recent content in Twitter on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Mon, 13 Jul 2009 14:58:54 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/twitter/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Teenage Tweets</title>
+      <link>https://adoptioncurve.net/2009/07/13/teenage-tweets/</link>
+      <pubDate>Mon, 13 Jul 2009 14:58:54 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/07/13/teenage-tweets/</guid>
+      <description>[![twitter_icons_256](http://www.adoptioncurve.net/archives/2009/07/teenage-tweets.php/twitter_icons_256)[[Crossposted from the Headshift blog](http://www.headshift.com/blog/2009/07/teenage-tweets.php)]
+The news this morning is full of a report from Morgan Stanley on teenage media habits - written by a 15-year-old intern, it dismisses Twitter and describes online advertising as pointless.
+Morgan Stanley seem to be promoting the report heavily, although I&amp;rsquo;m not entirely clear whether this is from the viewpoint of it being a lucid piece of analysis or more of &amp;ldquo;look! a little person!</description>
+    </item>
+    
+    <item>
+      <title>Twittering Thames</title>
+      <link>https://adoptioncurve.net/2009/01/14/twittering-thames/</link>
+      <pubDate>Wed, 14 Jan 2009 07:10:16 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/01/14/twittering-thames/</guid>
+      <description>[![Thames]One of my usual London commuting routes has me walking along the riverside past City Hall in the morning, and back the same way in the evening. It&amp;rsquo;s a fairly uninspiring inland view, because it&amp;rsquo;s home to a succession of utterly forgettable glass boxes housing the likes of Ernst &amp;amp; Young and Norton Rose - which does at least have the benefit of making me thankful that I work in an environment where people actually do wear space cadet uniforms to meetings.</description>
+    </item>
+    
+    <item>
+      <title>Twittering the pips.</title>
+      <link>https://adoptioncurve.net/2009/01/13/twittering-the-pips/</link>
+      <pubDate>Tue, 13 Jan 2009 10:10:04 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/01/13/twittering-the-pips/</guid>
+      <description>This is possibly the most pointless Twitter bot ever, but @thepips now Tweets on the hour.
+It&amp;rsquo;s a British thing.</description>
+    </item>
+    
+    <item>
+      <title>Twittering the Shipping Forecast</title>
+      <link>https://adoptioncurve.net/2009/01/13/twittering-the-shipping-forecast-2/</link>
+      <pubDate>Tue, 13 Jan 2009 08:41:05 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/01/13/twittering-the-shipping-forecast-2/</guid>
+      <description>[![Twitter](http://www.twitter.com/shippingcast)One of the aspects of Twitter I like the most is the fact that it has an API. That makes it hackable in a way that appeals to my inner geek, so something I&amp;rsquo;ve been playing with for a while is creating Twitter bots. One of the first I made was @shippingcast, which takes the UK Shipping Forecast and squirts it out onto the web in a Twitter stream.
+Unless you&amp;rsquo;re British, the Shipping Forecast probably doesn&amp;rsquo;t mean a lot.</description>
+    </item>
+    
+  </channel>
+</rss>

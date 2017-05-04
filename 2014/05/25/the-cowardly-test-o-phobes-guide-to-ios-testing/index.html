@@ -1,0 +1,360 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>The Cowardly Test-o-Phobe&#39;s Guide To iOS Testing &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="The Cowardly Test-o-Phobe&#39;s Guide To iOS Testing" />
+<meta property="og:description" content="(This is the first part of a text-based version of the talk I gave for iOS Con at Skillsmatter in London on Friday 16th May. If you prefer the full multimedia experience, there&rsquo;s video available behind a login wall at https://skillsmatter.com/skillscasts/5167-tdd-in-ios.)
+
+The presentation slides are available here.
+
+Why is testing scary?
+
+Unit testing is a topic that gets talked about a lot, but if you&rsquo;re not a computer scientist it can have a tricksy reputation. It doesn&rsquo;t help that much of the source material available is Java-based. That&rsquo;s fine if you like Java - I&rsquo;m personally not so keen - but there&rsquo;s a lot less help if your primary weapon of choice is Objective-C.
+
+Testing is also a topic that attracts - how shall we put it? - some of the more tedious personalities in this business. There&rsquo;s nothing so dull as a self-appointed &ldquo;thought leader&rdquo;, and a lot of what passes for debate on testing is so much arcane, &ldquo;how many angels can dance on the head of a pin&rdquo;-style nonsense.
+
+That&rsquo;s got very little to do with the day-to-day grind of shipping software. There is no One Way to do this, and if you look hard enough at the motives of those who would have you believe that, you often find it comes down to selling themselves as a brand.
+
+Why is testing important?
+
+All that said, testing is important. Let&rsquo;s start from the premise that the fewer bugs in your code, the better. If you subscribe to that school of thoughy, then anything that helps you achieve this has to be a good thing. As the developer who writes 100% bug-free code hasn&rsquo;t been born yet, we&rsquo;re also faced with the challenge that the more code we write, the more likely it is that the project will turn out to be infested with them.
+
+Documentation is also held to be a Good Thing, but it&rsquo;s also something that very few devs are particularly keen on doing - especially once the code&rsquo;s been written.  A comprehensive test suite, especially if it&rsquo;s been built using one of the more &ldquo;descriptive&rdquo; tools such as Kiwi or Specta, can almost replace documentation. It&rsquo;s also considerably easier to read than code, because it&rsquo;s documenting intent rather than execution - the &ldquo;what&rdquo; rather than the &ldquo;how&rdquo;.
+
+Perhaps the most important reason for taking a test-driven approach, though, is the way you&rsquo;ll knit yourself a &ldquo;security blanket&rdquo; around your code. We&rsquo;ve all been in the situation where making changes to an existing code base is a stressful affair, because you&rsquo;re never quite sure whether changing something over here will break something over there.
+
+If your test suite is comprehensive enough, you can relax to an extent knowing that the tests will catch those kinds of problem. And that becomes particlarly important if you&rsquo;re working with others, because tests can help catch things that break your code.
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2014/05/25/the-cowardly-test-o-phobes-guide-to-ios-testing/" />
+
+
+
+<meta property="article:published_time" content="2014-05-25T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2014-05-25T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="The Cowardly Test-o-Phobe&#39;s Guide To iOS Testing">
+<meta itemprop="description" content="(This is the first part of a text-based version of the talk I gave for iOS Con at Skillsmatter in London on Friday 16th May. If you prefer the full multimedia experience, there&rsquo;s video available behind a login wall at https://skillsmatter.com/skillscasts/5167-tdd-in-ios.)
+
+The presentation slides are available here.
+
+Why is testing scary?
+
+Unit testing is a topic that gets talked about a lot, but if you&rsquo;re not a computer scientist it can have a tricksy reputation. It doesn&rsquo;t help that much of the source material available is Java-based. That&rsquo;s fine if you like Java - I&rsquo;m personally not so keen - but there&rsquo;s a lot less help if your primary weapon of choice is Objective-C.
+
+Testing is also a topic that attracts - how shall we put it? - some of the more tedious personalities in this business. There&rsquo;s nothing so dull as a self-appointed &ldquo;thought leader&rdquo;, and a lot of what passes for debate on testing is so much arcane, &ldquo;how many angels can dance on the head of a pin&rdquo;-style nonsense.
+
+That&rsquo;s got very little to do with the day-to-day grind of shipping software. There is no One Way to do this, and if you look hard enough at the motives of those who would have you believe that, you often find it comes down to selling themselves as a brand.
+
+Why is testing important?
+
+All that said, testing is important. Let&rsquo;s start from the premise that the fewer bugs in your code, the better. If you subscribe to that school of thoughy, then anything that helps you achieve this has to be a good thing. As the developer who writes 100% bug-free code hasn&rsquo;t been born yet, we&rsquo;re also faced with the challenge that the more code we write, the more likely it is that the project will turn out to be infested with them.
+
+Documentation is also held to be a Good Thing, but it&rsquo;s also something that very few devs are particularly keen on doing - especially once the code&rsquo;s been written.  A comprehensive test suite, especially if it&rsquo;s been built using one of the more &ldquo;descriptive&rdquo; tools such as Kiwi or Specta, can almost replace documentation. It&rsquo;s also considerably easier to read than code, because it&rsquo;s documenting intent rather than execution - the &ldquo;what&rdquo; rather than the &ldquo;how&rdquo;.
+
+Perhaps the most important reason for taking a test-driven approach, though, is the way you&rsquo;ll knit yourself a &ldquo;security blanket&rdquo; around your code. We&rsquo;ve all been in the situation where making changes to an existing code base is a stressful affair, because you&rsquo;re never quite sure whether changing something over here will break something over there.
+
+If your test suite is comprehensive enough, you can relax to an extent knowing that the tests will catch those kinds of problem. And that becomes particlarly important if you&rsquo;re working with others, because tests can help catch things that break your code.
+
+">
+
+
+<meta itemprop="dateModified" content="2014-05-25T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1247">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="The Cowardly Test-o-Phobe&#39;s Guide To iOS Testing"/>
+<meta name="twitter:title" content="The Cowardly Test-o-Phobe&#39;s Guide To iOS Testing"/>
+<meta name="twitter:description" content="(This is the first part of a text-based version of the talk I gave for iOS Con at Skillsmatter in London on Friday 16th May. If you prefer the full multimedia experience, there&rsquo;s video available behind a login wall at https://skillsmatter.com/skillscasts/5167-tdd-in-ios.)
+
+The presentation slides are available here.
+
+Why is testing scary?
+
+Unit testing is a topic that gets talked about a lot, but if you&rsquo;re not a computer scientist it can have a tricksy reputation. It doesn&rsquo;t help that much of the source material available is Java-based. That&rsquo;s fine if you like Java - I&rsquo;m personally not so keen - but there&rsquo;s a lot less help if your primary weapon of choice is Objective-C.
+
+Testing is also a topic that attracts - how shall we put it? - some of the more tedious personalities in this business. There&rsquo;s nothing so dull as a self-appointed &ldquo;thought leader&rdquo;, and a lot of what passes for debate on testing is so much arcane, &ldquo;how many angels can dance on the head of a pin&rdquo;-style nonsense.
+
+That&rsquo;s got very little to do with the day-to-day grind of shipping software. There is no One Way to do this, and if you look hard enough at the motives of those who would have you believe that, you often find it comes down to selling themselves as a brand.
+
+Why is testing important?
+
+All that said, testing is important. Let&rsquo;s start from the premise that the fewer bugs in your code, the better. If you subscribe to that school of thoughy, then anything that helps you achieve this has to be a good thing. As the developer who writes 100% bug-free code hasn&rsquo;t been born yet, we&rsquo;re also faced with the challenge that the more code we write, the more likely it is that the project will turn out to be infested with them.
+
+Documentation is also held to be a Good Thing, but it&rsquo;s also something that very few devs are particularly keen on doing - especially once the code&rsquo;s been written.  A comprehensive test suite, especially if it&rsquo;s been built using one of the more &ldquo;descriptive&rdquo; tools such as Kiwi or Specta, can almost replace documentation. It&rsquo;s also considerably easier to read than code, because it&rsquo;s documenting intent rather than execution - the &ldquo;what&rdquo; rather than the &ldquo;how&rdquo;.
+
+Perhaps the most important reason for taking a test-driven approach, though, is the way you&rsquo;ll knit yourself a &ldquo;security blanket&rdquo; around your code. We&rsquo;ve all been in the situation where making changes to an existing code base is a stressful affair, because you&rsquo;re never quite sure whether changing something over here will break something over there.
+
+If your test suite is comprehensive enough, you can relax to an extent knowing that the tests will catch those kinds of problem. And that becomes particlarly important if you&rsquo;re working with others, because tests can help catch things that break your code.
+
+"/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>The Cowardly Test-o-Phobe&#39;s Guide To iOS Testing</h1>
+                    <h2 class="headline">
+                    25 May 2014 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p><em>(This is the first part of a text-based version of the talk I gave for <a href="https://skillsmatter.com/conferences/1984-ioscon-2014">iOS Con at Skillsmatter</a> in London on Friday 16th May. If you prefer the full multimedia experience, there&rsquo;s video available behind a login wall at <a href="https://skillsmatter.com/skillscasts/5167-tdd-in-ios">https://skillsmatter.com/skillscasts/5167-tdd-in-ios</a>.)</em></p>
+
+<p><em>The presentation slides are <a href="http://www.slideshare.net/timd/the-cowardly-testophobes-guide-to-testing">available here</a>.</em></p>
+
+<h2 id="why-is-testing-scary">Why is testing scary?</h2>
+
+<p>Unit testing is a topic that gets talked about a <strong>lot</strong>, but if you&rsquo;re not a computer scientist it can have a tricksy reputation. It doesn&rsquo;t help that much of the source material available is Java-based. That&rsquo;s fine if you like Java - I&rsquo;m personally not so keen - but there&rsquo;s a lot less help if your primary weapon of choice is Objective-C.</p>
+
+<p>Testing is also a topic that attracts - how shall we put it? - some of the more tedious personalities in this business. There&rsquo;s nothing so dull as a self-appointed &ldquo;thought leader&rdquo;, and a lot of what passes for debate on testing is so much arcane, &ldquo;how many angels can dance on the head of a pin&rdquo;-style nonsense.</p>
+
+<p>That&rsquo;s got very little to do with the day-to-day grind of shipping software. There is no One Way to do this, and if you look hard enough at the motives of those who would have you believe that, you often find it comes down to selling themselves as a brand.</p>
+
+<h2 id="why-is-testing-important">Why is testing important?</h2>
+
+<p>All that said, testing <strong>is</strong> important. Let&rsquo;s start from the premise that the fewer bugs in your code, the better. If you subscribe to that school of thoughy, then anything that helps you achieve this has to be a good thing. As the developer who writes 100% bug-free code hasn&rsquo;t been born yet, we&rsquo;re also faced with the challenge that the more code we write, the more likely it is that the project will turn out to be infested with them.</p>
+
+<p>Documentation is also held to be a Good Thing, but it&rsquo;s also something that very few devs are particularly keen on doing - especially once the code&rsquo;s been written.  A comprehensive test suite, especially if it&rsquo;s been built using one of the more &ldquo;descriptive&rdquo; tools such as Kiwi or Specta, can almost replace documentation. It&rsquo;s also considerably easier to read than code, because it&rsquo;s documenting <em>intent</em> rather than <em>execution</em> - the &ldquo;what&rdquo; rather than the &ldquo;how&rdquo;.</p>
+
+<p>Perhaps the most important reason for taking a test-driven approach, though, is the way you&rsquo;ll knit yourself a &ldquo;security blanket&rdquo; around your code. We&rsquo;ve all been in the situation where making changes to an existing code base is a stressful affair, because you&rsquo;re never quite sure whether changing something over <em>here</em> will break something over <em>there</em>.</p>
+
+<p>If your test suite is comprehensive enough, you can relax to an extent knowing that the tests will catch those kinds of problem. And that becomes particlarly important if you&rsquo;re working with others, because tests can help catch things that break <em>your</em> code.</p>
+
+<p></p>
+
+<h2 id="the-basics">The basics</h2>
+
+<p>The basic purpose of testing is to ask the question <em>&ldquo;does my code do what it&rsquo;s supposed to do.&rdquo;</em> Assuming that you can give a positive answer to that, it will then help you to ask other, more probing questions. *&ldquo;Can my code handle unexpected values?&rdquo; is one of them. Coding for the &ldquo;happy path&rdquo; only is a common problem - how can you ensure that your app will still work if the API doesn&rsquo;t respond, for example. What will happen if the data received back from the API is beyond the bounds you expected, or is corrupt?</p>
+
+<p>Even if your code is capable of handling strange data, you can still end up creating problems for yourself further down the line. As you add more classes and features, the chances of something new breaking something existing multiplies. Protecting each area with tests means that you have a safety net that should catch problems by code in another part of the app.</p>
+
+<h2 id="why-not-test-last">Why not test last?</h2>
+
+<p>The meaning of the word &ldquo;test&rdquo; implies checking after the fact - making sure that the code you&rsquo;re written functions as you expected it to do. The problem with testing code <em>after</em> you&rsquo;ve written it is that there&rsquo;s actually very little motivation to do this in normal circumstances. After all, you&rsquo;ve written the code, it does what it&rsquo;s supposed to, and you&rsquo;re infallible - right? Testing that it works is just spending more time doing over the same ground.</p>
+
+<p>That&rsquo;s definitely the response you&rsquo;ll get when the project manager wanders over and asks what you&rsquo;re doing. If the answer is &ldquo;writing tests for the feature that we shipped last week&rdquo;, then they&rsquo;re going to ask when you&rsquo;re going to get on with more productive stuff. In a time-constrained project, there&rsquo;s a perverse incentive <em>not</em> to test.</p>
+
+<h2 id="why-test-first">Why test first?</h2>
+
+<p>The rhythm of test-first, or test-driven development follows a predictable pattern. First, you write a test which describes the outcome that you&rsquo;re after. What that will be obviously depends on the type of code you&rsquo;re writing - in the case of a calculation, it would be a correct result; in the case of a UI feature it would be some kind of update to the views.</p>
+
+<p>Then, you run the test. This seems counter-intuitive, because it fails.  It has to fail, after all - you haven&rsquo;t written any code to make it pass yet. In the jargon, your test has just <em>&ldquo;gone red&rdquo;</em>. But in the process of seeing the test fail, you&rsquo;re already getting clues about how to go about fixing it. It&rsquo;s like having a small and benign homunculus perched on your shoulder, whispering hints about what to do as the tests progress.</p>
+
+<p>With that advice in mind, you can then write the code that will make the test pass - or <em>&ldquo;go green&rdquo;</em>. If at first the test fails, you know you haven&rsquo;t got it right yet - but you always have the target in mind, because you started by describing the outcome that you were looking for.</p>
+
+<p>Once you&rsquo;ve got a passing test, you&rsquo;re then free to improve things safe in the knowledge that the test will catch anything you do to break the code. That&rsquo;s the &ldquo;refactor&rdquo; step, and you&rsquo;ve now been once round the <em>red-green-refactor</em> loop that is the basic process of test-driven development.</p>
+
+<h2 id="challenges-of-testing-ios">Challenges of testing iOS</h2>
+
+<p>Test-driven development, or indeed testing of any kind, has some special challenges in the iOS world. The tools and techniques of testing were developed in a terminal-driven world, so many of the approaches are predicated on the results being something that has no user interface component.</p>
+
+<p>On iOS, on the other hand, practically everything happens in response to some kind of user input passed down through the Cocoa Touch layer. And the code that responds to the touches can be highly modular - an indidivual class rarely stands and operates on its own, but instead has to collaborate with all manner of other classes and external APIs.</p>
+
+<p>These two factors - responding to touches, and highly-modular code architectures - can make test-driven development on iOS seem like an impossible challenge.  That&rsquo;s even more the case if you&rsquo;ve inherited an existing project, and you&rsquo;re now faced with the challenge of wrapping tests around an already-built code base.</p>
+
+<p>Fortunately, there are some available tools and techniques which can get around both these problems. In the next post, I&rsquo;ll dig down into how these work in practice, and how you can take advantage of the structure of Cocoa Touch itself to build apps in a completely test-driven way.</p>
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2014%2f05%2f25%2fthe-cowardly-test-o-phobes-guide-to-ios-testing%2f - The%20Cowardly%20Test-o-Phobe%27s%20Guide%20To%20iOS%20Testing by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

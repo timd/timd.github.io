@@ -1,0 +1,320 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Setting up Mogenerator in Xcode 4.5 &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Setting up Mogenerator in Xcode 4.5" />
+<meta property="og:description" content="Mogenerator is a command-line utility that helps manage NSManagedObject classes by generating two sets of files - machine files, which represent the Core Data entities as NSManagedObject subclasses; and human files, which you can use for custom edits.
+Without Mogenerator, changing the Core Data model will overwrite the NSManagedObject subclasses and you stand to lose any custom changes you&rsquo;ve made. With Mogenerator, those changes are kept separate and won&rsquo;t be overwritten." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2012/12/03/setting-up-mogenerator-in-xcode-4-dot-5/" />
+
+
+
+<meta property="article:published_time" content="2012-12-03T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2012-12-03T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Setting up Mogenerator in Xcode 4.5">
+<meta itemprop="description" content="Mogenerator is a command-line utility that helps manage NSManagedObject classes by generating two sets of files - machine files, which represent the Core Data entities as NSManagedObject subclasses; and human files, which you can use for custom edits.
+Without Mogenerator, changing the Core Data model will overwrite the NSManagedObject subclasses and you stand to lose any custom changes you&rsquo;ve made. With Mogenerator, those changes are kept separate and won&rsquo;t be overwritten.">
+
+
+<meta itemprop="dateModified" content="2012-12-03T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="740">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Setting up Mogenerator in Xcode 4.5"/>
+<meta name="twitter:title" content="Setting up Mogenerator in Xcode 4.5"/>
+<meta name="twitter:description" content="Mogenerator is a command-line utility that helps manage NSManagedObject classes by generating two sets of files - machine files, which represent the Core Data entities as NSManagedObject subclasses; and human files, which you can use for custom edits.
+Without Mogenerator, changing the Core Data model will overwrite the NSManagedObject subclasses and you stand to lose any custom changes you&rsquo;ve made. With Mogenerator, those changes are kept separate and won&rsquo;t be overwritten."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Setting up Mogenerator in Xcode 4.5</h1>
+                    <h2 class="headline">
+                    3 December 2012 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>Mogenerator is a command-line utility that helps manage <code>NSManagedObject</code> classes by generating two sets of files - machine files, which represent the Core Data entities as <code>NSManagedObject</code> subclasses; and human files, which you can use for custom edits.</p>
+
+<p>Without Mogenerator, changing the Core Data model will overwrite the <code>NSManagedObject</code> subclasses and you stand to lose any custom changes you&rsquo;ve made. With Mogenerator, those changes are kept separate and won&rsquo;t be overwritten.</p>
+
+<p>There isn&rsquo;t a whole lot of documentation about setting up Mogenerator, so this is a quick write-up of my process. It assumes that you&rsquo;ve already created a project with Core Data installed, and you&rsquo;ve created a Data Model.</p>
+
+<p>First, you&rsquo;ll need to download and install Mogenerator from <a href="http://rentzsch.github.com/mogenerator/">http://rentzsch.github.com/mogenerator/</a>. You can install from a .dmg, or use Homebrew.</p>
+
+<p>Next, set up your project&rsquo;s file structure ready for the new files that will be generated. Where you put them is up to you, but I tend to use this kind of structure:</p>
+
+<pre><code>Foo/
+     |
+     |- Foo.xcodeproj
+     |
+     |- Foo/
+     |   |
+     |   |-  en.lproj
+     |   |    FooAppDelegate.h
+     |   |    FooAppDelegate.m
+     |   |    ViewController.h
+     |   |    ViewController.m
+     |   |      etc
+     |   |
+     |   |-  CoreData/
+     |          |
+     |          |- Human
+     |          |   |
+     |          |   |- &amp;lt;editable files will go here&amp;gt;
+     |          |
+     |          |- Machine/
+     |              |
+     |              |- &amp;lt;system files will go here&amp;gt;
+     |
+     |- FooTests/
+         |
+         |- etc
+</code></pre>
+
+<p>Now set up your project to use Mogenerator: Switch to the project&rsquo;s Summary page by selecting the blue Project icon at the top of the app&rsquo;s folder heirarchy. In the second column, you should see the list of targets. Add an Aggregate target by clicking the</p>
+
+<p><strong>Add Target</strong> icon at the bottom of the list, and selecting the Aggregate target from the template chooser. Call your new Aggregate target Mogenerator or something similar (the name isn&rsquo;t significant)</p>
+
+<p>Select the new Mogenerator target and click the <strong>Add Build Phase</strong> icon at the bottom right - from the pop-up list, select the Add Run Script option</p>
+
+<p>Open up the <strong>Run Script</strong> section, and edit the script that&rsquo;s shown.</p>
+
+<pre><code>    cd Foo
+    /usr/local/bin/mogenerator --template-var arc=true
+    -m Foo.xcdatamodeld/Foo.xcdatamodel/ -M CoreData/Machine/ -H CoreData/Human/
+</code></pre>
+
+<p><em>(the <code>mogenerator</code> command should be on one line - I&rsquo;ve split it here so that it&rsquo;s visible)</em></p>
+
+<p>Replace <code>Foo</code> with your app&rsquo;s name. This script does several things:</p>
+
+<ul>
+<li>it switches from the project&rsquo;s root directory to the app subdirectory</li>
+<li>it runs Mogenerator (you may not need the full path to the mogenerator app, but if the script fails with a <code>file not found</code> error, this is the workaround)</li>
+<li>it generates files which will work with ARC (if you&rsquo;re not using ARC, remove the <code>--template-var arc=true switch</code>)</li>
+<li>it uses the <code>Foo.xcdatamodeld/Foo.xcdatamodel</code> file as the basis of the model files that it will generate</li>
+<li>it places the editable human-readable files in the <code>CoreData/Human directory</code></li>
+<li>it places the non-editable machine files in the <code>CoreData/Machine directory</code> Now switch to your app&rsquo;s main target, and add a target dependency - from the menu that pops up, select the newly-created Mogenerator target.</li>
+</ul>
+
+<p><em>UPDATE</em> I recently came across a neat trick for managing build scripts which makes keeping them under source control a little easier.  Rather than putting the script directly into the Xcode settings, you instead create a standalone script in the project folder and then run this from the <strong>Run Script</strong> section. See <a href="http://adoptioncurve.net/archives/2013/05/a-better-way-of-managing-xcode-scripts/">the post here</a>.</p>
+
+<p>Finally, select your main target (e.g. &lsquo;Foo&rsquo;), and open the &lsquo;Build Phases&rsquo; tab again.  At the top of the section, you&rsquo;ll see <code>Target Dependencies</code>. Click the <code>+</code> icon below this, and then select your newly-created Aggregate target.  This will force the <code>mogenerator</code> script to be run on every build.</p>
+
+<p>At this point, you&rsquo;re ready to start using Mogenerator. There&rsquo;s a simple process that you&rsquo;ll need to follow from here on in to make sure that the Mogenerated files are created correctly</p>
+
+<ul>
+<li>When you create a new managed entity, change its class so that Mogenerator will do its stuff. Say you call the new entity <code>Thing</code> - then you&rsquo;ll need to change its class from <code>NSManagedObject</code> to <code>Thing</code>.</li>
+<li>build the project</li>
+<li>locate the files that have been created in the <code>Human</code> and <code>Machine</code> subdirectories and drag them into your project. You&rsquo;ll find four in total - <code>Thing.h</code>, <code>Thing.m</code>, <code>_Thing.h</code> and <code>_Thing.m</code>. Don&rsquo;t touch the underscored files - those are the machine-generated ones.</li>
+</ul>
+
+<p>Any subsequent changes in the <code>Thing</code> entity will be automatically reflected in the class files once they&rsquo;ve been included into the project.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2012%2f12%2f03%2fsetting-up-mogenerator-in-xcode-4-dot-5%2f - Setting%20up%20Mogenerator%20in%20Xcode%204.5 by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

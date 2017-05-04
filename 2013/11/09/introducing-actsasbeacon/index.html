@@ -1,0 +1,258 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Introducing ActsAsBeacon &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Introducing ActsAsBeacon" />
+<meta property="og:description" content="iOS7 introduces support for Bluetooth LE (aka Bluetooth Smart). “LE” stands for Low Energy – a Bluetooth LE device has an incredibly low current draw, which means it can potentially operate for extended periods (think months) on nothing more than a coin cell battery.
+Apple are using Bluetooth LE to power iBeacons – a beacon is a low-power device that talks Bluetooth LE and can be detected by the CoreLocation stack." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2013/11/09/introducing-actsasbeacon/" />
+
+
+
+<meta property="article:published_time" content="2013-11-09T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2013-11-09T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Introducing ActsAsBeacon">
+<meta itemprop="description" content="iOS7 introduces support for Bluetooth LE (aka Bluetooth Smart). “LE” stands for Low Energy – a Bluetooth LE device has an incredibly low current draw, which means it can potentially operate for extended periods (think months) on nothing more than a coin cell battery.
+Apple are using Bluetooth LE to power iBeacons – a beacon is a low-power device that talks Bluetooth LE and can be detected by the CoreLocation stack.">
+
+
+<meta itemprop="dateModified" content="2013-11-09T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="363">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Introducing ActsAsBeacon"/>
+<meta name="twitter:title" content="Introducing ActsAsBeacon"/>
+<meta name="twitter:description" content="iOS7 introduces support for Bluetooth LE (aka Bluetooth Smart). “LE” stands for Low Energy – a Bluetooth LE device has an incredibly low current draw, which means it can potentially operate for extended periods (think months) on nothing more than a coin cell battery.
+Apple are using Bluetooth LE to power iBeacons – a beacon is a low-power device that talks Bluetooth LE and can be detected by the CoreLocation stack."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Introducing ActsAsBeacon</h1>
+                    <h2 class="headline">
+                    9 November 2013 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>iOS7 introduces support for Bluetooth LE (aka Bluetooth Smart). “LE” stands for Low Energy – a Bluetooth LE device has an incredibly low current draw, which means it can potentially operate for extended periods (think months) on nothing more than a coin cell battery.</p>
+
+<p>Apple are using Bluetooth LE to power iBeacons – a beacon is a low-power device that talks Bluetooth LE and can be detected by the CoreLocation stack. An app can be “woken up” by a beacon, and can use the signals from several beacons to obtain location information. Think indoor GPS with a (potential) accuracy of centimetres.</p>
+
+<p>At the moment, the iBeacon spec is under NDA, which means that beacons themselves are hard to come by. You can pre-order Estimotes which look like they’ll be the simple, pretty but expensive option; or try Kontakt devices (not so pretty, still expensive). Or there’s the Redbear Labs BLE Mini if you prefer bare boards and some soldering.</p>
+
+<p><img src="/images/2013/11/actsasbeacon.png 250" alt="" /></p>
+
+<p>iOS devices of recent vintage can act as beacons, though – so if you just need some beacons for testing, there’s no reason why you can’t grab a handful of iPod Touches or similar and use these. The other advantage of this approach is that configuring the various beacon parameters is much easier with a iOS device than fiddling around with hardware alternatives.</p>
+
+<p><a href="https://github.com/timd/ActsAsBeacon">ActsAsBeacon</a> is a tiny app which turns your iOS7 device into an iBeacon, and has a search function to show details of beacons in the vicinity. It will also allow you to configure the service UUID and broadcast parameters so that it’s possible to experiment with iBeacon-enabled apps.</p>
+
+<p>In the next version that I’m currently tinkering with, the app will also provide a configuration interface for BLE Mini boards – Redbear Labs have an app for this, but it’s a bit broken on iOS7. My version allows the Mini boards to be configured over the air once their firmware has been updated to run the iBeacon version.</p>
+
+<p>The app’s available as a GitHub repo, and I’ll be submitting a version to the App Store in a couple of days so that there’s no dependency on Xcode and a Developer Program license.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2013%2f11%2f09%2fintroducing-actsasbeacon%2f - Introducing%20ActsAsBeacon by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

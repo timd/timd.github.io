@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Paranoia on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/paranoia/</link>
+    <description>Recent content in Paranoia on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Tue, 23 Feb 2010 09:39:59 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/paranoia/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Robbery for fun and profit</title>
+      <link>https://adoptioncurve.net/2010/02/23/robbery-for-fun-and-profit/</link>
+      <pubDate>Tue, 23 Feb 2010 09:39:59 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/02/23/robbery-for-fun-and-profit/</guid>
+      <description>Another day, another Daily Mail-esque panic about how social networking is causing the downfall of modern society as we know it. This time it&amp;rsquo;s pleaserobme.com, a site that scrapes location-based services such as Foursquare and Gowalla and publicises the fact that you&amp;rsquo;re - shock, horror - not at home.
+It&amp;rsquo;s a clever idea, but it does of course rely on a certain amount of coding skill to be able to set it up in the first place.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1356 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Technical on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/categories/technical/</link>
+    <description>Recent content in Technical on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Fri, 02 Oct 2015 21:28:25 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/categories/technical/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Testing asynchronous code in Swift</title>
+      <link>https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/</link>
+      <pubDate>Fri, 02 Oct 2015 21:28:25 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/</guid>
+      <description>Asynchronous code is both hard to test; and important to test.
+It&amp;rsquo;s important, because it often handles some of the most critical and yet unreliable parts of an app - in other words, networking.
+It&amp;rsquo;s hard because it&amp;rsquo;s, well, asynchronous. One of the two jokes in software engineering goes something like &amp;ldquo;Some people, when faced with a problem, think &amp;lsquo;I know, I&amp;rsquo;ll use threading&amp;rsquo;. Now problems have two they.&amp;rdquo;</description>
+    </item>
+    
+    <item>
+      <title>Mocks and expectations with Swift</title>
+      <link>https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/</link>
+      <pubDate>Wed, 30 Sep 2015 21:41:02 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/</guid>
+      <description>A new language, a new way of doing things - including testing. One of the harder parts of getting to grips with Swift has been figuring out how testing works, and in particular how to do more extensive stuff like mocking and stubbing.
+By way of background, mocking is the art of creating &amp;ldquo;stunt doubles&amp;rdquo; for your classes that are involved in tests. You&amp;rsquo;d do this for a couple of reasons - either to manipulate your stunt doubles into a known state for testing purpose; or because it&amp;rsquo;s expensive or difficult to use the real thing.</description>
+    </item>
+    
+    <item>
+      <title>Testing NSUserDefaults</title>
+      <link>https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/</link>
+      <pubDate>Sun, 08 Mar 2015 14:06:44 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/</guid>
+      <description>NSUserDefaults is where you can store persistent app settings, as an alternative to storing them in some kind of in-app database. You shouldn&amp;rsquo;t try to store actual application data in NSUserDefaults, but they are useful for capturing &amp;ldquo;small&amp;rdquo; settings like environment URLs and so on.
+If you&amp;rsquo;re using NSUserDefaults, you should be testing NSUserDefaults. Here&amp;rsquo;s how.
+One of the most common testing scenarios is that you want to store some value in the defaults store so that it can be read out later.</description>
+    </item>
+    
+    <item>
+      <title>Where has the iOS8 Simulator gone?!?</title>
+      <link>https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/</link>
+      <pubDate>Thu, 04 Dec 2014 14:40:15 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/</guid>
+      <description>With Xcode 6 and the new iOS8 Simulators, Apple thought it would be a good idea to move the location of the Simulator files. That&amp;rsquo;s not usually a problem, because there&amp;rsquo;s only a few specific circumstances when you need to access the files underlying the Simulator&amp;rsquo;s functions.
+If you do need to access those files, the chances are that you can&amp;rsquo;t find them anymore.
+Instead of looking in
+~/Library/Application Support/iPhone Simulator/</description>
+    </item>
+    
+    <item>
+      <title>Working with size classes in Interface Builder</title>
+      <link>https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/</link>
+      <pubDate>Sat, 16 Aug 2014 12:30:24 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/</guid>
+      <description>&lt;p&gt;Android used to be notorious amongst iOS developers for its practically infinite permutations of interface size. Viewed from the iOS world, this used to look like a problem, because iOS didn&amp;rsquo;t really provide much in the way of support for building interfaces of different sizes.&lt;/p&gt;
+
+&lt;p&gt;If you were building a universal app that supported both iPhone and iPad, there was a tendency to end up with a lot of &lt;code&gt;if deviceType == kIpad&lt;/code&gt;-style code.&lt;/p&gt;
+
+&lt;p&gt;AutoLayout was the first part of fixing that problem, and the job&amp;rsquo;s been completed with iOS 8 and size classes.  This is probably the least-sexy feature introduced in 8, but it&amp;rsquo;s definitely one of the more important.&lt;/p&gt;
+
+&lt;h3 id=&#34;some-quick-background-on-size-classes&#34;&gt;Some quick background on size classes&lt;/h3&gt;
+
+&lt;p&gt;There are currently two size classes - &lt;code&gt;horizontal&lt;/code&gt; and &lt;code&gt;vertical&lt;/code&gt;, and each one comes in two sizes - &lt;code&gt;regular&lt;/code&gt; and &lt;code&gt;compact&lt;/code&gt;. The current orientation of the device can be described as a combination of the sizes:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Horizontal regular, vertical regular&lt;/code&gt;: iPad in either orientation&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Horizontal compact, vertical regular&lt;/code&gt;: iPhone portrait&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Horizontal regular, vertical compact&lt;/code&gt;: no current device&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Horizontal compact, vertical compact&lt;/code&gt;: iPhone landscape&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://adoptioncurve.net/images/2014/08/sizeClasses.png 400&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Storyboards and nib files now support these size classes - so you can think of them as having up to four different layouts contained within the same file. At the bottom of the Interface Builder window, there&amp;rsquo;s now a control that allows you to switch between each combination:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://adoptioncurve.net/images/2014/08/ibCombination.png 300&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Every control or AutoLayout constraint can exist in one, several or all of the size classes. This means that you can build interfaces that change depending on device type and/or orientation &lt;em&gt;without any code&lt;/em&gt;. Controls can appear or disappear, change size, or change arrangements - all based on the layout that you create in Interface Builder.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>The many forms of Swift functions</title>
+      <link>https://adoptioncurve.net/2014/08/02/the-many-forms-of-swift-functions-a-cheatsheet/</link>
+      <pubDate>Sat, 02 Aug 2014 16:19:38 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2014/08/02/the-many-forms-of-swift-functions-a-cheatsheet/</guid>
+      <description>There are a somewhat bewildering variety of forms that a Swift function can take, depending on the permutations of parameters and return values that you want to use. Here&amp;rsquo;s a cheat summary:
+{% gist efb965552945366ae14a)
+Here&amp;rsquo;s a downloadable PDF version.</description>
+    </item>
+    
+    <item>
+      <title>A minimum viable tableView in Swift</title>
+      <link>https://adoptioncurve.net/2014/07/20/a-minimum-viable-tableview-in-swift/</link>
+      <pubDate>Sun, 20 Jul 2014 12:33:34 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2014/07/20/a-minimum-viable-tableview-in-swift/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/timd/SwiftTable&#34;&gt;This GitHub repo&lt;/a&gt; is a minimum viable implementation of a &lt;code&gt;UITableView&lt;/code&gt; in Swift.  Here&amp;rsquo;s a swift (badum, tish) tutorial on creating a &lt;code&gt;UITableView&lt;/code&gt; using the new language.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;This code has been updated for Swift 1.0 and Xcode 6.0.1&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The project consists consists of a single storyboard with a table view control, and a view controller written in Swift:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    let cellIdentifier = &amp;quot;cellIdentifier&amp;quot;
+    var tableData = [String]()
+    
+    @IBOutlet var tableView: UITableView?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Register the UITableViewCell class with the tableView
+        
+        
+        self.tableView?.registerClass(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
+        
+        // Setup table data
+        for index in 0...100 {
+            self.tableData.append(&amp;quot;Item \(index)&amp;quot;)
+        }
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    // UITableViewDataSource methods
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -&amp;gt; Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -&amp;gt; Int {
+        return tableData.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -&amp;gt; UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifier) as UITableViewCell
+        
+        cell.textLabel?.text = self.tableData[indexPath.row]
+        
+        return cell
+    }
+    
+    // UITableViewDelegate methods
+    
+    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+
+        let alert = UIAlertController(title: &amp;quot;Item selected&amp;quot;, message: &amp;quot;You selected item \(indexPath.row)&amp;quot;, preferredStyle: UIAlertControllerStyle.Alert)
+    
+        alert.addAction(UIAlertAction(title: &amp;quot;OK&amp;quot;,
+                                      style: UIAlertActionStyle.Default,
+                                    handler: {
+                                        (alert: UIAlertAction!) in println(&amp;quot;An alert of type \(alert.style.hashValue) was tapped!&amp;quot;)
+                                    }))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Creating a draggable UICollectionViewCell</title>
+      <link>https://adoptioncurve.net/2014/07/16/creating-a-draggable-uicollectionviewcell/</link>
+      <pubDate>Wed, 16 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2014/07/16/creating-a-draggable-uicollectionviewcell/</guid>
+      <description>So here&amp;rsquo;s the situation - you&amp;rsquo;re creating an interactive UICollectionView, and you want to be able to drag a cell around the screen with a touch. To provide user feedback, you want the contents of the cell to follow the user&amp;rsquo;s finger as it moves around.
+The problem is that unless you&amp;rsquo;re using a completely custom collection view layout, you can&amp;rsquo;t move the cell itself. The collection view is in charge of where things are displayed, and it&amp;rsquo;s a major pain to override this - especially if you&amp;rsquo;re using a flow layout.</description>
+    </item>
+    
+    <item>
+      <title>Mocking UICollectionViewLayouts</title>
+      <link>https://adoptioncurve.net/2014/07/10/mocking-uicollectionviewlayouts/</link>
+      <pubDate>Thu, 10 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2014/07/10/mocking-uicollectionviewlayouts/</guid>
+      <description>At the heart of custom UICollectionViewLayouts are lots of calculations, and creating/debugging these by hand can be painful. It&amp;rsquo;s easier in the long run to write tests to help with this - but setting up the stack of objects to make the tests run can be a bit involved.
+Here&amp;rsquo;s how I&amp;rsquo;m doing it - using XCTest and OCMock, although there&amp;rsquo;s no reason why this approach won&amp;rsquo;t work with other test/mock frameworks like Kiwi etc.</description>
+    </item>
+    
+    <item>
+      <title>Why Swift isn&#39;t going to change the app industry just yet</title>
+      <link>https://adoptioncurve.net/2014/06/08/why-swift-isnt-going-to-change-the-app-industry-just-yet/</link>
+      <pubDate>Sun, 08 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2014/06/08/why-swift-isnt-going-to-change-the-app-industry-just-yet/</guid>
+      <description>One of the common reactions to Monday&amp;rsquo;s announcement of Apple&amp;rsquo;s new Swift language was that it&amp;rsquo;s lowered the bar for iOS development. We can look now forward to the dawning of a halycon age where apps have never been easier and cheaper to create.
+The other way of looking at this idea is that as an established iOS developer, your industry might be about to get invaded by millions of newbies who haven&amp;rsquo;t had to earn their stripes learning the intricacies of ObjectiveC.</description>
+    </item>
+    
+    <item>
+      <title>The Cowardly Test-Phobe&#39;s Guide to iOS Testing: Networks</title>
+      <link>https://adoptioncurve.net/2014/05/29/the-cowardly-test-phobes-guide-to-ios-testing-networks/</link>
+      <pubDate>Thu, 29 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2014/05/29/the-cowardly-test-phobes-guide-to-ios-testing-networks/</guid>
+      <description>(This is the second part of a text-based version of the talk I gave for iOS Con at Skillsmatter in London on Friday 16th May. If you prefer the full multimedia experience, there&amp;rsquo;s video available behind a login wall at https://skillsmatter.com/skillscasts/5167-tdd-in-ios.)
+The presentation slides are available here.
+Testing networks Unless you&amp;rsquo;re in the business of writing fairly trivial apps, eventually your code is going to need to talk to some external services reachable across a network link.</description>
+    </item>
+    
+    <item>
+      <title>Loading a storyboard programatically</title>
+      <link>https://adoptioncurve.net/2014/05/25/loading-a-storyboard-programatically/</link>
+      <pubDate>Sun, 25 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2014/05/25/loading-a-storyboard-programatically/</guid>
+      <description>I am not the world&amp;rsquo;s greatest fan of Storyboards, having been scarred by an unfortunate project involving a) a huge Storyboard b) multiple developers and c) horrific merge conflicts. That said, some people do like them, so each to their own&amp;hellip;
+If you manage to overcome the visceral loathing and need to user Storyboards in tests, you&amp;rsquo;ll hit the problem that they seem to be used semi-magically. There&amp;rsquo;s no obvious equivalent of an initWithNibFile method that you can hook into to load the thing as you kick your test case off.</description>
+    </item>
+    
+    <item>
+      <title>The Cowardly Test-o-Phobe&#39;s Guide To iOS Testing</title>
+      <link>https://adoptioncurve.net/2014/05/25/the-cowardly-test-o-phobes-guide-to-ios-testing/</link>
+      <pubDate>Sun, 25 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2014/05/25/the-cowardly-test-o-phobes-guide-to-ios-testing/</guid>
+      <description>&lt;p&gt;&lt;em&gt;(This is the first part of a text-based version of the talk I gave for &lt;a href=&#34;https://skillsmatter.com/conferences/1984-ioscon-2014&#34;&gt;iOS Con at Skillsmatter&lt;/a&gt; in London on Friday 16th May. If you prefer the full multimedia experience, there&amp;rsquo;s video available behind a login wall at &lt;a href=&#34;https://skillsmatter.com/skillscasts/5167-tdd-in-ios&#34;&gt;https://skillsmatter.com/skillscasts/5167-tdd-in-ios&lt;/a&gt;.)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;The presentation slides are &lt;a href=&#34;http://www.slideshare.net/timd/the-cowardly-testophobes-guide-to-testing&#34;&gt;available here&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;why-is-testing-scary&#34;&gt;Why is testing scary?&lt;/h2&gt;
+
+&lt;p&gt;Unit testing is a topic that gets talked about a &lt;strong&gt;lot&lt;/strong&gt;, but if you&amp;rsquo;re not a computer scientist it can have a tricksy reputation. It doesn&amp;rsquo;t help that much of the source material available is Java-based. That&amp;rsquo;s fine if you like Java - I&amp;rsquo;m personally not so keen - but there&amp;rsquo;s a lot less help if your primary weapon of choice is Objective-C.&lt;/p&gt;
+
+&lt;p&gt;Testing is also a topic that attracts - how shall we put it? - some of the more tedious personalities in this business. There&amp;rsquo;s nothing so dull as a self-appointed &amp;ldquo;thought leader&amp;rdquo;, and a lot of what passes for debate on testing is so much arcane, &amp;ldquo;how many angels can dance on the head of a pin&amp;rdquo;-style nonsense.&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s got very little to do with the day-to-day grind of shipping software. There is no One Way to do this, and if you look hard enough at the motives of those who would have you believe that, you often find it comes down to selling themselves as a brand.&lt;/p&gt;
+
+&lt;h2 id=&#34;why-is-testing-important&#34;&gt;Why is testing important?&lt;/h2&gt;
+
+&lt;p&gt;All that said, testing &lt;strong&gt;is&lt;/strong&gt; important. Let&amp;rsquo;s start from the premise that the fewer bugs in your code, the better. If you subscribe to that school of thoughy, then anything that helps you achieve this has to be a good thing. As the developer who writes 100% bug-free code hasn&amp;rsquo;t been born yet, we&amp;rsquo;re also faced with the challenge that the more code we write, the more likely it is that the project will turn out to be infested with them.&lt;/p&gt;
+
+&lt;p&gt;Documentation is also held to be a Good Thing, but it&amp;rsquo;s also something that very few devs are particularly keen on doing - especially once the code&amp;rsquo;s been written.  A comprehensive test suite, especially if it&amp;rsquo;s been built using one of the more &amp;ldquo;descriptive&amp;rdquo; tools such as Kiwi or Specta, can almost replace documentation. It&amp;rsquo;s also considerably easier to read than code, because it&amp;rsquo;s documenting &lt;em&gt;intent&lt;/em&gt; rather than &lt;em&gt;execution&lt;/em&gt; - the &amp;ldquo;what&amp;rdquo; rather than the &amp;ldquo;how&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Perhaps the most important reason for taking a test-driven approach, though, is the way you&amp;rsquo;ll knit yourself a &amp;ldquo;security blanket&amp;rdquo; around your code. We&amp;rsquo;ve all been in the situation where making changes to an existing code base is a stressful affair, because you&amp;rsquo;re never quite sure whether changing something over &lt;em&gt;here&lt;/em&gt; will break something over &lt;em&gt;there&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;If your test suite is comprehensive enough, you can relax to an extent knowing that the tests will catch those kinds of problem. And that becomes particlarly important if you&amp;rsquo;re working with others, because tests can help catch things that break &lt;em&gt;your&lt;/em&gt; code.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Creating image callouts in Omnigraffle</title>
+      <link>https://adoptioncurve.net/2013/11/18/creating-image-callouts-in-omnigraffle/</link>
+      <pubDate>Mon, 18 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2013/11/18/creating-image-callouts-in-omnigraffle/</guid>
+      <description>Here&amp;rsquo;s a quick way of drawing a enlarged callout on an image using Omnigraffle.
+To avoid pixellation in the callout, your original image will need to be bigger than the main image on the canvas. Place the main image on the canvas and scale it accordingly:
+Draw a circle shape onto the canvas, then add another copy of the main image as the shape&amp;rsquo;s background using the Set Image option in the Image section in the inspector:</description>
+    </item>
+    
+    <item>
+      <title>Removing storyboards from Xcode 5&#39;s default single view app template</title>
+      <link>https://adoptioncurve.net/2013/10/06/removing-storyboards-from-xcode-5-s-default-single-view-app-template/</link>
+      <pubDate>Sun, 06 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2013/10/06/removing-storyboards-from-xcode-5-s-default-single-view-app-template/</guid>
+      <description>The new default single-view application template in Xcode 5 is based on Storyboards rather than the previous view-controller-and-nib-files approach. That&amp;rsquo;s fine if you like Storyboards, but I don&amp;rsquo;t - so the first thing I do when starting a new project is rip them out and replace them with the old approach.
+This is by way of an outboard brain dump to remind myself of how this is done.
+Remove the Main.</description>
+    </item>
+    
+    <item>
+      <title>Changing the Airport MAC address with OS X</title>
+      <link>https://adoptioncurve.net/2013/08/12/changing-the-airport-mac-address-with-os-x/</link>
+      <pubDate>Mon, 12 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2013/08/12/changing-the-airport-mac-address-with-os-x/</guid>
+      <description>If you walk past a fancy-looking bin in the City of London, there&amp;rsquo;s a chance it may have recorded details of any wifi-enabled devices you happen to be carrying.
+Tom Taylor figured out the way that this was being done - the bins are recording the MAC address of the wifi interface, and pointed out that it&amp;rsquo;s possible to change this if you&amp;rsquo;re running OS X.
+The chances of a bin sniffing the address of a Macbook are fairly slim unless you happen to be using it within wifi range - but there are situations where it&amp;rsquo;s actually useful to change the address.</description>
+    </item>
+    
+    <item>
+      <title>Batch resizing of images with Mogrify</title>
+      <link>https://adoptioncurve.net/2013/07/25/batch-resizing-of-images-with-mogrify/</link>
+      <pubDate>Thu, 25 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2013/07/25/batch-resizing-of-images-with-mogrify/</guid>
+      <description> An outboard brain post.
+To resize all images in a set of subdirectories: {% codeblock) find ../ -name &amp;ldquo;*.jpg&amp;rdquo; -exec mogrify -resize 192x192 {} \; {% endcodeblock)
+To check which files this will impact, you can run it non-destructively by placing echo in front of the mogrify command:
+{% codeblock) find ../ -name &amp;ldquo;*.jpg&amp;rdquo; -exec mogrify echo -resize 192x192 {} \; {% endcodeblock)
+An Automater workflow to append text onto files in a set of subdirectories: </description>
+    </item>
+    
+    <item>
+      <title>Building a Infinitely-Scrolling gallery with a UICollectionView</title>
+      <link>https://adoptioncurve.net/2013/07/02/building-a-circular-gallery-with-a-uicollectionview/</link>
+      <pubDate>Tue, 02 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2013/07/02/building-a-circular-gallery-with-a-uicollectionview/</guid>
+      <description>A common requirement for a photo gallery or similar is endless scrolling - once you&amp;rsquo;ve reached the end of the list of items, the list &amp;ldquo;wraps around&amp;rdquo; and begins again from the first item. UICollectionViews very easily lend themselves to creating galleries, but there&amp;rsquo;s no in-built mechanism for endless scrolling.
+This is a technique that can create the illusion of endless scrolling with relatively little effort. It uses UICollectionView&amp;rsquo;s scrollToItemAtIndexPath:atScrollPosition:animated: method to move the collection view back around to the beginning when it&amp;rsquo;s scrolled to the end of a list of items - by setting the animation property to NO, the move takes place without the user being aware of it.</description>
+    </item>
+    
+    <item>
+      <title>A basic Salesforce OAuth implementation for iOS</title>
+      <link>https://adoptioncurve.net/2013/07/01/a-basic-salesforce-oauth-implementation-for-ios/</link>
+      <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2013/07/01/a-basic-salesforce-oauth-implementation-for-ios/</guid>
+      <description>Accessing Salesforce from an iOS app requires two things - the Salesforce iOS SDK, and OAuth. The SDK wraps up authentication and accessing the SDK, and authentication is provided using an OAuth2.0 process.
+The current version 1.0 of the SDK includes a sample app which implements the OAuth workflow - but if the sample code was any more complex and baroque, it would have gilt cherubs on it. It works by hijacking the app delegate, and is a masterprice of &amp;ldquo;and then a miracle occurs&amp;rdquo; design.</description>
+    </item>
+    
+    <item>
+      <title>A better way of managing Xcode scripts</title>
+      <link>https://adoptioncurve.net/2013/05/21/a-better-way-of-managing-xcode-scripts/</link>
+      <pubDate>Tue, 21 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2013/05/21/a-better-way-of-managing-xcode-scripts/</guid>
+      <description>I can&amp;rsquo;t remember where, but I recently came across a neat way of managing Xcode scripts. Usually, you&amp;rsquo;d add a script into a Run Script build phase for your target. That&amp;rsquo;s fine, but it does mean that the script is &amp;lsquo;buried&amp;rsquo; inside the Xcode project. The effect of this is to hide any changes away inside the mess of XML that is a .xcproject or .xcworkspace file.
+The alternative is to create the script as a separate external file in your project folder; and link to this from the Run Script build phase.</description>
+    </item>
+    
+    <item>
+      <title>How a navigation-based app fits together</title>
+      <link>https://adoptioncurve.net/2013/04/26/how-a-navigation-based-app-fits-together/</link>
+      <pubDate>Fri, 26 Apr 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2013/04/26/how-a-navigation-based-app-fits-together/</guid>
+      <description>&lt;p&gt;Something I found less-than-obvious when starting out with iOS development was how the different types of ap  generated by the project templates available in Xcode actually worked.  Depending on which you choose what happens in &lt;code&gt;appDelegate&lt;/code&gt; varies in subtly-different ways.&lt;/p&gt;
+
+&lt;p&gt;What follows is the first of a series of posts that summarise the main app types, and how these start up. It starts with a basic single-view app, and steps through the process of converting this into an app which is navigation-based.&lt;/p&gt;
+
+&lt;h3 id=&#34;what-appdelegate-does&#34;&gt;What AppDelegate does&lt;/h3&gt;
+
+&lt;p&gt;The App Delegate class does what it says on the tin - it&amp;rsquo;s the delegate for the app that is run by &lt;code&gt;main.m&lt;/code&gt;.  When the app is up and running, the app delegate receives the &lt;code&gt;application:didFinishLaunchingWithOptions:&lt;/code&gt; call.  This is the point where the app&amp;rsquo;s main window is created and configured.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-single-view-app&#34;&gt;The single-view app&lt;/h3&gt;
+
+&lt;p&gt;The &amp;ldquo;single view&amp;rdquo; is the simplest kind of app that it&amp;rsquo;s possible to create (I&amp;rsquo;m deliberately ignoring the &amp;ldquo;empty app&amp;rdquo; template, which I&amp;rsquo;ll come back in a later post).  It has a single view controller which creates and manages a single view.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;application:didFinishLaunchingWithOptions:&lt;/code&gt; method looks like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Override point for customization after application launch.
+    self.viewController = [[ViewController alloc] initWithNibName:@&amp;quot;ViewController&amp;quot; bundle:nil];
+    self.window.rootViewController = self.viewController;
+    [self.window makeKeyAndVisible];
+    return YES;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Stepping through this, the first line grabs a reference to the window into which the view is going to be displayed.  It&amp;rsquo;s an instance of &lt;code&gt;UIWindow&lt;/code&gt; created with the bounds of the main screen - normally this is the screen of the device, but there are situations where you can have more than one screen (connected to an external display, for example).&lt;/p&gt;
+
+&lt;p&gt;Then an instance of a &lt;code&gt;UIViewController&lt;/code&gt; is created and assigned to the &lt;code&gt;viewController&lt;/code&gt; property, using the &lt;code&gt;ViewController&lt;/code&gt; xib file.&lt;/p&gt;
+
+&lt;p&gt;This &lt;code&gt;UIViewController&lt;/code&gt; instance is assigned to the &lt;code&gt;rootViewController&lt;/code&gt; property of the app&amp;rsquo;s &lt;code&gt;window&lt;/code&gt;, and the &lt;code&gt;makeKeyAndVisible&lt;/code&gt; method brings this window to the front and starts intercepting user interactions.&lt;/p&gt;
+
+&lt;p&gt;Finally, the method returns &lt;code&gt;YES&lt;/code&gt;, and the &lt;code&gt;rootViewController&lt;/code&gt; takes over.&lt;/p&gt;
+
+&lt;p&gt;This is the basic pattern for all iOS apps - starting a different style, a navigation-based app for example, is just a case of changing this method so that the right kind of class becomes the &lt;code&gt;rootViewController&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Creating a paged photo gallery with a UICollectionView</title>
+      <link>https://adoptioncurve.net/2013/04/09/creating-a-paged-photo-gallery-with-a-uicollectionview/</link>
+      <pubDate>Tue, 09 Apr 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2013/04/09/creating-a-paged-photo-gallery-with-a-uicollectionview/</guid>
+      <description>The &amp;ldquo;traditional&amp;rdquo; way of creating a swipeable gallery of images uses a UIScrollView and a series of views containing images which are placed in a line inside the scrollView. It&amp;rsquo;s a technique that works - but it&amp;rsquo;s fiddly to set up, and it doesn&amp;rsquo;t scale well. With more than a very few images in the gallery, you need to start implementing lazy loading to prevent the gallery gobbling up memory.</description>
+    </item>
+    
+    <item>
+      <title>Hacking the government&#39;s kebabs</title>
+      <link>https://adoptioncurve.net/2013/04/06/hacking-the-government-kebabs/</link>
+      <pubDate>Sat, 06 Apr 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2013/04/06/hacking-the-government-kebabs/</guid>
+      <description>It&amp;rsquo;s a truth universally acknowledged that a man or women in possession of a skinful of beer must be in search of a kebab.
+But the path to kebab nirvana is often paved with the slings and arrows of outrageous fortune.
+Not any more - there&amp;rsquo;s an app for that.
+Kebabbage is an app that I slung together at this weekend&amp;rsquo;s National Hack The Government Day with the help of Shaun McDonald.</description>
+    </item>
+    
+    <item>
+      <title>More on blocks in Objective-C (but still without tears)</title>
+      <link>https://adoptioncurve.net/2013/02/15/more-on-block-in-objective-c-but-still-without-tears/</link>
+      <pubDate>Fri, 15 Feb 2013 16:26:07 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2013/02/15/more-on-block-in-objective-c-but-still-without-tears/</guid>
+      <description>&lt;p&gt;This is the second part of a two-part look at blocks in Objective-C - you can find &lt;a href=&#34;http://www.adoptioncurve.net/archives/2013/02/blocks-in-objective-c-without-tears.php&#34;&gt;the first part here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;blocks-in-detail&#34;&gt;Blocks in detail&lt;/h3&gt;
+
+&lt;p&gt;Apple provides some pretty detailed documentation on blocks with as complete a definition as I’ve ever seen – so let’s look at that and use it as a starting point.&lt;/p&gt;
+
+&lt;p&gt;According to Apple, a block is:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&amp;hellip;an anonymous inline collection of code that:&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Has a typed argument list just like a function&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Has an inferred or declared return type&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Can capture state from the lexical scope within which it’s defined&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Can optionally modify the state of the lexical scope&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Can share the potential for modification with other blocks defined within the same lexical scope&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Can continue to share and modify state defined within the lexical scope (the stack frame) after the lexical scope (the stack frame) has been destroyed.&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;OK, let’s do this again in English.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Blocks in Objective-C (without tears)</title>
+      <link>https://adoptioncurve.net/2013/02/15/blocks-in-objective-c-without-tears/</link>
+      <pubDate>Fri, 15 Feb 2013 10:25:32 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2013/02/15/blocks-in-objective-c-without-tears/</guid>
+      <description>&lt;p&gt;Blocks are a feature of Objective-C 2.0, and were introduced to iOS in version 4.0. They’re a fantastically-useful feature of the language, and they’re being used in more and more places as Apple introduces new classes into the iOS SDK. Apple clearly see blocks as being central to the way that iOS is going to evolve in the future.&lt;/p&gt;
+
+&lt;p&gt;Understanding what blocks are, and how they work, is key to being able to exploit the features of the SDK. At first glance blocks can seem a bit impenetrable – their syntax isn’t as clear as other parts of Objective-C, and there’s a certain amount of apparent black magic taking place behind the scenes.&lt;/p&gt;
+
+&lt;p&gt;But once you get to grips with blocks, you’ll quickly realise how powerful and flexible they can be; and you’ll be well-placed to deal with the evolution of Objective-C and the iOS SDK in the future.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Unit testing UIImageViews</title>
+      <link>https://adoptioncurve.net/2013/02/09/unit-testing-uiimageviews/</link>
+      <pubDate>Sat, 09 Feb 2013 13:20:04 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2013/02/09/unit-testing-uiimageviews/</guid>
+      <description>The scenario:
+Your code updates a UIImageView, and you want to test that the change has taken place successfully.
+The problem:
+Once an image has been loaded into a UIImage object it becomes a cached binary representation with no metadata. You can&amp;rsquo;t ask a UIImage for the filename of the original image file. That makes testing difficult, and an image not being updated correctly is a high-impact problem.
+The workaround:</description>
+    </item>
+    
+    <item>
+      <title>Selectively-disabling warnings with Xcode compiler flags</title>
+      <link>https://adoptioncurve.net/2013/02/01/selectively-disabling-warnings-with-xcode-compiler-flags/</link>
+      <pubDate>Fri, 01 Feb 2013 09:54:44 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2013/02/01/selectively-disabling-warnings-with-xcode-compiler-flags/</guid>
+      <description>Another update to iOS (this time to 6.1) means another update to Xcode (this time to 4.6). No doubt some bugs will be squashed while other new ones are introduced - but the most immediate change that I&amp;rsquo;ve noticed is that another new crop of warnings are being generated.
+I have the &amp;ldquo;treat warnings as errors&amp;rdquo; flag set by default on the basis that I&amp;rsquo;d rather know about a potential problem before it becomes an actual one.</description>
+    </item>
+    
+    <item>
+      <title>Some initial thoughts on using an iPad mini</title>
+      <link>https://adoptioncurve.net/2012/11/09/some-initial-thoughts-on-using-an-ipad-mini/</link>
+      <pubDate>Fri, 09 Nov 2012 11:30:45 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/11/09/some-initial-thoughts-on-using-an-ipad-mini/</guid>
+      <description>Here&amp;rsquo;s some quick initial thoughts after the first 24 hours of using an iPad mini, mainly from the point of view of having to build apps for it in the future. This is stream-of-consciousness stuff; for considered erudite opinions, you&amp;rsquo;ll need to go read someone who spends more time writing blog posts than code.
+It&amp;rsquo;s very substantially lighter, both physically and psychologically than the iPad 2 or 3. It&amp;rsquo;s got a very slightly smaller footprint than a Moleskine notebook, and it&amp;rsquo;s a lot thinner.</description>
+    </item>
+    
+    <item>
+      <title>Some initial thoughts on the 13&#34; Retina Macbook Pro</title>
+      <link>https://adoptioncurve.net/2012/11/06/some-initial-thoughts-on-the-13-retina-macbook-pro/</link>
+      <pubDate>Tue, 06 Nov 2012 19:24:02 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/11/06/some-initial-thoughts-on-the-13-retina-macbook-pro/</guid>
+      <description>These are some initial, day one thoughts on the 13&amp;rdquo; Retina Macbook Pro, which is going to replace my 2009-vintage 15&amp;rdquo; unibody Macbook Pro. I went for the top processor spec (the 2.9Ghz i7 with 8Gb of RAM) and the 512Gb SSD drive. With a couple of Thunderbolt adaptors and a Magsafe widget, the whole thing came to a shade over £2,000. For comparison purposes, I&amp;rsquo;ve spent the past three years using a 2.</description>
+    </item>
+    
+    <item>
+      <title>Mocking network requests with OHHTTPStubs.</title>
+      <link>https://adoptioncurve.net/2012/10/02/mocking-network-requests-with-ohhttpstubs/</link>
+      <pubDate>Tue, 02 Oct 2012 15:47:41 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/10/02/mocking-network-requests-with-ohhttpstubs/</guid>
+      <description>This is an outboard brain post, so I remember how to wire up a mocked-out test involving AFNetworking:
+#import &amp;quot;Kiwi.h&amp;quot; #import &amp;quot;AFNetworking.h&amp;quot; #import &amp;quot;OHHTTPStubs.h&amp;quot; #import &amp;quot;OHHTTPStubsResponse.h&amp;quot; SPEC_BEGIN(NetworkTest) describe(@&amp;quot;The call to the external service&amp;quot;, ^{ beforeEach(^{ [OHHTTPStubs addRequestHandler:^OHHTTPStubsResponse*(NSURLRequest *request, BOOL onlyCheck){ return [OHHTTPStubsResponse responseWithFile:@&amp;quot;test.json&amp;quot; contentType:@&amp;quot;text/json&amp;quot; responseTime:1.0]; }]; }); it(@&amp;quot;should return an IP address&amp;quot;, ^{ __block NSString *origin; NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:@&amp;quot;http://httpbin.org/ip&amp;quot;]]; AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) { origin = [JSON valueForKeyPath:@&amp;quot;origin&amp;quot;]; } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) { // no action }]; [operation start]; [[expectFutureValue(origin) shouldEventuallyBeforeTimingOutAfter(3.</description>
+    </item>
+    
+    <item>
+      <title>Calling Objective-C methods from JavaScript in a UIWebView</title>
+      <link>https://adoptioncurve.net/2012/09/28/calling-objective-c-methods-from-javascript-in-a-uiwebview/</link>
+      <pubDate>Fri, 28 Sep 2012 09:00:27 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/09/28/calling-objective-c-methods-from-javascript-in-a-uiwebview/</guid>
+      <description>The East Coast Time Line app I&amp;rsquo;ve just finished building includes a 360-degree virtual reality panorama section, which puts you &amp;ldquo;inside&amp;rdquo; several of the coaches in the National Railway Museum&amp;rsquo;s collection. It&amp;rsquo;s created with the KRPano plugin that uses a set of tiles to build an HTML5 plugin that can be zoomed and rotated, either manually or with the aid of the device&amp;rsquo;s gyroscope.
+The panorama itself is full-screen, so to provide a navigation back to the rest of the app there&amp;rsquo;s a floating toolbar that drops down from the top of the view in response to a tap.</description>
+    </item>
+    
+    <item>
+      <title>Test-driven development of an Objective-C category with Kiwi</title>
+      <link>https://adoptioncurve.net/2012/09/10/test-driven-development-of-an-objective-c-category-with-kiwi/</link>
+      <pubDate>Mon, 10 Sep 2012 13:29:58 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/09/10/test-driven-development-of-an-objective-c-category-with-kiwi/</guid>
+      <description>&lt;p&gt;When I first started dabbling with test-driven development, one of the most useful types of resources were tests that other people had written. There&amp;rsquo;s no shortage of these for Ruby and Rails, partly because it seems like the Rails world was test-driven by default from the outset - but there&amp;rsquo;s a lot less out there for iOS.&lt;/p&gt;
+
+&lt;p&gt;Because of my Rails background, I&amp;rsquo;m a fan of the &lt;a href=&#34;https://github.com/allending/Kiwi/&#34;&gt;Kiwi testing framework&lt;/a&gt; - it&amp;rsquo;s an Rspec-like framework for iOS that brings together a Rspeccy syntax and Objective-C. This is a work through of a set of tests to build a simple category on &lt;code&gt;UIColor&lt;/code&gt;. I was scratching my own itch here - designers tend to think in hex values for colours, whereas iOS doesn&amp;rsquo;t. This method will take a hex string and returns a &lt;code&gt;UIColor&lt;/code&gt; object.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a test-driven process for building said category.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Working with file diffs in Sourcetree</title>
+      <link>https://adoptioncurve.net/2012/08/02/working-with-file-diffs-in-sourcetree/</link>
+      <pubDate>Thu, 02 Aug 2012 07:57:39 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/08/02/working-with-file-diffs-in-sourcetree/</guid>
+      <description>I&amp;rsquo;ve been using Sourcetree as a graphical Git client for a while, and it&amp;rsquo;s working pretty well and is free-as-in-beer. The UI is a bit on the noisy side, but the workflow seems to fit nicely with the way I use Git.
+Sourcetree has been designed to work with a range of graphical diff clients - for no other reason than inertia, I&amp;rsquo;ve stuck with using opendiff, but this needs configuring.</description>
+    </item>
+    
+    <item>
+      <title>Scaling a UIView in response to changes in UIScrollView zoom</title>
+      <link>https://adoptioncurve.net/2012/07/07/scaling-a-uiview-in-response-to-changes-in-uiscrollview-zoom/</link>
+      <pubDate>Sat, 07 Jul 2012 20:11:57 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/07/07/scaling-a-uiview-in-response-to-changes-in-uiscrollview-zoom/</guid>
+      <description>The app that I&amp;rsquo;m currently working on is based around a series of map images that can be scrolled and zoomed. Rather than using MapKit or anything similar, they&amp;rsquo;re images that sit inside a UIScrollView - the map images aren&amp;rsquo;t geographically-accurate, so it was easier to use images than try to figure out the distortions needed to map geography to map.
+There&amp;rsquo;s a series of &amp;ldquo;pins&amp;rdquo; that get placed onto the map as it loads - but because the pins were being added to the view that gets zoomed, the pin images themselves were getting scaled up as the map zoomed it.</description>
+    </item>
+    
+    <item>
+      <title>Adding non-standard fonts to iOS5 apps</title>
+      <link>https://adoptioncurve.net/2012/06/13/adding-non-standard-fonts-to-ios5-apps/</link>
+      <pubDate>Wed, 13 Jun 2012 09:14:51 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/06/13/adding-non-standard-fonts-to-ios5-apps/</guid>
+      <description>iOS6 ships with a decent variety of fonts, but every so often your app design will dictate using something other than the built-in ones. Adding custom fonts is pretty straight-forward:
+ Add the .TTF or .OTF font file to the project as a resource (I stick them in a group so I can find them alongside all the other project assets). In the app&amp;rsquo;s pList file, add a new row and select the &amp;ldquo;Fonts provided by application&amp;rdquo; name for it.</description>
+    </item>
+    
+    <item>
+      <title>Adding photos to the iPhone Simulator</title>
+      <link>https://adoptioncurve.net/2012/05/16/adding-photos-to-the-iphone-simulator/</link>
+      <pubDate>Wed, 16 May 2012 08:45:41 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/05/16/adding-photos-to-the-iphone-simulator/</guid>
+      <description>If you&amp;rsquo;re testing photo functionality in the iPhone Simulator that involves picking images from the Photo Library, you&amp;rsquo;re going to come up against the apparently existential problem of how to get photos into the Library when the Simulator doesn&amp;rsquo;t have a camera.
+The solution is simpler than I&amp;rsquo;d thought it would be. Stop your app, and fire up Safari in the Simulator. Then find the image you want to use from the Mac filesystem, and drag it over onto the Simulator and drop it into Safari.</description>
+    </item>
+    
+    <item>
+      <title>Using the iOS Simulator&#39;s camera</title>
+      <link>https://adoptioncurve.net/2012/04/06/using-the-camer-of-ios-simulators/</link>
+      <pubDate>Fri, 06 Apr 2012 07:33:16 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/04/06/using-the-camer-of-ios-simulators/</guid>
+      <description>When you&amp;rsquo;re using the iPhone and iPad Simulators to run your development code, you&amp;rsquo;ll find that they have a significant limitation if you&amp;rsquo;re building apps that use hardware features like the camera.
+If your code tries to use the camera on a Simulator device, it&amp;rsquo;ll crash - not altogether surprisingly because the Simulator doesn&amp;rsquo;t have a hardware camera. That gets painful pretty quickly.
+As a workaround for a project that I&amp;rsquo;m working on, I figured it would be useful to have the option to select an image from the Simulator&amp;rsquo;s library in places where normally the camera would be the default option.</description>
+    </item>
+    
+    <item>
+      <title>Where to put the registerNib method in a table view controller</title>
+      <link>https://adoptioncurve.net/2012/04/01/where-to-put-the-registernib-method-in-a-table-view-controller/</link>
+      <pubDate>Sun, 01 Apr 2012 17:15:09 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/04/01/where-to-put-the-registernib-method-in-a-table-view-controller/</guid>
+      <description>Here&amp;rsquo;s a quick workaround for a gotcha if you&amp;rsquo;re using iOS5&amp;rsquo;s registerNib: method in conjunction with a table view controller class that&amp;rsquo;s external to the controller of the view that contains the table.
+Scenario: You&amp;rsquo;ve got a table view in a Storyboard (or standard xib file) which is controlled by a UITableViewController class which is separate to the class controlling the Storyboard (or view). You want to use a custom cell layout contained in a separate xib file.</description>
+    </item>
+    
+    <item>
+      <title>Creating Table Views With Storyboards</title>
+      <link>https://adoptioncurve.net/2012/03/13/creating-table-views-with-storyboards/</link>
+      <pubDate>Tue, 13 Mar 2012 21:18:45 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/03/13/creating-table-views-with-storyboards/</guid>
+      <description>Storyboards are one of the many new features introduced in iOS5 and Xcode 4.2 and take the visual creation of iPhone and iPad interfaces to the next stage.
+Although Interface Builder provides a visual way of laying out user interfaces, up until now the process of moving between screens has required a certain amount of “glue code”. This is relatively straight-forward when you’re dealing with simple apps – but add UIKit functionality like tab bar controllers into the mix, and things suddenly get a lot trickier.</description>
+    </item>
+    
+    <item>
+      <title>How I want my TV remote to work</title>
+      <link>https://adoptioncurve.net/2012/02/29/how-i-want-my-tv-remote-to-work/</link>
+      <pubDate>Wed, 29 Feb 2012 17:11:05 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/02/29/how-i-want-my-tv-remote-to-work/</guid>
+      <description>This is what my TV remote control looks like (with an Apple keyboard for scale).
+It&amp;rsquo;s horrible. It&amp;rsquo;s covered with buttons that never get used, and so many are crammed onto the device that they&amp;rsquo;re too small to use easily. The whole thing is just the right size and shape to fall down between the sofa cushions, too.
+The things I use the remote for (in order of priority) are:</description>
+    </item>
+    
+    <item>
+      <title>More Clear cleverness: showing new screens</title>
+      <link>https://adoptioncurve.net/2012/02/16/more-clear-cleverness-showing-new-screens/</link>
+      <pubDate>Thu, 16 Feb 2012 10:06:35 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/02/16/more-clear-cleverness-showing-new-screens/</guid>
+      <description>Another trick of the Clear app is the way that it takes the established pull-to-refresh interaction of a table view, and extends it to present new screens. So pulling the to-do items table down will first add a new item at the top of the table, then causes the lists table to slide down from the top.
+Doing the same in the Lists table results in the Settings table appearing in the same way.</description>
+    </item>
+    
+    <item>
+      <title>How to do Clear-style swiping in iOS tables</title>
+      <link>https://adoptioncurve.net/2012/02/15/how-to-do-clear-style-swiping-in-ios-tables/</link>
+      <pubDate>Wed, 15 Feb 2012 12:52:10 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/02/15/how-to-do-clear-style-swiping-in-ios-tables/</guid>
+      <description>The latest app that everyone&amp;rsquo;s raving about is Clear - if you haven&amp;rsquo;t seen it, it&amp;rsquo;s basically a task list, but one with a rather interesting take on the interface. Instead of the usual tab-bar-and-table-vew setup, the table is full-screen and makes extensive use of gestures.
+Deleting and completing tasks are done by swiping the row - a left swipe deletes the item, a right swipe marks it as complete. Here&amp;rsquo;s the basis of how that&amp;rsquo;s done.</description>
+    </item>
+    
+    <item>
+      <title>Sliding clocks around the screen a la Path</title>
+      <link>https://adoptioncurve.net/2011/11/30/sliding-clocks-around-the-screen-a-la-path/</link>
+      <pubDate>Wed, 30 Nov 2011 16:57:26 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/11/30/sliding-clocks-around-the-screen-a-la-path/</guid>
+      <description>The new Path app has hit the App Store, and the updated UI is GORGEOUS. I was quite intrigued by the little touches, particularly the little clock icon that slides up and down the right-hand side of the screen as you scroll down the timeline. It looks really neat, and it got me wondering how it was done.
+Turns out, it&amp;rsquo;s actually not that difficult (although it&amp;rsquo;s still a lovely UI touch even so).</description>
+    </item>
+    
+    <item>
+      <title>Accessing controls in UIView subviews</title>
+      <link>https://adoptioncurve.net/2011/09/25/accessing-controls-in-uiview-subviews/</link>
+      <pubDate>Sun, 25 Sep 2011 11:56:35 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/09/25/accessing-controls-in-uiview-subviews/</guid>
+      <description>The iPhone app I&amp;rsquo;m working on at the moment has a number of screens that consist of long list of questions - so the user needs to be able to scroll down to the bottom.
+At the same time, there&amp;rsquo;s some information at the top of the screen which needs to stay visible. Within the subview containing the questions, there are also several buttons which need to trigger methods in the main view controller - save the answers, move to the next screen and so on.</description>
+    </item>
+    
+    <item>
+      <title>Unit testing Core Data</title>
+      <link>https://adoptioncurve.net/2011/09/10/unit-testing-core-data/</link>
+      <pubDate>Sat, 10 Sep 2011 11:59:23 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/09/10/unit-testing-core-data/</guid>
+      <description>The project I&amp;rsquo;m working on at the moment is Core Data-based, and I&amp;rsquo;m (attempting) to built it using a test-driven approach. In practice, there&amp;rsquo;s at least as much development-driven testing as there is test-driven development, but I&amp;rsquo;m using the fact that I&amp;rsquo;m on a learning curve as my get-out-of-jail-free card.
+I&amp;rsquo;m using GHUnit and OCMock as my test frameworks. Testing the view controllers and so on is fairly straight-forward so far, but I hit a major bump in the road when I started to try and test the Core Data related parts.</description>
+    </item>
+    
+    <item>
+      <title>Why won&#39;t my *&amp;%^$&amp;* Magic Mouse work?</title>
+      <link>https://adoptioncurve.net/2011/08/06/why-wont-my-magic-mouse-work/</link>
+      <pubDate>Sat, 06 Aug 2011 19:46:41 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/08/06/why-wont-my-magic-mouse-work/</guid>
+      <description>If you&amp;rsquo;ve a) recently upgraded to Lion; and b) are shouting this a lot every time you wake your Macbook Pro up from sleep, I&amp;rsquo;ve got a fix for you.
+The symptoms are that once you&amp;rsquo;ve woken the Macbook up, your Magic Mouse has been disconnected. Clicking the &amp;lsquo;connect&amp;rsquo; option from the Bluetooth menu apparently connects to the mouse, but nothing happens. The only way to get it to work again is to open the mouse preferences pane, at which point it starts to work again.</description>
+    </item>
+    
+    <item>
+      <title>Selecting multiple UITableView rows</title>
+      <link>https://adoptioncurve.net/2011/07/25/selecting-multiple-uitableview-rows/</link>
+      <pubDate>Mon, 25 Jul 2011 10:01:54 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/07/25/selecting-multiple-uitableview-rows/</guid>
+      <description>UITableView supplies a whole variety of built-in methods to manage the table, including the selection and deselection of rows. However, there&amp;rsquo;s a significant limitation with the published API - it&amp;rsquo;ll only allow you to select one row at a time. That&amp;rsquo;s something of a problem if you want to use the table view as a list which supports selection (and the subsequent use of) multiple rows at once.
+UPDATE - This has been completely superceded by iOS5, which does support multiple selection.</description>
+    </item>
+    
+    <item>
+      <title>Fixing Freeview</title>
+      <link>https://adoptioncurve.net/2011/07/11/fixing-freeview/</link>
+      <pubDate>Mon, 11 Jul 2011 18:52:09 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/07/11/fixing-freeview/</guid>
+      <description>[caption id=&amp;ldquo;attachment_2450&amp;rdquo; align=&amp;ldquo;alignleft&amp;rdquo; width=&amp;ldquo;200&amp;rdquo; caption=&amp;ldquo;CC image by Rick Harrison&amp;rdquo;](http://www.flickr.com/photos/sovietuk/937923094/in/photostream/)[/caption]
+I&amp;rsquo;m watching increasingly little broadcast TV - at least at the time of transmission. As a result I&amp;rsquo;ve never been particularly fussed about having the latest, greatest, widest, high definionist TV gear - it&amp;rsquo;s a cheapo widescreen LCD that (if memory serves) was picked up for next to nothing from Sainsburys.
+For reasons best known to itself, recently it crashed completely and I had to set it back up again from scratch.</description>
+    </item>
+    
+    <item>
+      <title>&#34;profile doesn&#39;t match application identifier&#34; problems in XCode</title>
+      <link>https://adoptioncurve.net/2011/07/07/profile-doesnt-match-application-identifier-problems-in-xcode/</link>
+      <pubDate>Thu, 07 Jul 2011 12:59:11 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/07/07/profile-doesnt-match-application-identifier-problems-in-xcode/</guid>
+      <description>Occasionally, you can end up in an XCode nightmare trying to get your app to play nicely with development and distribution certificates. One of the symptoms of this is being unable to select a profile, because they&amp;rsquo;re all greyed-out with the message &amp;ldquo;profile doesn&#39;t match Application Identified &#39;com.&amp;lt;whatever&amp;gt;.&amp;lt;etc&amp;gt;&#39;&amp;ldquo;
+This might be because the profiles are cocked-up, but if you&amp;rsquo;ve been through the download-certificate-and-add-to-Xcode dance, it might be because your application identifier doesn&amp;rsquo;t match that of the certificate.</description>
+    </item>
+    
+    <item>
+      <title>Creating full-screen iOS modal views</title>
+      <link>https://adoptioncurve.net/2011/06/13/creating-full-screen-ios-modal-views/</link>
+      <pubDate>Mon, 13 Jun 2011 19:59:38 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/06/13/creating-full-screen-ios-modal-views/</guid>
+      <description>This is another &amp;ldquo;blog it so I&amp;rsquo;ll remember it&amp;rdquo; post, but it might come in useful should it ever get Googled.
+Scenario: I&amp;rsquo;m running an asynchronous data load in the background which populates a table view. Although the data load is asynchronous, because it updates the table I want to place a modal popup with an activity spinner over the current table view so that interaction is blocked. I&amp;rsquo;m using Sam Vernette&amp;rsquo;s SVProgressHUD, which is a really neat implementation of the Apple segmented spinner thing.</description>
+    </item>
+    
+    <item>
+      <title>My Git workflow</title>
+      <link>https://adoptioncurve.net/2011/05/24/my-git-workflow/</link>
+      <pubDate>Tue, 24 May 2011 21:40:54 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/05/24/my-git-workflow/</guid>
+      <description>The first time I encountered Git, I was confused. Pushing and pulling and branching and merging all sound straight-forward in and of themselves, but when you&amp;rsquo;re first trying to figure out what to do when it can rapidly descend into witchcraft. Neither was I particularly organised about how I managed code and deployment - it was all a bit ad-hoc, which works fine for a while but eventually has the potential for accidental cockups.</description>
+    </item>
+    
+    <item>
+      <title>Pages that can be overridden in RefineryCMS</title>
+      <link>https://adoptioncurve.net/2011/05/18/pages-that-can-be-overridden-in-refinerycms/</link>
+      <pubDate>Wed, 18 May 2011 10:04:40 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/05/18/pages-that-can-be-overridden-in-refinerycms/</guid>
+      <description>This is a list of pages, stylesheets, controllers and models that can be overriden within a default Refinerycms installation:
+Views
+app/views/shared/_content_page.html.erb app/views/shared/_draft_page_message.html.erb app/views/shared/_footer.html.erb app/views/shared/_google_analytics.html.erb app/views/shared/_head.html.erb app/views/shared/_header.html.erb app/views/shared/_html_tag.html.erb app/views/shared/_ie6check.html.erb app/views/shared/_javascripts.html.erb app/views/shared/_menu.html.erb app/views/shared/_menu_branch.html.erb app/views/shared/_message.html.erb app/views/shared/_no_script.html.erb app/views/shared/_site_bar.html.erb app/views/admin/_head.html.erb app/views/admin/_javascripts.html.erb app/views/admin/_menu.html.erb app/views/admin/dashboard/_actions.html.erb app/views/admin/dashboard/_additional_dashboard_menu_items.html.erb app/views/admin/dashboard/_recent_activity.html.erb app/views/admin/dashboard/_recent_inquiries.html.erb app/views/admin/dashboard/_records.html.erb app/views/admin/dashboard/index.html.erb app/views/admin/dashboard/index.rss.builder app/views/admin/dialogs/show.html.erb app/views/admin/images/_actions.html.erb app/views/admin/images/_existing_image.html.erb app/views/admin/images/_form.html.erb app/views/admin/images/_grid_view.html.erb app/views/admin/images/_images.html.erb app/views/admin/images/_list_view.html.erb app/views/admin/images/_list_view_image.html.erb app/views/admin/images/_records.html.erb app/views/admin/images/edit.html.erb app/views/admin/images/index.html.erb app/views/admin/images/insert.html.erb app/views/admin/images/new.html.erb app/views/admin/pages/_actions.html.erb app/views/admin/pages/_form.html.erb app/views/admin/pages/_form_advanced_options.html.erb app/views/admin/pages/_form_advanced_options_seo.html.erb app/views/admin/pages/_form_fields_after_title.html.erb app/views/admin/pages/_form_new_page_parts.html.erb app/views/admin/pages/_form_page_parts.html.erb app/views/admin/pages/_locale_picker.html.erb app/views/admin/pages/_page.html.erb app/views/admin/pages/_page_part_field.html.erb app/views/admin/pages/_records.html.erb app/views/admin/pages/_sortable_list.html.erb app/views/admin/pages/edit.html.erb app/views/admin/pages/index.</description>
+    </item>
+    
+    <item>
+      <title>Fixing strange SFTP connection refusals</title>
+      <link>https://adoptioncurve.net/2011/05/11/fixing-strange-sftp-connection-refusals/</link>
+      <pubDate>Wed, 11 May 2011 18:36:03 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/05/11/fixing-strange-sftp-connection-refusals/</guid>
+      <description>Having spent most of the morning building a LAMP server from scratch (or at least from a canned Linode job), I hit an SFTP problem that kept biting me.
+The issue is that when trying to make an SFTP connection, it&amp;rsquo;s persistently refused despite the user account able to log into the server using SSH without any problem. The auth log doesn&amp;rsquo;t help much - you&amp;rsquo;ll see things like:
+sshd[xxx]: Accepted password for root from XXX.</description>
+    </item>
+    
+    <item>
+      <title>Fixing problems with Spree installations</title>
+      <link>https://adoptioncurve.net/2011/05/11/fixing-problems-with-spree-installations/</link>
+      <pubDate>Wed, 11 May 2011 18:27:57 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/05/11/fixing-problems-with-spree-installations/</guid>
+      <description>If you&amp;rsquo;re trying to install Spree from the documentation, you&amp;rsquo;re likely to hit a couple of errors along the way.
+The first one relates to Spree itself:
+fatal: remote error: Could not find Repository spree/spree-static-content  This is due to a typo in the documentation - replace the line in your Gem file which reads
+gem &#39;spree_static_content&#39;, :git =&amp;gt; &#39;git://github.com/spree/spree-static-content.git&#39;  with
+gem &#39;spree_static_content&#39;, :git =&amp;gt; &#39;git://github.com/spree/spree_static_content.git&#39;  The second issue is MySQL related: it blows up with this error:</description>
+    </item>
+    
+    <item>
+      <title>Git For Cowards</title>
+      <link>https://adoptioncurve.net/2011/05/04/git-for-cowards/</link>
+      <pubDate>Wed, 04 May 2011 12:15:58 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/05/04/git-for-cowards/</guid>
+      <description>Last week I ventured out to Doncaster to talk to the April Geekup about &amp;ldquo;Git For Cowards&amp;rdquo;. It&amp;rsquo;s a remixed version of the lecture that I used for the Web Architectures module at Sheffield Hallam University, tweaked for the more experienced audience of Geekup.
+The [slides are here (5MB PDF)]{http://www.slideshare.net/timd/git-forcowards} - CC-licensed, so remix at will&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>WeWatch on the iPhone, part 2</title>
+      <link>https://adoptioncurve.net/2011/05/03/wewatch-on-the-iphone-part-2/</link>
+      <pubDate>Tue, 03 May 2011 17:02:59 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/05/03/wewatch-on-the-iphone-part-2/</guid>
+      <description>The thing about user testing is that you&amp;rsquo;ve got to be prepared for your pet ideas to be shot down in flames. And so it was with the initial designs for the WeWatch iPhone app that I&amp;rsquo;m building. Conceptually, the app is very simple - but it&amp;rsquo;s bringing home the fact that for interaction, making something simple can be HARD. That&amp;rsquo;s partly the reason why I&amp;rsquo;m trying to capture this as I go along - I&amp;rsquo;m sure that if I&amp;rsquo;m not careful I&amp;rsquo;m going to forget the detail of why things turned out the way they did.</description>
+    </item>
+    
+    <item>
+      <title>Creating custom cells in an iPhone TableView</title>
+      <link>https://adoptioncurve.net/2011/04/20/creating-custom-cells-in-an-iphone-tableview/</link>
+      <pubDate>Wed, 20 Apr 2011 13:50:54 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/04/20/creating-custom-cells-in-an-iphone-tableview/</guid>
+      <description>The iPhone&amp;rsquo;s default table view is pretty straight-forward to use, but the look and feel is somewhat basic. Once you&amp;rsquo;ve got to a certain point you need to customise things, which is where subclassing the cells comes into play. It sounds horrifically complex, but once you&amp;rsquo;ve got your head around things, it&amp;rsquo;s not too difficult. This is how I&amp;rsquo;ve done it for the WeWatch app (as an aide-memoire for myself, but it might come in useful for someone else.</description>
+    </item>
+    
+    <item>
+      <title>WeWatch on the iPhone</title>
+      <link>https://adoptioncurve.net/2011/04/07/wewatch-on-the-iphone/</link>
+      <pubDate>Thu, 07 Apr 2011 09:07:30 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/04/07/wewatch-on-the-iphone/</guid>
+      <description>This is WeWatch, the result of the last-but-one Rattle Hackday, where they (we as was) attempt to create something either interesting, useful, or hopefully both inside a day.
+The concept is simple - it&amp;rsquo;s a stripped-down listing of what&amp;rsquo;s on the main channels tonight during the peak viewing period. If you&amp;rsquo;re signed in via Twitter you can click on a programme to show the world that you&amp;rsquo;re planning to watch it.</description>
+    </item>
+    
+    <item>
+      <title>Getting Autotest to run on OS X</title>
+      <link>https://adoptioncurve.net/2011/01/14/getting-autotest-to-run-on-os-x/</link>
+      <pubDate>Fri, 14 Jan 2011 16:06:08 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/01/14/getting-autotest-to-run-on-os-x/</guid>
+      <description>Autotest is a Gem that does what it says on the tin - runs your RSpec test automatically. If you&amp;rsquo;re using a Mac, you can also use autotest-growl to get it to display Growl notifications, and autotest-fsevent to get it to watch the filesystem and trigger the tests when changes are made to the spec files.
+Installing it is a bit fiddly - this is what works for me, based on a bit of help from Jon Rowe:</description>
+    </item>
+    
+    <item>
+      <title>Creating and using test Facebook accounts</title>
+      <link>https://adoptioncurve.net/2010/12/16/creating-and-using-test-facebook-accounts/</link>
+      <pubDate>Thu, 16 Dec 2010 15:54:22 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/12/16/creating-and-using-test-facebook-accounts/</guid>
+      <description>Facebook now allows you to create test users for application development purposes. That doesn&amp;rsquo;t sound too dramatic in and of itself, but up to now it&amp;rsquo;s been necessary to create dummy accounts and (technically) violate the terms of service.
+Creating new test accounts is a two stage process: firstly obtaining an access token for the application with which the account is to be associated; and then creating the account itself.</description>
+    </item>
+    
+    <item>
+      <title>Yet Another List Of Ruby And Rails Resources</title>
+      <link>https://adoptioncurve.net/2010/12/03/yet-another-list-of-ruby-and-rails-resources/</link>
+      <pubDate>Fri, 03 Dec 2010 19:40:14 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/12/03/yet-another-list-of-ruby-and-rails-resources/</guid>
+      <description>One of the problems with learning Rails is knowing which of the thousands of resources to use. There are an ever-increasing number of books, blogs, screencasts and tutorials to choose from, all with their own take and idiosyncrasies. This is by no means a definitive list, but it&amp;rsquo;s the resources that I&amp;rsquo;ve found most useful.
+The canonical site The main site for all things Rails is rubyonrails.org, which is also the place to go for the source code and API documentation.</description>
+    </item>
+    
+    <item>
+      <title>Open Firmware facepalms</title>
+      <link>https://adoptioncurve.net/2010/11/21/open-firmware-facepalms/</link>
+      <pubDate>Sun, 21 Nov 2010 19:08:11 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/11/21/open-firmware-facepalms/</guid>
+      <description>Note to self:
+If you&amp;rsquo;re trying to install a new 750Gb hard drive into a Macbook Pro, and it keeps refusing to boot off the new disk and a DVD and into Hardware Diagnostics, it might just be because you enabled an Open Firmware password, and then promptly forgot about it.
+Disabling said Open Firmware password will magically resolve all your problems.
+Muppet.</description>
+    </item>
+    
+    <item>
+      <title>Fixing a missing Ethernet adaptor in Ubuntu on VMWare</title>
+      <link>https://adoptioncurve.net/2010/11/07/fixing-a-missing-ethernet-adaptor-in-ubuntu-on-vmware/</link>
+      <pubDate>Sun, 07 Nov 2010 20:05:05 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/11/07/fixing-a-missing-ethernet-adaptor-in-ubuntu-on-vmware/</guid>
+      <description>I&amp;rsquo;ve got a series of Ubuntu 10.04 Server images which I&amp;rsquo;m using while teaching the Web Architectures module at Sheffield Hallam Uni. Being able to hand out pre-built images which can be run as VMWare machines is incredibly useful, but comes with a bit of a glitch.
+Ubuntu&amp;rsquo;s (and presumably Debian&amp;rsquo;s) network configuration ties the default Ethernet interface on eth0 to the MAC address of the host machine that the image was created on - move or copy the VM image, and the MAC address also has to change.</description>
+    </item>
+    
+    <item>
+      <title>Getting Paperclip attachment sizes</title>
+      <link>https://adoptioncurve.net/2010/11/05/getting-paperclip-attachment-sizes/</link>
+      <pubDate>Fri, 05 Nov 2010 14:42:44 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/11/05/getting-paperclip-attachment-sizes/</guid>
+      <description>Another post from the &amp;ldquo;so I remember how to do this&amp;rdquo; series.
+I&amp;rsquo;m using Paperclip to handle file attachments (in this context to store profile images which have been retrieved from Facebook, although that&amp;rsquo;s not strictly relevant).
+Although you can constrain the size of the stored image in the Paperclipped model, like so:
+# Paperclip stuff has_attached_file :avatar, :styles =&amp;gt; { :medium =&amp;gt; &amp;quot;300x300&amp;gt;&amp;quot;, :thumb =&amp;gt; &amp;quot;100x100&amp;gt;&amp;quot; }  this will automatically maintain the aspect ratio of the image, so you&amp;rsquo;re never quite sure what x and y sizes you&amp;rsquo;ll end up with.</description>
+    </item>
+    
+    <item>
+      <title>Auto-tweaking Facebook app settings between live and local instances</title>
+      <link>https://adoptioncurve.net/2010/09/30/auto-tweaking-facebook-app-settings-between-live-and-local-instances/</link>
+      <pubDate>Thu, 30 Sep 2010 10:39:31 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/09/30/auto-tweaking-facebook-app-settings-between-live-and-local-instances/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Updating the Twittering Shipping Forecast</title>
+      <link>https://adoptioncurve.net/2010/09/04/updating-the-twittering-shipping-forecast/</link>
+      <pubDate>Sat, 04 Sep 2010 02:58:00 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/09/04/updating-the-twittering-shipping-forecast/</guid>
+      <description>Back at the beginning of last year, I put up a post about how I built the Shipping Forecast Twitter bot.
+Since then it&amp;rsquo;s been chuntering away quietly - or at least it did until the Met Office in their infinite wisdom decided to change the layout of the page that is scraped for data by my Ruby script.
+Strictly speaking, I don&amp;rsquo;t actually have any room for complaint - I&amp;rsquo;m probably breaking all kinds of terms of service by scraping their site for content.</description>
+    </item>
+    
+    <item>
+      <title>Creating Facebook events with the PHP SDK</title>
+      <link>https://adoptioncurve.net/2010/07/27/creating-facebook-events-with-the-php-sdk/</link>
+      <pubDate>Tue, 27 Jul 2010 13:35:27 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/07/27/creating-facebook-events-with-the-php-sdk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Grabbing data from the Facebook API</title>
+      <link>https://adoptioncurve.net/2010/07/15/grabbing-data-from-the-facebook-api/</link>
+      <pubDate>Thu, 15 Jul 2010 17:12:21 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/07/15/grabbing-data-from-the-facebook-api/</guid>
+      <description>One of the projects I&amp;rsquo;m currently working on needs has a large chunk of Facebook integration. It&amp;rsquo;s thrown up a couple of problems around groups and group permissions:
+ the need to figure out which groups a user belongs to
+ which of those groups the user has &amp;ldquo;write&amp;rdquo; permissions for.
+  The Facebook API is a bit of a moving target with all the various updates and changes going on, and documentation is a bit sparse.</description>
+    </item>
+    
+    <item>
+      <title>Dog sonar</title>
+      <link>https://adoptioncurve.net/2010/06/08/dog-sonar/</link>
+      <pubDate>Tue, 08 Jun 2010 08:37:00 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/06/08/dog-sonar/</guid>
+      <description>My first job of the day on most days is dog-walking. Our preferred route runs behind a golf course along the edge of a cliff which overlooks the Rivelin valley. The cliff side is practically vertical, and once you&amp;rsquo;re off the very narrow path that threads along the top, it&amp;rsquo;s completely overgrown with bracken and brambles and trees. So once the dog veers off the path and into the undergrowth, she&amp;rsquo;s completely invisible.</description>
+    </item>
+    
+    <item>
+      <title>Some initial iPad thoughts</title>
+      <link>https://adoptioncurve.net/2010/04/30/some-initial-ipad-thoughts/</link>
+      <pubDate>Fri, 30 Apr 2010 20:19:42 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/04/30/some-initial-ipad-thoughts/</guid>
+      <description>The volcano that shut down the UK&amp;rsquo;s airspace wasn&amp;rsquo;t all bad as far as I was concerned, as it stranded an imaginary friend in New York for a few days, during which he very kindly offered to bring back an iPad. So a few days after flights resumed, I found myself the new owner of a shiny 64Gb iPad and a $25 iTunes gift card for those initial US store purchases.</description>
+    </item>
+    
+    <item>
+      <title>If MySQL processes won&#39;t start after a reboot...</title>
+      <link>https://adoptioncurve.net/2010/04/07/if-mysql-processes-wont-start-after-a-reboot/</link>
+      <pubDate>Wed, 07 Apr 2010 11:57:03 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/04/07/if-mysql-processes-wont-start-after-a-reboot/</guid>
+      <description>&amp;hellip;it could be because your network interfaces configuration has become messed up.
+If you&amp;rsquo;ve a) just restarted your *nix server, and b) get an error like this when trying to fire up a MySQL process:
+ERROR 2002 (HY000): Can&#39;t connect to local MySQL server through socket &#39;/var/run/mysqld/mysqld.sock&#39;
+you probably need to check that a loopback address exists.
+If the results of an ifconfig command don&amp;rsquo;t show an lo interface, that&amp;rsquo;s why the MySQL process is falling over - by default, it listens on 127.</description>
+    </item>
+    
+    <item>
+      <title>A listed buildings app for the iPhone</title>
+      <link>https://adoptioncurve.net/2010/03/28/a-listed-buildings-app-for-the-iphone/</link>
+      <pubDate>Sun, 28 Mar 2010 10:45:14 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/03/28/a-listed-buildings-app-for-the-iphone/</guid>
+      <description>English Heritage is a non-Departmental Public Body that exists to protect and promote England’s historic environment. One of the tools at their disposal is listing, which applies protection to a building or site through the planning system. Crudely, it stops you putting plastic double glazing into your historic thatched cottage; or demolishing a factory designed by that world-famous architect.
+There are a lot of listed buildings - about 374,081 of them - and they’re listed in a database which English Heritage made available to the Rewired Culture event.</description>
+    </item>
+    
+    <item>
+      <title>Getting OpenOffice to talk to MAMP and MySQL</title>
+      <link>https://adoptioncurve.net/2010/03/27/getting-openoffice-to-talk-to-mamp-and-mysql/</link>
+      <pubDate>Sat, 27 Mar 2010 15:22:01 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/03/27/getting-openoffice-to-talk-to-mamp-and-mysql/</guid>
+      <description>For reasons that are too dull to go into, I needed to convert from a Dbase database to a MySQL database. OpenOffice can read both types, which means that you can create a new MySQL database, open the DBF version and then drag the records across.
+The prerequisite to this is being able to get OpenOffice to connect to the MySQL database. There are instructions here, and tucked away at the bottom is a note about forcing MySQL to use TCP/IP rather than sockets.</description>
+    </item>
+    
+    <item>
+      <title>Getting an iPhone&#39;s UUID number for ad-hoc app deployment</title>
+      <link>https://adoptioncurve.net/2010/03/13/getting-an-iphones-uuid-number-for-ad-hoc-app-deployment/</link>
+      <pubDate>Sat, 13 Mar 2010 10:49:49 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/03/13/getting-an-iphones-uuid-number-for-ad-hoc-app-deployment/</guid>
+      <description>Deploying iPhone applications to testers involves creating an ad-hoc distribution package that they can install through iTunes, rather than the App Store. To do this, you need to get each iPhone&amp;rsquo;s identifier or UUID code.
+There are two steps to this - the first is to get your guinea pig to connect their iPhone and fire up iTunes. Then on the iPhone Summary page, they&amp;rsquo;ll see their phone&amp;rsquo;s serial number, like this:</description>
+    </item>
+    
+    <item>
+      <title>Vodafone, apps, and dumb pipes in the sky</title>
+      <link>https://adoptioncurve.net/2010/03/04/vodafone-apps-and-dumb-pipes-in-the-sky/</link>
+      <pubDate>Thu, 04 Mar 2010 12:42:58 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/03/04/vodafone-apps-and-dumb-pipes-in-the-sky/</guid>
+      <description>Vodafone have got a problem. On the one hand, they&amp;rsquo;re one of the world&amp;rsquo;s largest mobile networks, with however many billions of subscribers. On the other, they&amp;rsquo;re just another network as far as many of their customers are concerned.
+One of their responses is Vodafone360:
+ Vodafone 360 is a new internet service for your mobile, PC and Mac. It brings your phone, email, chat and social network contacts together in one place.</description>
+    </item>
+    
+    <item>
+      <title>Server moves</title>
+      <link>https://adoptioncurve.net/2010/03/01/server-moves/</link>
+      <pubDate>Mon, 01 Mar 2010 16:02:54 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/03/01/server-moves/</guid>
+      <description>If you can see this post, it means that the server move is completed and the DNS change has propagated.
+Move along, nothing to see.</description>
+    </item>
+    
+    <item>
+      <title>Fixing explosions caused by UITableView scrolling</title>
+      <link>https://adoptioncurve.net/2010/02/11/fixing-explosions-caused-by-uitableview-scrolling/</link>
+      <pubDate>Thu, 11 Feb 2010 20:36:10 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/02/11/fixing-explosions-caused-by-uitableview-scrolling/</guid>
+      <description>I came across a weird (well, weird to me) problem with a UITableView this evening. Basically, the situation is this:
+I&amp;rsquo;ve got a Tab Bar controller in my app&amp;rsquo;s main window; with three tabs:
+[![Screen shot 2010-02-11 at 20.31.52](http://www.adoptioncurve.net/archives/2010/02/fixing-explosions-caused-by-uitableview-scrolling.php/screen-shot-2010-02-11-at-20-31-52)
+The view in the first tab loads from another nib file (MeView.xib), which contains a navigation controller. The file&amp;rsquo;s owner has a class identify of &amp;lsquo;MeViewController&amp;rsquo;. The navigation controller contains a table view, with the delegate and data source set to &amp;lsquo;MeTableViewController&amp;rsquo;.</description>
+    </item>
+    
+    <item>
+      <title>Nested IF statements with Movable TYpe</title>
+      <link>https://adoptioncurve.net/2009/09/22/nested-if-statements-with-movable-type/</link>
+      <pubDate>Tue, 22 Sep 2009 12:10:25 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/09/22/nested-if-statements-with-movable-type/</guid>
+      <description>One of the - ahem - undocumented features of Movable Type is a certain estotericness about the way it interprets Boolean logic within template tags. That&amp;rsquo;s a polite way of saying it&amp;rsquo;s more-or-less completely unpredictable, which can lead to much wailing and gnashing of teeth during template development.
+Fortunately, there&amp;rsquo;s a workaround, an example of which is below. It comes at a computational cost, because you&amp;rsquo;re using PHP to fill in for MT&amp;rsquo;s deficiencies - but if you&amp;rsquo;re using static templates, then that cost is only really incurred as the templates are rebuild</description>
+    </item>
+    
+    <item>
+      <title>Narcoleptic Macbooks</title>
+      <link>https://adoptioncurve.net/2009/02/17/narcoleptic-macbooks/</link>
+      <pubDate>Tue, 17 Feb 2009 12:02:25 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/02/17/narcoleptic-macbooks/</guid>
+      <description>[![picture-2]One of the best features of the Apple OS is the ability to sleep virtually instantaneously. It&amp;rsquo;s one of the Macbook owner&amp;rsquo;s party tricks - shut the lid, and the Macbook will be asleep, packed and in the bag while your average Vista laptop is still chugging away. The reverse is true at start-up, too - the wake is virtually instant.
+Unless you&amp;rsquo;ve got the same problem as I&amp;rsquo;ve been having - putting the MBP to sleep only to have it start back up again almost immediately afterwards.</description>
+    </item>
+    
+    <item>
+      <title>Code swarms</title>
+      <link>https://adoptioncurve.net/2009/01/27/code-swarms/</link>
+      <pubDate>Tue, 27 Jan 2009 21:39:34 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/01/27/code-swarms/</guid>
+      <description>To someone who&amp;rsquo;s not familiar with the concept of open-source development, it can be a difficult one to get their head around. &amp;ldquo;You mean people do this for free? And give their code away?&amp;rdquo; &amp;ldquo;Well, yes, they do.&amp;rdquo; If your default frame of reference is copyright and closed-source, this can be something of a head-spinner.
+This video visualises the &amp;ldquo;many hands make light work&amp;rdquo; paradigm at the heart of open source.</description>
+    </item>
+    
+    <item>
+      <title>Learning to think like a programmer geek</title>
+      <link>https://adoptioncurve.net/2009/01/25/learning-to-think-like-a-programmer-geek/</link>
+      <pubDate>Sun, 25 Jan 2009 20:27:19 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/01/25/learning-to-think-like-a-programmer-geek/</guid>
+      <description>[![cables]Charles Arthur (the Grauniad journalist) recently put up a blog post passing on some advice to would-be journalists to &amp;ldquo;learn to code&amp;rdquo;.
+Not suprisingly, that kicked off a bit of a discussion around various other blogs: Chris Applegate, who describes himself as a &amp;ldquo;wannabe polymath&amp;rdquo; chipped in with recommendations to get involved with regular expressions, comma-separated variables and Yahoo Pipes. And Tom Armitage - who IS a programmer, even if he hotly denies it - suggested thinking like a programmer rather than concentrating too much on the specifics.</description>
+    </item>
+    
+    <item>
+      <title>Twittering the Shipping Forecast</title>
+      <link>https://adoptioncurve.net/2009/01/13/twittering-the-shipping-forecast-2/</link>
+      <pubDate>Tue, 13 Jan 2009 08:41:05 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/01/13/twittering-the-shipping-forecast-2/</guid>
+      <description>[![Twitter](http://www.twitter.com/shippingcast)One of the aspects of Twitter I like the most is the fact that it has an API. That makes it hackable in a way that appeals to my inner geek, so something I&amp;rsquo;ve been playing with for a while is creating Twitter bots. One of the first I made was @shippingcast, which takes the UK Shipping Forecast and squirts it out onto the web in a Twitter stream.
+Unless you&amp;rsquo;re British, the Shipping Forecast probably doesn&amp;rsquo;t mean a lot.</description>
+    </item>
+    
+    <item>
+      <title>iPlaying offline</title>
+      <link>https://adoptioncurve.net/2009/01/08/iplaying-offline/</link>
+      <pubDate>Thu, 08 Jan 2009 08:16:04 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/01/08/iplaying-offline/</guid>
+      <description>Tom Taylor linked to a fascinating BBC Radio 4 In Business programme about why it still matters where we live and work. It&amp;rsquo;s available for a couple of days still via iPlayer, but if like me you don&amp;rsquo;t want to be tied to a broadband connection in order to listen to it, you&amp;rsquo;re a bit stuck because In Business doesn&amp;rsquo;t have an associated podcast.
+Stuck, that is, unless you&amp;rsquo;ve downloaded Paul Battley&amp;rsquo;s iPlayer Downloader.</description>
+    </item>
+    
+    <item>
+      <title>Organising in 3D</title>
+      <link>https://adoptioncurve.net/2008/10/27/organising-in-3d/</link>
+      <pubDate>Mon, 27 Oct 2008 09:06:53 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/10/27/organising-in-3d/</guid>
+      <description>This has been kicking around at the back of my subconscious for a while, partly born of frustration with organisation systems like GTD. It&amp;rsquo;s not that there&amp;rsquo;s fundamental flaws with them, so much as there are fundamental limitations to how organised I can be. That&amp;rsquo;s partly why I don&amp;rsquo;t have a lot of time for 43 Folder-style blogs - the constant striving towards GTD nirvana strikes me as too reminiscent of Catholic attitudes to sin.</description>
+    </item>
+    
+    <item>
+      <title>Market Tweets</title>
+      <link>https://adoptioncurve.net/2008/10/25/market-tweets/</link>
+      <pubDate>Sat, 25 Oct 2008 08:45:17 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/10/25/market-tweets/</guid>
+      <description>I&amp;rsquo;ve been playing around with making things Twitter again, inspired by Tower Bridge and my previous efforts with the Shipping Forecast. The bridge has been very &amp;ldquo;successful&amp;rdquo;, at least judged by the off-Twitter attention that it got - I&amp;rsquo;m not completely happy with the Shipping Forecast though, because I think I&amp;rsquo;m trying to push too much information into 140 characters.
+So my latest attempts are four stock market indexes - the FTSE-100, the DAX-30, the Dow Jones Industrial Average and the Nikkei 225.</description>
+    </item>
+    
+    <item>
+      <title>More than just a website</title>
+      <link>https://adoptioncurve.net/2008/10/25/more-than-just-a-website/</link>
+      <pubDate>Sat, 25 Oct 2008 05:41:14 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/10/25/more-than-just-a-website/</guid>
+      <description>One of the things that I try and emphasise when talking to clients is that a website is much more than it first appears. It&amp;rsquo;s better to think of a site as an application in its own right, in the same way as you&amp;rsquo;d think of a web browser, or an inventory management system, or (if you really, really have to) a spreadsheet.
+On a technical level, that means using REST techniques when building the site.</description>
+    </item>
+    
+    <item>
+      <title>Data and Government 2.0</title>
+      <link>https://adoptioncurve.net/2008/10/08/data-and-government-20/</link>
+      <pubDate>Wed, 08 Oct 2008 19:16:31 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/10/08/data-and-government-20/</guid>
+      <description>[Cross-posted from the Headshift blog]
+mashup*, who bill themselves as a &amp;ldquo;membership based community of executives, entrepreneurs and investors affected by and working within the commercial application of digital technology, products and services&amp;rdquo; put on an event last night looking at &amp;ldquo;Data and Government 2.0&amp;rdquo;.
+It was held at the splendidly-named Speechly Bircham, which despite sounding like a character from The Avengers is actually a law firm with rather swish offices off Fetter Lane.</description>
+    </item>
+    
+    <item>
+      <title>It&#39;s (less grim) up north</title>
+      <link>https://adoptioncurve.net/2008/10/07/its-less-grim-up-north/</link>
+      <pubDate>Tue, 07 Oct 2008 07:30:23 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/10/07/its-less-grim-up-north/</guid>
+      <description>A neat example of the differences between the UK and Sweden:
+ Sweden&amp;rsquo;s Foreign Minister calls his new Mac &amp;lsquo;a new world&amp;rsquo;
+Former Swedish Prime Minister (and now Foreign Minister) Carl Bildt has, &amp;ldquo;after much reflection, examination and discussion&amp;rdquo; decided to switch to a Mac. (link)
+ This being the UK, we&amp;rsquo;d have some Ministerial nonentity regurgitating a press release written by a Microsoft marketing-droid about the value placed on the strategic partnership between them and the UK government.</description>
+    </item>
+    
+    <item>
+      <title>Quantity or Quality? Measuring Enterprise 2.0</title>
+      <link>https://adoptioncurve.net/2008/09/25/quantity-or-quality-measuring-enterprise-20/</link>
+      <pubDate>Thu, 25 Sep 2008 13:25:11 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/09/25/quantity-or-quality-measuring-enterprise-20/</guid>
+      <description>[Crossposted from the Headshift blog]
+One of the most common barriers to adoption of social software in enterprise settings is the perception that using social media isn&amp;rsquo;t &amp;ldquo;real work&amp;rdquo;. Instead the term &amp;ldquo;social&amp;rdquo; in &amp;ldquo;social media&amp;rdquo; is seen as a synonym for frivolous and time-wasting.
+To an extent, there are aspects of social media that reinforce this stereotype - Facebook is often cited as the poster-child for this problem. Give your staff access to Facebook, runs the argument, and they&amp;rsquo;ll spend all their time poking and throwing sheep at each other.</description>
+    </item>
+    
+    <item>
+      <title>Social contracts</title>
+      <link>https://adoptioncurve.net/2008/04/09/social-contracts/</link>
+      <pubDate>Wed, 09 Apr 2008 07:56:07 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/04/09/social-contracts/</guid>
+      <description>Spotted on Hugh McLeods&amp;rsquo;s blog - &amp;ldquo;how does a software company make money, if all software is free?&amp;rdquo; - an observation about the difference between closed-source aka Microsoft and open-source:
+ It took me a while to figure this out, but what applies to Open Source, also applies to Microsoft.
+When you buy a Microsoft product, you&amp;rsquo;re not just getting ones and zeros. There&amp;rsquo;s also a form of &amp;ldquo;social contract&amp;rdquo; implicit in the commercial transaction.</description>
+    </item>
+    
+    <item>
+      <title>Mobile green screen</title>
+      <link>https://adoptioncurve.net/2008/04/03/mobile-green-screen/</link>
+      <pubDate>Thu, 03 Apr 2008 23:17:04 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/04/03/mobile-green-screen/</guid>
+      <description>In case there was any doubt why the iPhone gets all the attention, compare and contrast these screenshots from Twitter clients for iPhone and Windows Mobile Live Personal Client 2007 (or whatever it&amp;rsquo;s called these days):
+First, PocketTweets (for iPhone)
+Then iTweet (also for iPhone)
+And finally, Twmobile. Guess which platform?
+After six months of fighting with my t-Mobile MDA Vario II, I dumped it in favour of an iPhone, flogged the Vario on ebay and haven&amp;rsquo;t looked back.</description>
+    </item>
+    
+    <item>
+      <title>Tragedy of the wifi commons</title>
+      <link>https://adoptioncurve.net/2008/03/16/tragedy-of-the-wifi-commons/</link>
+      <pubDate>Sun, 16 Mar 2008 19:22:21 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/03/16/tragedy-of-the-wifi-commons/</guid>
+      <description>One of the gimmicks marketing ploys that National Express East Coast employed when they took over the East Coast rail service from GNER was to extend the onboard wifi service that GNER had introduced. Prior to the NXEC takeover, wifi onboard was free to first-class passengers, and a minimum of £4.95 an hour for those travelling in cattle standard class.
+In the GNER days, the service wasn&amp;rsquo;t bad - the connection speed was generally slightly faster than you&amp;rsquo;d get using a 3G connection, and reasonably reliable.</description>
+    </item>
+    
+    <item>
+      <title>Porcine cosmetics, or something new?</title>
+      <link>https://adoptioncurve.net/2008/03/16/porcine-cosmetics-or-something-new/</link>
+      <pubDate>Sun, 16 Mar 2008 11:01:49 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/03/16/porcine-cosmetics-or-something-new/</guid>
+      <description>When does &amp;ldquo;cool new features&amp;rdquo; transmute into &amp;ldquo;unwelcome feature creep&amp;rdquo;? Two of the online services that I use the most are the subject of rumours about new functionality - Flickr is apparently about to launch video support, and Skitch is to add Twitter features.
+Personally, I&amp;rsquo;m pretty ambivalent about Flickr and video. I&amp;rsquo;ve never really suffered from the urge to take moving pictures, probably as a result of being subjected to too many dire and wobbly home videos of holidays over the years.</description>
+    </item>
+    
+    <item>
+      <title>Installing and fettling Subversion</title>
+      <link>https://adoptioncurve.net/2008/03/07/installing-and-fettling-subversion/</link>
+      <pubDate>Fri, 07 Mar 2008 21:47:06 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/03/07/installing-and-fettling-subversion/</guid>
+      <description>I&amp;rsquo;ve finally got around to figuring out how to install and configure a Subversion repository on one of my Debian boxes - these notes are more for my benefit than anything else, but through the power of Google they may come in handy for someone else.
+**Installing Subversion with HTTPS support from scratch:
+**
+Installing Subversion on Debian Etch Complete
+Creating the initial repository
+svnadmin create &amp;ndash;fs-type fsfs /var/svn/myproject
+Doing the initial import</description>
+    </item>
+    
+    <item>
+      <title>Faster, deeper, sleepier</title>
+      <link>https://adoptioncurve.net/2008/02/28/faster-deeper-sleepier/</link>
+      <pubDate>Thu, 28 Feb 2008 09:19:56 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/02/28/faster-deeper-sleepier/</guid>
+      <description>My first Mac was a G4 Powerbook, and one of the principal &amp;ldquo;wow&amp;rdquo; factors was the sleep function - close the lid or hit the power button, and the machine would sleep more-or-less instantaneously. Waking up was just as fast, which was always good for impressing the Windows fanbois as they went off for a coffee or three while their Windows machines restarted.
+When I upgraded to a Macbook, I found that the sleep function took a lot longer - not so much longer that it wasn&amp;rsquo;t still impressive to Windows users, but long enough to be irritating to someone used to a Powerbook.</description>
+    </item>
+    
+    <item>
+      <title>After two days with an iPhone</title>
+      <link>https://adoptioncurve.net/2008/02/17/after-two-days-with-an-iphone/</link>
+      <pubDate>Sun, 17 Feb 2008 17:33:56 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/02/17/after-two-days-with-an-iphone/</guid>
+      <description>When the iPhone initially went on sale, I was fairly ambivalent them and didn&amp;rsquo;t immediately rush out and queue outside the Apple store at midnight. A couple of things made me change my mind - firstly O2 dropped their tariffs to something approaching reasonable value for money (or at least parity with my existing TMobile contract); and I had a good play with iPhones belonging to Aral and Pedro while I was at LIFT08.</description>
+    </item>
+    
+    <item>
+      <title>Off to Geneva</title>
+      <link>https://adoptioncurve.net/2008/02/04/off-to-geneva/</link>
+      <pubDate>Mon, 04 Feb 2008 21:38:24 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/02/04/off-to-geneva/</guid>
+      <description>I&amp;rsquo;m off to Geneva for LIFT08. See you there&amp;hellip;
+[(http://www.liftconference.com)
+Technorati Tags: blogging, geek</description>
+    </item>
+    
+    <item>
+      <title>None</title>
+      <link>https://adoptioncurve.net/2008/02/02/1079/</link>
+      <pubDate>Sat, 02 Feb 2008 23:35:25 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2008/02/02/1079/</guid>
+      <description>On Microsoft + Yahoo:
+ Microsoft&amp;rsquo;s web technologies are as unrelated to Yahoo!&amp;rsquo;s as the Dark and Light sides of the Force. Before you even begin your Comp. Sci. degree you&amp;rsquo;ve already made a decision to join one camp or the other. There&amp;rsquo;s no love lost between the two sides, and very few developers jump from one camp to the other mid-career.
+Perl, PHP and Ruby developers carry PowerBooks with startup stickers on them, ride a bicycle and wear a tee and jeans.</description>
+    </item>
+    
+    <item>
+      <title>Unexpected positive consequences</title>
+      <link>https://adoptioncurve.net/2007/12/16/unexpected-positive-consequences/</link>
+      <pubDate>Sun, 16 Dec 2007 12:33:28 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/12/16/unexpected-positive-consequences/</guid>
+      <description>Sometimes the law of unexpected (positive) consequences throws up something that makes you stop, slap your forehead and ask &amp;ldquo;why didn&amp;rsquo;t I think of that?&amp;rdquo;
+Hacking a Wii remote to perform Minority Report-style mid-air fingertip tracking and then extending this idea to convert any surface and a projector into an interactive whiteboard is one of those ideas. It&amp;rsquo;s the brainchild of Johnny Chung Lee who&amp;rsquo;s a post-grad researcher at Carnegie-Mellon, and he&amp;rsquo;s not just a Wii hacker - there&amp;rsquo;s a 45-foot tall slingshot, a $14 Steadicam and high speed photography of smashing beer bottles.</description>
+    </item>
+    
+    <item>
+      <title>Getting passworded RSS feeds in Mail.app working</title>
+      <link>https://adoptioncurve.net/2007/11/28/getting-passworded-rss-feeds-in-mailapp-working/</link>
+      <pubDate>Wed, 28 Nov 2007 10:06:59 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/11/28/getting-passworded-rss-feeds-in-mailapp-working/</guid>
+      <description>Password-protected RSS feeds in Mail are a royal PITA to set up - basically Mail.app doesn&amp;rsquo;t support password authentication natively (or at least it doesn&amp;rsquo;t support entering the uid/passwords natively.) Here&amp;rsquo;s a sneaky work-around:
+ Add the feed into Mail.app as normal, and let it whinge about not having a password
+ Go to Safari, and set it to be the default RSS reader if it isn&amp;rsquo;t already
+ Drop the feed URL into the address field, and respond to the authentication challenge - and allow the details to be saved into your Keychain</description>
+    </item>
+    
+    <item>
+      <title>More cat changes</title>
+      <link>https://adoptioncurve.net/2007/11/24/more-cat-changes/</link>
+      <pubDate>Sat, 24 Nov 2007 16:20:11 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/11/24/more-cat-changes/</guid>
+      <description>Ack. Another Leopard change that&amp;rsquo;s cost me half-an-hour of messing around: lookupd is gone, replaced instead by dscacheutil.
+So now flushing the DNS cache is done by dscacheutil -flushcache.
+Technorati Tags: mac, osx, unix</description>
+    </item>
+    
+    <item>
+      <title>What&#39;s thrashing my Macbook disk?</title>
+      <link>https://adoptioncurve.net/2007/10/28/whats-thrashing-my-macbook-disk/</link>
+      <pubDate>Sun, 28 Oct 2007 20:36:54 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/10/28/whats-thrashing-my-macbook-disk/</guid>
+      <description>So far, my MacBook Pro has been running really well, with one or two very minor niggles. One of these was the speed of going to sleep - there would be a good 30 seconds elapsed between closing the lid and the sleep light &amp;ldquo;snoring&amp;rdquo;; and the other problem was that the disk seemed to be getting thrashed to bits for no apparent reason. Even when sitting quietly apparently doing nothing, the disk would be churning away.</description>
+    </item>
+    
+    <item>
+      <title>Tweaking MAMP Pro settings</title>
+      <link>https://adoptioncurve.net/2007/10/04/tweaking-mamp-pro-settings/</link>
+      <pubDate>Thu, 04 Oct 2007 17:41:16 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/10/04/tweaking-mamp-pro-settings/</guid>
+      <description>I&amp;rsquo;ve started using MAMP Pro to run local Apache and MySQL servers on my Macbook, mainly because they&amp;rsquo;ve got a rather more user-friendly front-end when it comes to controlling the most-commonly needed configuration settings. Being able to switch DocRoots and database directories is quite handy when you&amp;rsquo;re bouncing from project to project.
+MAMP Pro is basically MAMP with a lot more of the configuration exposed through a GUI, and for $20 or so I figured it was worth it.</description>
+    </item>
+    
+    <item>
+      <title>A minor wtf? moment</title>
+      <link>https://adoptioncurve.net/2007/08/24/a-minor-wtf-moment/</link>
+      <pubDate>Fri, 24 Aug 2007 08:42:24 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/08/24/a-minor-wtf-moment/</guid>
+      <description>A note to self, and for future reference - Javascript &amp;lsquo;month&amp;rsquo; functions start at &amp;lsquo;0&amp;rsquo; for January, though to &amp;lsquo;11&amp;rsquo; for December. Which is why 2007,9,27 seems to be 64 days away&amp;hellip;!</description>
+    </item>
+    
+    <item>
+      <title>Blocking out your surroundings</title>
+      <link>https://adoptioncurve.net/2007/08/16/blocking-out-your-surroundings/</link>
+      <pubDate>Thu, 16 Aug 2007 09:20:55 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/08/16/blocking-out-your-surroundings/</guid>
+      <description>The advantage of working in an open-plan office is that it&amp;rsquo;s easy to interact with your colleagues; the downside to working in an open-plan office is that it&amp;rsquo;s easy to be distracted by your colleagues interacting. Short of locking yourself away in an empty closet or meeting room, the next best anti-distraction technique is to plug your ears with sound to block out the distractions, and with an iPod or iTunes running it&amp;rsquo;s really easy to do.</description>
+    </item>
+    
+    <item>
+      <title>Facebook opening up (slightly)</title>
+      <link>https://adoptioncurve.net/2007/08/14/facebook-opening-up-slightly/</link>
+      <pubDate>Tue, 14 Aug 2007 22:03:37 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/08/14/facebook-opening-up-slightly/</guid>
+      <description>One of the reasons I&amp;rsquo;ve never really become that excited over Facebook is the fact that it&amp;rsquo;s pretty much a walled garden - the first rule of Facebook is never to talk (externally) about Facebook.
+That seems to be changing slightly - there&amp;rsquo;s now RSS feeds available for your friends&amp;rsquo; status updates, which plays nicely with a standard RSS reader.
+Small steps, but ones which need to be taken&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Setting default routes with a VPN and OS X</title>
+      <link>https://adoptioncurve.net/2007/08/12/setting-default-routes-with-a-vpn-and-os-x/</link>
+      <pubDate>Sun, 12 Aug 2007 11:54:35 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/08/12/setting-default-routes-with-a-vpn-and-os-x/</guid>
+      <description>Setting up a VPN connection in OS X is incredibly simple - just use the Internet Connect wizard, and away you go. But if you use the wizard to set up a VPN connection, it assumes that you want all traffic to go down the VPN tunnel. That&amp;rsquo;s fine in some circumstances, but it can be a pain if the upstream connection to the Internet at the VPN end is slow - and in any case, it&amp;rsquo;s most likely to be adding additional hops to your destination if that destination isn&amp;rsquo;t at the VPN end.</description>
+    </item>
+    
+    <item>
+      <title>21st Century SDK</title>
+      <link>https://adoptioncurve.net/2007/06/22/21st-century-sdk/</link>
+      <pubDate>Fri, 22 Jun 2007 10:16:19 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/06/22/21st-century-sdk/</guid>
+      <description>I completely missed the announcement of this, but Web21C is a series of APIs for BT&amp;rsquo;s 21st Century Network, the next-generation IP-based telecomms network that&amp;rsquo;s being rolled out.
+It&amp;rsquo;s a number of APIs to core 21CN services - SMS, voice calls, conference calls, location, authentication and so on. They&amp;rsquo;ve created an SDK which allows these services to be embedded into web apps, as well as test environment - in a particularly nice touch, there are seven virtual SIP phones for testing, each one with it&amp;rsquo;s own particular quirks.</description>
+    </item>
+    
+    <item>
+      <title>Previewing IE mangling</title>
+      <link>https://adoptioncurve.net/2007/06/13/previewing-ie-mangling/</link>
+      <pubDate>Wed, 13 Jun 2007 11:36:58 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/06/13/previewing-ie-mangling/</guid>
+      <description>Falling into the category of &amp;ldquo;useful tools that there wouldn&amp;rsquo;t be any need for in a perfect world&amp;rdquo;, here&amp;rsquo;s a neat site that renders a url to preview how badly your lovingly-crafted CSS gets mangled by IEs 5.5, 6 and 7.
+NetRenderer
+Of course, if standards actually meant standard, then this wouldn&amp;rsquo;t be needed - but in the meantime it could save some wailing and gnashing of teeth. Basically you bang in the URL of your page, and then you can preview the effect of rendering in each of the versions.</description>
+    </item>
+    
+    <item>
+      <title>OpenOffice goes Aqua alpha</title>
+      <link>https://adoptioncurve.net/2007/06/05/openoffice-goes-aqua-alpha/</link>
+      <pubDate>Tue, 05 Jun 2007 14:08:03 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/06/05/openoffice-goes-aqua-alpha/</guid>
+      <description>The OpenOffice Aqua development preview is now available for download - there&amp;rsquo;s the usual hair-raising warnings about alpha test versions causing lost data and lowered sperm counts, but it&amp;rsquo;s worth a look.
+I&amp;rsquo;ve been increasingly impressed with Open Office - it&amp;rsquo;s proved to be more stable than Office itself, particularly when working with files that originate from the Windows version. I&amp;rsquo;ve been running NeoOffice, so I haven&amp;rsquo;t really noticed the lack of full Aqua integration, but it&amp;rsquo;s good to see this step forward.</description>
+    </item>
+    
+    <item>
+      <title>Connecting Rails to a SQL Server</title>
+      <link>https://adoptioncurve.net/2007/04/05/connecting_rails_to_a_sql_server/</link>
+      <pubDate>Thu, 05 Apr 2007 14:23:43 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2007/04/05/connecting_rails_to_a_sql_server/</guid>
+      <description>To connect Rails to a SQL Server, you&amp;rsquo;ll need to edit the config/database.yml file:
+development:
+adapter: sqlserver
+database: dbmydatabase
+host: sqlserver.domain.com
+username: user
+password: secret
+Replace the fields with the appropriate values for the environment, and away it should all go&amp;hellip;</description>
+    </item>
+    
+  </channel>
+</rss>

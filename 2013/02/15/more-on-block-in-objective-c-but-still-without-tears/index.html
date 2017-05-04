@@ -1,0 +1,585 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>More on blocks in Objective-C (but still without tears) &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="More on blocks in Objective-C (but still without tears)" />
+<meta property="og:description" content="This is the second part of a two-part look at blocks in Objective-C - you can find the first part here.
+
+Blocks in detail
+
+Apple provides some pretty detailed documentation on blocks with as complete a definition as I’ve ever seen – so let’s look at that and use it as a starting point.
+
+According to Apple, a block is:
+
+&hellip;an anonymous inline collection of code that:
+
+
+Has a typed argument list just like a function
+
+Has an inferred or declared return type
+
+Can capture state from the lexical scope within which it’s defined
+
+Can optionally modify the state of the lexical scope
+
+Can share the potential for modification with other blocks defined within the same lexical scope
+
+Can continue to share and modify state defined within the lexical scope (the stack frame) after the lexical scope (the stack frame) has been destroyed.
+
+
+OK, let’s do this again in English.
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2013/02/15/more-on-block-in-objective-c-but-still-without-tears/" />
+
+
+
+<meta property="article:published_time" content="2013-02-15T16:26:07&#43;00:00"/>
+<meta property="article:modified_time" content="2013-02-15T16:26:07&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="More on blocks in Objective-C (but still without tears)">
+<meta itemprop="description" content="This is the second part of a two-part look at blocks in Objective-C - you can find the first part here.
+
+Blocks in detail
+
+Apple provides some pretty detailed documentation on blocks with as complete a definition as I’ve ever seen – so let’s look at that and use it as a starting point.
+
+According to Apple, a block is:
+
+&hellip;an anonymous inline collection of code that:
+
+
+Has a typed argument list just like a function
+
+Has an inferred or declared return type
+
+Can capture state from the lexical scope within which it’s defined
+
+Can optionally modify the state of the lexical scope
+
+Can share the potential for modification with other blocks defined within the same lexical scope
+
+Can continue to share and modify state defined within the lexical scope (the stack frame) after the lexical scope (the stack frame) has been destroyed.
+
+
+OK, let’s do this again in English.
+
+">
+
+
+<meta itemprop="dateModified" content="2013-02-15T16:26:07&#43;00:00" />
+<meta itemprop="wordCount" content="2363">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="More on blocks in Objective-C (but still without tears)"/>
+<meta name="twitter:title" content="More on blocks in Objective-C (but still without tears)"/>
+<meta name="twitter:description" content="This is the second part of a two-part look at blocks in Objective-C - you can find the first part here.
+
+Blocks in detail
+
+Apple provides some pretty detailed documentation on blocks with as complete a definition as I’ve ever seen – so let’s look at that and use it as a starting point.
+
+According to Apple, a block is:
+
+&hellip;an anonymous inline collection of code that:
+
+
+Has a typed argument list just like a function
+
+Has an inferred or declared return type
+
+Can capture state from the lexical scope within which it’s defined
+
+Can optionally modify the state of the lexical scope
+
+Can share the potential for modification with other blocks defined within the same lexical scope
+
+Can continue to share and modify state defined within the lexical scope (the stack frame) after the lexical scope (the stack frame) has been destroyed.
+
+
+OK, let’s do this again in English.
+
+"/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>More on blocks in Objective-C (but still without tears)</h1>
+                    <h2 class="headline">
+                    15 February 2013 
+                    <br>
+                    
+                    
+                        
+                            <a href="https://adoptioncurve.net/tags/ios">iOS</a>
+                        
+                            <a href="https://adoptioncurve.net/tags/objectivec">objectivec</a>
+                        
+                    
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>This is the second part of a two-part look at blocks in Objective-C - you can find <a href="http://www.adoptioncurve.net/archives/2013/02/blocks-in-objective-c-without-tears.php">the first part here</a>.</p>
+
+<h3 id="blocks-in-detail">Blocks in detail</h3>
+
+<p>Apple provides some pretty detailed documentation on blocks with as complete a definition as I’ve ever seen – so let’s look at that and use it as a starting point.</p>
+
+<p>According to Apple, a block is:</p>
+
+<p><em>&hellip;an anonymous inline collection of code that:</em></p>
+
+<ul>
+<li><p><em>Has a typed argument list just like a function</em></p></li>
+
+<li><p><em>Has an inferred or declared return type</em></p></li>
+
+<li><p><em>Can capture state from the lexical scope within which it’s defined</em></p></li>
+
+<li><p><em>Can optionally modify the state of the lexical scope</em></p></li>
+
+<li><p><em>Can share the potential for modification with other blocks defined within the same lexical scope</em></p></li>
+
+<li><p><em>Can continue to share and modify state defined within the lexical scope (the stack frame) after the lexical scope (the stack frame) has been destroyed.</em></p></li>
+</ul>
+
+<p>OK, let’s do this again in English.</p>
+
+<p></p>
+
+<h3 id="blocks-have-typed-arguments">Blocks have typed arguments</h3>
+
+<p>Just like functions and methods, you provide a list of arguments to a block. Unlike Objective-C methods where the parameters form part of the method name (for example:)</p>
+
+<p><code>-(NSString *)doSomethingWithAString:(NSString *)theString andAnInt:(int)theInt;</code></p>
+
+<p>With blocks, the arguments are treated in a much more C-like way:</p>
+
+<p><code>(NSString *)(^myNewString)(NSString *theString, int theInt);</code></p>
+
+<h3 id="blocks-have-a-return-type">Blocks have a return type</h3>
+
+<p>Just as methods, blocks return things:</p>
+
+<p><em>They can return nothing, in which case their return type is void:</em></p>
+
+<p><code>void(^anIntishBLock)(int anInt, int anotherInt)</code></p>
+
+<p><em>They can return something, in which case their return type is the type of whatever gets returned.</em> (in this case, it’s a pointer to an <code>NSString</code>):</p>
+
+<p><code>(NSString *)(^aStringyBlock)(NSString *foo, NSUInteger bar)</code></p>
+
+<h3 id="blocks-can-capture-state-from-the-lexical-scope-in-which-it-s-defined">Blocks can capture state from the lexical scope in which it’s defined</h3>
+
+<p>OK, <em>what</em> does that mean??</p>
+
+<p>You should already be comfortable with the idea that variables have scope. A variable that’s defined locally within a method only exists inside that method. If you want a variable to be accessible outside a method, then you have to define it as either an instance variable or a property.</p>
+
+<p>For example, here’s two methods:</p>
+
+<pre><code>-(void)doFoo {
+  NSString *foo = @”This is string foo”;
+  // Do some exciting stuff with foo
+}
+
+-(void)doBar {
+  NSString *bar = @”This is string foo”;
+  // Do some exciting stuff with bar
+}
+</code></pre>
+
+<p>The “region” where the variable exists is known as the “scope” – in these two methods, <code>foo</code> and <code>bar</code> exist in separate scopes.</p>
+
+<p>This code wouldn’t work, because <code>foo</code> doesn’t exist within the scope of the <code>doBar</code> method:</p>
+
+<pre><code>-(void)doBar {
+  NSString *bar = [NSString stringWithFormat:@”This is bar and %@”, foo];
+  NSLog(@”%@”, bar);
+}
+</code></pre>
+
+<p>Normally, that scope exists only for as long as the method is being executed. But blocks are special, in that they can capture the scope so that it doesn’t disappear. They close round the scope (which is why blocks are known as closures in some languages.)</p>
+
+<p>Let’s look at an example of this. The <code>UIView</code> class comes with some really handy block-based animation features that you can use to animate various properties of the <code>UIView</code> subclasses that you create.</p>
+
+<p>In one of my apps, I use the <code>CoreLocation</code> library to figure out where the user is using the iPhone’s GPS. That only works if the user has allowed the app to use Location Services, and it’s not much use if there’s no network available because the phone (and presumably the user!) are down a mine or in a tunnel.</p>
+
+<p>When this happens, I display a warning to the user as an overlay that drops down from the top of the screen, hangs around for a few seconds, then slides back up again and disappears from view. This is done with <code>UIView</code>’s <code>animateWithDuration:animations:completion:</code> method.</p>
+
+<p>The implementation looks like the code below (I’ve simplified it a bit here to save space). Don’t worry if you’ve not met this <code>UIView</code> method before – the details aren’t important. Just focus on what’s happening to the variables that are defined in the method:</p>
+
+<pre><code>-(void)displayLocationWarning {
+
+  // Create a warning view to display
+  UIView *warningView = [[UIView alloc] initWithFrame:self.offscreenFrame];
+
+  // Configure the warning view with various properties -
+  // background color, alpha value, warning message etc etc
+
+  // Display the view by dropping it down from the top, then
+  // make it disappear after 5 seconds by sliding back up again
+  [UIView animateWithDuration:1.0 animations:^{
+
+      [warningView setFrame:self.onscreenFrame];
+
+  } completion:^(BOOL finished) {
+
+      [UIView animateWithDuration:1.0 delay:5.0 options:UIViewAnimationCurveEaseInOut animations:^{
+
+          [warningView setFrame:self.offscreenFrame];
+
+      } completion:^(BOOL finished) {
+
+          [warningView removeFromSuperview];
+
+      }];
+
+  }];
+
+  NSLog(@”locationWarning displayed”);
+
+  // remove the “find my location button” from the UI
+  [self removeFindLocationButton];
+
+}
+</code></pre>
+
+<p>Let’s step through this.</p>
+
+<p>The first line creates the <code>UIView</code> that will display the warning, and then this is configured in the code that I’ve chopped out.</p>
+
+<p>The <code>warningView</code> view is initially created with a frame property stored in the <code>offscreenFrame</code> property – this has an <code>y</code> value that’s negative, so <code>warningView</code> is tucked away above the top of the screen and isn’t visible.</p>
+
+<p>Once <code>warningView</code> is created, it’s displayed by the <code>animateWithDuration:animations:completion:</code> block. That changes <code>warningView</code>’s <code>frame</code> to the values stored in <code>self.onscreenFrame</code> over a 1 second period – because <code>self.onscreenFrame</code> has a positive <code>y</code> value, the <code>warningView</code> appears to slide down from the top of the screen.</p>
+
+<p>Once the animation has been performed, <code>animateWithDuration:animations:completion:</code> executes its <code>completion:</code> block, which reverses the process with another animation block (this one starting after a five second delay, and taking 1 second to run).</p>
+
+<p>What’s interesting about all of this is that the <code>animationWithDuration:animations:completion:</code> block runs asynchronously – in other words, the <code>NSLog</code> and <code>removeFindLocationButton</code> methods are run while the animation is still going, and the <code>displayLocationWarning</code> method finishes well before the <code>warningBlock</code> has disappeared from the screen.</p>
+
+<p>How can this be? <code>warningBlock</code> is defined locally within the <code>displayLocationWarning</code> method – its lexical scope, to use the formal term, is the method. As soon as the method ends, any variables defined within the method disappear. The lexical scope ends. Surely doing something to an object defined in a scope that’s gone will cause the program to crash?</p>
+
+<p>This is the magic of blocks. When you pass a variable to a block – in this case the <code>warningView</code> object – the block “closes” around them. In effect, it ensures that the variable won’t disappear before the block has finished executing. The block makes a read-only (or immutable) copy of the variable and uses this to perform itself.</p>
+
+<p>In effect, you don’t need to worry about how long the block will take to execute. Any variables that are passed into it will persist for as long as they need to.</p>
+
+<h3 id="blocks-can-modify-the-lexical-scope">Blocks can modify the lexical scope.</h3>
+
+<p>When a block closes round a variable, it makes an immutable copy – technically, it captures them as <code>const</code> variables. Trying to change the value of a const variable will cause the compiler to complain.</p>
+
+<p>Here’s a simple example of something that won’t work:</p>
+
+<pre><code>int x = 123;
+
+void(^printXandY)(int) = ^(int y) {
+    x = x + y;
+    NSLog(@&quot;x plus y = %d&quot;, x);
+};
+
+printXandY(456);
+</code></pre>
+
+<p>If you try to build a project with this code, you’ll see a <code>Variable is not assignable</code> error.</p>
+
+<p>Does this mean that we’re stuck with only being able to use immutable variables inside blocks? That seems very restrictive? What happens if the code needs to make changes to variables as it goes along?</p>
+
+<p>The answer lies in the <code>__block</code> storage modifier (that’s the word block prefixed with two underscore characters). If you change this code to declare <code>x</code> as:</p>
+
+<p><code>__block int x = 123;</code></p>
+
+<p>Then the compiler will store in a special scope that’s guaranteed to survive for the lifetime of the block, and passes in a reference to the stored variable to the block itself.</p>
+
+<p>This allows the block to change (or mutate) the value of <code>x</code> at will.</p>
+
+<p>A subtle problem can occur here if you need to refer to self within the block – for example:</p>
+
+<pre><code>[UIView animateWithDuration:1.0 animations:^{
+
+  [warningView setFrame:self.onscreenFrame];
+
+} completion:^(BOOL finished) {
+
+  [self methodToRunAfterAnimationCompletes];
+
+}];
+</code></pre>
+
+<p>This would cause a compiler error (even when compiling under ARC) because the block will retain <code>self</code>, and this raises the possibility of a retain cycle.</p>
+
+<p>To prevent this, you need to modify the way you pass in the reference to self:</p>
+
+<pre><code>__block __weak MySelfType *blockSafeSelf = self;
+
+[UIView animateWithDuration:1.0 animations:^{
+
+  [warningView setFrame:blockSafeSelf.onscreenFrame];
+
+} completion:^(BOOL finished) {
+
+  [blockSafeSelf methodToRunAfterAnimationCompletes];
+
+}];
+</code></pre>
+
+<p>This creates a mutable weak reference to <code>self</code>, and will prevent any risk of a retain cycle.</p>
+
+<h3 id="blocks-can-share-the-potential-for-modification-with-other-blocks-defined-within-the-same-lexical-scope">Blocks can share the potential for modification with other blocks defined within the same lexical scope</h3>
+
+<p>Variables that are defined with the <code>__block</code> modifier can be shared between blocks created with the same scope. If you had a method that defines two more more blocks, then a variable defined with the <code>__block</code> modifier could be used by any or all of the blocks.</p>
+
+<h3 id="using-blocks-in-practice">Using blocks in practice</h3>
+
+<p>One of the main uses for blocks in Objective-C is to allow abitrary chunks of code to be used to build up complex functionality. Here’s an example of a rather neat <code>NSArray</code> method called <code>indexOfObjectPassingTest:</code></p>
+
+<p><code>-(NSIndexSet)indexesOfObjectPassingTest:(BOOL (^)(id obj, NSUInteger idx, BOOL *stop))predicate</code></p>
+
+<p>This allows you to provide a block of code that defines what kind of conditions you want to test each element in the array against. For example, say you wanted to test an array of <code>NSStrings</code> to find the index of the first element containing a particular string:</p>
+
+<pre><code>NSUInteger index = [myArray indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+  NSString *stringUnderTest = (NSString *)obj;
+  return ([stringUnderTest isEqualToString:testCondition]);
+}];
+</code></pre>
+
+<p>What’s going on here?</p>
+
+<p>The test is a block that returns a <code>BOOL</code>, and takes three parameters – an <code>id</code> called <code>obj</code>, an <code>NSUInteger</code> called <code>idx</code>, and a reference to a <code>BOOL</code> called <code>stop</code>.</p>
+
+<p><code>idx</code> is the index of the array element that’s going to be tested, while <code>obj</code> is the object itself. It’s an <code>id</code> so that the block can cope with any object that might be stored in the <code>NSArray</code> – in this instance we can safely assume that it will be an <code>NSString</code>, so it’s cast from <code>id</code> to <code>NSString</code> ready for the comparison to take place.</p>
+
+<p><code>stop</code> is a reference to a boolean value that’s used to control processing of the block – if the block returns <code>YES</code>, then the test has been passed and the index of that array will be returned.</p>
+
+<p>The point of showing this example is that the predicate – the test used to determine which array element we’re after – can be any valid Objective-C code because it’s provided by in a block. The <code>indexOfObjectPassingTest:</code> method doesn’t care what that code is, so long as it returns a <code>BOOL</code> value. This is a very simple example, but the block could be hugely more complex depending on the requirement of your app.</p>
+
+<h3 id="blocks-as-an-alternative-to-delegate-methods">Blocks as an alternative to delegate methods</h3>
+
+<p>Delegation is a design pattern where one object passes responsibility for performing some actions to another object. Although it’s very useful and used extensively within Objective-C, it’s also quite a heavyweight way of getting something to happen in response to a previous action.</p>
+
+<p>You have to couple two objects together as delegator and delegate; and provide a protocol (formal or informal) so that the two objects know how to communicate. If what you’re trying to do is get one object to react to the actions of another, wouldn’t it be easier if you could get one object to perform both tasks?</p>
+
+<p>This is where completion blocks come in. They’re used to provide a chunk of functionality that can remain undefined in a method declaration, but which gets provided by you when you implement the method. You’ve seen this above with <code>UIView</code>’s <code>animateWithDuration:animations:completion:</code> method. The completion block is the chunk of code that you want to be executed after the animations have been completed – it might be another piece of animation, or you might want to clean up some now-redundant objects, for example. The method declaration provides you with an empty slot for whatever code you need.</p>
+
+<p>Instead of providing a delegate with an object that implements appropriate method, and tying the two together with a protocol, you simply use a block of code in-situ. Not only does that reduce the amount of code needed to implement the two objects and the protocol, it also has the benefit of keeping the functionality implemented by the block in the context in which it will be executed. This makes for much clearer and more readable code.</p>
+
+<h3 id="blocks-as-an-alternative-to-observers">Blocks as an alternative to observers</h3>
+
+<p>The observer pattern is a design pattern that allows one object to register to be updated about notifications “broadcast” by another object. In Objective-C, this is done via <code>NSNoticationCenter</code> – objects create instances of the <code>NSNotification</code> class, and post these to the <code>NSNotificationCenter</code>. Other objects can register with <code>NSNotificationCenter</code> to be updated about the <code>NSNotification</code> objects that are posted.</p>
+
+<p>It’s an example of “loose coupling” – a way of getting one object to react to the events occuring in a second, without the second object being aware of the existance of the first.</p>
+
+<p>While this is very useful, the very fact that the coupling is loose distributes the responsibilities around your code. It’s not immediately obvious at first glance which objects will react to a notification being posted - not so much of a problem if it’s your code and you can remember going on, but more of an issue for your future self or if you’re dealing with code that someone else has written.</p>
+
+<p>As with delegation, completion blocks provide the same capabilities, but without the drawbacks of obfuscating the functionality of your code.</p>
+
+<h3 id="summary">Summary</h3>
+
+<p>Although the syntax of blocks can seem a bit unweildy at first, they provide a very powerful and flexible way of packaging up chunks of code into elements that can be used in a variety of ways. Not least of these powers is the ability to close around variables, which allows them to be used asynchronously after the scope in which the variable was defined has been destroyed.</p>
+
+<p>An increasing number of class methods use blocks to exploit this power, as well as a cleaner alternative to observer or delegate patterns.</p>
+
+<h3 id="further-reading">Further reading</h3>
+
+<p>Apple provide an extremely comprehensive guide to Objective-C blocks in the “Blocks Programming Topics” document available in the Developer Center.</p>
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2013%2f02%2f15%2fmore-on-block-in-objective-c-but-still-without-tears%2f - More%20on%20blocks%20in%20Objective-C%20%28but%20still%20without%20tears%29 by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

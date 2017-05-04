@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tableviews on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/tableviews/</link>
+    <description>Recent content in Tableviews on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Thu, 16 Feb 2012 10:06:35 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/tableviews/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>More Clear cleverness: showing new screens</title>
+      <link>https://adoptioncurve.net/2012/02/16/more-clear-cleverness-showing-new-screens/</link>
+      <pubDate>Thu, 16 Feb 2012 10:06:35 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/02/16/more-clear-cleverness-showing-new-screens/</guid>
+      <description>Another trick of the Clear app is the way that it takes the established pull-to-refresh interaction of a table view, and extends it to present new screens. So pulling the to-do items table down will first add a new item at the top of the table, then causes the lists table to slide down from the top.
+Doing the same in the Lists table results in the Settings table appearing in the same way.</description>
+    </item>
+    
+    <item>
+      <title>How to do Clear-style swiping in iOS tables</title>
+      <link>https://adoptioncurve.net/2012/02/15/how-to-do-clear-style-swiping-in-ios-tables/</link>
+      <pubDate>Wed, 15 Feb 2012 12:52:10 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/02/15/how-to-do-clear-style-swiping-in-ios-tables/</guid>
+      <description>The latest app that everyone&amp;rsquo;s raving about is Clear - if you haven&amp;rsquo;t seen it, it&amp;rsquo;s basically a task list, but one with a rather interesting take on the interface. Instead of the usual tab-bar-and-table-vew setup, the table is full-screen and makes extensive use of gestures.
+Deleting and completing tasks are done by swiping the row - a left swipe deletes the item, a right swipe marks it as complete. Here&amp;rsquo;s the basis of how that&amp;rsquo;s done.</description>
+    </item>
+    
+  </channel>
+</rss>

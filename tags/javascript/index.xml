@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Javascript on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/javascript/</link>
+    <description>Recent content in Javascript on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Fri, 28 Sep 2012 09:00:27 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Calling Objective-C methods from JavaScript in a UIWebView</title>
+      <link>https://adoptioncurve.net/2012/09/28/calling-objective-c-methods-from-javascript-in-a-uiwebview/</link>
+      <pubDate>Fri, 28 Sep 2012 09:00:27 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/09/28/calling-objective-c-methods-from-javascript-in-a-uiwebview/</guid>
+      <description>The East Coast Time Line app I&amp;rsquo;ve just finished building includes a 360-degree virtual reality panorama section, which puts you &amp;ldquo;inside&amp;rdquo; several of the coaches in the National Railway Museum&amp;rsquo;s collection. It&amp;rsquo;s created with the KRPano plugin that uses a set of tiles to build an HTML5 plugin that can be zoomed and rotated, either manually or with the aid of the device&amp;rsquo;s gyroscope.
+The panorama itself is full-screen, so to provide a navigation back to the rest of the app there&amp;rsquo;s a floating toolbar that drops down from the top of the view in response to a tap.</description>
+    </item>
+    
+  </channel>
+</rss>

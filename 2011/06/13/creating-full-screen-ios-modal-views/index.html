@@ -1,0 +1,303 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Creating full-screen iOS modal views &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Creating full-screen iOS modal views" />
+<meta property="og:description" content="This is another &ldquo;blog it so I&rsquo;ll remember it&rdquo; post, but it might come in useful should it ever get Googled.
+Scenario: I&rsquo;m running an asynchronous data load in the background which populates a table view. Although the data load is asynchronous, because it updates the table I want to place a modal popup with an activity spinner over the current table view so that interaction is blocked. I&rsquo;m using Sam Vernette&rsquo;s SVProgressHUD, which is a really neat implementation of the Apple segmented spinner thing." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2011/06/13/creating-full-screen-ios-modal-views/" />
+
+
+
+<meta property="article:published_time" content="2011-06-13T19:59:38&#43;00:00"/>
+<meta property="article:modified_time" content="2011-06-13T19:59:38&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Creating full-screen iOS modal views">
+<meta itemprop="description" content="This is another &ldquo;blog it so I&rsquo;ll remember it&rdquo; post, but it might come in useful should it ever get Googled.
+Scenario: I&rsquo;m running an asynchronous data load in the background which populates a table view. Although the data load is asynchronous, because it updates the table I want to place a modal popup with an activity spinner over the current table view so that interaction is blocked. I&rsquo;m using Sam Vernette&rsquo;s SVProgressHUD, which is a really neat implementation of the Apple segmented spinner thing.">
+
+
+<meta itemprop="dateModified" content="2011-06-13T19:59:38&#43;00:00" />
+<meta itemprop="wordCount" content="450">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Creating full-screen iOS modal views"/>
+<meta name="twitter:title" content="Creating full-screen iOS modal views"/>
+<meta name="twitter:description" content="This is another &ldquo;blog it so I&rsquo;ll remember it&rdquo; post, but it might come in useful should it ever get Googled.
+Scenario: I&rsquo;m running an asynchronous data load in the background which populates a table view. Although the data load is asynchronous, because it updates the table I want to place a modal popup with an activity spinner over the current table view so that interaction is blocked. I&rsquo;m using Sam Vernette&rsquo;s SVProgressHUD, which is a really neat implementation of the Apple segmented spinner thing."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Creating full-screen iOS modal views</h1>
+                    <h2 class="headline">
+                    13 June 2011 
+                    <br>
+                    
+                    
+                        
+                            <a href="https://adoptioncurve.net/tags/ios">iOS</a>
+                        
+                            <a href="https://adoptioncurve.net/tags/iphone">iphone</a>
+                        
+                            <a href="https://adoptioncurve.net/tags/objective-c">objective-C</a>
+                        
+                    
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>This is another &ldquo;blog it so I&rsquo;ll remember it&rdquo; post, but it might come in useful should it ever get Googled.</p>
+
+<p><strong>Scenario</strong>: I&rsquo;m running an asynchronous data load in the background which populates a table view.  Although the data load is asynchronous, because it updates the table I want to place a modal popup with an activity spinner over the current table view so that interaction is blocked.  I&rsquo;m using <a href="http://samvermette.com/">Sam Vernette&rsquo;s</a> <a href="http://samvermette.com/199">SVProgressHUD</a>, which is a really neat implementation of the Apple segmented spinner thing.  The modal popup has to cover the whole of the window so that the table can&rsquo;t be manipulated while the data load is in progress.</p>
+
+<p><strong>Problem</strong>: If you add the spinner into the context of the table view, the x and y coordinates of the spinner are anchored to the top of the table view.  This means that if you&rsquo;re scrolled down, the spinner will be displayed towards the top of the screen - or even worse, off the top of the screen if the table view is a long one.</p>
+
+<p><strong>Solution</strong>: Instead of adding the spinner to the table view, add it to the main window.  This has three stages:</p>
+
+<ol>
+<li><p>Get a reference to the main window</p></li>
+
+<li><p>Create a UIView of the correct size</p></li>
+
+<li><p>(Optional) add the SVProgressHUD to the UIView you&rsquo;ve just created</p></li>
+
+<li><p>(Optional) set up the properties of the UIView - background colour, alpha etc</p></li>
+
+<li><p>Add the UIView you just created as a subview of the main window</p></li>
+</ol>
+
+<p>The code looks like this:</p>
+
+<pre><code>// Get main window reference
+UIWindow* mainWindow = (((YourAppDelegate *)[UIApplication sharedApplication].delegate).window);
+
+// Create a full-screen subview
+UIView *spinnerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+
+// Set up some properties of the subview
+spinnerView.backgroundColor = [UIColor whiteColor];
+spinnerView.alpha = 0.5f;
+
+// Optional - display the SVProgressHUD
+[SVProgressHUD showInView:spinnerView status:@&quot;Loading...&quot;];
+
+// Add the subview to the main window
+[mainWindow addSubview:throbberView];
+
+// Release the subview
+[spinnerView release];
+</code></pre>
+
+<p>The key bit is getting the reference to the main window, with the somewhat-less-than obvious reference to the app delegate. That&rsquo;s the full extent of the device screen rather than any subviews below it, so adding a subview to this means that you&rsquo;re anchored relative to the device.  Of course, you&rsquo;re not restricted to covering the whole window - changing the subview&rsquo;s frame means you can move things around.</p>
+
+<p>Dismissing it is more or less the reverse:</p>
+
+<pre><code>[spinnerView removeFromSuperview];
+</code></pre>
+
+<p>In this particular app the spinnerView needs to be dismissed in a delegate method that gets triggered by the asynchronous load finishing.  To make life easier I created an instance variable in the controller to hold the subview so I could get hold of it and dismiss it in the context of the delegate method.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2011%2f06%2f13%2fcreating-full-screen-ios-modal-views%2f - Creating%20full-screen%20iOS%20modal%20views by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

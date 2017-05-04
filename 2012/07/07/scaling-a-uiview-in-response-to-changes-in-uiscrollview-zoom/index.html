@@ -1,0 +1,319 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Scaling a UIView in response to changes in UIScrollView zoom &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Scaling a UIView in response to changes in UIScrollView zoom" />
+<meta property="og:description" content="The app that I&rsquo;m currently working on is based around a series of map images that can be scrolled and zoomed. Rather than using MapKit or anything similar, they&rsquo;re images that sit inside a UIScrollView - the map images aren&rsquo;t geographically-accurate, so it was easier to use images than try to figure out the distortions needed to map geography to map.
+There&rsquo;s a series of &ldquo;pins&rdquo; that get placed onto the map as it loads - but because the pins were being added to the view that gets zoomed, the pin images themselves were getting scaled up as the map zoomed it." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2012/07/07/scaling-a-uiview-in-response-to-changes-in-uiscrollview-zoom/" />
+
+
+
+<meta property="article:published_time" content="2012-07-07T20:11:57&#43;00:00"/>
+<meta property="article:modified_time" content="2012-07-07T20:11:57&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Scaling a UIView in response to changes in UIScrollView zoom">
+<meta itemprop="description" content="The app that I&rsquo;m currently working on is based around a series of map images that can be scrolled and zoomed. Rather than using MapKit or anything similar, they&rsquo;re images that sit inside a UIScrollView - the map images aren&rsquo;t geographically-accurate, so it was easier to use images than try to figure out the distortions needed to map geography to map.
+There&rsquo;s a series of &ldquo;pins&rdquo; that get placed onto the map as it loads - but because the pins were being added to the view that gets zoomed, the pin images themselves were getting scaled up as the map zoomed it.">
+
+
+<meta itemprop="dateModified" content="2012-07-07T20:11:57&#43;00:00" />
+<meta itemprop="wordCount" content="462">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Scaling a UIView in response to changes in UIScrollView zoom"/>
+<meta name="twitter:title" content="Scaling a UIView in response to changes in UIScrollView zoom"/>
+<meta name="twitter:description" content="The app that I&rsquo;m currently working on is based around a series of map images that can be scrolled and zoomed. Rather than using MapKit or anything similar, they&rsquo;re images that sit inside a UIScrollView - the map images aren&rsquo;t geographically-accurate, so it was easier to use images than try to figure out the distortions needed to map geography to map.
+There&rsquo;s a series of &ldquo;pins&rdquo; that get placed onto the map as it loads - but because the pins were being added to the view that gets zoomed, the pin images themselves were getting scaled up as the map zoomed it."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Scaling a UIView in response to changes in UIScrollView zoom</h1>
+                    <h2 class="headline">
+                    7 July 2012 
+                    <br>
+                    
+                    
+                        
+                            <a href="https://adoptioncurve.net/tags/calayer">CALayer</a>
+                        
+                            <a href="https://adoptioncurve.net/tags/ios">iOS</a>
+                        
+                            <a href="https://adoptioncurve.net/tags/uiview">UIView</a>
+                        
+                    
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>The app that I&rsquo;m currently working on is based around a series of map images that can be scrolled and zoomed.  Rather than using MapKit or anything similar, they&rsquo;re images that sit inside a <code>UIScrollView</code> - the map images aren&rsquo;t geographically-accurate, so it was easier to use images than try to figure out the distortions needed to map geography to map.</p>
+
+<p>There&rsquo;s a series of &ldquo;pins&rdquo; that get placed onto the map as it loads - but because the pins were being added to the view that gets zoomed, the pin images themselves were getting scaled up as the map zoomed it.  This looked nasty, and isn&rsquo;t how the MapKit pins work - they stay a constant size relative to the screen itself regardless of the zoom scale of the view they are subviews of.</p>
+
+<p>After scratching my head for a while, this is what I came up with - it&rsquo;s a method that&rsquo;s called by <code>UIScrollView's</code> <code>scrollViewDidZoom:</code> delegate method -</p>
+
+<pre><code>-(void)rescaleItemMarkers {
+
+    float initialMapScale = 0.25;
+    float finalMapScale = self.scrollView.zoomScale;
+
+    // Clamp final map scales
+    if (finalMapScale &lt; 0.25) {
+        finalMapScale = 0.25;
+    } else if (finalMapScale &gt; 1.0){
+        finalMapScale = 1.0;
+    }
+
+    float scalingFactor = finalMapScale / initialMapScale;
+
+    float pinCorrectionFactor = 1 / scalingFactor;
+
+    CAMediaTimingFunction *easingCurve = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+
+    CABasicAnimation *xScaleAnimation;
+    xScaleAnimation = [CABasicAnimation animationWithKeyPath:@&quot;transform.scale.x&quot;];
+    xScaleAnimation.timingFunction = easingCurve;
+    xScaleAnimation.duration=0.3;
+    xScaleAnimation.repeatCount=0;
+    xScaleAnimation.autoreverses=NO;
+    xScaleAnimation.removedOnCompletion = NO;
+    xScaleAnimation.fillMode = kCAFillModeForwards;
+    xScaleAnimation.fromValue = [NSNumber numberWithFloat:self.currentPinZoomFactor];
+    xScaleAnimation.toValue=[NSNumber numberWithFloat:pinCorrectionFactor];
+
+    CABasicAnimation *yScaleAnimation;
+    yScaleAnimation = [CABasicAnimation animationWithKeyPath:@&quot;transform.scale.y&quot;];
+    yScaleAnimation.timingFunction = easingCurve;
+    yScaleAnimation.duration=0.3;
+    yScaleAnimation.repeatCount=0;
+    yScaleAnimation.autoreverses=NO;
+    yScaleAnimation.removedOnCompletion = NO;
+    yScaleAnimation.fillMode = kCAFillModeForwards;
+    yScaleAnimation.fromValue = [NSNumber numberWithFloat:self.currentPinZoomFactor];
+    yScaleAnimation.toValue=[NSNumber numberWithFloat:pinCorrectionFactor];
+
+    for (UIView *theView in self.itemViews) {
+
+        CALayer *layer = theView.layer;
+        [layer addAnimation:xScaleAnimation forKey:@&quot;animateScaleX&quot;];
+        [layer addAnimation:yScaleAnimation forKey:@&quot;animateScaleY&quot;];
+
+    }
+
+    self.currentPinZoomFactor = pinCorrectionFactor;
+
+}
+</code></pre>
+
+<p>The <code>initialMapScale</code> is the zoom scale that&rsquo;s applied to the map as it&rsquo;s loaded (in this case, the maps are <sup>1</sup>&frasl;<sub>4</sub> size at load).  The <code>finalMapScale</code> is whatever scale the map ends up with at the end of the zoom.  The pin images will be multiplied by this zoom scale, so this method calculates the inverse and applies a scaling transform to each pin to take it back down to the size that it started at.</p>
+
+<p>Lines 6-11 are a bit of a hack to prevent the pins reacting to zoom factors below 0.25 - it&rsquo;s possible to pinch in the scroll view below the minimum - if you don&rsquo;t correct for this, the pins appear to &ldquo;bounce&rdquo; in a weird way when this happens.</p>
+
+<p>The pins themselves are an array of <code>UIViews</code>, so lines 41 to 47 iterate through that array and apply the scale to each pin.</p>
+
+<p>The transform is a simple scale factor - it&rsquo;s worth noting lines 25 and 26, which are what you need to stop the change being immediately reverted as soon as the animation finishes.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2012%2f07%2f07%2fscaling-a-uiview-in-response-to-changes-in-uiscrollview-zoom%2f - Scaling%20a%20UIView%20in%20response%20to%20changes%20in%20UIScrollView%20zoom by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

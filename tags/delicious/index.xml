@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Delicious on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/delicious/</link>
+    <description>Recent content in Delicious on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Thu, 08 Sep 2011 05:48:07 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/delicious/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Goodbye Delicious, hello Pinboard</title>
+      <link>https://adoptioncurve.net/2011/09/08/goodbye-delicious-hello-pinboard/</link>
+      <pubDate>Thu, 08 Sep 2011 05:48:07 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/09/08/goodbye-delicious-hello-pinboard/</guid>
+      <description>I&amp;rsquo;ve got a ton of bookmarks stored in Delicious, but I&amp;rsquo;ve been getting increasingly ambivalent towards it as a service since Yahoo offloaded it to the ex-YouTubers.
+The final straw came yesterday, when this blog got spammed by the Delicious autopost tool. It&amp;rsquo;s supposed to create a single blog post from the day&amp;rsquo;s links, but kept running and running - even after I&amp;rsquo;d gone into Delicious and killed the tool completely.</description>
+    </item>
+    
+  </channel>
+</rss>

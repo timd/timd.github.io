@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Uiview on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/uiview/</link>
+    <description>Recent content in Uiview on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Sat, 07 Jul 2012 20:11:57 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/uiview/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Scaling a UIView in response to changes in UIScrollView zoom</title>
+      <link>https://adoptioncurve.net/2012/07/07/scaling-a-uiview-in-response-to-changes-in-uiscrollview-zoom/</link>
+      <pubDate>Sat, 07 Jul 2012 20:11:57 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/07/07/scaling-a-uiview-in-response-to-changes-in-uiscrollview-zoom/</guid>
+      <description>The app that I&amp;rsquo;m currently working on is based around a series of map images that can be scrolled and zoomed. Rather than using MapKit or anything similar, they&amp;rsquo;re images that sit inside a UIScrollView - the map images aren&amp;rsquo;t geographically-accurate, so it was easier to use images than try to figure out the distortions needed to map geography to map.
+There&amp;rsquo;s a series of &amp;ldquo;pins&amp;rdquo; that get placed onto the map as it loads - but because the pins were being added to the view that gets zoomed, the pin images themselves were getting scaled up as the map zoomed it.</description>
+    </item>
+    
+  </channel>
+</rss>

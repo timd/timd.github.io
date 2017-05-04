@@ -1,0 +1,380 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Building a Infinitely-Scrolling gallery with a UICollectionView &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Building a Infinitely-Scrolling gallery with a UICollectionView" />
+<meta property="og:description" content="A common requirement for a photo gallery or similar is endless scrolling - once you&rsquo;ve reached the end of the list of items, the list &ldquo;wraps around&rdquo; and begins again from the first item. UICollectionViews very easily lend themselves to creating galleries, but there&rsquo;s no in-built mechanism for endless scrolling.
+This is a technique that can create the illusion of endless scrolling with relatively little effort. It uses UICollectionView&rsquo;s scrollToItemAtIndexPath:atScrollPosition:animated: method to move the collection view back around to the beginning when it&rsquo;s scrolled to the end of a list of items - by setting the animation property to NO, the move takes place without the user being aware of it." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2013/07/02/building-a-circular-gallery-with-a-uicollectionview/" />
+
+
+
+<meta property="article:published_time" content="2013-07-02T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2013-07-02T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Building a Infinitely-Scrolling gallery with a UICollectionView">
+<meta itemprop="description" content="A common requirement for a photo gallery or similar is endless scrolling - once you&rsquo;ve reached the end of the list of items, the list &ldquo;wraps around&rdquo; and begins again from the first item. UICollectionViews very easily lend themselves to creating galleries, but there&rsquo;s no in-built mechanism for endless scrolling.
+This is a technique that can create the illusion of endless scrolling with relatively little effort. It uses UICollectionView&rsquo;s scrollToItemAtIndexPath:atScrollPosition:animated: method to move the collection view back around to the beginning when it&rsquo;s scrolled to the end of a list of items - by setting the animation property to NO, the move takes place without the user being aware of it.">
+
+
+<meta itemprop="dateModified" content="2013-07-02T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1167">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Building a Infinitely-Scrolling gallery with a UICollectionView"/>
+<meta name="twitter:title" content="Building a Infinitely-Scrolling gallery with a UICollectionView"/>
+<meta name="twitter:description" content="A common requirement for a photo gallery or similar is endless scrolling - once you&rsquo;ve reached the end of the list of items, the list &ldquo;wraps around&rdquo; and begins again from the first item. UICollectionViews very easily lend themselves to creating galleries, but there&rsquo;s no in-built mechanism for endless scrolling.
+This is a technique that can create the illusion of endless scrolling with relatively little effort. It uses UICollectionView&rsquo;s scrollToItemAtIndexPath:atScrollPosition:animated: method to move the collection view back around to the beginning when it&rsquo;s scrolled to the end of a list of items - by setting the animation property to NO, the move takes place without the user being aware of it."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Building a Infinitely-Scrolling gallery with a UICollectionView</h1>
+                    <h2 class="headline">
+                    2 July 2013 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    
+
+<p>A common requirement for a photo gallery or similar is endless scrolling - once you&rsquo;ve reached the end of the list of items, the list &ldquo;wraps around&rdquo; and begins again from the first item.   <code>UICollectionViews</code> <a href="http://adoptioncurve.net/archives/2013/04/creating-a-paged-photo-gallery-with-a-uicollectionview/">very easily lend themselves to creating galleries</a>, but there&rsquo;s no in-built mechanism for endless scrolling.</p>
+
+<p><img src="/images/2013/07/circularProcess.png" alt="" /></p>
+
+<p>This is a technique that can create the illusion of endless scrolling with relatively little effort.  It uses <code>UICollectionView</code>&rsquo;s <code>scrollToItemAtIndexPath:atScrollPosition:animated:</code> method to move the collection view back around to the beginning when it&rsquo;s scrolled to the end of a list of items - by setting the <code>animation</code> property to <code>NO</code>, the move takes place without the user being aware of it.</p>
+
+<p>By implementing the same effect in reverse when the collection view reaches the beginning, it appears that it can be infinitely scrolled in either direction.</p>
+
+<p>Three assumptions first - the collection view is scrolling horizontally; the cells fill the full width of the collection view&rsquo;s frame; and the collection view has its <code>paging</code> property set to <code>YES</code> so that cells will &lsquo;snap&rsquo; to the edges of the frame as they scroll.</p>
+
+<h3 id="setting-up-the-data">Setting up the data</h3>
+
+<p>The technique relies on manipulating the list of items to add an extra item at each end.  Say for example you had an array of three items, and wanted the collection view to endlessly scroll.  You&rsquo;d need to add an additional two items onto the array - a copy of <code>item 3</code> at the beginning of the array, and a copy of <code>item 1</code> at the beginning:</p>
+
+<p><img src="/images/2013/07/newArray.png" alt="" /></p>
+
+<p>That&rsquo;s a simple operation - assuming you&rsquo;ve got an array of data called <code>originalArray</code>, this method will create an <code>NSMutableArray</code> called <code>workingArray</code>, and pass an immutable copy of that into the <code>UICollectionView</code>&rsquo;s data source.</p>
+
+<p>{% codeblock lang:objc)
+-(void)setupDataForCollectionView {</p>
+
+<pre><code>// Create the original set of data
+NSArray *originalArray = @[@&quot;itemOne&quot;, @&quot;itemTwo&quot;, &quot;itemThree&quot;];
+
+// Grab references to the first and last items
+// They're typed as id so you don't need to worry about what kind
+// of objects the originalArray is holding
+id firstItem = originalArray[0];
+id lastItem = [originalArray lastObject];
+
+NSMutableArray *workingArray = [originalArray mutableCopy];
+
+// Add the copy of the last item to the beginning
+[workingArray insertObject:lastItem atIndex:0];
+
+// Add the copy of the first item to the end
+[workingArray addObject:firstItem];
+
+// Update the collection view's data source property
+self.dataArray = [NSArray arrayWithArray:workingArray];
+</code></pre>
+
+<p>}
+{% endcodeblock)</p>
+
+<p>The new <code>self.dataArray</code> will now contain:</p>
+
+<p>{% codeblock lang:objc)
+@&ldquo;itemThree&rdquo;, @&ldquo;itemOne&rdquo;, @&ldquo;itemTwo&rdquo;, &ldquo;itemThree&rdquo;, @&ldquo;itemOne&rdquo;
+{% endcodeblock)</p>
+
+<h3 id="creating-the-effect">Creating the effect</h3>
+
+<p>The process relies on the ability to move a <code>UICollectionView</code> to a specific <code>indexPath</code> without animation - that&rsquo;s possible with the <a href="http://developer.apple.com/library/ios/documentation/UIKit/Reference/UICollectionView_class/Reference/Reference.html#//apple_ref/doc/uid/TP40012177-CH1-SW36"><code>scrollToIndexPath:atScrollPosition:animated:</code></a> method.</p>
+
+<p>This takes three parameters:</p>
+
+<ul>
+<li>the <code>indexPath</code> that the collection view should scroll to</li>
+<li>a <code>UICollectionViewScrollPosition</code> to control where the collection view should scroll to</li>
+<li>a <code>BOOL</code> to control whether the scrolling should be animated or not</li>
+</ul>
+
+<p>The <a href="http://developer.apple.com/library/ios/documentation/UIKit/Reference/UICollectionView_class/Reference/Reference.html#//apple_ref/c/tdef/UICollectionViewScrollPosition"><code>UICollectionViewScrollPosition</code></a> parameter controls exactly where the collection view should be scrolled to.  Assuming that the collection view is paged, you&rsquo;d want it to scroll to <code>UICollectionViewScrollPositionLeft</code> which will align the item being displayed with the left-hand edge of the <code>UICollectionView</code>&rsquo;s frame.  If you were working with a vertically-scrolling collection view, you&rsquo;d want the <code>UICollectionViewScrollPositionTop</code> value.</p>
+
+<p>Here&rsquo;s how that works in practice when scrolling to the end of the collection view:</p>
+
+<p><img src="/images/2013/07/process.png" alt="" /></p>
+
+<p>Scrolling to the beginning of the collection view is very similar, but works in the opposite direction:</p>
+
+<p><img src="/images/2013/07/swipingLeft.png" alt="" /></p>
+
+<h3 id="implementing-the-process">Implementing the process</h3>
+
+<p>The key to making this happen is being able to detect when the user has scrolled the collection view to the end, and using that to trigger the <code>scrollToIndexPath:atScrollPosition:animated:</code> method.</p>
+
+<p>To do this, you can exploit the fact that <code>UICollectionView</code> inherits from <code>UIScrollView</code> and so calls the <a href="http://developer.apple.com/library/ios/documentation/uikit/reference/UIScrollViewDelegate_Protocol/Reference/UIScrollViewDelegate.html#//apple_ref/doc/uid/TP40006923-CH3-SW5"><code>scrollViewDidEndDecelerating:</code></a> method from the <a href="http://developer.apple.com/library/ios/#documentation/uikit/reference/UIScrollViewDelegate_Protocol/Reference/UIScrollViewDelegate.html#//apple_ref/occ/intf/UIScrollViewDelegate"><code>UIScrollViewDelegate</code> protocol</a> when the scrolling stops.</p>
+
+<p>By checking the <code>contentOffset</code> property, you can check where the <code>collectionView</code> has landed, and react accordingly. In this method, the local variable <code>scrollview</code> is a reference to the <code>UICollectionView</code> that&rsquo;s calling it:</p>
+
+<p>{% codeblock lang:objc)</p>
+
+<p>-(void)scrollViewDidEndDecelerating:(UIScrollview *)scrollview {</p>
+
+<pre><code>// Calculate where the collection view should be at the right-hand end item
+float contentOffsetWhenFullyScrolledRight = self.collectionView.frame.size.width * ([self.dataArray count] -1);
+
+if (scrollView.contentOffset.x == contentOffsetWhenFullyScrolledRight) {
+
+    // user is scrolling to the right from the last item to the 'fake' item 1.
+    // reposition offset to show the 'real' item 1 at the left-hand end of the collection view
+
+    NSIndexPath *newIndexPath = [NSIndexPath indexPathForItem:1 inSection:0];
+
+    [self.collectionView scrollToItemAtIndexPath:newIndexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+
+} else if (scrollView.contentOffset.x == 0)  {
+
+    // user is scrolling to the left from the first item to the fake 'item N'.
+    // reposition offset to show the 'real' item N at the right end end of the collection view
+
+    NSIndexPath *newIndexPath = [NSIndexPath indexPathForItem:([self.dataArray count] -2) inSection:0];
+
+    [self.collectionView scrollToItemAtIndexPath:newIndexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+
+}
+</code></pre>
+
+<p>}
+{% endcodeblock)</p>
+
+<p>First, this calculates the content offset that the collection view has when it&rsquo;s scrolled fully to the right (so the right-hand-end copy of item 1 is showing).  The offset is actually calculated relative to the left edge of the collection view, so it&rsquo;s the collection view&rsquo;s width multiplied by the number of items in the collection view minus the width of one item.</p>
+
+<p>Then you can check if the collection view has landed there.  If it has, you need to scroll it back so that it shows the &lsquo;real&rsquo; item 1 - that&rsquo;s the second item in the data array, so the corresponding <code>indexPath</code> will be item 1, section 0 (remember that index paths are zero-indexed, so the left-most item will have index path <code>[0,0]</code>, the second item will have index path <code>[1,0]</code> and so on).</p>
+
+<p>Having created the index path to scroll to, it&rsquo;s just a case of calling <code>scrollToItemAtIndexPath:atScrollPosition:animated</code> on the collection view - remembering to set the <code>animated</code> property to <code>NO</code> so that you don&rsquo;t see the collection view scroll.</p>
+
+<p>If the collection view has been scrolled to the left-most item, it&rsquo;ll be showing the extra copy of item 3 that was inserted at the start of the <code>workingArray</code> - and the content offset will be <code>0</code>. This time, you need to scroll the content view to the last-but-one item in the <code>workingArray</code> - which is the &lsquo;real&rsquo; item 3.</p>
+
+<p><img src="/images/2013/07/cellCounts.png 700" alt="" /></p>
+
+<p>Its index path is <code>[3,0]</code> - in other words, <code>[workingArray count] - 2</code>.  It&rsquo;s minus 2 - firstly because arrays and index paths are zero-indexed, so the index of the last item in an array is the number of items minus 1; and then you need to display the &lsquo;real&rsquo; item 3 which is one place to the left from the end of the array.</p>
+
+<h3 id="summary">Summary</h3>
+
+<p>Creating a circular <code>UICollectionView</code> isn&rsquo;t difficult, and has five steps:</p>
+
+<ul>
+<li>update the data to pad it with &lsquo;fake&rsquo; items at the beginning the end</li>
+<li>check the content offset of the collection view when it stops scolling</li>
+<li>move to the second item in the data if the collection view has stopped at the end</li>
+<li>move to the last-but-one item in the data if the collection view has stopped at the beginning</li>
+<li>ensure the <code>animation</code> property of the <code>scrollToItemAtIndexPath:</code> method is <code>NO</code> to hide the movement from the user.</li>
+</ul>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2013%2f07%2f02%2fbuilding-a-circular-gallery-with-a-uicollectionview%2f - Building%20a%20Infinitely-Scrolling%20gallery%20with%20a%20UICollectionView by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

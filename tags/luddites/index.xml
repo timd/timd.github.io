@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Luddites on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/luddites/</link>
+    <description>Recent content in Luddites on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Sun, 21 Nov 2010 19:11:13 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/luddites/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Luddites</title>
+      <link>https://adoptioncurve.net/2010/11/21/luddites/</link>
+      <pubDate>Sun, 21 Nov 2010 19:11:13 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/11/21/luddites/</guid>
+      <description>Marco Arment:
+ &amp;ldquo;Think of how many people are so afraid of their PCs that they only do the bare minimum with them and never venture into unknown territory because they’re afraid of “breaking” their computers.
+How many of them recently bought iPads and have become much more confident and adventurous with usage and applications, since Apple tricked them into thinking that the iPad isn’t a computer?&amp;rdquo;
+ </description>
+    </item>
+    
+  </channel>
+</rss>

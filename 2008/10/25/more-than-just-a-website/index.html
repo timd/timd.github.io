@@ -1,0 +1,274 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>More than just a website &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="More than just a website" />
+<meta property="og:description" content="One of the things that I try and emphasise when talking to clients is that a website is much more than it first appears. It&rsquo;s better to think of a site as an application in its own right, in the same way as you&rsquo;d think of a web browser, or an inventory management system, or (if you really, really have to) a spreadsheet.
+On a technical level, that means using REST techniques when building the site." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2008/10/25/more-than-just-a-website/" />
+
+
+
+<meta property="article:published_time" content="2008-10-25T05:41:14&#43;00:00"/>
+<meta property="article:modified_time" content="2008-10-25T05:41:14&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="More than just a website">
+<meta itemprop="description" content="One of the things that I try and emphasise when talking to clients is that a website is much more than it first appears. It&rsquo;s better to think of a site as an application in its own right, in the same way as you&rsquo;d think of a web browser, or an inventory management system, or (if you really, really have to) a spreadsheet.
+On a technical level, that means using REST techniques when building the site.">
+
+
+<meta itemprop="dateModified" content="2008-10-25T05:41:14&#43;00:00" />
+<meta itemprop="wordCount" content="886">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="More than just a website"/>
+<meta name="twitter:title" content="More than just a website"/>
+<meta name="twitter:description" content="One of the things that I try and emphasise when talking to clients is that a website is much more than it first appears. It&rsquo;s better to think of a site as an application in its own right, in the same way as you&rsquo;d think of a web browser, or an inventory management system, or (if you really, really have to) a spreadsheet.
+On a technical level, that means using REST techniques when building the site."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>More than just a website</h1>
+                    <h2 class="headline">
+                    25 October 2008 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>One of the things that I try and emphasise when talking to clients is that a website is much more than it first appears.  It&rsquo;s better to think of a site as an application in its own right, in the same way as you&rsquo;d think of a web browser, or an inventory management system, or (if you really, really have to) a spreadsheet.</p>
+
+<p>On a technical level, that means using REST techniques when building the site.  It&rsquo;s <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer">too big a subject</a> to go into detail about here, but the basic idea is that you have a very simple set of common actions that you can perform on the objects in your system - create, read, update and delete - and you &ldquo;expose&rdquo; those actions through a consistent set of site addresses.   So an address of &ldquo;<a href="http://something/1&quot;">http://something/1&quot;</a> that arrives at the server is automagically assumed to be a &ldquo;read&rdquo; action that&rsquo;s aimed at the object 1.   That&rsquo;s a drastic simplification, but it&rsquo;s good enough to get the basic drift.</p>
+
+<p>That&rsquo;s important because it provides consistency - if it works for object 1, it&rsquo;ll also work for 2 and 3 and beyond.  And that makes interfacing other sites with yours very much easier.</p>
+
+<p>It&rsquo;s also important because it makes your site extensible - which means that you can hook other systems into it at a later stage, and you&rsquo;re not necessarily going to need us to do it for you.   Anyone who knows about the basic principles of REST will be able to figure it out.</p>
+
+<p>While it&rsquo;s clever at a geeky level, it&rsquo;s also a bit arcane if you&rsquo;re thinking in &ldquo;website&rdquo; terms - and particularly if only you&rsquo;re thinking about interacting with a site in a browser.  This makes explaining it - and justifying why it will make building your site slightly more expensive in the short-term, but a much better investment in the long-term - a bit tricky at times.</p>
+
+<p>A conversation earlier today reinforced this - there&rsquo;s a potential client who are looking to redevelop their website - but they seem to be struggling to think of it as anything beyond a simple electronic brochure.</p>
+
+<p>So I got quite excited when I stumbled across <a href="http://www.guardian.co.uk/help/insideguardian/2008/oct/22/full-fat-rss-feed-upgrade">something the Guardian are doing with their RSS feeds</a>, because it&rsquo;s a tangible application of exactly these principles.  They&rsquo;ve taken the same REST approach and applied it to their feeds, but done it in a way that makes sense in the browser or RSS reader.</p>
+
+<p>For the Guardian, it starts with a consistent addressing structure - so the UK news section is accessible via a simple &ldquo;<a href="http://www.guardian.co.uk/uk">www.guardian.co.uk/uk</a>&rdquo; URL.</p>
+
+<p>Then the same applies to getting at the associated RSS feed - tack &ldquo;/rss&rdquo; on the end, and you&rsquo;ll find the same (and full) content but <a href="http://www.guardian.co.uk/uk/rss">formatted for consumption in an RSS reader</a>.</p>
+
+<p>That&rsquo;s an example of a &ldquo;destination&rdquo;, but there&rsquo;s also the option to do the same thing by &ldquo;theme&rdquo; - so <a href="http://www.guardian.co.uk/politics">content that&rsquo;s about politics</a> will show up at &ldquo;<a href="http://www.guardian.co.uk/politics">/politics</a>&rdquo;.</p>
+
+<p>And this gets remixed further with the actual topic, so <a href="http://www.guardian.co.uk/politics/labour">political news about Labour will show up at &ldquo;/politics/labour&rdquo;</a>.  Again, if you want this in RSS form, just tack on &ldquo;/rss&rdquo; to the end.</p>
+
+<p>This is very, very clever, and got me rather excited at the simplicity of it all - but it doesn&rsquo;t stop there.  You can start to combine various topics together SIMPLY BY CHANGING THE URL - if you want to see everything that&rsquo;s related to Labour and the environment, change the URL to &ldquo;<a href="http://www.guardian.co.uk/politics/labour+environment/climatechange">politics/labour+environment/climatechange</a>&rdquo; and the results are now a mash up of the two topics.  Tack &ldquo;/rss&rdquo; on the end, and you&rsquo;ve got a machine-readable format.</p>
+
+<p>So why is this so interesting, and why should you care if you&rsquo;re not an RSS geek like me?</p>
+
+<p>Well, simply that the Guardian has just given ME the ability to create a customised feed of news to fit my requirements.   They don&rsquo;t know me, and they&rsquo;ve got no way of knowing what my specific requirements are - nor for that matter are they likely to have the resources to satisfy them if they did.   But that doesn&rsquo;t matter - if I can figure out the options that they&rsquo;ve exposed, I can create something bespoke for myself - which greatly increases the value of their service to me, and makes it far more likely that I&rsquo;ll stick around.</p>
+
+<p>The crucial point here is that they&rsquo;ve gone beyond thinking of the website simply as a publication, and are thinking of it in terms of being a service or application in its own right.   They&rsquo;ve got no way of predicting exactly how people are going to use it, and to a certain extent they&rsquo;ve got little control.   But what they ARE doing is making their core service much more useful to me, which massively increases its potential value to them.</p>
+
+<p>Now instead of thinking in terms of news content, think cinema listings, or train times.  Or imagine exposing your product information and inventory in this way - &ldquo;tell me about the specifications of all the blue left-handed widgets&rdquo;, but done through a simple web address.  You start to get a glimpse of the possibilities that might be out there if more sites worked this way.  It might make the initial build slightly more expensive, but the long-term possibilities are greatly increased.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2008%2f10%2f25%2fmore-than-just-a-website%2f - More%20than%20just%20a%20website by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

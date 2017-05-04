@@ -1,0 +1,660 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Test-driven development of an Objective-C category with Kiwi &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Test-driven development of an Objective-C category with Kiwi" />
+<meta property="og:description" content="When I first started dabbling with test-driven development, one of the most useful types of resources were tests that other people had written. There&rsquo;s no shortage of these for Ruby and Rails, partly because it seems like the Rails world was test-driven by default from the outset - but there&rsquo;s a lot less out there for iOS.
+
+Because of my Rails background, I&rsquo;m a fan of the Kiwi testing framework - it&rsquo;s an Rspec-like framework for iOS that brings together a Rspeccy syntax and Objective-C. This is a work through of a set of tests to build a simple category on UIColor. I was scratching my own itch here - designers tend to think in hex values for colours, whereas iOS doesn&rsquo;t. This method will take a hex string and returns a UIColor object.
+
+Here&rsquo;s a test-driven process for building said category.
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2012/09/10/test-driven-development-of-an-objective-c-category-with-kiwi/" />
+
+
+
+<meta property="article:published_time" content="2012-09-10T13:29:58&#43;00:00"/>
+<meta property="article:modified_time" content="2012-09-10T13:29:58&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Test-driven development of an Objective-C category with Kiwi">
+<meta itemprop="description" content="When I first started dabbling with test-driven development, one of the most useful types of resources were tests that other people had written. There&rsquo;s no shortage of these for Ruby and Rails, partly because it seems like the Rails world was test-driven by default from the outset - but there&rsquo;s a lot less out there for iOS.
+
+Because of my Rails background, I&rsquo;m a fan of the Kiwi testing framework - it&rsquo;s an Rspec-like framework for iOS that brings together a Rspeccy syntax and Objective-C. This is a work through of a set of tests to build a simple category on UIColor. I was scratching my own itch here - designers tend to think in hex values for colours, whereas iOS doesn&rsquo;t. This method will take a hex string and returns a UIColor object.
+
+Here&rsquo;s a test-driven process for building said category.
+
+">
+
+
+<meta itemprop="dateModified" content="2012-09-10T13:29:58&#43;00:00" />
+<meta itemprop="wordCount" content="2060">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Test-driven development of an Objective-C category with Kiwi"/>
+<meta name="twitter:title" content="Test-driven development of an Objective-C category with Kiwi"/>
+<meta name="twitter:description" content="When I first started dabbling with test-driven development, one of the most useful types of resources were tests that other people had written. There&rsquo;s no shortage of these for Ruby and Rails, partly because it seems like the Rails world was test-driven by default from the outset - but there&rsquo;s a lot less out there for iOS.
+
+Because of my Rails background, I&rsquo;m a fan of the Kiwi testing framework - it&rsquo;s an Rspec-like framework for iOS that brings together a Rspeccy syntax and Objective-C. This is a work through of a set of tests to build a simple category on UIColor. I was scratching my own itch here - designers tend to think in hex values for colours, whereas iOS doesn&rsquo;t. This method will take a hex string and returns a UIColor object.
+
+Here&rsquo;s a test-driven process for building said category.
+
+"/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Test-driven development of an Objective-C category with Kiwi</h1>
+                    <h2 class="headline">
+                    10 September 2012 
+                    <br>
+                    
+                    
+                        
+                            <a href="https://adoptioncurve.net/tags/ios">iOS</a>
+                        
+                            <a href="https://adoptioncurve.net/tags/kiwi">Kiwi</a>
+                        
+                            <a href="https://adoptioncurve.net/tags/tdd">tdd</a>
+                        
+                            <a href="https://adoptioncurve.net/tags/testing">testing</a>
+                        
+                    
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>When I first started dabbling with test-driven development, one of the most useful types of resources were tests that other people had written. There&rsquo;s no shortage of these for Ruby and Rails, partly because it seems like the Rails world was test-driven by default from the outset - but there&rsquo;s a lot less out there for iOS.</p>
+
+<p>Because of my Rails background, I&rsquo;m a fan of the <a href="https://github.com/allending/Kiwi/">Kiwi testing framework</a> - it&rsquo;s an Rspec-like framework for iOS that brings together a Rspeccy syntax and Objective-C. This is a work through of a set of tests to build a simple category on <code>UIColor</code>. I was scratching my own itch here - designers tend to think in hex values for colours, whereas iOS doesn&rsquo;t. This method will take a hex string and returns a <code>UIColor</code> object.</p>
+
+<p>Here&rsquo;s a test-driven process for building said category.</p>
+
+<p></p>
+
+<p>I&rsquo;m starting with an empty Kiwi project - see <a href="https://github.com/allending/Kiwi/wiki/Guide:-Up-and-Running-with-Kiwi">here for instructions on how to get to this stage</a> if it&rsquo;s new to you.  You&rsquo;ll need to create a new class in the test target - the extended guide cover this.</p>
+
+<p>The source code for the category and the Kiwi tests can be downloaded from <a href="https://github.com/timd/UIColor-HexValues.git">https://github.com/timd/UIColor-HexValues.git</a>]</p>
+
+<p>The secret (so I&rsquo;ve been told, at least) to writing test is to &ldquo;<em>write the code you wish you had</em>&rdquo;. In this case we have to cheat slightly, because without the category the project won&rsquo;t even compile. We need to create it sans tests to begin with:</p>
+
+<ul>
+<li><p><em>File</em> &gt; <em>New</em> &gt; <em>File</em> &gt; <em>Objective-C category</em></p></li>
+
+<li><p>Call the category <code>HexColors</code> and create it on <code>UIColor</code></p></li>
+
+<li><p>Add to both targets</p></li>
+</ul>
+
+<p>Then add the <code>UIColor+HexColors.h</code> file as an import to the test class:</p>
+
+<pre><code>    #import &quot;UIColor+HexColors.h&quot;
+</code></pre>
+
+<p><strong>TEST ONE</strong></p>
+
+<p>****Now we can start with the tests for real. Writing the code we wish we had, let&rsquo;s start by wishing that <code>UIColor</code> had a <code>colorWithHexString:</code> method. Here&rsquo;s the full test class:</p>
+
+<pre><code> #import &quot;Kiwi.h&quot;
+ #import &quot;UIColor+HexColors.h&quot;
+
+ SPEC_BEGIN(ColorTests)
+
+ describe(@&quot;The UIColor class&quot;, ^{
+
+    context(@&quot;with a HexColor category&quot;, ^{
+
+        it(@&quot;should should respond to the colorFromHex methods&quot;, ^{
+            [[UIColor should] respondToSelector:@selector(colorWithHexString:)];
+        });
+
+    });
+
+ });
+
+ SPEC_END
+</code></pre>
+
+<p>Ideally, the describe, context and it declarations should read as a sentence, so in this case we&rsquo;d get:</p>
+
+<blockquote>
+<p>The UIColor class with a HexColor category should respond to the colorWithHexString: method</p>
+</blockquote>
+
+<p>This test will fail, because we&rsquo;ve yet to define that method. Switch to the <code>UIColor+HexColors</code> category, and add the least amount of code that will cause the test to pass.  To start with, that&rsquo;s declaring the method in the header file:</p>
+
+<pre><code> +(UIColor *)colorWithHexString:(NSString *)hexString;
+</code></pre>
+
+<p>In this scenario, we&rsquo;ve made some assumptions - the method is a class method on <code>UIColor</code> and it will take a single parameter that is an <code>NSString</code>.</p>
+
+<p>Now to implement it:</p>
+
+<pre><code> +(UIColor *)colorWithHexString:(NSString *)hexString {
+    return nil;
+ }
+</code></pre>
+
+<p>Again, an assumption - the compiler demands we return something, so we&rsquo;re going to return the least that we possibly can - which in this case is <code>nil</code>.</p>
+
+<p>At this point our first test passes. Woo!</p>
+
+<p><img src="/images/2012/09/green.png" alt="" /></p>
+
+<p><strong>TEST TWO</strong></p>
+
+<p>Where to start? This can be tricky - the first test is the hardest to write. I tend to cheat here, and ask myself what would happen if I don&rsquo;t supply any parameters at all? That question pops up if you take the &ldquo;I&rsquo;m going to do as little as possible approach&rdquo; and apply it to the user - the minimum they can do is call the method with no parameters. If we pass in a <code>nil</code> parameter, we should get <code>nil</code> back - so we&rsquo;ll test for that:</p>
+
+<pre><code> it(@&quot;should return nil when given a nil parameter&quot;, ^{
+
+ });
+</code></pre>
+
+<p>Now for the test code:</p>
+
+<pre><code> it(@&quot;should return nil when given a nil parameter&quot;, ^{
+   NSString *parameter = nil;
+   UIColor *testColor = [UIColor colorWithHexString:parameter];
+   [testColor shouldBeNil];
+ });
+</code></pre>
+
+<p>The last line of the method is the actual test itself. Sure enough, this passes - not because we&rsquo;ve written anything specifically in response to the test, but our minimal method that was enough to get the category to compile is also enough to get our first test passing.</p>
+
+<p><strong>TEST THREE</strong></p>
+
+<p>What&rsquo;s the next thing we could do? The least complex color I can think of is black - so what should happen if we pass in the hex string for black? The return value should be black as well. So we need to test for RGB values of zero, and an alpha of 1:</p>
+
+<pre><code> it(@&quot;should return black when given the hex string for black (#000000)&quot;, ^{
+
+    NSString *parameter = @&quot;000000&quot;;
+    UIColor *testColor = [UIColor colorWithHexString:parameter];
+
+    [testColor shouldNotBeNil];
+
+    float rComponent = 0.0f;
+    float gComponent = 0.0f;
+    float bComponent = 0.0f;
+    float aComponent = 0.0f;
+
+    [testColor getRed:&amp;rComponent green:&amp;gComponent blue:&amp;bComponent alpha:&amp;aComponent];
+
+    [[theValue(rComponent) should] equal:theValue(0.0f)];
+    [[theValue(gComponent) should] equal:theValue(0.0f)];
+    [[theValue(bComponent) should] equal:theValue(0.0f)];
+    [[theValue(aComponent) should] equal:theValue(1.0f)];
+
+ });
+</code></pre>
+
+<p>There&rsquo;s an extra assertion in there to test that the returned UIColor is not nil - that will prevent this test case continuing if there isn&rsquo;t a valid object.  Although that passes, the rest of this test fails. Let&rsquo;s fix it in the simplest possible way - just return black from the method regardless of what parameter is passed in:</p>
+
+<pre><code> +(UIColor *)colorWithHexString:(NSString *)hexString {
+    return [UIColor blackColor];
+ }
+</code></pre>
+
+<p>This fails again, but in an unexpected place. It&rsquo;s the first test that fails - the one that expects a <code>nil</code> return from a <code>nil</code> parameter. That actually makes sense - we&rsquo;re returning black for all possible permutations of the parameter. So we need to refactor the method to handle this:</p>
+
+<pre><code> +(UIColor *)colorWithHexString:(NSString *)hexString {
+    if (!hexString) {
+        return nil;
+    }
+    return [UIColor blackColor];
+ }
+</code></pre>
+
+<p>All green, so it&rsquo;s time for the next test.</p>
+
+<p><strong>TEST FOUR</strong></p>
+
+<p>Having tested black, let&rsquo;s try the opposite - white:</p>
+
+<pre><code> it(@&quot;should return white when given the hex string for white (#ffffff)&quot;, ^{
+
+    NSString *parameter = @&quot;ffffff&quot;;
+    UIColor *testColor = [UIColor colorWithHexString:parameter];
+
+    [testColor shouldNotBeNil];
+
+    float rComponent = 0.0f;
+    float gComponent = 0.0f;
+    float bComponent = 0.0f;
+    float aComponent = 0.0f;
+
+    [testColor getRed:&amp;rComponent green:&amp;gComponent blue:&amp;bComponent alpha:&amp;aComponent];
+
+    [[theValue(rComponent) should] equal:theValue(1.0f)];
+    [[theValue(gComponent) should] equal:theValue(1.0f)];
+    [[theValue(bComponent) should] equal:theValue(1.0f)];
+    [[theValue(aComponent) should] equal:theValue(1.0f)];
+
+ });
+</code></pre>
+
+<p>Unsuprisingly, this fails because we&rsquo;ve hard-coded the return value. Given that we&rsquo;re now sending black <em>and</em> white to the <code>UIColor</code> method, the simplest thing I can think of is an <code>if</code> statement to return the appropriate color:</p>
+
+<pre><code> +(UIColor *)colorWithHexString:(NSString *)hexString {
+
+    if (!hexString) {
+        return nil;
+    }
+
+    if ([hexString isEqualToString:@&quot;000000&quot;]) {
+        return [UIColor blackColor];
+    } else {
+        return [UIColor whiteColor];
+    }
+
+ }
+</code></pre>
+
+<p><strong>TEST FIVE</strong></p>
+
+<p>There&rsquo;s a bit of repetition crept into the test, so we can refactor that out. The <code>xComponent</code> floats can be relocated to the top of the class as <code>__block</code> parameters so they can be passed in and modified in the test block:</p>
+
+<pre><code> __block float rComponent = 0.0f;
+ __block float gComponent = 0.0f;
+ __block float bComponent = 0.0f;
+ __block float aComponent = 0.0f;
+</code></pre>
+
+<p>Black and white works, so it&rsquo;s time for another color. Let&rsquo;s try red:</p>
+
+<pre><code> it(@&quot;should return red when given the hex string for red (#ff0000)&quot;, ^{
+
+    NSString *parameter = @&quot;ff0000&quot;;
+    UIColor *testColor = [UIColor colorWithHexString:parameter];
+
+    [testColor shouldNotBeNil];
+
+    [testColor getRed:&amp;rComponent green:&amp;gComponent blue:&amp;bComponent alpha:&amp;aComponent];
+
+    [[theValue(rComponent) should] equal:theValue(1.0f)];
+    [[theValue(gComponent) should] equal:theValue(0.0f)];
+    [[theValue(bComponent) should] equal:theValue(0.0f)];
+    [[theValue(aComponent) should] equal:theValue(1.0f)];
+
+ });
+</code></pre>
+
+<p>This fails, pretty much as we suspect it might. But this is an interesting inflection point - having added a third test case, this is the point where we have to build our method for real. There isn&rsquo;t really another other smaller step that we can implement. So here goes with the big change:</p>
+
+<pre><code> +(UIColor *)colorWithHexString:(NSString *)hexString {
+    if (!hexString) {
+    return nil;
+ }
+
+    NSRange rRange = NSMakeRange(0, 2);
+    NSString *rComponent = [hexString substringWithRange:rRange];
+    NSUInteger rVal = 0;
+    NSScanner *rScanner = [NSScanner scannerWithString:rComponent];
+    [rScanner scanHexInt:&amp;rVal];
+    float rRetVal = (float)rVal / 254;
+
+    NSRange gRange = NSMakeRange(2, 2);
+    NSString *gComponent = [hexString substringWithRange:gRange];
+    NSUInteger gVal = 0;
+    NSScanner *gScanner = [NSScanner scannerWithString:gComponent];
+    [gScanner scanHexInt:&amp;gVal];
+    float gRetVal = (float)gVal / 254;
+
+    NSRange bRange = NSMakeRange(4, 2);
+    NSString *bComponent = [hexString substringWithRange:bRange];
+    NSUInteger bVal = 0;
+    NSScanner *bScanner = [NSScanner scannerWithString:bComponent];
+    [bScanner scanHexInt:&amp;bVal];
+    float bRetVal = (float)bVal / 254;
+
+    return [UIColor colorWithRed:rRetVal green:gRetVal blue:bRetVal alpha:1.0f];
+
+ }
+</code></pre>
+
+<p>This is less complicated than it looks. Firstly, it splits the <code>hexString</code> into the <code>R</code>, <code>G</code> and <code>B</code> components by grabbing ranges of two characters at a time:</p>
+
+<pre><code> NSRange rRange = NSMakeRange(0, 2);
+ NSString *rComponent = [hexString substringWithRange:rRange];
+</code></pre>
+
+<p>Next the two-character string is convert to the integer equivalent:</p>
+
+<pre><code> NSUInteger rVal = 0;
+ NSScanner *rScanner = [NSScanner scannerWithString:rComponent];
+ [rScanner scanHexInt:&amp;rVal];
+</code></pre>
+
+<p>The decimal value is divided by 254 to get a float value in the range 0 to 1.0:</p>
+
+<pre><code> float rRetVal = (float)rVal / 254;
+</code></pre>
+
+<p>Finally the <code>UIColor</code> is built using the float values (and an alpha of 1.0):</p>
+
+<pre><code> return [UIColor colorWithRed:rRetVal green:gRetVal blue:bRetVal alpha:1.0f];
+</code></pre>
+
+<p>And at this point, we&rsquo;ve got four passing tests.</p>
+
+<p><strong>TEST SIX</strong></p>
+
+<p>That <em>should</em> be enough to cover all the permutations of hex values that could be passed in, but let&rsquo;s add another test just to be sure - this time <code>7f</code> :</p>
+
+<pre><code> it(@&quot;should return muddy green when given the hex string for muddy green (#007f00)&quot;, ^{
+
+    NSString *parameter = @&quot;007f00&quot;;
+    UIColor *testColor = [UIColor colorWithHexString:parameter];
+
+    [testColor shouldNotBeNil];
+
+    [testColor getRed:&amp;rComponent green:&amp;gComponent blue:&amp;bComponent alpha:&amp;aComponent];
+
+    [[theValue(rComponent) should] equal:theValue(0.0f)];
+    [[theValue(gComponent) should] equal:theValue(0.5f)];
+    [[theValue(bComponent) should] equal:theValue(0.0f)];
+    [[theValue(aComponent) should] equal:theValue(1.0f)];
+
+ });
+</code></pre>
+
+<p>That passes, so we can be reasonably confident that our method handles valid hex colors.</p>
+
+<p><strong>TEST SEVEN</strong></p>
+
+<p>But what about invalid values? Let&rsquo;s try testing for a situation where the method gets called with a parameter that&rsquo;s too short:</p>
+
+<pre><code> it(@&quot;should return nil if given too few parameters&quot;, ^{
+    NSString *parameter = @&quot;abcd&quot;;
+    UIColor *testColor = [UIColor colorWithHexString:parameter];
+    [testColor shouldBeNil];
+ });
+</code></pre>
+
+<p>It fails, so it needs fixing:</p>
+
+<pre><code> if ([hexString length] &lt; 6) {
+    return nil;
+ }
+</code></pre>
+
+<p><strong>TEST EIGHT</strong></p>
+
+<p>We could also pass in too many characters:</p>
+
+<pre><code> it(@&quot;should return nil if given too many parameters&quot;, ^{
+    NSString *parameter = @&quot;abcdefgh&quot;;
+    UIColor *testColor = [UIColor colorWithHexString:parameter];
+    [testColor shouldBeNil];
+ });
+</code></pre>
+
+<p>Another fail, another fix:</p>
+
+<pre><code> if ([hexString length] &lt; 6) {
+    return nil;
+ }
+
+ if ([hexString length] &gt; 6) {
+    return nil;
+ }
+</code></pre>
+
+<p>But hold on, that could be refactored to get rid of two <code>if</code> clauses - the check on the parameter&rsquo;s length and the check for a nil parameter:</p>
+
+<pre><code> if ([hexString length] != 6) {
+    return nil;
+ }
+</code></pre>
+
+<p>Repeat the tests, and everything is still green. That&rsquo;s one of the main benefits of testing - you can refactor with confidence, knowing that you haven&rsquo;t broken anything with the changes.</p>
+
+<p><strong>TEST NINE</strong></p>
+
+<p>What about a scenario where six characters are passed in, but it&rsquo;s not a hex value? Let&rsquo;s test that:</p>
+
+<pre><code> it(@&quot;should return nil if given non-hex numeric characters&quot;, ^{
+    NSString *parameter = @&quot;abc&amp;qr&quot;;
+    UIColor *testColor = [UIColor colorWithHexString:parameter];
+    [testColor shouldBeNil];
+ });
+</code></pre>
+
+<p>Fixing this needs a little more thought. What we need to let through is <code>0-9</code> and <code>a-f</code> (and also <code>A-F</code> just to be sure). Anything else should be rejected.</p>
+
+<p>This sounds like a job for a regex:</p>
+
+<pre><code>    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@&quot;[^a-fA-F|0-9]&quot; options:0 error:NULL];
+    NSUInteger noOfMatches = [regex numberOfMatchesInString:hexString options:NSMatchingCompleted range:NSMakeRange(0, [hexString length])];
+
+    if (noOfMatches != 0) {
+        return nil;
+    }
+</code></pre>
+
+<p>Working through this, we first create a regex to match anything that ISN&rsquo;T <code>a</code> to <code>f</code> or <code>A</code> to <code>F</code> or <code>0</code> to <code>9</code>:</p>
+
+<pre><code> [^a-fA-F|0-9]
+</code></pre>
+
+<p>Then we search the parameter to see if there&rsquo;s any matches - if there are, it&rsquo;s as a result of a rogue character and the method should return <code>nil</code>.</p>
+
+<p>Run this, and once again we&rsquo;re all green.</p>
+
+<p><strong>ALL DONE!</strong></p>
+
+<p>This might seem like an awful lot of work for a trivial method, and to a certain extent it is. But by working through the problem this way, we&rsquo;ve gained several benefits:</p>
+
+<ul>
+<li><p>the problem&rsquo;s been broken down into a number of smaller discrete steps</p></li>
+
+<li><p>it&rsquo;s encouraged us to look at how to handle edge cases and error situations</p></li>
+
+<li><p>the tests mean that it&rsquo;s less likely that we&rsquo;ll break something in the process of trying to fix something else</p></li>
+
+<li><p>the tests have documented the intent of the code in a way that&rsquo;s expressed in (nearly) plain English</p></li>
+</ul>
+
+<p>While this might not be too big a deal with a simple method like this, testing comes into its own when you&rsquo;re building code that will talk to an API or parse file input, for example - by having a test suite that can run against your code, you can play around with changing things knowing that you&rsquo;re probably not going to break anything else as you do. And for me, the step-by-step iterative approach means I&rsquo;m forced to approach the problem in a logical way, building the solution up bit-by-bit.</p>
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2012%2f09%2f10%2ftest-driven-development-of-an-objective-c-category-with-kiwi%2f - Test-driven%20development%20of%20an%20Objective-C%20category%20with%20Kiwi by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

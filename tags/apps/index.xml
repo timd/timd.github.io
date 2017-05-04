@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Apps on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/apps/</link>
+    <description>Recent content in Apps on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Thu, 04 Mar 2010 12:42:58 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/apps/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vodafone, apps, and dumb pipes in the sky</title>
+      <link>https://adoptioncurve.net/2010/03/04/vodafone-apps-and-dumb-pipes-in-the-sky/</link>
+      <pubDate>Thu, 04 Mar 2010 12:42:58 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/03/04/vodafone-apps-and-dumb-pipes-in-the-sky/</guid>
+      <description>Vodafone have got a problem. On the one hand, they&amp;rsquo;re one of the world&amp;rsquo;s largest mobile networks, with however many billions of subscribers. On the other, they&amp;rsquo;re just another network as far as many of their customers are concerned.
+One of their responses is Vodafone360:
+ Vodafone 360 is a new internet service for your mobile, PC and Mac. It brings your phone, email, chat and social network contacts together in one place.</description>
+    </item>
+    
+  </channel>
+</rss>

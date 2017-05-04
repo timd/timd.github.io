@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ios on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/ios/</link>
+    <description>Recent content in Ios on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Fri, 15 Feb 2013 16:26:07 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>More on blocks in Objective-C (but still without tears)</title>
+      <link>https://adoptioncurve.net/2013/02/15/more-on-block-in-objective-c-but-still-without-tears/</link>
+      <pubDate>Fri, 15 Feb 2013 16:26:07 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2013/02/15/more-on-block-in-objective-c-but-still-without-tears/</guid>
+      <description>&lt;p&gt;This is the second part of a two-part look at blocks in Objective-C - you can find &lt;a href=&#34;http://www.adoptioncurve.net/archives/2013/02/blocks-in-objective-c-without-tears.php&#34;&gt;the first part here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;blocks-in-detail&#34;&gt;Blocks in detail&lt;/h3&gt;
+
+&lt;p&gt;Apple provides some pretty detailed documentation on blocks with as complete a definition as I’ve ever seen – so let’s look at that and use it as a starting point.&lt;/p&gt;
+
+&lt;p&gt;According to Apple, a block is:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&amp;hellip;an anonymous inline collection of code that:&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Has a typed argument list just like a function&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Has an inferred or declared return type&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Can capture state from the lexical scope within which it’s defined&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Can optionally modify the state of the lexical scope&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Can share the potential for modification with other blocks defined within the same lexical scope&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Can continue to share and modify state defined within the lexical scope (the stack frame) after the lexical scope (the stack frame) has been destroyed.&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;OK, let’s do this again in English.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Blocks in Objective-C (without tears)</title>
+      <link>https://adoptioncurve.net/2013/02/15/blocks-in-objective-c-without-tears/</link>
+      <pubDate>Fri, 15 Feb 2013 10:25:32 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2013/02/15/blocks-in-objective-c-without-tears/</guid>
+      <description>&lt;p&gt;Blocks are a feature of Objective-C 2.0, and were introduced to iOS in version 4.0. They’re a fantastically-useful feature of the language, and they’re being used in more and more places as Apple introduces new classes into the iOS SDK. Apple clearly see blocks as being central to the way that iOS is going to evolve in the future.&lt;/p&gt;
+
+&lt;p&gt;Understanding what blocks are, and how they work, is key to being able to exploit the features of the SDK. At first glance blocks can seem a bit impenetrable – their syntax isn’t as clear as other parts of Objective-C, and there’s a certain amount of apparent black magic taking place behind the scenes.&lt;/p&gt;
+
+&lt;p&gt;But once you get to grips with blocks, you’ll quickly realise how powerful and flexible they can be; and you’ll be well-placed to deal with the evolution of Objective-C and the iOS SDK in the future.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Selectively-disabling warnings with Xcode compiler flags</title>
+      <link>https://adoptioncurve.net/2013/02/01/selectively-disabling-warnings-with-xcode-compiler-flags/</link>
+      <pubDate>Fri, 01 Feb 2013 09:54:44 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2013/02/01/selectively-disabling-warnings-with-xcode-compiler-flags/</guid>
+      <description>Another update to iOS (this time to 6.1) means another update to Xcode (this time to 4.6). No doubt some bugs will be squashed while other new ones are introduced - but the most immediate change that I&amp;rsquo;ve noticed is that another new crop of warnings are being generated.
+I have the &amp;ldquo;treat warnings as errors&amp;rdquo; flag set by default on the basis that I&amp;rsquo;d rather know about a potential problem before it becomes an actual one.</description>
+    </item>
+    
+    <item>
+      <title>Calling Objective-C methods from JavaScript in a UIWebView</title>
+      <link>https://adoptioncurve.net/2012/09/28/calling-objective-c-methods-from-javascript-in-a-uiwebview/</link>
+      <pubDate>Fri, 28 Sep 2012 09:00:27 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/09/28/calling-objective-c-methods-from-javascript-in-a-uiwebview/</guid>
+      <description>The East Coast Time Line app I&amp;rsquo;ve just finished building includes a 360-degree virtual reality panorama section, which puts you &amp;ldquo;inside&amp;rdquo; several of the coaches in the National Railway Museum&amp;rsquo;s collection. It&amp;rsquo;s created with the KRPano plugin that uses a set of tiles to build an HTML5 plugin that can be zoomed and rotated, either manually or with the aid of the device&amp;rsquo;s gyroscope.
+The panorama itself is full-screen, so to provide a navigation back to the rest of the app there&amp;rsquo;s a floating toolbar that drops down from the top of the view in response to a tap.</description>
+    </item>
+    
+    <item>
+      <title>Test-driven development of an Objective-C category with Kiwi</title>
+      <link>https://adoptioncurve.net/2012/09/10/test-driven-development-of-an-objective-c-category-with-kiwi/</link>
+      <pubDate>Mon, 10 Sep 2012 13:29:58 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/09/10/test-driven-development-of-an-objective-c-category-with-kiwi/</guid>
+      <description>&lt;p&gt;When I first started dabbling with test-driven development, one of the most useful types of resources were tests that other people had written. There&amp;rsquo;s no shortage of these for Ruby and Rails, partly because it seems like the Rails world was test-driven by default from the outset - but there&amp;rsquo;s a lot less out there for iOS.&lt;/p&gt;
+
+&lt;p&gt;Because of my Rails background, I&amp;rsquo;m a fan of the &lt;a href=&#34;https://github.com/allending/Kiwi/&#34;&gt;Kiwi testing framework&lt;/a&gt; - it&amp;rsquo;s an Rspec-like framework for iOS that brings together a Rspeccy syntax and Objective-C. This is a work through of a set of tests to build a simple category on &lt;code&gt;UIColor&lt;/code&gt;. I was scratching my own itch here - designers tend to think in hex values for colours, whereas iOS doesn&amp;rsquo;t. This method will take a hex string and returns a &lt;code&gt;UIColor&lt;/code&gt; object.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a test-driven process for building said category.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Scaling a UIView in response to changes in UIScrollView zoom</title>
+      <link>https://adoptioncurve.net/2012/07/07/scaling-a-uiview-in-response-to-changes-in-uiscrollview-zoom/</link>
+      <pubDate>Sat, 07 Jul 2012 20:11:57 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/07/07/scaling-a-uiview-in-response-to-changes-in-uiscrollview-zoom/</guid>
+      <description>The app that I&amp;rsquo;m currently working on is based around a series of map images that can be scrolled and zoomed. Rather than using MapKit or anything similar, they&amp;rsquo;re images that sit inside a UIScrollView - the map images aren&amp;rsquo;t geographically-accurate, so it was easier to use images than try to figure out the distortions needed to map geography to map.
+There&amp;rsquo;s a series of &amp;ldquo;pins&amp;rdquo; that get placed onto the map as it loads - but because the pins were being added to the view that gets zoomed, the pin images themselves were getting scaled up as the map zoomed it.</description>
+    </item>
+    
+    <item>
+      <title>Using the iOS Simulator&#39;s camera</title>
+      <link>https://adoptioncurve.net/2012/04/06/using-the-camer-of-ios-simulators/</link>
+      <pubDate>Fri, 06 Apr 2012 07:33:16 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/04/06/using-the-camer-of-ios-simulators/</guid>
+      <description>When you&amp;rsquo;re using the iPhone and iPad Simulators to run your development code, you&amp;rsquo;ll find that they have a significant limitation if you&amp;rsquo;re building apps that use hardware features like the camera.
+If your code tries to use the camera on a Simulator device, it&amp;rsquo;ll crash - not altogether surprisingly because the Simulator doesn&amp;rsquo;t have a hardware camera. That gets painful pretty quickly.
+As a workaround for a project that I&amp;rsquo;m working on, I figured it would be useful to have the option to select an image from the Simulator&amp;rsquo;s library in places where normally the camera would be the default option.</description>
+    </item>
+    
+    <item>
+      <title>Where to put the registerNib method in a table view controller</title>
+      <link>https://adoptioncurve.net/2012/04/01/where-to-put-the-registernib-method-in-a-table-view-controller/</link>
+      <pubDate>Sun, 01 Apr 2012 17:15:09 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/04/01/where-to-put-the-registernib-method-in-a-table-view-controller/</guid>
+      <description>Here&amp;rsquo;s a quick workaround for a gotcha if you&amp;rsquo;re using iOS5&amp;rsquo;s registerNib: method in conjunction with a table view controller class that&amp;rsquo;s external to the controller of the view that contains the table.
+Scenario: You&amp;rsquo;ve got a table view in a Storyboard (or standard xib file) which is controlled by a UITableViewController class which is separate to the class controlling the Storyboard (or view). You want to use a custom cell layout contained in a separate xib file.</description>
+    </item>
+    
+    <item>
+      <title>Creating Table Views With Storyboards</title>
+      <link>https://adoptioncurve.net/2012/03/13/creating-table-views-with-storyboards/</link>
+      <pubDate>Tue, 13 Mar 2012 21:18:45 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/03/13/creating-table-views-with-storyboards/</guid>
+      <description>Storyboards are one of the many new features introduced in iOS5 and Xcode 4.2 and take the visual creation of iPhone and iPad interfaces to the next stage.
+Although Interface Builder provides a visual way of laying out user interfaces, up until now the process of moving between screens has required a certain amount of “glue code”. This is relatively straight-forward when you’re dealing with simple apps – but add UIKit functionality like tab bar controllers into the mix, and things suddenly get a lot trickier.</description>
+    </item>
+    
+    <item>
+      <title>More Clear cleverness: showing new screens</title>
+      <link>https://adoptioncurve.net/2012/02/16/more-clear-cleverness-showing-new-screens/</link>
+      <pubDate>Thu, 16 Feb 2012 10:06:35 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/02/16/more-clear-cleverness-showing-new-screens/</guid>
+      <description>Another trick of the Clear app is the way that it takes the established pull-to-refresh interaction of a table view, and extends it to present new screens. So pulling the to-do items table down will first add a new item at the top of the table, then causes the lists table to slide down from the top.
+Doing the same in the Lists table results in the Settings table appearing in the same way.</description>
+    </item>
+    
+    <item>
+      <title>How to do Clear-style swiping in iOS tables</title>
+      <link>https://adoptioncurve.net/2012/02/15/how-to-do-clear-style-swiping-in-ios-tables/</link>
+      <pubDate>Wed, 15 Feb 2012 12:52:10 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/02/15/how-to-do-clear-style-swiping-in-ios-tables/</guid>
+      <description>The latest app that everyone&amp;rsquo;s raving about is Clear - if you haven&amp;rsquo;t seen it, it&amp;rsquo;s basically a task list, but one with a rather interesting take on the interface. Instead of the usual tab-bar-and-table-vew setup, the table is full-screen and makes extensive use of gestures.
+Deleting and completing tasks are done by swiping the row - a left swipe deletes the item, a right swipe marks it as complete. Here&amp;rsquo;s the basis of how that&amp;rsquo;s done.</description>
+    </item>
+    
+    <item>
+      <title>Accessing controls in UIView subviews</title>
+      <link>https://adoptioncurve.net/2011/09/25/accessing-controls-in-uiview-subviews/</link>
+      <pubDate>Sun, 25 Sep 2011 11:56:35 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/09/25/accessing-controls-in-uiview-subviews/</guid>
+      <description>The iPhone app I&amp;rsquo;m working on at the moment has a number of screens that consist of long list of questions - so the user needs to be able to scroll down to the bottom.
+At the same time, there&amp;rsquo;s some information at the top of the screen which needs to stay visible. Within the subview containing the questions, there are also several buttons which need to trigger methods in the main view controller - save the answers, move to the next screen and so on.</description>
+    </item>
+    
+    <item>
+      <title>Selecting multiple UITableView rows</title>
+      <link>https://adoptioncurve.net/2011/07/25/selecting-multiple-uitableview-rows/</link>
+      <pubDate>Mon, 25 Jul 2011 10:01:54 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/07/25/selecting-multiple-uitableview-rows/</guid>
+      <description>UITableView supplies a whole variety of built-in methods to manage the table, including the selection and deselection of rows. However, there&amp;rsquo;s a significant limitation with the published API - it&amp;rsquo;ll only allow you to select one row at a time. That&amp;rsquo;s something of a problem if you want to use the table view as a list which supports selection (and the subsequent use of) multiple rows at once.
+UPDATE - This has been completely superceded by iOS5, which does support multiple selection.</description>
+    </item>
+    
+    <item>
+      <title>&#34;profile doesn&#39;t match application identifier&#34; problems in XCode</title>
+      <link>https://adoptioncurve.net/2011/07/07/profile-doesnt-match-application-identifier-problems-in-xcode/</link>
+      <pubDate>Thu, 07 Jul 2011 12:59:11 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/07/07/profile-doesnt-match-application-identifier-problems-in-xcode/</guid>
+      <description>Occasionally, you can end up in an XCode nightmare trying to get your app to play nicely with development and distribution certificates. One of the symptoms of this is being unable to select a profile, because they&amp;rsquo;re all greyed-out with the message &amp;ldquo;profile doesn&#39;t match Application Identified &#39;com.&amp;lt;whatever&amp;gt;.&amp;lt;etc&amp;gt;&#39;&amp;ldquo;
+This might be because the profiles are cocked-up, but if you&amp;rsquo;ve been through the download-certificate-and-add-to-Xcode dance, it might be because your application identifier doesn&amp;rsquo;t match that of the certificate.</description>
+    </item>
+    
+    <item>
+      <title>Creating full-screen iOS modal views</title>
+      <link>https://adoptioncurve.net/2011/06/13/creating-full-screen-ios-modal-views/</link>
+      <pubDate>Mon, 13 Jun 2011 19:59:38 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/06/13/creating-full-screen-ios-modal-views/</guid>
+      <description>This is another &amp;ldquo;blog it so I&amp;rsquo;ll remember it&amp;rdquo; post, but it might come in useful should it ever get Googled.
+Scenario: I&amp;rsquo;m running an asynchronous data load in the background which populates a table view. Although the data load is asynchronous, because it updates the table I want to place a modal popup with an activity spinner over the current table view so that interaction is blocked. I&amp;rsquo;m using Sam Vernette&amp;rsquo;s SVProgressHUD, which is a really neat implementation of the Apple segmented spinner thing.</description>
+    </item>
+    
+  </channel>
+</rss>

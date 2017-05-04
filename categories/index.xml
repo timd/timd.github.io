@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/categories/</link>
+    <description>Recent content in Categories on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    
+	<atom:link href="https://adoptioncurve.net/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Change</title>
+      <link>https://adoptioncurve.net/categories/change/</link>
+      <pubDate>Thu, 23 Feb 2012 14:44:34 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/categories/change/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Links</title>
+      <link>https://adoptioncurve.net/categories/links/</link>
+      <pubDate>Thu, 22 Mar 2012 09:48:48 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/categories/links/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Play</title>
+      <link>https://adoptioncurve.net/categories/play/</link>
+      <pubDate>Tue, 04 Sep 2012 13:20:35 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/categories/play/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Technical</title>
+      <link>https://adoptioncurve.net/categories/technical/</link>
+      <pubDate>Fri, 02 Oct 2015 21:28:25 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/categories/technical/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Weeknotes</title>
+      <link>https://adoptioncurve.net/categories/weeknotes/</link>
+      <pubDate>Sat, 13 Mar 2010 18:39:53 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/categories/weeknotes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Work</title>
+      <link>https://adoptioncurve.net/categories/work/</link>
+      <pubDate>Wed, 31 Aug 2011 09:15:44 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/categories/work/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

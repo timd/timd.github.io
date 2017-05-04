@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cms on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/cms/</link>
+    <description>Recent content in Cms on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Wed, 18 May 2011 10:04:40 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/cms/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Pages that can be overridden in RefineryCMS</title>
+      <link>https://adoptioncurve.net/2011/05/18/pages-that-can-be-overridden-in-refinerycms/</link>
+      <pubDate>Wed, 18 May 2011 10:04:40 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/05/18/pages-that-can-be-overridden-in-refinerycms/</guid>
+      <description>This is a list of pages, stylesheets, controllers and models that can be overriden within a default Refinerycms installation:
+Views
+app/views/shared/_content_page.html.erb app/views/shared/_draft_page_message.html.erb app/views/shared/_footer.html.erb app/views/shared/_google_analytics.html.erb app/views/shared/_head.html.erb app/views/shared/_header.html.erb app/views/shared/_html_tag.html.erb app/views/shared/_ie6check.html.erb app/views/shared/_javascripts.html.erb app/views/shared/_menu.html.erb app/views/shared/_menu_branch.html.erb app/views/shared/_message.html.erb app/views/shared/_no_script.html.erb app/views/shared/_site_bar.html.erb app/views/admin/_head.html.erb app/views/admin/_javascripts.html.erb app/views/admin/_menu.html.erb app/views/admin/dashboard/_actions.html.erb app/views/admin/dashboard/_additional_dashboard_menu_items.html.erb app/views/admin/dashboard/_recent_activity.html.erb app/views/admin/dashboard/_recent_inquiries.html.erb app/views/admin/dashboard/_records.html.erb app/views/admin/dashboard/index.html.erb app/views/admin/dashboard/index.rss.builder app/views/admin/dialogs/show.html.erb app/views/admin/images/_actions.html.erb app/views/admin/images/_existing_image.html.erb app/views/admin/images/_form.html.erb app/views/admin/images/_grid_view.html.erb app/views/admin/images/_images.html.erb app/views/admin/images/_list_view.html.erb app/views/admin/images/_list_view_image.html.erb app/views/admin/images/_records.html.erb app/views/admin/images/edit.html.erb app/views/admin/images/index.html.erb app/views/admin/images/insert.html.erb app/views/admin/images/new.html.erb app/views/admin/pages/_actions.html.erb app/views/admin/pages/_form.html.erb app/views/admin/pages/_form_advanced_options.html.erb app/views/admin/pages/_form_advanced_options_seo.html.erb app/views/admin/pages/_form_fields_after_title.html.erb app/views/admin/pages/_form_new_page_parts.html.erb app/views/admin/pages/_form_page_parts.html.erb app/views/admin/pages/_locale_picker.html.erb app/views/admin/pages/_page.html.erb app/views/admin/pages/_page_part_field.html.erb app/views/admin/pages/_records.html.erb app/views/admin/pages/_sortable_list.html.erb app/views/admin/pages/edit.html.erb app/views/admin/pages/index.</description>
+    </item>
+    
+  </channel>
+</rss>

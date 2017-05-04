@@ -1,0 +1,334 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Creating custom cells in an iPhone TableView &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Creating custom cells in an iPhone TableView" />
+<meta property="og:description" content="The iPhone&rsquo;s default table view is pretty straight-forward to use, but the look and feel is somewhat basic. Once you&rsquo;ve got to a certain point you need to customise things, which is where subclassing the cells comes into play. It sounds horrifically complex, but once you&rsquo;ve got your head around things, it&rsquo;s not too difficult. This is how I&rsquo;ve done it for the WeWatch app (as an aide-memoire for myself, but it might come in useful for someone else." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2011/04/20/creating-custom-cells-in-an-iphone-tableview/" />
+
+
+
+<meta property="article:published_time" content="2011-04-20T13:50:54&#43;00:00"/>
+<meta property="article:modified_time" content="2011-04-20T13:50:54&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Creating custom cells in an iPhone TableView">
+<meta itemprop="description" content="The iPhone&rsquo;s default table view is pretty straight-forward to use, but the look and feel is somewhat basic. Once you&rsquo;ve got to a certain point you need to customise things, which is where subclassing the cells comes into play. It sounds horrifically complex, but once you&rsquo;ve got your head around things, it&rsquo;s not too difficult. This is how I&rsquo;ve done it for the WeWatch app (as an aide-memoire for myself, but it might come in useful for someone else.">
+
+
+<meta itemprop="dateModified" content="2011-04-20T13:50:54&#43;00:00" />
+<meta itemprop="wordCount" content="772">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Creating custom cells in an iPhone TableView"/>
+<meta name="twitter:title" content="Creating custom cells in an iPhone TableView"/>
+<meta name="twitter:description" content="The iPhone&rsquo;s default table view is pretty straight-forward to use, but the look and feel is somewhat basic. Once you&rsquo;ve got to a certain point you need to customise things, which is where subclassing the cells comes into play. It sounds horrifically complex, but once you&rsquo;ve got your head around things, it&rsquo;s not too difficult. This is how I&rsquo;ve done it for the WeWatch app (as an aide-memoire for myself, but it might come in useful for someone else."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Creating custom cells in an iPhone TableView</h1>
+                    <h2 class="headline">
+                    20 April 2011 
+                    <br>
+                    
+                    
+                        
+                            <a href="https://adoptioncurve.net/tags/iphone">iphone</a>
+                        
+                            <a href="https://adoptioncurve.net/tags/objective-c">objective-C</a>
+                        
+                            <a href="https://adoptioncurve.net/tags/uitableview">UITableView</a>
+                        
+                    
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>The iPhone&rsquo;s default table view is pretty straight-forward to use, but the look and feel is somewhat basic.  Once you&rsquo;ve got to a certain point you need to customise things, which is where subclassing the cells comes into play.   It sounds horrifically complex, but once you&rsquo;ve got your head around things, it&rsquo;s not too difficult.  This is how I&rsquo;ve done it for the WeWatch app (as an aide-memoire for myself, but it might come in useful for someone else.)</p>
+
+<p>Each cell has a contentView, so customising the look and feel of a cell is a case of adding a subview to this contentView.  To do this, you&rsquo;ve got two options:</p>
+
+<ul>
+<li><p>creating a subview in code, then adding it</p></li>
+
+<li><p>creating and laying out the custom cell visually in Interface Builder, then loading the resulting nib file whenever the table needs a new cell creating.</p></li>
+</ul>
+
+<p>The two routes have the same end results, but if you&rsquo;re creating a complex cell with lots of view objects, doing it in the visual designer is probably the easier approach.   The process goes like this:</p>
+
+<p><strong>One</strong></p>
+
+<p>Create a new view in which to create the new cell (File/New/New File/ and select the Empty File option from the templates).  You&rsquo;ll need to give it a name - I&rsquo;ve called it &ldquo;baseCell&rdquo;, but this can be anything to fit with your project&rsquo;s conventions.</p>
+
+<p><strong>Two</strong></p>
+
+<p>From the Object Browser, select a Table View Cell and drag it out into the editor.  That gives you an empty cell of the default size.</p>
+
+<p>You can then start customising the look and feel of the cell by dragging new objects into the Content View, until you&rsquo;ve got it looking as you want it.</p>
+
+<p><strong>Three</strong></p>
+
+<p>The next step is to load the custom cell.  To do this, you&rsquo;ll first need to create an outlet in the class that manages the table view (say for the sake of argument this is called ProgrammesViewController).  Open up the ProgrammesViewController.h file and add an outlet:</p>
+
+<pre><code>@interface ProgrammesViewController : UITableViewController {
+...
+// ivar to hold reference to a custom cell
+UITableViewCell *nibLoadedCell;
+...
+}
+...
+// Property for the ivar
+@property (nonatomic, retain) IBOutlet UITableViewCell *nibLoadedCell;
+...
+@end
+</code></pre>
+
+<p><strong>Four</strong></p>
+
+<p>You&rsquo;ll also need to @synthesize the ivar in the .m file.</p>
+
+<p>Once you&rsquo;ve done that, flip back to the cell in Interface Building and select the File&rsquo;s Owner in the Placeholders section.  Then select the Identity inspect, and change the class of the File&rsquo;s Owner to the table view&rsquo;s controller - in this case, ProgrammesViewController.</p>
+
+<p><strong>Five</strong></p>
+
+<p>Now you can ctrl-click the File&rsquo;s Owner icon in the Placeholder&rsquo;s list, and connect the nibLoadedCell outlet to the Table View Cell icon in the Objects list below.  That&rsquo;s connected the controller to the new view.</p>
+
+<p><strong>Six</strong></p>
+
+<p>Finally, select the Table View Cell itself, switch to the Attributes inspector and change the Identifier to the reuse identifier string that you previously set up in the cellForRowAtIndexPath method - by default, this is &ldquo;cell&rdquo; but in my code I&rsquo;ve changed it to &ldquo;ProgrammeCell&rdquo;.</p>
+
+<p><strong>Seven</strong></p>
+
+<p>Then the final step is to tweak the block that creates a new cell if one isn&rsquo;t available to be dequeued.  Normally this allocs and initWithStyles the cell - but in this scenario, we&rsquo;re going to load the cell from the nib that we created.  This is done with</p>
+
+<pre><code>if (!cell) {
+[[NSBundle mainBundle] loadNibNamed:@&quot;BaseCell&quot; owner:self options:NULL];
+cell = nibLoadedCell;
+}
+</code></pre>
+
+<p>There&rsquo;s a bit of magic going on behind the scenes here.   The first line returns an NSArray with the contents of the nib, and because we&rsquo;ve declared an outlet called nibLoadedCell, the table cell object in the array is automagically referenced by this.  So then it&rsquo;s just a case of assigning it to the cell object, and this can then be used by the rest of the code as if we&rsquo;d created a cell using the standard alloc/initWithStyle process.</p>
+
+<p><strong>Eight</strong></p>
+
+<p>To get to the objects in the custom cell, you&rsquo;ll need to go and create tags for each of them in Interface Builder.  That&rsquo;s midway down the Attributes inspector - I start tagging them at 1000 so it&rsquo;s easier to insert tags subsequently.  So if we&rsquo;ve got a UILabel with a tag of 1010, this can be referenced in the controller by</p>
+
+<pre><code>((UILabel *)[cell viewWithTag:1010])
+</code></pre>
+
+<p>What I&rsquo;ve done is create a series of constants to make the code a bit more readable - so at the top of ProgrammesViewController I&rsquo;ve got a series of lines that read</p>
+
+<pre><code>#define PROG_TITLE_LABEL ((UILabel *)[cell viewWithTag:1010])
+</code></pre>
+
+<p>and so on, while in the code I&rsquo;ve then got</p>
+
+<pre><code>UILabel *titleLabel = PROG_TITLE_LABEL;
+titleLabel.text = [p title];
+</code></pre>
+
+<p>which sets the content of the label with that tag.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2011%2f04%2f20%2fcreating-custom-cells-in-an-iphone-tableview%2f - Creating%20custom%20cells%20in%20an%20iPhone%20TableView by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

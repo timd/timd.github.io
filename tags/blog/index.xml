@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/blog/</link>
+    <description>Recent content in Blog on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Fri, 02 Jan 2009 22:32:42 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>New Year, new look.</title>
+      <link>https://adoptioncurve.net/2009/01/02/new-year-new-look/</link>
+      <pubDate>Fri, 02 Jan 2009 22:32:42 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/01/02/new-year-new-look/</guid>
+      <description>This blog has been sadly neglected of late, despite the river of pseudo-content that flows into it courtesy of my del.icio.us links. At work, I&amp;rsquo;m surrounded by people whose blogs are erudite, beautiful to the eye and regularly updated, so over the Christmas downtime I decided to hack away to improve at least one of those factors, and replace what was meant to be a temporary stop-gap template that lasted something like two years.</description>
+    </item>
+    
+  </channel>
+</rss>

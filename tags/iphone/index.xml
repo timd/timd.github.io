@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Iphone on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/iphone/</link>
+    <description>Recent content in Iphone on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Mon, 13 Jun 2011 19:59:38 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/iphone/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Creating full-screen iOS modal views</title>
+      <link>https://adoptioncurve.net/2011/06/13/creating-full-screen-ios-modal-views/</link>
+      <pubDate>Mon, 13 Jun 2011 19:59:38 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/06/13/creating-full-screen-ios-modal-views/</guid>
+      <description>This is another &amp;ldquo;blog it so I&amp;rsquo;ll remember it&amp;rdquo; post, but it might come in useful should it ever get Googled.
+Scenario: I&amp;rsquo;m running an asynchronous data load in the background which populates a table view. Although the data load is asynchronous, because it updates the table I want to place a modal popup with an activity spinner over the current table view so that interaction is blocked. I&amp;rsquo;m using Sam Vernette&amp;rsquo;s SVProgressHUD, which is a really neat implementation of the Apple segmented spinner thing.</description>
+    </item>
+    
+    <item>
+      <title>WeWatch on the iPhone, part 2</title>
+      <link>https://adoptioncurve.net/2011/05/03/wewatch-on-the-iphone-part-2/</link>
+      <pubDate>Tue, 03 May 2011 17:02:59 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/05/03/wewatch-on-the-iphone-part-2/</guid>
+      <description>The thing about user testing is that you&amp;rsquo;ve got to be prepared for your pet ideas to be shot down in flames. And so it was with the initial designs for the WeWatch iPhone app that I&amp;rsquo;m building. Conceptually, the app is very simple - but it&amp;rsquo;s bringing home the fact that for interaction, making something simple can be HARD. That&amp;rsquo;s partly the reason why I&amp;rsquo;m trying to capture this as I go along - I&amp;rsquo;m sure that if I&amp;rsquo;m not careful I&amp;rsquo;m going to forget the detail of why things turned out the way they did.</description>
+    </item>
+    
+    <item>
+      <title>Creating custom cells in an iPhone TableView</title>
+      <link>https://adoptioncurve.net/2011/04/20/creating-custom-cells-in-an-iphone-tableview/</link>
+      <pubDate>Wed, 20 Apr 2011 13:50:54 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/04/20/creating-custom-cells-in-an-iphone-tableview/</guid>
+      <description>The iPhone&amp;rsquo;s default table view is pretty straight-forward to use, but the look and feel is somewhat basic. Once you&amp;rsquo;ve got to a certain point you need to customise things, which is where subclassing the cells comes into play. It sounds horrifically complex, but once you&amp;rsquo;ve got your head around things, it&amp;rsquo;s not too difficult. This is how I&amp;rsquo;ve done it for the WeWatch app (as an aide-memoire for myself, but it might come in useful for someone else.</description>
+    </item>
+    
+    <item>
+      <title>WeWatch on the iPhone</title>
+      <link>https://adoptioncurve.net/2011/04/07/wewatch-on-the-iphone/</link>
+      <pubDate>Thu, 07 Apr 2011 09:07:30 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/04/07/wewatch-on-the-iphone/</guid>
+      <description>This is WeWatch, the result of the last-but-one Rattle Hackday, where they (we as was) attempt to create something either interesting, useful, or hopefully both inside a day.
+The concept is simple - it&amp;rsquo;s a stripped-down listing of what&amp;rsquo;s on the main channels tonight during the peak viewing period. If you&amp;rsquo;re signed in via Twitter you can click on a programme to show the world that you&amp;rsquo;re planning to watch it.</description>
+    </item>
+    
+    <item>
+      <title>A listed buildings app for the iPhone</title>
+      <link>https://adoptioncurve.net/2010/03/28/a-listed-buildings-app-for-the-iphone/</link>
+      <pubDate>Sun, 28 Mar 2010 10:45:14 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/03/28/a-listed-buildings-app-for-the-iphone/</guid>
+      <description>English Heritage is a non-Departmental Public Body that exists to protect and promote England’s historic environment. One of the tools at their disposal is listing, which applies protection to a building or site through the planning system. Crudely, it stops you putting plastic double glazing into your historic thatched cottage; or demolishing a factory designed by that world-famous architect.
+There are a lot of listed buildings - about 374,081 of them - and they’re listed in a database which English Heritage made available to the Rewired Culture event.</description>
+    </item>
+    
+    <item>
+      <title>Getting an iPhone&#39;s UUID number for ad-hoc app deployment</title>
+      <link>https://adoptioncurve.net/2010/03/13/getting-an-iphones-uuid-number-for-ad-hoc-app-deployment/</link>
+      <pubDate>Sat, 13 Mar 2010 10:49:49 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/03/13/getting-an-iphones-uuid-number-for-ad-hoc-app-deployment/</guid>
+      <description>Deploying iPhone applications to testers involves creating an ad-hoc distribution package that they can install through iTunes, rather than the App Store. To do this, you need to get each iPhone&amp;rsquo;s identifier or UUID code.
+There are two steps to this - the first is to get your guinea pig to connect their iPhone and fire up iTunes. Then on the iPhone Summary page, they&amp;rsquo;ll see their phone&amp;rsquo;s serial number, like this:</description>
+    </item>
+    
+    <item>
+      <title>Fixing explosions caused by UITableView scrolling</title>
+      <link>https://adoptioncurve.net/2010/02/11/fixing-explosions-caused-by-uitableview-scrolling/</link>
+      <pubDate>Thu, 11 Feb 2010 20:36:10 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/02/11/fixing-explosions-caused-by-uitableview-scrolling/</guid>
+      <description>I came across a weird (well, weird to me) problem with a UITableView this evening. Basically, the situation is this:
+I&amp;rsquo;ve got a Tab Bar controller in my app&amp;rsquo;s main window; with three tabs:
+[![Screen shot 2010-02-11 at 20.31.52](http://www.adoptioncurve.net/archives/2010/02/fixing-explosions-caused-by-uitableview-scrolling.php/screen-shot-2010-02-11-at-20-31-52)
+The view in the first tab loads from another nib file (MeView.xib), which contains a navigation controller. The file&amp;rsquo;s owner has a class identify of &amp;lsquo;MeViewController&amp;rsquo;. The navigation controller contains a table view, with the delegate and data source set to &amp;lsquo;MeTableViewController&amp;rsquo;.</description>
+    </item>
+    
+  </channel>
+</rss>

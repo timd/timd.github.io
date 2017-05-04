@@ -1,0 +1,503 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>A simple UICollectionView tutorial &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="A simple UICollectionView tutorial" />
+<meta property="og:description" content="UICollectionView operates in a very similar way to UITableView - it&rsquo;s a collection of cells that are displayed onscreen according to the properties defined in a layout. The cells are provided by a class that acts as the collection view&rsquo;s data source; and the collection view relies on a delegate to tell it how to behave in response to user interactions and so on.
+
+This is a quick tutorial that covers the basics of UICollectionView - you can download the source code from GitHub at https://github.com/timd/CollectionViewExample.git.
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2012/09/19/a-simple-uicollectionview-tutorial/" />
+
+
+
+<meta property="article:published_time" content="2012-09-19T17:02:39&#43;00:00"/>
+<meta property="article:modified_time" content="2012-09-19T17:02:39&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="A simple UICollectionView tutorial">
+<meta itemprop="description" content="UICollectionView operates in a very similar way to UITableView - it&rsquo;s a collection of cells that are displayed onscreen according to the properties defined in a layout. The cells are provided by a class that acts as the collection view&rsquo;s data source; and the collection view relies on a delegate to tell it how to behave in response to user interactions and so on.
+
+This is a quick tutorial that covers the basics of UICollectionView - you can download the source code from GitHub at https://github.com/timd/CollectionViewExample.git.
+
+">
+
+
+<meta itemprop="dateModified" content="2012-09-19T17:02:39&#43;00:00" />
+<meta itemprop="wordCount" content="2217">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="A simple UICollectionView tutorial"/>
+<meta name="twitter:title" content="A simple UICollectionView tutorial"/>
+<meta name="twitter:description" content="UICollectionView operates in a very similar way to UITableView - it&rsquo;s a collection of cells that are displayed onscreen according to the properties defined in a layout. The cells are provided by a class that acts as the collection view&rsquo;s data source; and the collection view relies on a delegate to tell it how to behave in response to user interactions and so on.
+
+This is a quick tutorial that covers the basics of UICollectionView - you can download the source code from GitHub at https://github.com/timd/CollectionViewExample.git.
+
+"/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>A simple UICollectionView tutorial</h1>
+                    <h2 class="headline">
+                    19 September 2012 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p><code>UICollectionView</code> operates in a very similar way to <code>UITableView</code> - it&rsquo;s a collection of cells that are displayed onscreen according to the properties defined in a layout. The cells are provided by a class that acts as the collection view&rsquo;s data source; and the collection view relies on a delegate to tell it how to behave in response to user interactions and so on.</p>
+
+<p>This is a quick tutorial that covers the basics of <code>UICollectionView</code> - you can download the source code from GitHub at <a href="https://github.com/timd/CollectionViewExample.git">https://github.com/timd/CollectionViewExample.git</a>.</p>
+
+<p></p>
+
+<p>There are three main components to a <code>UICollectionView</code>:</p>
+
+<ul>
+<li><p>the cells, which are instances of <code>UICollectionViewCell</code></p></li>
+
+<li><p>supplementary views, which you can think of as views that can display additional metadata about the sections of the <code>UICollectionView</code></p></li>
+
+<li><p>decoration views, which provide the &lsquo;chrome&rsquo; for the <code>UICollectionView</code></p></li>
+</ul>
+
+<p><code>UICollectionView</code> operates in a very similar way to <code>UITableView</code>. It&rsquo;s a collection of instances of <code>UICollectionViewCell</code> that are laid out according to the properties defined in an instance of <code>UICollectionViewLayout</code>:</p>
+
+<h3 id="uicollectionviewcell">UICollectionViewCell</h3>
+
+<p>This is equivalent to <code>UITableViewCell</code> - it has an <code>indexPath</code> property which defines which row and section it belongs to; and various other properties to define the visual appearance. Unlike <code>UITableViewCell</code>, <code>UICollectionViewCell</code> doesn&rsquo;t have any predefined types - you have to setup the cell from scratch</p>
+
+<h3 id="uicollectionviewlayout">UICollectionViewLayout</h3>
+
+<p>This class controls how the cells are laid out visually, controlling aspects like position, opacity and z index. There&rsquo;s no direct equivalent in the <code>UITableView</code> world, though - it&rsquo;s more like a mix of both table and cell properties. <code>UICollectionViewFlowLayout</code> is a predefined subclass of <code>UICollectionViewLayout</code> that is setup for line-based flow layouts - a vanilla instance of <code>UICollectionViewFLowLayout</code> will create a simple grid view, which you can then customise further by overriding properties or subclassing completely.</p>
+
+<h3 id="uicollectionviewdatasource">UICollectionViewDataSource</h3>
+
+<p>Much like <code>UITableViewDataSource</code>, the <code>UICollectionViewDataSource</code> is responsible for providing cells to the collection view on demand. It&rsquo;s defined by the <code>UICollectionViewDataSource</code> protocol - there are several required methods, and a whole range of optional ones.</p>
+
+<h3 id="uicollectionviewdelegate">UICollectionViewDelegate</h3>
+
+<p><code>UICollectionViewDelegate</code> works in much the same way as <code>UITableViewDelegate</code> - it&rsquo;s responsible for handling user interaction amongst other things, and is defined by the <code>UICollectionViewDelegate</code> protocol.</p>
+
+<h1 id="creating-a-uicollectionview">Creating a UICollectionView</h1>
+
+<p>Here&rsquo;s a worked example of putting a simple flow layout-based collection together from scratch. It&rsquo;ll show a scrollable grid of cells which have a custom property - we&rsquo;ll look at the three ways of building custom <code>UICollectionViewCells</code> as we go along.</p>
+
+<h3 id="creating-the-basic-app">Creating the basic app</h3>
+
+<p>First off, create a new Single View application:</p>
+
+<ul>
+<li>File &gt; New Project &gt; Single View Application Name and save the project</li>
+<li>Don&rsquo;t tick &lsquo;Use Storyboards&rsquo; or &lsquo;Include Unit Tests&rsquo;</li>
+<li>Select &lsquo;iPad&rsquo; as the device type</li>
+</ul>
+
+<p>This will create a simple outline app, with an app delegate and a single view controller. If you run the app now, it&rsquo;ll start with a full-screen blank view.</p>
+
+<p>To being the process of building the collection view, first switch to the <code>ViewController.h</code> file, and add the <code>UICollectionViewDelegate</code> and <code>UICollectionViewDatasource</code> protocols:</p>
+
+<pre><code>@interface ViewController : UIViewController
+</code></pre>
+
+<p>Then switch to the <code>ViewController.xib</code> file. From the Object Browser, drag a <code>UICollectionView</code> object into the editor, and let it snap to fill the full view:</p>
+
+<p>Next, add an <code>IBOutlet</code> property for the collection view to the view controller. Switch to <code>ViewController.m</code>, and add a property for the collection view:</p>
+
+<pre><code>@interface ViewController ()
+@property (nonatomic, strong) IBOutlet UICollectionView *collectionView;
+@end
+</code></pre>
+
+<p>Then connect the <code>UICollectionView</code> object in the nib to the outlet. Switch back to <code>ViewController.xib</code>, ctrl-click on the <code>File's Owner</code> object in the <code>Placeholders</code> list top left, then drag out to the <code>UICollectionView</code> object in the view. Release the mouse button, then select <code>collectionView</code> from the popup.</p>
+
+<p>Now connect the <code>UICollectionView</code> object to the <code>dataSource</code> and <code>delegate</code>. Ctrl-click on the <code>UICollectionView</code> object, drag out to the <code>File's Owner</code>object, then select <code>dataSource</code> from the popup when you release the mouse button. Repeat the same process to connect the <code>delegate</code>.</p>
+
+<p>That&rsquo;s got the objects wired up. The next stage is to provide some data for the <code>UICollectionView</code>.</p>
+
+<p>To keep things simple, I&rsquo;m going to declare an <code>NSArray</code> property for the data:</p>
+
+<pre><code>@property (nonatomic, strong) NSArray *dataArray;
+</code></pre>
+
+<p>and then fill that with two <code>NSMutableArrays</code>, one for each section, that contain 50 <code>NSStrings</code>. This is done in the <code>viewDidLoad</code> method:</p>
+
+<pre><code>NSMutableArray *firstSection = [[NSMutableArray alloc] init]; NSMutableArray *secondSection = [[NSMutableArray alloc] init];
+for (int i=0; i&lt;50; i++) {
+    [firstSection addObject:[NSString stringWithFormat:@&quot;Cell %d&quot;, i]];
+    [secondSection addObject:[NSString stringWithFormat:@&quot;item %d&quot;, i]];
+}
+self.dataArray = [[NSArray alloc] initWithObjects:firstSection, secondSection, nil];
+</code></pre>
+
+<p>Having created some data, the next thing we need to do is to tell the collection view how many sections it will have. This means implementing the optional <code>numberOfSectionsInCollectionView:</code> method:</p>
+
+<pre><code>-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return [self.dataArray count];
+}
+</code></pre>
+
+<p>Once the collection view knows how many sections it has, we&rsquo;ll need to provide the number of items in each section, with the <code>collectionView:numberOfItemsInSection:</code> method:</p>
+
+<pre><code>-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    NSMutableArray *sectionArray = [self.dataArray objectAtIndex:section];
+return [sectionArray count]; }
+</code></pre>
+
+<p>At this point, the collection view knows how many sections it has, and how many items will be present in each section. The next step is to create the cells for display.</p>
+
+<p><strong>CREATING UICOLLECTIONVIEW CELLS</strong></p>
+
+<p><code>UITableViewCell</code> comes with a range of &ldquo;standardised&rdquo; cell layouts that you can use - <code>UICollectionViewCell</code> isn&rsquo;t quite as sophisticated, however, so you need to create your own. The process is very similar to creating table cells - you can create a cell in a standalone xib; or subclass a <code>UICollectionViewCell</code>. We&rsquo;ll look at both approaches, starting with the xib-based method.</p>
+
+<p>To begin with, create a new view (<code>File</code> &gt; <code>New</code> &gt; <code>File</code>) and select the View option from the User Interface section. It doesn&rsquo;t matter which device family you choose, so give it a name (I&rsquo;m calling mine <code>NibCell</code>). It will open up in the canvas - the first job is to delete the existing view, and drag in a Collection View Cell from the Object Browser.</p>
+
+<p><img src="/images/2012/09/PIC1001.png" alt="" /></p>
+
+<p>Resize this so it&rsquo;s 200 x 200, change the background color and add in a label so that it looks like this:</p>
+
+<p><img src="/images/2012/09/PIC2001.png" alt="" /></p>
+
+<p>Set the tag value of the <code>UILabel</code> to <code>100</code> - we&rsquo;ll use this later.</p>
+
+<p>Having created the xib, it&rsquo;s time to wire it up to the collection view. At the same time, we can also apply a <code>UICollectionViewLayout</code> to the collection view, as we now know what size the cells should be. Head back to the view controller, and update the viewDidLoad method with these lines:</p>
+
+<pre><code>UINib *cellNib = [UINib nibWithNibName:@&quot;NibCell&quot; bundle:nil];
+[self.collectionView registerNib:cellNib forCellWithReuseIdentifier:@&quot;cvCell&quot;];
+</code></pre>
+
+<p>This grabs the nib from the <code>NibCell</code> file, and registers it with the collection view with a reuse identifier of &ldquo;<code>cvCell</code>&rdquo;. This will be used later to dequeue and instantiate a new cell ready for use.</p>
+
+<p>A collection view is useless without a layout, so we need to create this. Add these four lines to the bottom of the <code>viewDidLoad</code> method:</p>
+
+<pre><code>UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+[flowLayout setItemSize:CGSizeMake(200, 200)];
+[flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+
+[self.collectionView setCollectionViewLayout:flowLayout];
+</code></pre>
+
+<p>This first of all creates a new instance of <code>UICollectionViewFlowLayout</code>, which is the ready-made flow-based layout that&rsquo;s provided in the iOS SDK. It&rsquo;s got various properties that can be configured, but we&rsquo;re only going to set two - firstly the item size, which is the same as the <code>UICollectionViewCell</code> we created in the xib; and secondly the scroll direction (horizontal at the moment, although we&rsquo;ll play around with that later). Finally, we add the configured layout to the collection view.</p>
+
+<p>At this point, we&rsquo;re ready to build the method that returns the cells to the collection view as they&rsquo;re needed. This is the <code>collectionView:cellForItemAtIndexPath:</code> method, which is very similar to <code>UITableView's</code> <code>tableView:cellForRowAtIndexPath:</code> method. Add this to the view controller, and then we&rsquo;ll step through it:</p>
+
+<pre><code>-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+
+    NSMutableArray *data = [self.dataArray objectAtIndex:indexPath.section];
+
+    NSString *cellData = [data objectAtIndex:indexPath.row];
+
+    static NSString *cellIdentifier = @&quot;cvCell&quot;;
+
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+
+    UILabel *titleLabel = (UILabel *)[cell viewWithTag:100];
+
+    [titleLabel setText:cellData];
+
+    return cell;
+
+}
+</code></pre>
+
+<p>The first step is to get the data for the cell by grabbing the <code>NSString</code> from the <code>cellData</code> array (which is itself an element in the <code>dataArray</code> property). Next, we create a <code>cellIdentifier</code> reference, and then ask the <code>collectionView</code> to dequeue a reusable cell with that reuse identifier. If there <em>is</em> a reusable cell in the <code>collectionView's</code> cache, this will be returned to us ready for configuration - if not, the <code>collectionView</code> will create a new one for us behind the scenes. We neither know nor care which process takes place - as far as we&rsquo;re concerned, <code>dequeueReusableCellWithReuseIdentifier:forIndexPath:</code> is magic and always returns a <code>UICollectionViewCell</code> ready for use.</p>
+
+<p>Because we registered a nib with this cell identifier, the <code>collectionView</code> will have loaded and decompressed the xib file ready for use. We placed a <code>UILabel</code> inside the <code>UICollectionViewCell</code> and gave it tag of <code>100</code> - which means we can peer into the cell and grab a reference to the label (the reference is actually a <code>UIView</code>, so we need to cast it to a <code>UILabel</code> in order to be able to access the <code>UILabel</code> properties.)</p>
+
+<p>Once the <code>UILabel</code> properties are accessible, they can be set, and the cell can be returned to be displayed by the collection view.</p>
+
+<p>Once all that is in place, run the app, and you should see this:</p>
+
+<p><img src="/images/2012/09/PIC3001-778x1024.png" alt="" /></p>
+
+<p><strong>CREATING UICOLLECTIONVIEW CELLS WITH SUBCLASSES</strong></p>
+
+<p>Creating a custom <code>UICollectionViewCell</code> subclass is an alternative to the purely nib-based approach, and can provide a greater degree of control over the appearance and behaviour of the cell.</p>
+
+<p>The first thing we&rsquo;ll need is a subclass of <code>UICollectionViewCell</code>. Create a new class (File &gt; New &gt; File) by selecting the Objective-C class option from the Cocoa Touch list, and then set the subclass to <code>UICollectionViewCell</code>. I&rsquo;ve named my class <code>CVCell</code>.</p>
+
+<p>This will create two files - a header and implementation for <code>CVCell</code>. In the header, create <code>IBOutlet</code> properties for any controls that you&rsquo;re going to add to the xib file - I&rsquo;ve added a single <code>UILabel</code>:</p>
+
+<pre><code>@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
+</code></pre>
+
+<p>Then in the implementation file, you&rsquo;ll need to override the <code>initWithFrame:</code> method:</p>
+
+<pre><code>- (id)initWithFrame:(CGRect)frame {
+
+    self = [super initWithFrame:frame];
+
+    if (self) {
+        // Initialization code
+        NSArray *arrayOfViews = [[NSBundle mainBundle] loadNibNamed:@&quot;CVCell&quot; owner:self options:nil];
+
+        if ([arrayOfViews count] &lt; 1) {
+            return nil;
+        }
+
+        if (![[arrayOfViews objectAtIndex:0] isKindOfClass:[UICollectionViewCell class]]) {
+            return nil;
+        }
+
+        self = [arrayOfViews objectAtIndex:0];
+
+    }
+
+    return self;
+
+}
+</code></pre>
+
+<p>This firstly calls the superclass&rsquo;s <code>initWithFrame:</code> method, then loads the xib file (which we&rsquo;ll create in a second) into an <code>NSArray</code>. If the array is empty, then something has gone wrong and all we can do is return nil. Otherwise, we can grab a reference to the object at index <code>0</code> in the array. That object <em>should</em> be a <code>UICollectionViewCell</code> object - if isn&rsquo;t, something has gone wrong and we bail out. It if is, we set it to <code>self</code> (because this object is itself an instance of <code>UICollectionViewCell</code>) and then return.</p>
+
+<p>Once that class is created, we can build the cell using Interface Builder. As before, create a new view file, delete the view object that&rsquo;s provided for you and drag in a <code>UICollectionViewCell</code> object. Then add a <code>UILabel</code> as we did previously.</p>
+
+<p>The next job is to change the class of the <code>UICollectionViewCell</code> object to our new <code>CVCell</code> class. Select the <code>Cell</code> object in the <code>Objects</code> list and click the Identity inspector icon to reveal the <code>Custom Class</code> setting. At the moment, this will be set to <code>UICollectionViewCell</code> - delete that, and replace it with <code>CVCell</code>.</p>
+
+<p><img src="/images/2012/09/PIC4001.png" alt="" /></p>
+
+<p>If you now ctrl-click on the <code>Cell</code> object in the <code>Objects</code> list, you&rsquo;ll see that there&rsquo;s a <code>titleLabel</code> listed as an outlet in the popup view. That&rsquo;s the <code>titleLabel</code> property that we created in the <code>CVCell</code> class - you can drag from this onto the <code>UILabel</code>, and this will connect the two together. You&rsquo;ll now be able to set the attributes of the <code>UILabel</code> through the <code>CVCell</code> class&rsquo;s <code>titleLabel</code> property.</p>
+
+<p>We&rsquo;re done with the xib file, so save it and head back to the view controller.</p>
+
+<p>As we&rsquo;ve now got a custom <code>UICollectionViewCell</code> subclass, we need to import the subclass, and then register this with the <code>collectionView</code>. Add an import statement at the top of the view controller:</p>
+
+<pre><code>#import &quot;CVCell.h&quot;
+</code></pre>
+
+<p>At the moment, there are two lines in the <code>viewDidLoad</code> method that register the nib - remove these, and replace them with:</p>
+
+<pre><code>[self.collectionView registerClass:[CVCell class] forCellWithReuseIdentifier:@&quot;cvCell&quot;];
+</code></pre>
+
+<p>That&rsquo;s pretty self-explanatory - the <code>collectionView</code> has the <code>CVCell</code> class registered for use with the <code>cvCell</code> reuse identifier, so whenever we ask the <code>collectionView</code> to dequeue a cell using this identifier, it will hand us back an instance of the <code>CVCell</code> class.</p>
+
+<p>This means we need to update the <code>collectionView:cellForItemAtIndexPath:</code> method. Alter it so that it looks like this:</p>
+
+<pre><code>-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+
+    static NSString *cellIdentifier = @&quot;cvCell&quot;;
+
+    CVCell *cell = (CVCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+
+    NSMutableArray *data = [self.dataArray objectAtIndex:indexPath.section];
+
+    NSString *cellData = [data objectAtIndex:indexPath.row];
+
+    [cell.titleLabel setText:cellData];
+
+    return cell;
+
+}
+</code></pre>
+
+<p>When we ask the <code>collectionView</code> to dequeue a cell, it will hand back an instance of <code>UICollectionViewCell</code>, because that&rsquo;s all the dequeue method knows about. As we want to use our custom subclass, we first need to cast the <code>UICollectionViewCell</code> into an instance of <code>CVCell</code>. That then give us access to the <code>titleLabel</code> property, which can be set with the line:</p>
+
+<pre><code>[cell.titleLabel setText:cellData];
+</code></pre>
+
+<p>If you run the app again, it will look exactly the same as it did before - the difference is that we&rsquo;ve created cells as instances of a custom <code>UICollectionViewCell</code> subclass.</p>
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2012%2f09%2f19%2fa-simple-uicollectionview-tutorial%2f - A%20simple%20UICollectionView%20tutorial by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

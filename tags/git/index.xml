@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/git/</link>
+    <description>Recent content in Git on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Tue, 24 May 2011 21:40:54 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My Git workflow</title>
+      <link>https://adoptioncurve.net/2011/05/24/my-git-workflow/</link>
+      <pubDate>Tue, 24 May 2011 21:40:54 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/05/24/my-git-workflow/</guid>
+      <description>The first time I encountered Git, I was confused. Pushing and pulling and branching and merging all sound straight-forward in and of themselves, but when you&amp;rsquo;re first trying to figure out what to do when it can rapidly descend into witchcraft. Neither was I particularly organised about how I managed code and deployment - it was all a bit ad-hoc, which works fine for a while but eventually has the potential for accidental cockups.</description>
+    </item>
+    
+  </channel>
+</rss>

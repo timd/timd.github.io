@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Php on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/php/</link>
+    <description>Recent content in Php on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Tue, 27 Jul 2010 13:35:27 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Creating Facebook events with the PHP SDK</title>
+      <link>https://adoptioncurve.net/2010/07/27/creating-facebook-events-with-the-php-sdk/</link>
+      <pubDate>Tue, 27 Jul 2010 13:35:27 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/07/27/creating-facebook-events-with-the-php-sdk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Grabbing data from the Facebook API</title>
+      <link>https://adoptioncurve.net/2010/07/15/grabbing-data-from-the-facebook-api/</link>
+      <pubDate>Thu, 15 Jul 2010 17:12:21 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/07/15/grabbing-data-from-the-facebook-api/</guid>
+      <description>One of the projects I&amp;rsquo;m currently working on needs has a large chunk of Facebook integration. It&amp;rsquo;s thrown up a couple of problems around groups and group permissions:
+ the need to figure out which groups a user belongs to
+ which of those groups the user has &amp;ldquo;write&amp;rdquo; permissions for.
+  The Facebook API is a bit of a moving target with all the various updates and changes going on, and documentation is a bit sparse.</description>
+    </item>
+    
+    <item>
+      <title>Nested IF statements with Movable TYpe</title>
+      <link>https://adoptioncurve.net/2009/09/22/nested-if-statements-with-movable-type/</link>
+      <pubDate>Tue, 22 Sep 2009 12:10:25 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/09/22/nested-if-statements-with-movable-type/</guid>
+      <description>One of the - ahem - undocumented features of Movable Type is a certain estotericness about the way it interprets Boolean logic within template tags. That&amp;rsquo;s a polite way of saying it&amp;rsquo;s more-or-less completely unpredictable, which can lead to much wailing and gnashing of teeth during template development.
+Fortunately, there&amp;rsquo;s a workaround, an example of which is below. It comes at a computational cost, because you&amp;rsquo;re using PHP to fill in for MT&amp;rsquo;s deficiencies - but if you&amp;rsquo;re using static templates, then that cost is only really incurred as the templates are rebuild</description>
+    </item>
+    
+  </channel>
+</rss>

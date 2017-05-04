@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programming on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/programming/</link>
+    <description>Recent content in Programming on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Wed, 03 Jun 2009 21:00:41 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What&#39;s an API and why do I want one?</title>
+      <link>https://adoptioncurve.net/2009/06/03/whats-an-api-and-why-do-i-want-one/</link>
+      <pubDate>Wed, 03 Jun 2009 21:00:41 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/06/03/whats-an-api-and-why-do-i-want-one/</guid>
+      <description>[cross-posted from the Headshift blog]
+That&amp;rsquo;s a question I was asked a few days ago by a client. It&amp;rsquo;s a fair question, too - there&amp;rsquo;s no point in building features into systems unless they provide some benefit, so why would you want to spend time and effort doing this? And for that matter, what exactly IS an API?
+The acronym stands for &amp;ldquo;application programming interface&amp;rdquo;, which is a typically over-engineered way of saying &amp;ldquo;means of putting information in and getting information out of your system without having to type it yourself&amp;rdquo;.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,455 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Blocks in Objective-C (without tears) &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Blocks in Objective-C (without tears)" />
+<meta property="og:description" content="Blocks are a feature of Objective-C 2.0, and were introduced to iOS in version 4.0. They’re a fantastically-useful feature of the language, and they’re being used in more and more places as Apple introduces new classes into the iOS SDK. Apple clearly see blocks as being central to the way that iOS is going to evolve in the future.
+
+Understanding what blocks are, and how they work, is key to being able to exploit the features of the SDK. At first glance blocks can seem a bit impenetrable – their syntax isn’t as clear as other parts of Objective-C, and there’s a certain amount of apparent black magic taking place behind the scenes.
+
+But once you get to grips with blocks, you’ll quickly realise how powerful and flexible they can be; and you’ll be well-placed to deal with the evolution of Objective-C and the iOS SDK in the future.
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2013/02/15/blocks-in-objective-c-without-tears/" />
+
+
+
+<meta property="article:published_time" content="2013-02-15T10:25:32&#43;00:00"/>
+<meta property="article:modified_time" content="2013-02-15T10:25:32&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Blocks in Objective-C (without tears)">
+<meta itemprop="description" content="Blocks are a feature of Objective-C 2.0, and were introduced to iOS in version 4.0. They’re a fantastically-useful feature of the language, and they’re being used in more and more places as Apple introduces new classes into the iOS SDK. Apple clearly see blocks as being central to the way that iOS is going to evolve in the future.
+
+Understanding what blocks are, and how they work, is key to being able to exploit the features of the SDK. At first glance blocks can seem a bit impenetrable – their syntax isn’t as clear as other parts of Objective-C, and there’s a certain amount of apparent black magic taking place behind the scenes.
+
+But once you get to grips with blocks, you’ll quickly realise how powerful and flexible they can be; and you’ll be well-placed to deal with the evolution of Objective-C and the iOS SDK in the future.
+
+">
+
+
+<meta itemprop="dateModified" content="2013-02-15T10:25:32&#43;00:00" />
+<meta itemprop="wordCount" content="1211">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Blocks in Objective-C (without tears)"/>
+<meta name="twitter:title" content="Blocks in Objective-C (without tears)"/>
+<meta name="twitter:description" content="Blocks are a feature of Objective-C 2.0, and were introduced to iOS in version 4.0. They’re a fantastically-useful feature of the language, and they’re being used in more and more places as Apple introduces new classes into the iOS SDK. Apple clearly see blocks as being central to the way that iOS is going to evolve in the future.
+
+Understanding what blocks are, and how they work, is key to being able to exploit the features of the SDK. At first glance blocks can seem a bit impenetrable – their syntax isn’t as clear as other parts of Objective-C, and there’s a certain amount of apparent black magic taking place behind the scenes.
+
+But once you get to grips with blocks, you’ll quickly realise how powerful and flexible they can be; and you’ll be well-placed to deal with the evolution of Objective-C and the iOS SDK in the future.
+
+"/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Blocks in Objective-C (without tears)</h1>
+                    <h2 class="headline">
+                    15 February 2013 
+                    <br>
+                    
+                    
+                        
+                            <a href="https://adoptioncurve.net/tags/ios">iOS</a>
+                        
+                            <a href="https://adoptioncurve.net/tags/objectivec">objectivec</a>
+                        
+                    
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>Blocks are a feature of Objective-C 2.0, and were introduced to iOS in version 4.0. They’re a fantastically-useful feature of the language, and they’re being used in more and more places as Apple introduces new classes into the iOS SDK. Apple clearly see blocks as being central to the way that iOS is going to evolve in the future.</p>
+
+<p>Understanding what blocks are, and how they work, is key to being able to exploit the features of the SDK. At first glance blocks can seem a bit impenetrable – their syntax isn’t as clear as other parts of Objective-C, and there’s a certain amount of apparent black magic taking place behind the scenes.</p>
+
+<p>But once you get to grips with blocks, you’ll quickly realise how powerful and flexible they can be; and you’ll be well-placed to deal with the evolution of Objective-C and the iOS SDK in the future.</p>
+
+<p></p>
+
+<h2 id="blocks-in-other-languages">Blocks in other languages</h2>
+
+<p>If you’ve come to Objective-C from other languages, you may well have come across the functionality of blocks under another name – for example, closures or lambdas. The basic operation of blocks is very similar to the way that closures are used in other languages – albeit that the Objective-C syntax perhaps isn’t as clear as it could be.</p>
+
+<p>If block, closures or lambdas mean nothing to you yet - skip this section and I&rsquo;ll start from the very beginning.</p>
+
+<p>Otherwise, here&rsquo;s a quick example that will be familiar if you&rsquo;re a Rubyist:</p>
+
+<pre><code>[1, 2, 3, 4].each do |i|
+  puts i
+end
+</code></pre>
+
+<p>This uses the each operator to iterate across the array, and passes the results of the each operator into the i variable. The variable then gets printed out.</p>
+
+<p>Objective-C blocks take the feature that’s been available as closures in other languages for some time, and exploits them as part of the iOS SDK.</p>
+
+<h2 id="blocks-what-are-they-good-for">Blocks – what are they good for?</h2>
+
+<p>Blocks are used in Objective-C for two main purposes:</p>
+
+<ul>
+<li><p>As a way of encapsulating small chunks of code as an alternative to methods</p></li>
+
+<li><p>As an alternative to callbacks or delegate methods.</p></li>
+</ul>
+
+<p>Don&rsquo;t worry if that doesn’t immediately make a lot of sense – it’ll become clearer as you look at blocks in more detail. HUGOMORE42</p>
+
+<h2 id="the-syntax-of-blocks">The syntax of blocks</h2>
+
+<p>Blocks are indicated by the block operator – the caret character, or <code>^</code>. This denotes a block in the same way as the splat <code>*</code> operator denotes a pointer.</p>
+
+<p>One of the most confusing aspects of blocks is the syntax. This is just my personal opinion, but the Objective-C block syntax is actually very un-Objective-C-like – it’s far more confusing than it could be. But that said, let’s take a look at the basic syntax of a block in an attempt to decode it.</p>
+
+<p>Don’t worry if this doesn’t make any complete sense right now. I’ll unpack the meanings as we go through the next section.</p>
+
+<h2 id="block-literals">Block literals</h2>
+
+<p>The simplest way of declaring a block literal looks like this:</p>
+
+<pre><code>^{
+  // This is the body of the block literal
+  NSLog(@”This is the body of the block literal”);
+  // Do other stuff…
+  // ...and some more stuff
+}
+</code></pre>
+
+<p>The block is denoted by the <code>^</code> caret character, and the body of the block is enclosed between the <code>{ }</code> braces.</p>
+
+<p>Inside the block can be placed virtually any Objective-C code (with certain exceptions, which we’ll look at along the way.)</p>
+
+<h2 id="block-variables">Block variables</h2>
+
+<p>We can also declare blocks as block variables – this is a bit like a normal variable, but instead of a value, the block variable contains – well, a block of code.</p>
+
+<pre><code>BOOL (^myBlock)(int) = ^(int theVariable) {
+  // Code goes here
+}
+</code></pre>
+
+<p>Unpacking that, we get:</p>
+
+<p><img src="/images/blocks1.png" alt="" /></p>
+
+<p>You’d call that block with something like:</p>
+
+<p><code>BOOL result = myBlock(5);</code></p>
+
+<p>If you think this looks very much like a C function – well, you’d be right. In many ways, blocks behave and can be treated as functions.</p>
+
+<p>It might help here to think back to the way that functions are declared in plain ‘ole C:</p>
+
+<pre><code>(int)myFunction(int parameterOne, int parameterTwo) {
+  // code goes here
+  return anInt;
+}
+</code></pre>
+
+<p>If we were to write that C function as an Objective-C block, it would look like:</p>
+
+<pre><code>int (^myFunction)(int, int) = ^(int parameterOne, int parameterTwo) {
+  // do something here
+  return anInt;
+}
+</code></pre>
+
+<p>Blocks can, of course, take more than one parameter:</p>
+
+<pre><code>BOOL(^myBigBlock)(int, float) = ^(int foo, float bar) {
+  // something happens here
+}
+</code></pre>
+
+<p>That would get called by</p>
+
+<p><code>BOOL secondResult = myBigBlock(5, 3.1415);</code></p>
+
+<p>Sometimes it helps to read the code out loud – I’d read this as:</p>
+
+<p><strong><em>“The block called <code>myBigBlock</code> returns a <code>BOOL</code>, and takes two parameters - an <code>int</code> parameter called <code>foo</code> and a <code>float</code> parameter called <code>bar</code>.”</em></strong></p>
+
+<p>You can see that block syntax deals with return values and parameters in a very similar way to C.</p>
+
+<p>And of course, you can pass in Objective-C object as parameters (and return objects from the block):</p>
+
+<pre><code>(NSString *)(^myObjectBlock)(int, NSString *, id) = ^(int foo, NSString *barString, id bash) {
+  // do stuff with the parameters
+  return returnString;
+}
+</code></pre>
+
+<p>I’d read this out loud as</p>
+
+<p><strong><em>&ldquo;<code>myObjectBlock</code> is a block that returns a pointer to an <code>NSString</code>, and takes three parameters – an <code>int</code> called <code>foo</code>, a pointer to an <code>NSString</code> called <code>barString</code> and a pointer to an <code>id</code> called <code>bash</code>.”</em></strong></p>
+
+<h2 id="putting-it-all-together">Putting it all together</h2>
+
+<p>To round this all off, let’s put it all together with a bigger example. It’s the Objective-C equivalent of nonsense verse, but it shows how everything fits together:</p>
+
+<pre><code>NSString *(^myBigBlock)(int, NSString *, NSArray *) = ^(int foo, NSString *barString, NSArray *bash){
+  NSInteger count = [bash count];
+  NSInteger result = count * foo;
+  return [NSString stringWithFormat:@&quot;You passed %@ in and the result is %d&quot;, barString, result];
+};
+
+NSString *theString = @&quot;this is a string!&quot;;
+NSArray *theArray = [NSArray arrayWithObjects:@&quot;1&quot;, @&quot;2&quot;, @&quot;3&quot;, nil];
+NSString *stringFromTheBlock = myBigBlock(5, theString, theArray);
+NSLog(@&quot;stringFromTheBlock = %@&quot;, stringFromTheBlock);
+</code></pre>
+
+<p>Here we’re declaring a block that returns a pointer to an <code>NSString</code> and takes three parameters – an <code>int</code>, and pointers to an <code>NSString</code> and an <code>NSArray</code>:</p>
+
+<p><code>NSString *(^myBigBlock)(int, NSString *, NSArray *)</code></p>
+
+<p>The block itself is defined inside the braces:</p>
+
+<pre><code>^(int foo, NSString *barString, NSArray *bash){
+ NSInteger count = [bash count];
+ NSInteger result = count * foo;
+ return [NSString stringWithFormat:@&quot;You passed %@ in and the result is %d&quot;, barString, result];
+};
+</code></pre>
+
+<h2 id="using-blocks-in-multiple-places">Using blocks in multiple places</h2>
+
+<p>If you’re going to use a block in multiple places, then best practice is to create a type for it:</p>
+
+<p><code>typedef float (^MyBlockType)(int, float);</code></p>
+
+<p>You can then define a block called <code>firstBlock</code> with:</p>
+
+<pre><code>MyBlockType firstBlock = ^(int foo, float bar){
+  return foo * bar;
+};
+</code></pre>
+
+<p>And used with something like:</p>
+
+<p><code>float result = firstBlock(5, 1.3);</code></p>
+
+<p>Types for blocks with Objective-C objects can be created in a similar way:</p>
+
+<p><code>typedef NSString* (^MyObjectyBlock)(int, NSArray*, NSString*);</code></p>
+
+<p>You’d define this with something along the lines of:</p>
+
+<pre><code>MyObjectyBlock secondBlock = ^(int foo, NSArray *theArray, NSString *theString){
+  // something exciting happens here
+  return aStringResult;
+};
+</code></pre>
+
+<p>Assuming that you’ve previously declared an <code>NSArray</code> called <code>fooArray</code> and an <code>NSString</code> called <code>barString</code>, <code>secondBlock</code> would be called thus:</p>
+
+<p><code>NSString *blockString = secondBlock(5, fooArray, barString);</code></p>
+
+<h2 id="where-next">Where next?</h2>
+
+<p>Having provided what I hope is a <em>practical</em> introduction, in <a href="http://www.adoptioncurve.net/archives/2013/02/more-on-block-in-objective-c-but-still-without-tears.php">the next post</a> I&rsquo;ll use the Apple documentation as a starting point to look at blocks and how they work in more detail.</p>
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2013%2f02%2f15%2fblocks-in-objective-c-without-tears%2f - Blocks%20in%20Objective-C%20%28without%20tears%29 by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

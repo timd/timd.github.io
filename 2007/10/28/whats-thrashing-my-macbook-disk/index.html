@@ -1,0 +1,251 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>What&#39;s thrashing my Macbook disk? &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="What&#39;s thrashing my Macbook disk?" />
+<meta property="og:description" content="So far, my MacBook Pro has been running really well, with one or two very minor niggles. One of these was the speed of going to sleep - there would be a good 30 seconds elapsed between closing the lid and the sleep light &ldquo;snoring&rdquo;; and the other problem was that the disk seemed to be getting thrashed to bits for no apparent reason. Even when sitting quietly apparently doing nothing, the disk would be churning away." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2007/10/28/whats-thrashing-my-macbook-disk/" />
+
+
+
+<meta property="article:published_time" content="2007-10-28T20:36:54&#43;00:00"/>
+<meta property="article:modified_time" content="2007-10-28T20:36:54&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="What&#39;s thrashing my Macbook disk?">
+<meta itemprop="description" content="So far, my MacBook Pro has been running really well, with one or two very minor niggles. One of these was the speed of going to sleep - there would be a good 30 seconds elapsed between closing the lid and the sleep light &ldquo;snoring&rdquo;; and the other problem was that the disk seemed to be getting thrashed to bits for no apparent reason. Even when sitting quietly apparently doing nothing, the disk would be churning away.">
+
+
+<meta itemprop="dateModified" content="2007-10-28T20:36:54&#43;00:00" />
+<meta itemprop="wordCount" content="468">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="What&#39;s thrashing my Macbook disk?"/>
+<meta name="twitter:title" content="What&#39;s thrashing my Macbook disk?"/>
+<meta name="twitter:description" content="So far, my MacBook Pro has been running really well, with one or two very minor niggles. One of these was the speed of going to sleep - there would be a good 30 seconds elapsed between closing the lid and the sleep light &ldquo;snoring&rdquo;; and the other problem was that the disk seemed to be getting thrashed to bits for no apparent reason. Even when sitting quietly apparently doing nothing, the disk would be churning away."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>What&#39;s thrashing my Macbook disk?</h1>
+                    <h2 class="headline">
+                    28 October 2007 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>So far, my MacBook Pro has been running really well, with one or two very minor niggles.  One of these was the speed of going to sleep - there would be a good 30 seconds elapsed between closing the lid and the sleep light &ldquo;snoring&rdquo;; and the other problem was that the disk seemed to be getting thrashed to bits for no apparent reason.  Even when sitting quietly apparently doing nothing, the disk would be churning away.   For all I knew, this might be something normal, but constant disk activity seems a bit odd.</p>
+
+<p>The first step was to find out what was thrashing the disk.   The built-in OS X Activity Monitor will show you the volume of disk activity, but there&rsquo;s no way to work out what is doing the read/writing.   So the next port of call is to work out which process is the cause.   The easiest way of doing this is to use the fs_usage command, that monitors disk access and captures details of the process that&rsquo;s doing the accessing.</p>
+
+<p>If you run this on the command line, the data scrolls past until you stop it with ctrl-c - but that&rsquo;s generally too fast to be useful, so you&rsquo;re better piping the output into a file like this: sudo fs_usage -w &gt; file1.txt   The fs_usage command needs to run with root permissions, hence the sudo command.</p>
+
+<p>Then you can open the file in a text editor, e.g. mate file1.txt and analyse at your own pace.   The -w switch forces wide output, so you get all the data being reported - but you&rsquo;ll need to widen your text editor window in order to be able to see this.   In the right-hand column you&rsquo;ll see the application names reading and writing to the disk.</p>
+
+<p>In my case, the problem was obvious - at least 95% of the data being recorded in the file was caused by Google Desktop.   I don&rsquo;t know exactly what it was doing - indexing, presumably - but it was enough to thrash the disk and also as it turns out, slow down the process of going to sleep.   I don&rsquo;t know whether this constant disk activity is normal for Google, but I don&rsquo;t use Google Desktop enough to make it worth while - so It Had To Go.</p>
+
+<p>That turned out to be slightly less than straight-forward, due to the non-standard way that it gets installed.  After several false starts where the same process would reappear after a reboot despite apparently uninstalling the software itself, I came across <a href="http://daringfireball.net/2007/04/google_desktop_installer">this set of instructions at Daring Fireball</a> which outlines exactly what gets installed where.   After working through this list and zapping the files, a final reboot resulted in peace and quiet, and a sleep as quick as I&rsquo;ve been used to with a G4 Powerbook.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2007%2f10%2f28%2fwhats-thrashing-my-macbook-disk%2f - What%27s%20thrashing%20my%20Macbook%20disk%3f by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

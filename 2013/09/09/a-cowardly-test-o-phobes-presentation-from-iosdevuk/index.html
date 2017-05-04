@@ -1,0 +1,403 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>A Cowardly Test-o-phobe&#39;s presentation from iOSDevUK &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="A Cowardly Test-o-phobe&#39;s presentation from iOSDevUK" />
+<meta property="og:description" content="Last week I gave a presentation at iOSDevUK in Aberystwyth on test-driven development for iOS. This is the first of three posts that go through the presentation itself and some of the background, together with links to other resources. ( Part 2 | Part 3 )
+It sometimes seems to me that unit testing on iOS has been a poor relation ever since the framework was released and having talked to some ex-Apple people one evening, it seems that unit testing hasn&rsquo;t been an approach that Apple have used much internally." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2013/09/09/a-cowardly-test-o-phobes-presentation-from-iosdevuk/" />
+
+
+
+<meta property="article:published_time" content="2013-09-09T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2013-09-09T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="A Cowardly Test-o-phobe&#39;s presentation from iOSDevUK">
+<meta itemprop="description" content="Last week I gave a presentation at iOSDevUK in Aberystwyth on test-driven development for iOS. This is the first of three posts that go through the presentation itself and some of the background, together with links to other resources. ( Part 2 | Part 3 )
+It sometimes seems to me that unit testing on iOS has been a poor relation ever since the framework was released and having talked to some ex-Apple people one evening, it seems that unit testing hasn&rsquo;t been an approach that Apple have used much internally.">
+
+
+<meta itemprop="dateModified" content="2013-09-09T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1252">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="A Cowardly Test-o-phobe&#39;s presentation from iOSDevUK"/>
+<meta name="twitter:title" content="A Cowardly Test-o-phobe&#39;s presentation from iOSDevUK"/>
+<meta name="twitter:description" content="Last week I gave a presentation at iOSDevUK in Aberystwyth on test-driven development for iOS. This is the first of three posts that go through the presentation itself and some of the background, together with links to other resources. ( Part 2 | Part 3 )
+It sometimes seems to me that unit testing on iOS has been a poor relation ever since the framework was released and having talked to some ex-Apple people one evening, it seems that unit testing hasn&rsquo;t been an approach that Apple have used much internally."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>A Cowardly Test-o-phobe&#39;s presentation from iOSDevUK</h1>
+                    <h2 class="headline">
+                    9 September 2013 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    
+
+<p>Last week I gave a presentation at <a href="http://www.iosdevuk.com">iOSDevUK</a> in Aberystwyth on test-driven development for iOS.  This is the first of three posts that go through the presentation itself and some of the background, together with links to other resources.  ( <a href="/archives/2013/09/testing-for-cowards-part-2-testing-user-interfaces/">Part 2</a> | <a href="/archives/2013/09/testing-for-cowards-part-3-testing-the-full-interface/">Part 3</a>  )</p>
+
+<p>It sometimes seems to me that unit testing on iOS has been a poor relation ever since the framework was released and having talked to some ex-Apple people one evening, it seems that unit testing hasn&rsquo;t been an approach that Apple have used much internally.  This might go some way to explaining the relatively poor state of the tools compared to say, the Rails world.</p>
+
+<p>That said, with a combination of the Apple tools that <em>are</em> available and those created by the iOS community, unit testing and test-driven development are both possible <em>and</em> feasible.</p>
+
+<p>It&rsquo;s my contention that test-driven development delivers better-quality code, so the purpose of the talk was to try to show that building apps with this approach is something that can and should be done.</p>
+
+<p>Having said that, I don&rsquo;t have a lot of time for the quasi-religious waffle that tends to characterise discussion of test-driven development. Like any technical topic, there are those who lose sight of the end goal in the search for the &ldquo;one true way&rdquo; of doing things.  I get paid by the delivered project, so I&rsquo;m more pragmatic - if it helps me build bug-free code quicker, then I&rsquo;ll live with the lack of ideological purity.</p>
+
+<p>Bearing that in mind, what follows is here is my take on things and other opinions are available.   This is the first of three posts which walks through the presentation code that can be downloaded or cloned from GitHub: <a href="https://github.com/timd/TrafficLightTests">https://github.com/timd/TrafficLightTests</a>  It&rsquo;s not a word-for-word transcript of what I said, but this in combination with the test code itself should be clear enough.</p>
+
+<p><img src="left /images/2013/09/app.png 200" alt="" /></p>
+
+<h3 id="the-project">The project</h3>
+
+<p>The demo project is an iPhone project that runs a simulation of a set of traffic lights running the UK sequence - red; red and amber; green; amber; and back to red.   There are two sets of lights - one controlling upstream traffic; and the other controlling downstream.</p>
+
+<p>The app launches with all lights off; tapping the <code>start</code> button launches the sequence with two red lights. From there, tapping the <code>tick</code> button toggles each set of lights through the sequence in turn before repeating. Tapping the <code>stop</code> button at any time reset the sequence back to two reds.</p>
+
+<p>Before the sequence is started by tapping <code>start</code>, the <code>tick</code> and <code>stop</code> buttons are disabled. Once the sequence is in progress, the <code>start</code> button is disabled, and <code>tick</code> and <code>stop</code> are enabled.</p>
+
+<h3 id="the-app-structure">The app structure</h3>
+
+<p>The app has a model-view-controller structure, and uses a state machine to control the state of the lights as they run through the sequence.  The <code>LightEngine</code> class acts as a delegate to the <code>ViewController</code> and has a single <code>tick</code> method that returns an <code>NSNumber</code> light code.  That&rsquo;s a decimal representation of the state of the lights at each stage of the sequence, together with a flag to show whether the traffic is flowing upstream or downstream.</p>
+
+<p><img src="/images/2013/09/mvc3.png" alt="" /></p>
+
+<p>The <code>ViewController</code> class uses the code to control the state of the lights, by making a bitwise comparison of the code&rsquo;s binary value and toggling each light in turn.  It also responds to the <code>start</code> and <code>stop</code> buttons by resetting the lights, <code>LightEngine</code> and button enablement.</p>
+
+<h3 id="the-source-code">The source code</h3>
+
+<p>All the source code (including the tests) can be downloaded or cloned from GitHub: <a href="https://github.com/timd/TrafficLightTests">https://github.com/timd/TrafficLightTests</a></p>
+
+<h3 id="the-testing-approach">The testing approach</h3>
+
+<p>I split the talk into two sections - the first was a quick demo of how to add a test target to a project; and then install the Kiwi framework to replace the default SenTest. I&rsquo;ll cover those steps in a separate, later post.</p>
+
+<p>The second section looked at building the app from scratch using a test-driven approach.  To do to this in 40 minutes while typing frantically was a bit of a tall order, so I cheated slightly by using Xcode snippets to store the code rather than typing; and Git to flip between the project in various states.</p>
+
+<p>The structure of the testing covered three areas:</p>
+
+<ul>
+<li>the <code>LightEngine</code> model, which returns the code for the lights at each step in the sequence</li>
+<li>the user interface - wiring up the buttons to call the right methods, and control the initial state of the lights</li>
+<li>the lights themselves - taking the code returned from the <code>LightEngine</code> and updating the display accordingly.</li>
+</ul>
+
+<p>That&rsquo;s by no means the only approach that could be used; but it makes logical sense to me to start from the inside-out by building the model; getting the model to respond to user input; then fully-updating the interface.</p>
+
+<h3 id="testing-the-model"># Testing the model</h3>
+
+<p>The model is a standalone <code>NSObject</code> subclass that has one role in life - to act as a state machine that steps through each permutation of lights in turn, and respond with a code to a <code>tick</code> method.  It&rsquo;s linked to the view controller as the delegate - this isn&rsquo;t necessarily an architecture that you&rsquo;d use in real life, but it was a handy way of demonstrating testing of delegates.</p>
+
+<p>&ldquo;Classical&rdquo; TDD starts with a blinking cursor in an empty text file, and works from there.  That&rsquo;s not possible with an Xcode project, because the compiler will complain about missing classes - so the first step is to test that the object can be instantiated.  Also included in that batch are tests for the existence of the <code>tick</code> method, and that an <code>NSNumber</code> is returned:</p>
+
+<pre><code>context(@&quot;when instantiated&quot;, ^{
+
+    it(@&quot;should exist&quot;, ^{
+        [[engine shouldNot] beNil];
+    });
+
+    it(@&quot;should respond to the 'tick' message&quot;, ^{
+        [[engine should] respondToSelector:@selector(tick)];
+    });
+
+    it(@&quot;should return an NSNumber in response to a 'tick' message&quot;, ^{
+        id result = [engine tick];
+        [[result should] beKindOfClass:[NSNumber class]];
+    });
+
+});
+</code></pre>
+
+<p>Next, the <code>tick</code> method is tested to ensure that it&rsquo;ll handle keeping track of the position in the state machine sequence:</p>
+
+<pre><code>describe(@&quot;and handling the tick count&quot;, ^{
+
+    it(@&quot;should have a tickCount property&quot;, ^{
+        [[engine should] respondToSelector:@selector(tickCount)];
+    });
+
+    it(@&quot;should increment the tickCount property in response to a tick&quot;, ^{
+        [[theValue(engine.tickCount) should] equal:theValue(0)];
+        [engine tick];
+        [[theValue(engine.tickCount) should] equal:theValue(1)];
+        [engine tick];
+        [[theValue(engine.tickCount) should] equal:theValue(2)];
+    });
+
+    it(@&quot;should roll the tickCount over to 0 when it reaches 7&quot;, ^{
+        [[theValue(engine.tickCount) should] equal:theValue(0)];
+        for(int count=0; count&lt;7; count++) {
+            [engine tick];
+        }
+        [[theValue(engine.tickCount) should] equal:theValue(7)];
+        [engine tick];
+        [[theValue(engine.tickCount) should] equal:theValue(0)];
+    });
+
+});
+</code></pre>
+
+<p>And finally that the <code>tick</code> method will return the right values at the right point in the sequence:</p>
+
+<pre><code>describe(@&quot;and handling tick responses&quot;, ^{
+
+    it(@&quot;should return @164 in response to the first tick&quot;, ^{
+        NSNumber *result = [engine tick];
+        [[result should] equal:@164];
+    });
+
+    it(@&quot;should return @180 in response to the second tick&quot;, ^{
+        [engine tick];
+        NSNumber *secondResult = [engine tick];
+        [[secondResult should] equal:@180];
+    });
+
+    NSArray *expectedValues = @[@164,@180,@140,@148,@100,@102,@97,@98,
+                                @164,@180,@140,@148,@100,@102,@97,@98,
+                                @164,@180,@140,@148,@100,@102,@97,@98];
+
+    it(@&quot;should return the correct values when ticking repeatedly&quot;, ^{
+
+        for (NSNumber *value in expectedValues) {
+            NSNumber *returnValue = [engine tick];
+            [[returnValue should] equal:value];
+        }
+
+    });
+
+});
+</code></pre>
+
+<p>The final set of tests is to check that the model will handle being brought to a halt:</p>
+
+<pre><code>context(@&quot;when stopping&quot;, ^{
+
+    it(@&quot;should respond to the stop message&quot;, ^{
+        [[engine should] respondToSelector:@selector(stopSequence)];
+    });
+
+    it(@&quot;should reset the tickCount back to zero in response to a stop message&quot;, ^{
+        [[theValue([engine tickCount]) should] equal:theValue(0)];
+        [engine tick];
+        [[theValue([engine tickCount]) should] equal:theValue(1)];
+        [engine stopSequence];
+        [[theValue([engine tickCount]) should] equal:theValue(0)];
+    });
+
+});
+</code></pre>
+
+<h3 id="testing-the-user-interface">Testing the user interface</h3>
+
+<p>In the <a href="/archives/2013/09/testing-for-cowards-part-2-testing-user-interfaces/">next post</a>, I&rsquo;ll cover setting up the user interface for testing; and step through how to test user interaction.</p>
+
+<p><a href="http://adoptioncurve.net/archives/2013/09/testing-for-cowards-part-2-testing-user-interfaces/">http://adoptioncurve.net/archives/2013/09/testing-for-cowards-part-2-testing-user-interfaces/</a></p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2013%2f09%2f09%2fa-cowardly-test-o-phobes-presentation-from-iosdevuk%2f - A%20Cowardly%20Test-o-phobe%27s%20presentation%20from%20iOSDevUK by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

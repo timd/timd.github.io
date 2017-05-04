@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Uitableview on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/uitableview/</link>
+    <description>Recent content in Uitableview on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Sun, 01 Apr 2012 17:15:09 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/uitableview/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Where to put the registerNib method in a table view controller</title>
+      <link>https://adoptioncurve.net/2012/04/01/where-to-put-the-registernib-method-in-a-table-view-controller/</link>
+      <pubDate>Sun, 01 Apr 2012 17:15:09 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/04/01/where-to-put-the-registernib-method-in-a-table-view-controller/</guid>
+      <description>Here&amp;rsquo;s a quick workaround for a gotcha if you&amp;rsquo;re using iOS5&amp;rsquo;s registerNib: method in conjunction with a table view controller class that&amp;rsquo;s external to the controller of the view that contains the table.
+Scenario: You&amp;rsquo;ve got a table view in a Storyboard (or standard xib file) which is controlled by a UITableViewController class which is separate to the class controlling the Storyboard (or view). You want to use a custom cell layout contained in a separate xib file.</description>
+    </item>
+    
+    <item>
+      <title>Creating Table Views With Storyboards</title>
+      <link>https://adoptioncurve.net/2012/03/13/creating-table-views-with-storyboards/</link>
+      <pubDate>Tue, 13 Mar 2012 21:18:45 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2012/03/13/creating-table-views-with-storyboards/</guid>
+      <description>Storyboards are one of the many new features introduced in iOS5 and Xcode 4.2 and take the visual creation of iPhone and iPad interfaces to the next stage.
+Although Interface Builder provides a visual way of laying out user interfaces, up until now the process of moving between screens has required a certain amount of “glue code”. This is relatively straight-forward when you’re dealing with simple apps – but add UIKit functionality like tab bar controllers into the mix, and things suddenly get a lot trickier.</description>
+    </item>
+    
+    <item>
+      <title>Creating custom cells in an iPhone TableView</title>
+      <link>https://adoptioncurve.net/2011/04/20/creating-custom-cells-in-an-iphone-tableview/</link>
+      <pubDate>Wed, 20 Apr 2011 13:50:54 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/04/20/creating-custom-cells-in-an-iphone-tableview/</guid>
+      <description>The iPhone&amp;rsquo;s default table view is pretty straight-forward to use, but the look and feel is somewhat basic. Once you&amp;rsquo;ve got to a certain point you need to customise things, which is where subclassing the cells comes into play. It sounds horrifically complex, but once you&amp;rsquo;ve got your head around things, it&amp;rsquo;s not too difficult. This is how I&amp;rsquo;ve done it for the WeWatch app (as an aide-memoire for myself, but it might come in useful for someone else.</description>
+    </item>
+    
+  </channel>
+</rss>

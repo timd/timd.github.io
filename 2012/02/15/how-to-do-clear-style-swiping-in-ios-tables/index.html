@@ -1,0 +1,296 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>How to do Clear-style swiping in iOS tables &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="How to do Clear-style swiping in iOS tables" />
+<meta property="og:description" content="The latest app that everyone&rsquo;s raving about is Clear - if you haven&rsquo;t seen it, it&rsquo;s basically a task list, but one with a rather interesting take on the interface. Instead of the usual tab-bar-and-table-vew setup, the table is full-screen and makes extensive use of gestures.
+Deleting and completing tasks are done by swiping the row - a left swipe deletes the item, a right swipe marks it as complete. Here&rsquo;s the basis of how that&rsquo;s done." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2012/02/15/how-to-do-clear-style-swiping-in-ios-tables/" />
+
+
+
+<meta property="article:published_time" content="2012-02-15T12:52:10&#43;00:00"/>
+<meta property="article:modified_time" content="2012-02-15T12:52:10&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="How to do Clear-style swiping in iOS tables">
+<meta itemprop="description" content="The latest app that everyone&rsquo;s raving about is Clear - if you haven&rsquo;t seen it, it&rsquo;s basically a task list, but one with a rather interesting take on the interface. Instead of the usual tab-bar-and-table-vew setup, the table is full-screen and makes extensive use of gestures.
+Deleting and completing tasks are done by swiping the row - a left swipe deletes the item, a right swipe marks it as complete. Here&rsquo;s the basis of how that&rsquo;s done.">
+
+
+<meta itemprop="dateModified" content="2012-02-15T12:52:10&#43;00:00" />
+<meta itemprop="wordCount" content="615">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="How to do Clear-style swiping in iOS tables"/>
+<meta name="twitter:title" content="How to do Clear-style swiping in iOS tables"/>
+<meta name="twitter:description" content="The latest app that everyone&rsquo;s raving about is Clear - if you haven&rsquo;t seen it, it&rsquo;s basically a task list, but one with a rather interesting take on the interface. Instead of the usual tab-bar-and-table-vew setup, the table is full-screen and makes extensive use of gestures.
+Deleting and completing tasks are done by swiping the row - a left swipe deletes the item, a right swipe marks it as complete. Here&rsquo;s the basis of how that&rsquo;s done."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>How to do Clear-style swiping in iOS tables</h1>
+                    <h2 class="headline">
+                    15 February 2012 
+                    <br>
+                    
+                    
+                        
+                            <a href="https://adoptioncurve.net/tags/ios">iOS</a>
+                        
+                            <a href="https://adoptioncurve.net/tags/tableviews">tableViews</a>
+                        
+                    
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>The latest app that everyone&rsquo;s raving about is <a href="http://www.realmacsoftware.com/clear/">Clear</a> - if you haven&rsquo;t seen it, it&rsquo;s basically a task list, but one with a rather interesting take on the interface. Instead of the usual tab-bar-and-table-vew setup, the table is full-screen and makes extensive use of gestures.</p>
+
+<p><img src="/images/2012/02/ClearScreenshot1.png" alt="" /></p>
+
+<p>Deleting and completing tasks are done by swiping the row - a left swipe deletes the item, a right swipe marks it as complete. Here&rsquo;s the basis of how that&rsquo;s done.</p>
+
+<p>The effect relies on the cell&rsquo;s <code>contentView</code> having two <code>UIViews</code> &ldquo;stacked&rdquo; one on top of the other, and a pair of <code>UISwipeGestureRecognizers</code> attached to the cell - one for left swipes, and one for right swipes. When a swipe is detected, the uppermost <code>UIView</code> is animated left or right to &ldquo;reveal&rdquo; the <code>UIView</code> that sits &ldquo;underneath&rdquo;. By chaining the animations together with <code>UIView</code> animation blocks, you can also do things like make the animations &ldquo;bounce&rdquo; at each end of their range of movement.</p>
+
+<p>The outline process runs like this:</p>
+
+<ol>
+<li><p>Create a <code>UITableView</code> and wire up with delegate and data source as per usual.</p></li>
+
+<li><p>Create a custom <code>UITableViewCell</code> class, and override the <code>initWithStyle:reuseIdentifer:</code> method to lay out the <code>UIViews</code> inside it. Then implement the animation methods in the custom cell&rsquo;s subclass, and add the <code>UISwipeGestureRecognizers</code>.</p></li>
+
+<li><p>Populate your table with instances of your custom <code>UITableViewCell</code>.</p></li>
+</ol>
+
+<p>The first and third steps are pretty routine, so don&rsquo;t really need much explanation. The magic, such as it is, happens within the <code>UITableViewCell</code> subclass. The <code>initWithStyle:reusedIdentifier:</code> method can be used to lay out the contents of the cell and set up the <code>UISwipeGestureRecognizers</code> - here&rsquo;s a sample method:</p>
+
+<p>{% gist 1835423)</p>
+
+<p>This is fairly verbose, but breaks down into four stages:</p>
+
+<ol>
+<li><p>creating the top view, which is the one which is viewable when the cell is in the &ldquo;normal&rdquo; state</p></li>
+
+<li><p>creating the bottom view, which is the one that gets revealed when the top view moves</p></li>
+
+<li><p>adding these two views to the cell&rsquo;s contentView</p></li>
+
+<li><p>creating and adding two <code>UISwipeGestureRecognizers</code> to the cell and using these to fire the animation methods.</p></li>
+</ol>
+
+<p>The animation is done by two methods in the cell subclass, one for right and one for left. Here&rsquo;s the detail of the rightward-swipe method:</p>
+
+<p>[gist id=1835417]</p>
+
+<p>It uses <code>UIView's</code> block-based <code>animatedWithDuration:animations:</code> method to chain together a series of moves to give a &ldquo;bounce&rdquo; effect - the view that&rsquo;s doing the movement &ldquo;overshoots&rdquo; the end position slightly, and then settles back. The durations in this code are deliberately long to show the effect, but when they&rsquo;re shorted in practice the bounce effect can really liven up the interface.</p>
+
+<p>In the case of Clear, the swipe gesture methods also trigger updates to the tableView&rsquo;s data model to mark the task as completed (or deleting it). At a rough guess, there&rsquo;s a separate section of the table for deleted items that uses another custom <code>UITableViewCell</code> subclass to style the items with the strikethrough and dark background.</p>
+
+<p>The swipe effects are a nice detail in the Clear app, and it&rsquo;s a great example of how gestures can be used in place of more traditional tap-based interactions. The tradeoff is that the interactions are less apparent - the call to action of a Delete button is obvious, whereas a gesture has to be either explicitly explained or discovered. It&rsquo;ll be interesting to see if this is the start of a pattern in app design.</p>
+
+<p>[I&rsquo;ve put an example app that&rsquo;s a full implementation of the swipe interactions shown above up on GitHub at <a href="https://github.com/timd/SwipingTable">https://github.com/timd/SwipingTable</a> . And the full process is shown in detail in my book, for which <a href="http://www.amazon.co.uk/Pro-iOS-Table-Views-iPhone/dp/1430233486/">this is a shameless plug</a> (well, if I can&rsquo;t promote it on my own blog, where can I? ;-) ]</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2012%2f02%2f15%2fhow-to-do-clear-style-swiping-in-ios-tables%2f - How%20to%20do%20Clear-style%20swiping%20in%20iOS%20tables by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ux on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/ux/</link>
+    <description>Recent content in Ux on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Thu, 07 Apr 2011 09:07:30 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/ux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>WeWatch on the iPhone</title>
+      <link>https://adoptioncurve.net/2011/04/07/wewatch-on-the-iphone/</link>
+      <pubDate>Thu, 07 Apr 2011 09:07:30 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/04/07/wewatch-on-the-iphone/</guid>
+      <description>This is WeWatch, the result of the last-but-one Rattle Hackday, where they (we as was) attempt to create something either interesting, useful, or hopefully both inside a day.
+The concept is simple - it&amp;rsquo;s a stripped-down listing of what&amp;rsquo;s on the main channels tonight during the peak viewing period. If you&amp;rsquo;re signed in via Twitter you can click on a programme to show the world that you&amp;rsquo;re planning to watch it.</description>
+    </item>
+    
+  </channel>
+</rss>

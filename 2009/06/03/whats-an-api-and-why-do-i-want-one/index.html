@@ -1,0 +1,283 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>What&#39;s an API and why do I want one? &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="What&#39;s an API and why do I want one?" />
+<meta property="og:description" content="[cross-posted from the Headshift blog]
+That&rsquo;s a question I was asked a few days ago by a client. It&rsquo;s a fair question, too - there&rsquo;s no point in building features into systems unless they provide some benefit, so why would you want to spend time and effort doing this? And for that matter, what exactly IS an API?
+The acronym stands for &ldquo;application programming interface&rdquo;, which is a typically over-engineered way of saying &ldquo;means of putting information in and getting information out of your system without having to type it yourself&rdquo;." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2009/06/03/whats-an-api-and-why-do-i-want-one/" />
+
+
+
+<meta property="article:published_time" content="2009-06-03T21:00:41&#43;00:00"/>
+<meta property="article:modified_time" content="2009-06-03T21:00:41&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="What&#39;s an API and why do I want one?">
+<meta itemprop="description" content="[cross-posted from the Headshift blog]
+That&rsquo;s a question I was asked a few days ago by a client. It&rsquo;s a fair question, too - there&rsquo;s no point in building features into systems unless they provide some benefit, so why would you want to spend time and effort doing this? And for that matter, what exactly IS an API?
+The acronym stands for &ldquo;application programming interface&rdquo;, which is a typically over-engineered way of saying &ldquo;means of putting information in and getting information out of your system without having to type it yourself&rdquo;.">
+
+
+<meta itemprop="dateModified" content="2009-06-03T21:00:41&#43;00:00" />
+<meta itemprop="wordCount" content="1012">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="What&#39;s an API and why do I want one?"/>
+<meta name="twitter:title" content="What&#39;s an API and why do I want one?"/>
+<meta name="twitter:description" content="[cross-posted from the Headshift blog]
+That&rsquo;s a question I was asked a few days ago by a client. It&rsquo;s a fair question, too - there&rsquo;s no point in building features into systems unless they provide some benefit, so why would you want to spend time and effort doing this? And for that matter, what exactly IS an API?
+The acronym stands for &ldquo;application programming interface&rdquo;, which is a typically over-engineered way of saying &ldquo;means of putting information in and getting information out of your system without having to type it yourself&rdquo;."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>What&#39;s an API and why do I want one?</h1>
+                    <h2 class="headline">
+                    3 June 2009 
+                    <br>
+                    
+                    
+                        
+                            <a href="https://adoptioncurve.net/tags/api">api</a>
+                        
+                            <a href="https://adoptioncurve.net/tags/applications">applications</a>
+                        
+                            <a href="https://adoptioncurve.net/tags/enterprise">enterprise</a>
+                        
+                            <a href="https://adoptioncurve.net/tags/programming">programming</a>
+                        
+                    
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>[<a href="http://www.headshift.com/blog/2009/06/whats-an-api-and-why-do-i-want.php">cross-posted from the Headshift blog</a>]</p>
+
+<p>That&rsquo;s a question I was asked a few days ago by a client.  It&rsquo;s a fair question, too - there&rsquo;s no point in building features into systems unless they provide some benefit, so why would you want to spend time and effort doing this?   And for that matter, what exactly IS an API?</p>
+
+<p>The acronym stands for &ldquo;application programming interface&rdquo;, which is a typically over-engineered way of saying &ldquo;means of putting information in and getting information out of your system without having to type it yourself&rdquo;.   Typically you&rsquo;ll provide the API with some information, and in return the system will process and spit back some other data.   There&rsquo;s any number of analogies that you can use, but one of my favourites is the cash machine.   That&rsquo;s pretty much an API for your bank - you put in your card and enter your PIN, ask the bank for money, and it then dispenses cash.   The information you&rsquo;re providing is the data on your card and your PIN, while the bank is supplying you with cash and a little paper slip telling you how big your overdraft is.</p>
+
+<p>An &ldquo;API&rdquo; for a bank is a good thing if you want to get at your money, but why is it such a big deal for a piece of software?</p>
+
+<p>To start with, very few software systems these days exist in isolation.   If it&rsquo;s an accounting package, you&rsquo;ll probably want it to hook up to your bank so you can send and receive payments automatically.  If it&rsquo;s an ERP system, you&rsquo;ll find it useful if you could send your purchase orders electronically to your suppliers rather than relying on the steam telephone.   And if you want to tell your customers where your outlets are, you can embed a Google map into your website to plot their locations so that your customers can find you.</p>
+
+<p>All of these are examples of systems using APIs, but it doesn&rsquo;t stop there.  Increasingly, systems are providing APIs without necessarily having a clear idea of what they&rsquo;re going to get used for.   In some ways, that&rsquo;s a violation of my sweeping statement about there being no point building features without having returns - but the point here is that there&rsquo;s no guarantee that you&rsquo;re best placed to know <em>what</em> those returns might be.</p>
+
+<p>Take <a href="http://www.moo.com/">Moo</a>, for example.  They print <a href="http://uk.moo.com/en/products/">things</a> - stickers, business cards, postcards and so on.   <a href="http://www.moo.com/api/">They&rsquo;ve also got an API</a>.  So what the hell would a printing company do with an API?</p>
+
+<p>The answer is, suprisingly, quite a lot.   Former Headshift colleague <a href="http://infovore.org/about/">Tom Armitage</a> created an <a href="http://infovore.org/archives/2008/10/05/stripes-and-surrealism-playing-with-the-moo-api/">application that takes a set of Flickr photographs, calculates their average colours and creates stickers</a>.   They&rsquo;re very tangible, suprisingly beautiful and almost completely pointless - unless, that is, you&rsquo;re Moo who make money for every sticker that they print.   Another example is <a href="http://code.google.com/p/barcode-sticker-o-matic/">Barcode Sticker-o-Matic</a> that lets you create <a href="http://en.wikipedia.org/wiki/QR_Code">QR code</a> stickers.   Previously, creating QR codes was a pain, and creating QR code stickers was even more of a pain - but mashing up the two things creates something very much easier and useful.</p>
+
+<p>Another example (and bear with me while I unashamedly pimp some of my own creations) is <a href="http://www.twitter.com/">Twitter</a>.   Their API enables you to create tweets with code, rather than the website.   So I&rsquo;ve used this to create Twitter bots that <a href="http://www.twitter.com/riverthames">tweet the high and low tides of the River Thames</a>; and <a href="http://twitter.com/ftse100">tweet the values of various stock markets every hour</a>.  The first example is something of a play thing (although as an aside, I actually think you can gain some value to be gained by providing an inanimate object with a &ldquo;personality&rdquo;), but the second could conceivably be useful if you needed a peripheral update of how badly the markets were doing.</p>
+
+<p>So much for the entertainment value, but what about the potential business value for providing an API?</p>
+
+<p>There are two things to consider.  The first is that you could potentially make it easier for your customers to deal with you.   If your clients can place orders directly onto your system through your API, that&rsquo;s going to speed things up.  It&rsquo;s also going to cut down on errors and duplication, particularly if you can give them information about lead times and stock levels there and then.   And on the assumption that the easier it is to deal with you, the more people will, that should translate through to the bottom line.</p>
+
+<p>The second thing - and to me, the most powerful - is that your customers may want to interact with you in ways that you&rsquo;d never thought of.   It&rsquo;s fairly unlikely that Moo realised that they&rsquo;d end up printing QR codes when they wrote their API, and I&rsquo;m absolutely sure that Twitter weren&rsquo;t expecting me to come along and impersonate the River Thames.  And the same probably goes for for huge numbers of other organisations as well.  Imagine if Sainsbury provided an API for their home shopping service.  How long do you think it would be before someone created an iPhone application that allowed you to scan the barcode on the last tin of beans in your cupboard, and automatically add that into your basket, which would then be automatically ordered as soon as the value triggered their free delivery option.  Oh, and interrogated your Google calendar to find the slot when you weren&rsquo;t planning to be out for evening?   I don&rsquo;t work for Sainsburys - and they&rsquo;ve certainly never tried to ask me about what I want from them - but if they provided an API for me to play with, then I&rsquo;d definitely be having a go at it.</p>
+
+<p>I&rsquo;m going to make a wild prediction that no corporate software system will ship WITHOUT an API in three years time, and that organisations that can&rsquo;t provide an interface for their customers are going to find that an increasingly difficult omission to justify.  So the question is not so much, &ldquo;what&rsquo;s an API and why do I want one&rdquo;, as &ldquo;what&rsquo;s my API going to do and when can I have it&rdquo;&hellip;</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2009%2f06%2f03%2fwhats-an-api-and-why-do-i-want-one%2f - What%27s%20an%20API%20and%20why%20do%20I%20want%20one%3f by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Thinking on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/thinking/</link>
+    <description>Recent content in Thinking on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Sun, 25 Jan 2009 20:27:19 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/thinking/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Learning to think like a programmer geek</title>
+      <link>https://adoptioncurve.net/2009/01/25/learning-to-think-like-a-programmer-geek/</link>
+      <pubDate>Sun, 25 Jan 2009 20:27:19 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2009/01/25/learning-to-think-like-a-programmer-geek/</guid>
+      <description>[![cables]Charles Arthur (the Grauniad journalist) recently put up a blog post passing on some advice to would-be journalists to &amp;ldquo;learn to code&amp;rdquo;.
+Not suprisingly, that kicked off a bit of a discussion around various other blogs: Chris Applegate, who describes himself as a &amp;ldquo;wannabe polymath&amp;rdquo; chipped in with recommendations to get involved with regular expressions, comma-separated variables and Yahoo Pipes. And Tom Armitage - who IS a programmer, even if he hotly denies it - suggested thinking like a programmer rather than concentrating too much on the specifics.</description>
+    </item>
+    
+  </channel>
+</rss>

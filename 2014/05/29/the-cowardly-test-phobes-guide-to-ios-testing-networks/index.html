@@ -1,0 +1,364 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>The Cowardly Test-Phobe&#39;s Guide to iOS Testing: Networks &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="The Cowardly Test-Phobe&#39;s Guide to iOS Testing: Networks" />
+<meta property="og:description" content="(This is the second part of a text-based version of the talk I gave for iOS Con at Skillsmatter in London on Friday 16th May. If you prefer the full multimedia experience, there&rsquo;s video available behind a login wall at https://skillsmatter.com/skillscasts/5167-tdd-in-ios.)
+The presentation slides are available here.
+Testing networks Unless you&rsquo;re in the business of writing fairly trivial apps, eventually your code is going to need to talk to some external services reachable across a network link." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2014/05/29/the-cowardly-test-phobes-guide-to-ios-testing-networks/" />
+
+
+
+<meta property="article:published_time" content="2014-05-29T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2014-05-29T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="The Cowardly Test-Phobe&#39;s Guide to iOS Testing: Networks">
+<meta itemprop="description" content="(This is the second part of a text-based version of the talk I gave for iOS Con at Skillsmatter in London on Friday 16th May. If you prefer the full multimedia experience, there&rsquo;s video available behind a login wall at https://skillsmatter.com/skillscasts/5167-tdd-in-ios.)
+The presentation slides are available here.
+Testing networks Unless you&rsquo;re in the business of writing fairly trivial apps, eventually your code is going to need to talk to some external services reachable across a network link.">
+
+
+<meta itemprop="dateModified" content="2014-05-29T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1075">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="The Cowardly Test-Phobe&#39;s Guide to iOS Testing: Networks"/>
+<meta name="twitter:title" content="The Cowardly Test-Phobe&#39;s Guide to iOS Testing: Networks"/>
+<meta name="twitter:description" content="(This is the second part of a text-based version of the talk I gave for iOS Con at Skillsmatter in London on Friday 16th May. If you prefer the full multimedia experience, there&rsquo;s video available behind a login wall at https://skillsmatter.com/skillscasts/5167-tdd-in-ios.)
+The presentation slides are available here.
+Testing networks Unless you&rsquo;re in the business of writing fairly trivial apps, eventually your code is going to need to talk to some external services reachable across a network link."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>The Cowardly Test-Phobe&#39;s Guide to iOS Testing: Networks</h1>
+                    <h2 class="headline">
+                    29 May 2014 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    
+
+<p><em>(This is the second part of a text-based version of the talk I gave for <a href="https://skillsmatter.com/conferences/1984-ioscon-2014">iOS Con at Skillsmatter</a> in London on Friday 16th May. If you prefer the full multimedia experience, there&rsquo;s video available behind a login wall at <a href="https://skillsmatter.com/skillscasts/5167-tdd-in-ios">https://skillsmatter.com/skillscasts/5167-tdd-in-ios</a>.)</em></p>
+
+<p><em>The presentation slides are <a href="http://www.slideshare.net/timd/the-cowardly-testophobes-guide-to-testing">available here</a>.</em></p>
+
+<h2 id="testing-networks">Testing networks</h2>
+
+<p>Unless you&rsquo;re in the business of writing fairly trivial apps, eventually your code is going to need to talk to some external services reachable across a network link. That immediately opens up a whole world of problems that you need to deal with. Availability, latency, and quality of service are the issues that your app is going to have to handle, while you&rsquo;re also going to need to make decisions about how to inform your user of what is going on.</p>
+
+<p>It&rsquo;s very easy to fall into the trap of building apps that work beautifully in the Simulator when sat on a Gigabit ethernet segment downstream from a multi-megabit fibre broadband connection. But the real world isn&rsquo;t like that - your app needs to be able to handle the flakiest of ropey Edge services, not just full-fat wifi. Forgetting to handle those edge cases is a quick way to build something with really sucky user experiences.</p>
+
+<p>It (should) go without saying that this needs to be tested. But that can be tricky - very often the APIs that your app is talking to aren&rsquo;t under your control. They&rsquo;re designed to be reliable and return valid data - so how can you test for the edge cases?</p>
+
+<p>There are a couple of solutions, both of which rely on creating &ldquo;stunt double&rdquo; APIs that can stand in for the real thing. By tweaking your mock API, you can develop and test both happy paths and edge cases without any dependencies on live services.</p>
+
+<h2 id="mocking-apis-with-servers">Mocking APIs with servers</h2>
+
+<p>If you&rsquo;re dealing with a relatively trivial API, the simplest option may be to whip up a standalone server and point your app at that for testing purposes. If you know Sinatra or Node, creating a mock API that accepts calls from your app and returns the contents of some predefined data files stored locally to the server isn&rsquo;t that difficult.</p>
+
+<p>But that a) presupposes that you <em>do</em> have those kind of technologies at your disposal, and b) creates another set of dependencies. In order to run the tests, you&rsquo;ll need to make sure that your server is up and running, and returning the right values for a given endpoint. What would be far more elegant is a situation where <em>all</em> the moving parts needed for testing could somehow be bundled into your Xcode project.</p>
+
+<p>Then you also need to make sure that your tests are calling the test API, while your live app talks to the production version. You don&rsquo;t need too much imagination to see what could potentially go wrong here&hellip;</p>
+
+<h2 id="mocking-apis">Mocking APIs</h2>
+
+<p>A practical alternative to a standalone server is a network stubbing library. That sits inside your test target and intercepts any calls to the network in order to return data that you define. One of the most widely used is <a href="https://github.com/AliSoftware/OHHTTPStubs">OHHTTPStubs</a>.</p>
+
+<p>OHHTTPStubs works by catching calls from <code>NSURLConnection</code> and <code>NSURLSession</code>, and checking whether the request should either be passed through as normal or intercepted by the library. If the call is to be intercepted, the library handles creating and returning the data - the call doesn&rsquo;t get out to the actual network.</p>
+
+<p>There&rsquo;s also the ability to manipulate the way the response is sent back - for example, setting a simulated delay or latency, returning custom HTTP headers or response codes, or just behaving as if all the packets were dropped. By changing responses, it becomes possible to test a variety of situations ranging from perfect network connectivity to complete isolation.</p>
+
+<h3 id="setting-up-ohhttpstubs">Setting up OHHTTPStubs</h3>
+
+<p>OHHTTPStubs is easiest to install using Cocoapods. Add <code>pod 'OHHTTPStubs'</code> to your <code>Podfile</code>, run <code>pod install</code>, and you&rsquo;re good to go.</p>
+
+<p>However, now is a good point to introduce a caveat. The library makes extensive use of private frameworks to swizzle the functionality into place, so including it in an app that you try to ship to the App Store is a Very Bad Idea Indeed. There are a couple of ways around this: one is to remember to take it out (not recommended); the other is to only include the library in your test target.</p>
+
+<p>Assuming your project is called <code>MyFantasticApp</code>, then your <code>Podfile</code> should look like this:</p>
+
+<pre><code>platform :ios, &quot;7.1&quot;
+
+...
+main pods go here
+...
+
+target 'MyFantasticAppTests', :exclusive =&gt; true do
+
+    pod 'OHHTTPStubs'
+
+    ...
+    other pods as required
+    ...
+
+end
+</code></pre>
+
+<p>As the <code>MyFantasticAppTests</code> target is separate from the main one, <code>OHHTTPStubs</code> won&rsquo;t get compiled in when you build the project.</p>
+
+<h3 id="how-it-works">How it works</h3>
+
+<p>The basic syntax of using <code>OHHTTPStubs</code> looks like this:</p>
+
+<pre><code>[OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+
+   &lt; test the request to see if we want to stub it, and
+     and return YES if we do &gt;
+
+} withStubResponse:^OHHTTPStubsResponse *(NSURLRequest *request) {
+
+    &lt; Create and return an OHHTTPStubsResponse object with the
+      data that we want to return &gt;
+
+}];
+</code></pre>
+
+<h3 id="which-request-to-stub"># Which request to stub?</h3>
+
+<p>In the first block, we&rsquo;re examining the <code>NSURLRequest</code> to see if it&rsquo;s one we want to stub out - this allows you to pass through some requests, but catch others.</p>
+
+<p>If you want to stub ALL requests, you simple return YES from this block.  Otherwise, you can be more subtle:</p>
+
+<ul>
+<li>catching all requests to a specific host:</li>
+</ul>
+
+<p><code>// Catch http://adoptioncurve.net
+</code>return [request.URL.host isEqualToString:@&ldquo;adoptioncurve.net&rdquo;];`</p>
+
+<ul>
+<li>catching all requests to a specific URL:</li>
+</ul>
+
+<p><code>// catch http://adoptioncurve.net/about
+</code>return [request.URL.lastPathComponent isEqualToString:@&ldquo;about&rdquo;];`</p>
+
+<ul>
+<li>catching requests with a specific query string</li>
+</ul>
+
+<p><code>// Catch http://adoptioncurve.net/login?id=1234
+</code>return [request.URL.query isEqualToString:@&ldquo;id=1234&rdquo;];`</p>
+
+<h3 id="how-to-return-data"># How to return data</h3>
+
+<p>Once the <code>stubRequestsPassingTest:</code> block has returned <code>YES</code>, you&rsquo;ll need to create an <code>OHHTTTPStubsResponse</code> object to return to the method that made the original request.  This mimics the data payload that the API would return.</p>
+
+<p>There are several ways of doing this:</p>
+
+<ul>
+<li><p><code>responseWithData:statusCode:headers:</code> allows you to create an NSData object yourself, and return it along with an HTTP status code and HTTP headers</p></li>
+
+<li><p><code>responseWithFileAtPath:statusCode:headers:</code> allows the contents of a file to be returned, along with status codes and headers. This file can be JSON, HTML, binary data or whatever format your API will return - the only requirement is that it exists in the app bundle where the tests can find it.</p></li>
+</ul>
+
+<h3 id="getting-sample-data">Getting sample data</h3>
+
+<p>The first thing you&rsquo;ll need when starting to use <code>OHHTTPStubs</code> is some data to return for your tests.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2014%2f05%2f29%2fthe-cowardly-test-phobes-guide-to-ios-testing-networks%2f - The%20Cowardly%20Test-Phobe%27s%20Guide%20to%20iOS%20Testing%3a%20Networks by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

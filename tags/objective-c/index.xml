@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Objective C on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/objective-c/</link>
+    <description>Recent content in Objective C on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Sun, 25 Sep 2011 11:56:35 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/objective-c/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Accessing controls in UIView subviews</title>
+      <link>https://adoptioncurve.net/2011/09/25/accessing-controls-in-uiview-subviews/</link>
+      <pubDate>Sun, 25 Sep 2011 11:56:35 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/09/25/accessing-controls-in-uiview-subviews/</guid>
+      <description>The iPhone app I&amp;rsquo;m working on at the moment has a number of screens that consist of long list of questions - so the user needs to be able to scroll down to the bottom.
+At the same time, there&amp;rsquo;s some information at the top of the screen which needs to stay visible. Within the subview containing the questions, there are also several buttons which need to trigger methods in the main view controller - save the answers, move to the next screen and so on.</description>
+    </item>
+    
+    <item>
+      <title>Selecting multiple UITableView rows</title>
+      <link>https://adoptioncurve.net/2011/07/25/selecting-multiple-uitableview-rows/</link>
+      <pubDate>Mon, 25 Jul 2011 10:01:54 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/07/25/selecting-multiple-uitableview-rows/</guid>
+      <description>UITableView supplies a whole variety of built-in methods to manage the table, including the selection and deselection of rows. However, there&amp;rsquo;s a significant limitation with the published API - it&amp;rsquo;ll only allow you to select one row at a time. That&amp;rsquo;s something of a problem if you want to use the table view as a list which supports selection (and the subsequent use of) multiple rows at once.
+UPDATE - This has been completely superceded by iOS5, which does support multiple selection.</description>
+    </item>
+    
+    <item>
+      <title>Creating full-screen iOS modal views</title>
+      <link>https://adoptioncurve.net/2011/06/13/creating-full-screen-ios-modal-views/</link>
+      <pubDate>Mon, 13 Jun 2011 19:59:38 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/06/13/creating-full-screen-ios-modal-views/</guid>
+      <description>This is another &amp;ldquo;blog it so I&amp;rsquo;ll remember it&amp;rdquo; post, but it might come in useful should it ever get Googled.
+Scenario: I&amp;rsquo;m running an asynchronous data load in the background which populates a table view. Although the data load is asynchronous, because it updates the table I want to place a modal popup with an activity spinner over the current table view so that interaction is blocked. I&amp;rsquo;m using Sam Vernette&amp;rsquo;s SVProgressHUD, which is a really neat implementation of the Apple segmented spinner thing.</description>
+    </item>
+    
+    <item>
+      <title>Creating custom cells in an iPhone TableView</title>
+      <link>https://adoptioncurve.net/2011/04/20/creating-custom-cells-in-an-iphone-tableview/</link>
+      <pubDate>Wed, 20 Apr 2011 13:50:54 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/04/20/creating-custom-cells-in-an-iphone-tableview/</guid>
+      <description>The iPhone&amp;rsquo;s default table view is pretty straight-forward to use, but the look and feel is somewhat basic. Once you&amp;rsquo;ve got to a certain point you need to customise things, which is where subclassing the cells comes into play. It sounds horrifically complex, but once you&amp;rsquo;ve got your head around things, it&amp;rsquo;s not too difficult. This is how I&amp;rsquo;ve done it for the WeWatch app (as an aide-memoire for myself, but it might come in useful for someone else.</description>
+    </item>
+    
+    <item>
+      <title>Fixing explosions caused by UITableView scrolling</title>
+      <link>https://adoptioncurve.net/2010/02/11/fixing-explosions-caused-by-uitableview-scrolling/</link>
+      <pubDate>Thu, 11 Feb 2010 20:36:10 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/02/11/fixing-explosions-caused-by-uitableview-scrolling/</guid>
+      <description>I came across a weird (well, weird to me) problem with a UITableView this evening. Basically, the situation is this:
+I&amp;rsquo;ve got a Tab Bar controller in my app&amp;rsquo;s main window; with three tabs:
+[![Screen shot 2010-02-11 at 20.31.52](http://www.adoptioncurve.net/archives/2010/02/fixing-explosions-caused-by-uitableview-scrolling.php/screen-shot-2010-02-11-at-20-31-52)
+The view in the first tab loads from another nib file (MeView.xib), which contains a navigation controller. The file&amp;rsquo;s owner has a class identify of &amp;lsquo;MeViewController&amp;rsquo;. The navigation controller contains a table view, with the delegate and data source set to &amp;lsquo;MeTableViewController&amp;rsquo;.</description>
+    </item>
+    
+  </channel>
+</rss>

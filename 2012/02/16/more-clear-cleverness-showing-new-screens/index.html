@@ -1,0 +1,272 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>More Clear cleverness: showing new screens &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="More Clear cleverness: showing new screens" />
+<meta property="og:description" content="Another trick of the Clear app is the way that it takes the established pull-to-refresh interaction of a table view, and extends it to present new screens. So pulling the to-do items table down will first add a new item at the top of the table, then causes the lists table to slide down from the top.
+Doing the same in the Lists table results in the Settings table appearing in the same way." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2012/02/16/more-clear-cleverness-showing-new-screens/" />
+
+
+
+<meta property="article:published_time" content="2012-02-16T10:06:35&#43;00:00"/>
+<meta property="article:modified_time" content="2012-02-16T10:06:35&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="More Clear cleverness: showing new screens">
+<meta itemprop="description" content="Another trick of the Clear app is the way that it takes the established pull-to-refresh interaction of a table view, and extends it to present new screens. So pulling the to-do items table down will first add a new item at the top of the table, then causes the lists table to slide down from the top.
+Doing the same in the Lists table results in the Settings table appearing in the same way.">
+
+
+<meta itemprop="dateModified" content="2012-02-16T10:06:35&#43;00:00" />
+<meta itemprop="wordCount" content="415">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="More Clear cleverness: showing new screens"/>
+<meta name="twitter:title" content="More Clear cleverness: showing new screens"/>
+<meta name="twitter:description" content="Another trick of the Clear app is the way that it takes the established pull-to-refresh interaction of a table view, and extends it to present new screens. So pulling the to-do items table down will first add a new item at the top of the table, then causes the lists table to slide down from the top.
+Doing the same in the Lists table results in the Settings table appearing in the same way."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>More Clear cleverness: showing new screens</h1>
+                    <h2 class="headline">
+                    16 February 2012 
+                    <br>
+                    
+                    
+                        
+                            <a href="https://adoptioncurve.net/tags/ios">iOS</a>
+                        
+                            <a href="https://adoptioncurve.net/tags/tableviews">tableViews</a>
+                        
+                    
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>Another trick of the Clear app is the way that it takes the established pull-to-refresh interaction of a table view, and extends it to present new screens. So pulling the to-do items table down will first add a new item at the top of the table, then causes the lists table to slide down from the top.</p>
+
+<p>Doing the same in the Lists table results in the Settings table appearing in the same way.  The reverse is also true - pulling the table &ldquo;up&rdquo; from the bottom will result in the previous screen sliding up from the bottom.</p>
+
+<p>This works by exploiting a property of <code>UIScrollView</code>, from which <code>UITableView</code> inherits.   The <code>contentOffset</code> property measures how far from the top of its frame the table has been scrolled - it&rsquo;s measured in pixels, so if a 1000-pixel tall tableView was scrolled halfway, the <code>contentOffset</code> would be 500px.</p>
+
+<p>The trick here is that the <code>contentOffset</code> can also be negative - which occurs when the tableView&rsquo;s contents are dragged down from the top to leave a gap.  Often this triggers the pull-to-refresh methods, but in Clear&rsquo;s case it&rsquo;s the cue for new views to be presented.</p>
+
+<p>To catch the user pulling the table down in this way, you can use the <code>scrollViewDidEndDragging:willDecelerate:</code> method which gets called when the user lifts their touch after dragging the table around.</p>
+
+<p>If you check the tableView&rsquo;s <code>contentOffset</code> at this point and discover that it&rsquo;s more than, say, minus 60 pixels, you can use that to trigger another method - be it calling a data update, or pushing in new views.  An example might look something like this:</p>
+
+<p>{% gist 1843757)</p>
+
+<p>Detecting a pull at the bottom of the table is similar - instead of looking for a negative <code>contentOffset</code>, though, you need to detect a <code>contentOffset</code> that&rsquo;s greater than the tableView&rsquo;s <code>contentSize</code>.</p>
+
+<p>Again, you&rsquo;ll need to apply a threshold to this to prevent the new view or whatever being presented as a result of a &lsquo;normal&rsquo; scroll action.  If the tableView is flicked to the bottom, the <code>contentOffset</code> will exceed the contentSize as the table &ldquo;bounces&rdquo;.</p>
+
+<p>What Clear seems to do is have three tableViews loaded at any given time, and then change their frames in a <code>UIView</code> animation block to animate them sliding from the top and bottom of the screen.</p>
+
+<p>It&rsquo;s clever, although it does rely on the user discovering these interactions - there&rsquo;s no obvious call-to-action as there would be in the case of a &ldquo;back&rdquo; button, for example.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2012%2f02%2f16%2fmore-clear-cleverness-showing-new-screens%2f - More%20Clear%20cleverness%3a%20showing%20new%20screens by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

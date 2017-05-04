@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sftp on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/sftp/</link>
+    <description>Recent content in Sftp on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Wed, 11 May 2011 18:36:03 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/sftp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Fixing strange SFTP connection refusals</title>
+      <link>https://adoptioncurve.net/2011/05/11/fixing-strange-sftp-connection-refusals/</link>
+      <pubDate>Wed, 11 May 2011 18:36:03 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/05/11/fixing-strange-sftp-connection-refusals/</guid>
+      <description>Having spent most of the morning building a LAMP server from scratch (or at least from a canned Linode job), I hit an SFTP problem that kept biting me.
+The issue is that when trying to make an SFTP connection, it&amp;rsquo;s persistently refused despite the user account able to log into the server using SSH without any problem. The auth log doesn&amp;rsquo;t help much - you&amp;rsquo;ll see things like:
+sshd[xxx]: Accepted password for root from XXX.</description>
+    </item>
+    
+  </channel>
+</rss>

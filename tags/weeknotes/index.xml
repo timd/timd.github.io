@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Weeknotes on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/weeknotes/</link>
+    <description>Recent content in Weeknotes on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Sat, 13 Mar 2010 18:39:53 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/weeknotes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Monthly weeknotes</title>
+      <link>https://adoptioncurve.net/2010/03/13/monthly-weeknotes/</link>
+      <pubDate>Sat, 13 Mar 2010 18:39:53 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/03/13/monthly-weeknotes/</guid>
+      <description>These aren&amp;rsquo;t weeknotes so much as month notes - I&amp;rsquo;ve been somewhat tardy in writing them up, although things have been quiet enough that one post a month will cover things nicely.
+The big project that I&amp;rsquo;m working on at the moment is a personal one - Conflict-of-Interest-o-Matic. It&amp;rsquo;s a iPhone client for the They Work For You API, intended to give you quick access to the wealth of data that TWFY hold on our representatives and their representativeness.</description>
+    </item>
+    
+    <item>
+      <title>Week #1</title>
+      <link>https://adoptioncurve.net/2010/01/16/week-1/</link>
+      <pubDate>Sat, 16 Jan 2010 20:04:13 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/01/16/week-1/</guid>
+      <description>I used to hate having to write weekly reports, mainly because when the week&amp;rsquo;s work is set down in black-and-white, an outside observer can look at it and say &amp;ldquo;is that it?&amp;rdquo; - regardless of what&amp;rsquo;s actually been achieved. There was also a strong whiff of &amp;ldquo;what I did on my holidays&amp;rdquo;-style essay about it all, too. That said, they&amp;rsquo;re actually a very effective way of keeping track of what&amp;rsquo;s happened from the perspective of looking back into the past</description>
+    </item>
+    
+  </channel>
+</rss>

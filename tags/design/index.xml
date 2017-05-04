@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Design on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/design/</link>
+    <description>Recent content in Design on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Tue, 03 May 2011 17:02:59 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/design/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>WeWatch on the iPhone, part 2</title>
+      <link>https://adoptioncurve.net/2011/05/03/wewatch-on-the-iphone-part-2/</link>
+      <pubDate>Tue, 03 May 2011 17:02:59 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/05/03/wewatch-on-the-iphone-part-2/</guid>
+      <description>The thing about user testing is that you&amp;rsquo;ve got to be prepared for your pet ideas to be shot down in flames. And so it was with the initial designs for the WeWatch iPhone app that I&amp;rsquo;m building. Conceptually, the app is very simple - but it&amp;rsquo;s bringing home the fact that for interaction, making something simple can be HARD. That&amp;rsquo;s partly the reason why I&amp;rsquo;m trying to capture this as I go along - I&amp;rsquo;m sure that if I&amp;rsquo;m not careful I&amp;rsquo;m going to forget the detail of why things turned out the way they did.</description>
+    </item>
+    
+    <item>
+      <title>WeWatch on the iPhone</title>
+      <link>https://adoptioncurve.net/2011/04/07/wewatch-on-the-iphone/</link>
+      <pubDate>Thu, 07 Apr 2011 09:07:30 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2011/04/07/wewatch-on-the-iphone/</guid>
+      <description>This is WeWatch, the result of the last-but-one Rattle Hackday, where they (we as was) attempt to create something either interesting, useful, or hopefully both inside a day.
+The concept is simple - it&amp;rsquo;s a stripped-down listing of what&amp;rsquo;s on the main channels tonight during the peak viewing period. If you&amp;rsquo;re signed in via Twitter you can click on a programme to show the world that you&amp;rsquo;re planning to watch it.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,272 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Nested IF statements with Movable TYpe &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Nested IF statements with Movable TYpe" />
+<meta property="og:description" content="One of the - ahem - undocumented features of Movable Type is a certain estotericness about the way it interprets Boolean logic within template tags. That&rsquo;s a polite way of saying it&rsquo;s more-or-less completely unpredictable, which can lead to much wailing and gnashing of teeth during template development.
+Fortunately, there&rsquo;s a workaround, an example of which is below. It comes at a computational cost, because you&rsquo;re using PHP to fill in for MT&rsquo;s deficiencies - but if you&rsquo;re using static templates, then that cost is only really incurred as the templates are rebuild" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2009/09/22/nested-if-statements-with-movable-type/" />
+
+
+
+<meta property="article:published_time" content="2009-09-22T12:10:25&#43;00:00"/>
+<meta property="article:modified_time" content="2009-09-22T12:10:25&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Nested IF statements with Movable TYpe">
+<meta itemprop="description" content="One of the - ahem - undocumented features of Movable Type is a certain estotericness about the way it interprets Boolean logic within template tags. That&rsquo;s a polite way of saying it&rsquo;s more-or-less completely unpredictable, which can lead to much wailing and gnashing of teeth during template development.
+Fortunately, there&rsquo;s a workaround, an example of which is below. It comes at a computational cost, because you&rsquo;re using PHP to fill in for MT&rsquo;s deficiencies - but if you&rsquo;re using static templates, then that cost is only really incurred as the templates are rebuild">
+
+
+<meta itemprop="dateModified" content="2009-09-22T12:10:25&#43;00:00" />
+<meta itemprop="wordCount" content="362">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Nested IF statements with Movable TYpe"/>
+<meta name="twitter:title" content="Nested IF statements with Movable TYpe"/>
+<meta name="twitter:description" content="One of the - ahem - undocumented features of Movable Type is a certain estotericness about the way it interprets Boolean logic within template tags. That&rsquo;s a polite way of saying it&rsquo;s more-or-less completely unpredictable, which can lead to much wailing and gnashing of teeth during template development.
+Fortunately, there&rsquo;s a workaround, an example of which is below. It comes at a computational cost, because you&rsquo;re using PHP to fill in for MT&rsquo;s deficiencies - but if you&rsquo;re using static templates, then that cost is only really incurred as the templates are rebuild"/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Nested IF statements with Movable TYpe</h1>
+                    <h2 class="headline">
+                    22 September 2009 
+                    <br>
+                    
+                    
+                        
+                            <a href="https://adoptioncurve.net/tags/code">code</a>
+                        
+                            <a href="https://adoptioncurve.net/tags/development">development</a>
+                        
+                            <a href="https://adoptioncurve.net/tags/movabletype">movabletype</a>
+                        
+                            <a href="https://adoptioncurve.net/tags/mt">mt</a>
+                        
+                            <a href="https://adoptioncurve.net/tags/php">php</a>
+                        
+                    
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>One of the - ahem - <em>undocumented</em> features of Movable Type is a certain estotericness about the way it interprets Boolean logic within template tags.   That&rsquo;s a polite way of saying it&rsquo;s more-or-less completely unpredictable, which can lead to much wailing and gnashing of teeth during template development.</p>
+
+<p>Fortunately, there&rsquo;s a workaround, an example of which is below.  It comes at a computational cost, because you&rsquo;re using PHP to fill in for MT&rsquo;s deficiencies - but if you&rsquo;re using static templates, then that cost is only really incurred as the templates are rebuild</p>
+
+<p>This code assumes that you&rsquo;re checking for two conditions - the presence of a custom field called &ldquo;magazine_issue&rdquo; that contains &ldquo;Issue 19&rdquo;, and a second custom field called &ldquo;entrydatasource&rdquo; which should contain the value &ldquo;DVD&rdquo;.</p>
+
+<p>There&rsquo;s a PHP loop inside an MT loop here - lines 1 and 2 set up the MT part, and iterates across the entries in the blog looking for those which have the field &ldquo;magazine_issue&rdquo; set to &ldquo;Issue 19&rdquo;.  (The MT:Entries tag is split across two lines for readability here, rather than any other reason.) Then those entries are passed one by one to the inner PHP code.</p>
+
+<p>Line 5 places whatever&rsquo;s in <a href="mt:entrydatasource">mt:entrydatasource</a> into $source, relying on the fact that MT tags are parsed first, so by the time the PHP code gets executed that tag has been replaced by the value inside it.</p>
+
+<p>Then lines 7 to 11 run a PHP if statement to check that the content contains &ldquo;DVD&rdquo;, and executes the <a href="mt:include">mt:include</a> tag if that&rsquo;s the case.  The positioning of the ?&gt; and &lt;?php braces allow you to place MT code within the PHP loop, but not to have the PHP parser attempt to interpret it.</p>
+
+<p>If the if statement doesn&rsquo;t evaluate to true, then the contents won&rsquo;t be executed and the include statement won&rsquo;t be executed.   Obviously the include could be replaced by pretty much any MT tags that are valid within the context of an <a href="MT:Entries">MT:Entries</a> loop, or whatever arbitrary PHP you wanted.</p>
+
+<p>It&rsquo;s slightly hacky, and does come with a processing overhead - but sometimes a hack is the only way to get out of the problem.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2009%2f09%2f22%2fnested-if-statements-with-movable-type%2f - Nested%20IF%20statements%20with%20Movable%20TYpe by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

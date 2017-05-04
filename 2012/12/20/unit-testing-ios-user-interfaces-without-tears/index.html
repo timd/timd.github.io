@@ -1,0 +1,428 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Unit-testing iOS user interfaces without tears &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Unit-testing iOS user interfaces without tears" />
+<meta property="og:description" content="Testing user interfaces can be hard, mainly because UIs are designed to be driven by users and not code. There are various more-or-less hacky solutions for this that usually involve building some kind of robot arm to poke the UI in response to a script. The problem is that these solutions tend to be slow, and usually require a fair amount of hoop-jumping to get going.
+Testing iOS user interfaces isn&rsquo;t any different." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2012/12/20/unit-testing-ios-user-interfaces-without-tears/" />
+
+
+
+<meta property="article:published_time" content="2012-12-20T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2012-12-20T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Unit-testing iOS user interfaces without tears">
+<meta itemprop="description" content="Testing user interfaces can be hard, mainly because UIs are designed to be driven by users and not code. There are various more-or-less hacky solutions for this that usually involve building some kind of robot arm to poke the UI in response to a script. The problem is that these solutions tend to be slow, and usually require a fair amount of hoop-jumping to get going.
+Testing iOS user interfaces isn&rsquo;t any different.">
+
+
+<meta itemprop="dateModified" content="2012-12-20T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1371">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Unit-testing iOS user interfaces without tears"/>
+<meta name="twitter:title" content="Unit-testing iOS user interfaces without tears"/>
+<meta name="twitter:description" content="Testing user interfaces can be hard, mainly because UIs are designed to be driven by users and not code. There are various more-or-less hacky solutions for this that usually involve building some kind of robot arm to poke the UI in response to a script. The problem is that these solutions tend to be slow, and usually require a fair amount of hoop-jumping to get going.
+Testing iOS user interfaces isn&rsquo;t any different."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Unit-testing iOS user interfaces without tears</h1>
+                    <h2 class="headline">
+                    20 December 2012 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    
+
+<p>Testing user interfaces can be hard, mainly because UIs are designed to be driven by users and not code. There are various more-or-less hacky solutions for this that usually involve building some kind of robot arm to poke the UI in response to a script. The problem is that these solutions tend to be slow, and usually require a fair amount of hoop-jumping to get going.</p>
+
+<p>Testing iOS user interfaces isn&rsquo;t any different. There are tools like <a href="http://testingwithfrank.com">Frank</a> and <a href="http://calaba.sh">Calabash</a> that will drive the UI with a kind of headless browser that will be familiar if you&rsquo;ve done any kind of behaviour-driven Rails development (the Cucumber, Rspec and WebRat/Selenium/Capybara etc approach).</p>
+
+<p>But these headless approaches suffer from all the same problems. Tests can be slow to run, the testing environment can be tricky to set up, and you need to step away from the Objective-C environment and start wrestling with Ruby and regular expressions to write the tests.</p>
+
+<p>An alternative approach is to cheat slightly, and test the UI from the inside.</p>
+
+<p>This builds on the model-view-controller model - in an idealised iOS app, the UI that the user touches is just a thin veneer that does two things. It displays information to the outside world through controls like UILabels; and receives user interactions through controls like <code>UIButtons</code>. It&rsquo;s dumb (or should be dumb) - the label contents are displayed exactly as the controller passes them into the view; and the touches are handed straight back up the responder chain for the controller to deal with.</p>
+
+<p>So testing from the UI perspective involves two aspects - that display controls such as labels are displaying what they should be; and that touches trigger the correct results. Fortunately, both of these can be tested to a reasonable extent without needing to employ headless frameworks. Although it&rsquo;s not completely fool-proof, it goes a long way to making sure that your user interfaces are backed up with decent tests.</p>
+
+<p><img src="/images/2012/12/ui.png" alt="" /></p>
+
+<p>Here&rsquo;s a hypothetical situation, testing a minimal user interface by way of an example. We&rsquo;ve got a <code>UIViewController</code> subclass with an interface that consists of a button and a label. Tapping the button changes the content of the label, and I want to test this. We don&rsquo;t want to have to install and configure Calabash or Frank - so how can this be done?</p>
+
+<p>We&rsquo;re going to split the testing into two parts - testing that the UI is correctly wired up; and then that the interaction methods do what they should. This set of tests is written using the Kiwi framework, but the approach will be similar using SenTest or another test library.</p>
+
+<h3 id="testing-the-ui-connections">Testing the UI connections</h3>
+
+<p>The process of testing the UI connections involve creating an instance of the UI inside your test classes; and then verifying that everything is connected as it should be. In this case, I&rsquo;m testing:</p>
+
+<ul>
+<li>that there&rsquo;s should be a <code>UILabel</code> present, and it should initially show <code>I'm waiting...</code></li>
+<li>that there should be a <code>UIButton</code> present, and that should be wired up to the <code>updateGreeting:</code> method</li>
+</ul>
+
+<p>Here are the tests for checking the <code>UILabel</code>:</p>
+
+<pre><code>describe(@&quot;The view controller&quot;, ^{
+
+        context(@&quot;when instantiated&quot;, ^{
+
+            __block TestViewController *vc = nil;
+
+            beforeEach(^{
+                vc = [[TestViewController alloc] initWithNibName:@&quot;TestViewController&quot; bundle:nil];
+                [vc view];
+            });
+
+            it(@&quot;should have been instantiated correctly&quot;, ^{
+                [vc shouldNotBeNil];
+            });
+
+            context(@&quot;should have a label that&quot;, ^{
+
+                it(@&quot;exists and is called called greetingLabel&quot;, ^{
+                    [[vc.greetingLabel should] beKindOfClass:[UILabel class]];
+                });
+
+                it(@&quot;shows 'I'm waiting' as the default content of the greetingLabel&quot;, ^{
+                    [[vc.greetingLabel.text should] equal:@&quot;I'm waiting...&quot;];
+                });
+
+            });
+
+            afterEach(^{
+                vc = nil;
+            });
+
+        });
+
+    });
+</code></pre>
+
+<p>Each test should be largely self-explanatory with the aid of the <code>it</code> description. The first few lines create an instance of the <code>TestViewController</code> as a block variable, before each individual test is run. Then having created said instance, it accesses the view controller&rsquo;s <code>view</code> property, which forces the nib to be loaded and the controls to be instantiated and connected.</p>
+
+<p>That&rsquo;s a subtle - but important - point. Because we&rsquo;re testing the presence of controls in the UI, we need to make sure the UI has been created (albeit that it&rsquo;s done in the abstract while the tests run.)</p>
+
+<p>Next, I&rsquo;m testing that the view controller has actually been instantiated correctly - this doesn&rsquo;t really add any value beyond the point where the first &lsquo;real&rsquo; test passes, but it&rsquo;s a useful check initially to make sure that the nib is being loaded correctly.</p>
+
+<p>The first &lsquo;real&rsquo; test checks that there is a UILabel property called <code>greetingLabel</code>. If for any reason the <code>UILabel</code> control is missing from the nib, or it hasn&rsquo;t been connected to the corresponding <code>IBOutlet</code>, then that property will be <code>nil</code> and the test will fail. Similarly, it will fail if for some reason the control isn&rsquo;t of the right type.</p>
+
+<p>Having checked that the control exists, the next test makes sure that the default value is set up correctly. In this case, it&rsquo;s ensuring that <code>I'm waiting...</code> will be displayed in the UI when it first loads.</p>
+
+<h3 id="testing-the-button">Testing the button</h3>
+
+<p>The tests for the button are quite similar:</p>
+
+<pre><code>describe(@&quot;The view controller&quot;, ^{
+
+        context(@&quot;when instantiated&quot;, ^{
+
+            __block TestViewController *vc = nil;
+
+            beforeEach(^{
+                vc = [[TestViewController alloc] initWithNibName:@&quot;TestViewController&quot; bundle:nil];
+                [vc view];
+            });
+
+            it(@&quot;should have been instantiated correctly&quot;, ^{
+                [vc shouldNotBeNil];
+            });
+
+            //
+            //  Label tests here
+            //
+
+            context(@&quot;should have a button that&quot;, ^{
+
+                it(@&quot;exists and is called greetingButton&quot;, ^{
+                    [[vc.greetingButton should] beKindOfClass:[UIButton class]];
+                });
+
+                it(@&quot;has a target of the view controller and an action of updateGreeting:&quot;, ^{
+                    NSArray *actions = [vc.greetingButton actionsForTarget:vc forControlEvent:UIControlEventTouchUpInside];
+                    [actions shouldNotBeNil];
+                    [[theValue([actions indexOfObject:@&quot;updateGreeting:&quot;]) shouldNot] equal:theValue(NSNotFound)];
+                });
+
+            });
+
+        });
+
+    });
+</code></pre>
+
+<p>The same process of instantiating the view controller gets underway, then there&rsquo;s a test for the existance of the <code>UIButton</code>.</p>
+
+<p>The next test grabs the actions for the view controller from the button as an <code>NSArray</code>. The name of each action will be present in the array as an <code>NSString</code>, so the test is simply a case of checking that the method name exists in the array. If the button hasn&rsquo;t been connected to an action, this method name won&rsquo;t exist and the test will fail.</p>
+
+<h3 id="testing-the-methods">Testing the methods</h3>
+
+<p>Now we can test the methods themselves:</p>
+
+<pre><code>describe(@&quot;The view controller&quot;, ^{
+
+    context(@&quot;when instantiated&quot;, ^{
+
+        __block TestViewController *vc = nil;
+
+        beforeEach(^{
+            vc = [[TestViewController alloc] initWithNibName:@&quot;TestViewController&quot; bundle:nil];
+            [vc view];
+        });
+
+        it(@&quot;should have been instantiated correctly&quot;, ^{
+            [vc shouldNotBeNil];
+        });
+
+        //
+        // Label tests here
+        //
+
+        //
+        // Button tests here
+        //
+
+        context(@&quot;should have methods that&quot;, ^{
+
+            it(@&quot;responds to updateGreeting&quot;, ^{
+                [[vc should] respondToSelector:@selector(updateGreeting:)];
+            });
+
+            it(@&quot;updates the greeting label to 'Hello, World!' when the updateGreeting: method fires&quot;, ^{
+                [vc updateGreeting:vc.greetingButton];
+                [[vc.greetingLabel.text should] equal:@&quot;Hello, World!&quot;];
+            });
+
+        });
+
+    });
+
+});
+</code></pre>
+
+<p>Again, the same view controller instantiation process takes place. Then the methods are tested - firstly, ensuring that the view controller declares the updateGreeting: method.</p>
+
+<p>Then, it&rsquo;s time to test that the method actually does what it&rsquo;s supposed to. We call the method with <code>[vc updateGreeting:vc.greetingButton]</code> and test that the <code>greetingLabel</code>&rsquo;s text property has been updated to <code>Hello, World!</code>.</p>
+
+<p>Assuming all the tests go green, we&rsquo;ve checked that the interface is wired up correctly, and that the appropriate methods operate correctly when they&rsquo;re called. No need for a headless framework, but a suite of tests that can be repeatedly run as the project progresses.</p>
+
+<h3 id="summary">Summary</h3>
+
+<p>This approach isn&rsquo;t completely comprehensive - testing gestures would be tricky, for example - but it does go a long way towards automating the testing of user interfaces. This can pay off in two ways:</p>
+
+<ul>
+<li><p>it reduces the risk of problems as a result of dumb misconfiguration mistakes - not connecting a <code>UIButton</code> to an action, for example. Those problems can be difficult to track down, assuming you bump into them in the first place.</p></li>
+
+<li><p>it allows you to test tricky conditional logic that&rsquo;s driven by the UI - for example, toggling controls on and off in response to user actions. Testing this kind of functionality manually is tedious and error-prone - by running the tests programatically, it means they&rsquo;re repeatable and easy to add edge-cases to.</p></li>
+</ul>
+
+<p>Adding a headless browser approach into the mix will mean you&rsquo;ve got as much test coverage as it&rsquo;s realistically feasible to get - but this approach can get you a long way towards that nirvana with a lot less configuration hassle.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2012%2f12%2f20%2funit-testing-ios-user-interfaces-without-tears%2f - Unit-testing%20iOS%20user%20interfaces%20without%20tears by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

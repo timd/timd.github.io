@@ -1,0 +1,308 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Sliding clocks around the screen a la Path &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Sliding clocks around the screen a la Path" />
+<meta property="og:description" content="The new Path app has hit the App Store, and the updated UI is GORGEOUS. I was quite intrigued by the little touches, particularly the little clock icon that slides up and down the right-hand side of the screen as you scroll down the timeline. It looks really neat, and it got me wondering how it was done.
+Turns out, it&rsquo;s actually not that difficult (although it&rsquo;s still a lovely UI touch even so)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/2011/11/30/sliding-clocks-around-the-screen-a-la-path/" />
+
+
+
+<meta property="article:published_time" content="2011-11-30T16:57:26&#43;00:00"/>
+<meta property="article:modified_time" content="2011-11-30T16:57:26&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Sliding clocks around the screen a la Path">
+<meta itemprop="description" content="The new Path app has hit the App Store, and the updated UI is GORGEOUS. I was quite intrigued by the little touches, particularly the little clock icon that slides up and down the right-hand side of the screen as you scroll down the timeline. It looks really neat, and it got me wondering how it was done.
+Turns out, it&rsquo;s actually not that difficult (although it&rsquo;s still a lovely UI touch even so).">
+
+
+<meta itemprop="dateModified" content="2011-11-30T16:57:26&#43;00:00" />
+<meta itemprop="wordCount" content="832">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Sliding clocks around the screen a la Path"/>
+<meta name="twitter:title" content="Sliding clocks around the screen a la Path"/>
+<meta name="twitter:description" content="The new Path app has hit the App Store, and the updated UI is GORGEOUS. I was quite intrigued by the little touches, particularly the little clock icon that slides up and down the right-hand side of the screen as you scroll down the timeline. It looks really neat, and it got me wondering how it was done.
+Turns out, it&rsquo;s actually not that difficult (although it&rsquo;s still a lovely UI touch even so)."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Sliding clocks around the screen a la Path</h1>
+                    <h2 class="headline">
+                    30 November 2011 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>The new <a href="http://itunes.apple.com/us/app/path/id403639508?mt=8">Path app</a> has hit the App Store, and the updated UI is GORGEOUS.   I was quite intrigued by the little touches, particularly the little clock icon that slides up and down the right-hand side of the screen as you scroll down the timeline. It looks really neat, and it got me wondering how it was done.</p>
+
+<p>Turns out, it&rsquo;s actually not that difficult (although it&rsquo;s still a lovely UI touch even so).</p>
+
+<p><img src="/images/2011/11/Screenshot-2011.11.30-16.21.04.png" alt="" /></p>
+
+<p>The main view in Path is a heavily-customised <code>UITableView</code> sat inside a <code>UINavigationController</code> (although the <code>UINavigationController</code> bit is irrelevant at the moment). <code>UITableViews</code> are themselves heavily-customised subclasses of <code>UIScrollView</code>, which means that all the goodies that a UIScrollView provides are available to instances of UITableView.</p>
+
+<p>There&rsquo;s one particular goodie that&rsquo;s relevant here. This is <code>UIScrollView's</code> <code>contentOffset</code> property, which shows how far from the origin the <code>scrollView</code> - or in this case, our <code>tableView</code> - has been scrolled. When the table&rsquo;s at the top, the <code>contentOffset's y</code> value will be zero - but if you had a table that was (say) 1000 pixels high, that <code>contentOffset</code> would gradually increase until at the very bottom of the table it had a <code>y</code> value of 1000 pixels.</p>
+
+<p>Another property that&rsquo;s relevant here is the tableView&rsquo;s <code>contentSize</code> property. If you access that after the table has finished loading - ie in the <code>viewDidAppear</code> method - then this will return the total height of the table with all rows fully-populated.</p>
+
+<pre><code>- (void)viewDidAppear:(BOOL)animated
+{
+[super viewDidAppear:animated];
+
+maxTableHeight = self.tableView.contentSize.height;
+frameTableHeight = self.tableView.frame.size.height;
+workingTableHeight = maxTableHeight - frameTableHeight - 64;
+
+NSLog(@&quot;TableView maxTableHeight = %f&quot;, maxTableHeight);
+NSLog(@&quot;TableView frameTableHeight = %f&quot;, frameTableHeight);
+NSLog(@&quot;TableView workingTableHeight = %f&quot;, workingTableHeight);
+
+}
+</code></pre>
+
+<p>Dividing the <code>contentOffset.y</code> value by the <code>contentSize.height</code> will give you how far down the <code>tableView</code> things have scrolled as a percentage value. When the table first loads, the <code>contentOffset.y</code> value will be zero, therefore we&rsquo;d be 0% down the table. At the bottom, we&rsquo;d be 100% of the way - and obviously varying percentages along the way.</p>
+
+<p>The third value that will help out here is the height of the table&rsquo;s <code>frame</code> - in other words, how much of the overall screen the <code>tableView</code> occupies. If you&rsquo;ve got a status bar and a navigation bar, that&rsquo;s the full height of an iPhone screen - 480 pixels - less 20 pixels for the status bar and 44 pixels for the navigation bar - a total frame height of 416 pixels.</p>
+
+<p>Now imagine that you created a <code>UIView</code> of some description, and &ldquo;floated&rdquo; it as the front-most view so that it appeared on the right-hand edge of the screen. (If it&rsquo;s a <code>subView</code> of the main window, then the origin remains constant and doesn&rsquo;t move with the table itself.) It&rsquo;ll have an origin with an Y position and a Y position - x will be somewhere between 0 and 320, depending on how far right it needs to be placed. And the Y position will control how far up or down the screen it appears.</p>
+
+<p>If we calculate the Y position by taking the height of the <code>tableView's</code> frame and multiplying it by the percentage that the table has been scrolled, the <code>UIView</code> will appear to move up and down the screen in proportion to how fat the tableView has scrolled. It&rsquo;ll start at the top of the screen when the tableView is at the top, and slide down towards the bottom as the tableView is scrolled. It won&rsquo;t leave the visible screen regardless of how long the <code>tableView</code> actually is, because we&rsquo;re calculating the percentage of the <code>tableView's</code> frame rather than its content size.</p>
+
+<p>Because <code>UITableView</code> inherits from <code>UIScrollView</code>, it means we can use the <code>scrollViewDidScroll:</code> method of <code>UIScrollViewDelegate</code> as the &ldquo;trigger&rdquo; for calculating how far things have scrolled, and adjusting the position of the <code>UIView</code> with the little clock icon.</p>
+
+<pre><code>-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+
+// Work out positions
+currentTablePosition = scrollView.contentOffset.y;
+currentTablePositionPercentage = (currentTablePosition / workingTableHeight);
+
+// Work out position of &quot;block&quot;
+float blockOffset = (frameTableHeight * currentTablePositionPercentage);
+
+float newYpos = 64 + blockOffset;
+
+NSLog(@&quot;tableView's scroll position = %f&quot;, currentTablePosition);
+NSLog(@&quot;blockOffset position = %f&quot;, blockOffset);
+NSLog(@&quot;current table position %%age = %f&quot;, currentTablePositionPercentage);
+
+NSLog(@&quot;New xpos = %f&quot;, newYpos);
+
+theBlockView = theAppDelegate.theBlockView;
+theBlockView.frame = CGRectMake(theBlockView.frame.origin.x, newYpos, theBlockView.frame.size.width, theBlockView.frame.size.height);
+
+}
+</code></pre>
+
+<p>This is all <em>very</em> crude, not least because the calculations don&rsquo;t take into account the size of the UIView that you&rsquo;re moving around. Nor do they account for the fact that you can scroll a <code>tableView</code> or <code>scrollView</code> <em>beyond</em> 0% and 100% as it bounces at the top and bottom extents.</p>
+
+<p>Path also takes things one stage further by figuring out which row the little icon thing is hovering over, and changing the value of the clock to reflect when the contents of that row were updated. There&rsquo;s also some very neat animation as the clock times change by spinning the hands. But the basic principles of figuring out where the icon slider should be still hold.</p>
+
+<p><strong>Update</strong> - <a href="http://blog.madefm.com/post/13817640556/ios-devcorner-attaching-an-info-panel-to-a">Florian Mielke has produced a much better explanation (and a library on Github) here</a></p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2f2011%2f11%2f30%2fsliding-clocks-around-the-screen-a-la-path%2f - Sliding%20clocks%20around%20the%20screen%20a%20la%20Path by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/09/30/mocks-and-expectations-with-swift/">Mocks and expectations with Swift<aside class="dates">Sep 30</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/03/08/testing-nsuserdefaults/">Testing NSUserDefaults<aside class="dates">Mar 8</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/12/04/where-has-the-ios8-simulator-gone/">Where has the iOS8 Simulator gone?!?<aside class="dates">Dec 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2014/08/16/working-with-size-classes-in-interface-builder/">Working with size classes in Interface Builder<aside class="dates">Aug 16</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

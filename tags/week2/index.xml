@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Week2 on adoption curve dot net</title>
+    <link>https://adoptioncurve.net/tags/week2/</link>
+    <description>Recent content in Week2 on adoption curve dot net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(cc) some rights reserved</copyright>
+    <lastBuildDate>Fri, 22 Jan 2010 16:54:29 +0000</lastBuildDate>
+    
+	<atom:link href="https://adoptioncurve.net/tags/week2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Week #2</title>
+      <link>https://adoptioncurve.net/2010/01/22/week-2/</link>
+      <pubDate>Fri, 22 Jan 2010 16:54:29 +0000</pubDate>
+      
+      <guid>https://adoptioncurve.net/2010/01/22/week-2/</guid>
+      <description>This is going to be a quick one, ostensibly because I&amp;rsquo;ve been on holiday all week in the Lakes. This has involved doing as little as possible, which translated in practice into getting my head around the way iPhones handle multiple views within an application; and reading an entire 756-page novel from end to end.
+I hadn&amp;rsquo;t intended to do anything technically-inclined, but that was obviously the cue my brain needed to slot various different bits of Objective-C syntax into place in a way that now (seems) to make sense.</description>
+    </item>
+    
+  </channel>
+</rss>
