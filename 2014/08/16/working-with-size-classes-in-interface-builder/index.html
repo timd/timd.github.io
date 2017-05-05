@@ -186,11 +186,11 @@ Every control or AutoLayout constraint can exist in one, several or all of the s
 <li><code>Horizontal compact, vertical compact</code>: iPhone landscape</li>
 </ul>
 
-<p><img src="/images/2014/08/sizeClasses.png 400" alt="" /></p>
+<p><img src="/images/2014/08/sizeClasses.png" alt="" /></p>
 
 <p>Storyboards and nib files now support these size classes - so you can think of them as having up to four different layouts contained within the same file. At the bottom of the Interface Builder window, there&rsquo;s now a control that allows you to switch between each combination:</p>
 
-<p><img src="/images/2014/08/ibCombination.png 300" alt="" /></p>
+<p><img src="/images/2014/08/ibCombination.png" alt="" /></p>
 
 <p>Every control or AutoLayout constraint can exist in one, several or all of the size classes. This means that you can build interfaces that change depending on device type and/or orientation <em>without any code</em>. Controls can appear or disappear, change size, or change arrangements - all based on the layout that you create in Interface Builder.</p>
 
@@ -219,7 +219,7 @@ Every control or AutoLayout constraint can exist in one, several or all of the s
 
 <p>Before getting going, it&rsquo;s worth doing a bit of tweaking to Xcode so that you can see what&rsquo;s going on. If the Assistant Editor isn&rsquo;t visible, open it on the right (<code>View</code> -&gt; <code>Assistant Editor</code> -&gt; <code>Assistant Editors on Right</code>) and then switch the Assistant Editor to <code>Preview</code> mode:</p>
 
-<p><img src="/images/2014/08/previewMode.png 400" alt="" /></p>
+<p><img src="/images/2014/08/previewMode.png" alt="" /></p>
 
 <p>This will show a preview of the storyboard in the right hand pane - by default, it&rsquo;s set up for a 4&rdquo; iPhone. You can add other devices by clicking on the <code>+</code> icon at the bottom of the preview and selecting the device(s) that you need. They appear side-by-side in the preview pane, so if you haven&rsquo;t invested in a Thunderbolt Display so far, now would be a good time to do so.</p>
 
@@ -229,15 +229,15 @@ Every control or AutoLayout constraint can exist in one, several or all of the s
 
 <p>We&rsquo;re going to start by centering a red block with a constant border. Drag a <code>UIView</code> object into the main view, set the size to 200 x 200, center it in the superview and set the background colour to red.  In the Storyboard, it will look like this:</p>
 
-<p><img src="/images/2014/08/storyboard.png 400" alt="" /></p>
+<p><img src="/images/2014/08/storyboard.png" alt="" /></p>
 
 <p>However, if you look at the preview (or run the app in the Simulator) for each device, you&rsquo;ll see that things look very different:</p>
 
-<p><img src="/images/2014/08/previewOne.png 400" alt="" /></p>
+<p><img src="/images/2014/08/previewOne.png" alt="" /></p>
 
 <p>To fix this, we need to add some AutoLayout constraints.  Add constraints to pin the leading, trailing, top and bottom spaces to 50 points:</p>
 
-<p><img src="/images/2014/08/constraints.png 400" alt="" /></p>
+<p><img src="/images/2014/08/constraints.png" alt="" /></p>
 
 <p>Run the app again, and this time the red block will be placed correctly regardless of which device you use (you can also change the size of the device in the Resizable Simulator, and the layout will still work.)</p>
 
@@ -249,7 +249,7 @@ Every control or AutoLayout constraint can exist in one, several or all of the s
 
 <p>To do this we need to change the layout classes that the constraints are added to. If you select a constraint in the object tree then view the Attributes inspector, you&rsquo;ll see an <code>Installed</code> checkbox, with a small <code>+</code> to the left:</p>
 
-<p><img src="/images/2014/08/attributesOne.png 400" alt="" /></p>
+<p><img src="/images/2014/08/attributesOne.png" alt="" /></p>
 
 <p>By default this constraint is installed in <em>all</em> layout classes - what we need to do is to add the appropriate layout classes so that the constraints can be added to the appropriate one.  Click the <code>+</code> button, then add a compact width, regular height layout:</p>
 
@@ -265,7 +265,7 @@ Every control or AutoLayout constraint can exist in one, several or all of the s
 
 <p>To see the size class where the constraints <em>are</em> active, change it using the selectors at the bottom of the Interface Builder pane:</p>
 
-<p><img src="/images/2014/08/changeConstraints.png 300" alt="" /></p>
+<p><img src="/images/2014/08/changeConstraints.png" alt="" /></p>
 
 <p>Once you&rsquo;ve switched layout, you&rsquo;ll see them reappear:</p>
 
@@ -279,7 +279,7 @@ Every control or AutoLayout constraint can exist in one, several or all of the s
 
 <p>Now add four new AutoLayout contraints - leading, trailing, top and bottom spaces - and set the constant value for each one to 0. Note that each constraint is added to the Any, Compact layout and <em>not</em> the default:</p>
 
-<p><img src="/images/2014/08/redBlockTop.png 400" alt="" /></p>
+<p><img src="/images/2014/08/redBlockTop.png" alt="" /></p>
 
 <p>Run the app again, and as you rotate the Simulator into landscape the red block will be animated to fill the screen:</p>
 
@@ -305,7 +305,7 @@ Every control or AutoLayout constraint can exist in one, several or all of the s
 
 <p>To fix this, switch to Compact width, Regular height and add constraints to centre the white block and fix its height and width to zero. You&rsquo;ll also need to reduce the height and width constraint priorities to 750 to prevent a clash between size and inset constraints.</p>
 
-<p><img src="/images/2014/08/finalConstraints.png 400" alt="" /></p>
+<p><img src="/images/2014/08/finalConstraints.png" alt="" /></p>
 
 <p>This fixes the start point of the portrait-to-landscape animation, and the end point of the landscape-to-portrait. Because the start and end points are defined, the transition of the white block is smoothly animated:</p>
 

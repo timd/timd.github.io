@@ -124,11 +124,11 @@ Instead of looking in
 &lt;li&gt;&lt;code&gt;Horizontal compact, vertical compact&lt;/code&gt;: iPhone landscape&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://adoptioncurve.net/images/2014/08/sizeClasses.png 400&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://adoptioncurve.net/images/2014/08/sizeClasses.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Storyboards and nib files now support these size classes - so you can think of them as having up to four different layouts contained within the same file. At the bottom of the Interface Builder window, there&amp;rsquo;s now a control that allows you to switch between each combination:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://adoptioncurve.net/images/2014/08/ibCombination.png 300&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://adoptioncurve.net/images/2014/08/ibCombination.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Every control or AutoLayout constraint can exist in one, several or all of the size classes. This means that you can build interfaces that change depending on device type and/or orientation &lt;em&gt;without any code&lt;/em&gt;. Controls can appear or disappear, change size, or change arrangements - all based on the layout that you create in Interface Builder.&lt;/p&gt;
 
