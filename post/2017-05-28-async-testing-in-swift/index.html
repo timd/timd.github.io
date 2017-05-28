@@ -1,0 +1,350 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Asynchronous testing of non-callback code in Swift &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Asynchronous testing of non-callback code in Swift" />
+<meta property="og:description" content="The basic testing setup in Swift is the setup - run - assert loop:
+ setup | run | execute | assert  That&rsquo;s fine for code that runs synchronously, but if you&rsquo;re having to test anything that&rsquo;s asynchronous in nature things get a bit trickier.
+In this context, async is something that&rsquo;s either slow (say a network request) or uses callbacks (again, a common pattern in networking code). In these situations, the assertions are made before the code under test will execute:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/post/2017-05-28-async-testing-in-swift/" />
+
+
+
+<meta property="article:published_time" content="2017-05-28T13:28:00&#43;02:00"/>
+<meta property="article:modified_time" content="2017-05-28T13:28:00&#43;02:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Asynchronous testing of non-callback code in Swift">
+<meta itemprop="description" content="The basic testing setup in Swift is the setup - run - assert loop:
+ setup | run | execute | assert  That&rsquo;s fine for code that runs synchronously, but if you&rsquo;re having to test anything that&rsquo;s asynchronous in nature things get a bit trickier.
+In this context, async is something that&rsquo;s either slow (say a network request) or uses callbacks (again, a common pattern in networking code). In these situations, the assertions are made before the code under test will execute:">
+
+
+<meta itemprop="dateModified" content="2017-05-28T13:28:00&#43;02:00" />
+<meta itemprop="wordCount" content="478">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Asynchronous testing of non-callback code in Swift"/>
+<meta name="twitter:title" content="Asynchronous testing of non-callback code in Swift"/>
+<meta name="twitter:description" content="The basic testing setup in Swift is the setup - run - assert loop:
+ setup | run | execute | assert  That&rsquo;s fine for code that runs synchronously, but if you&rsquo;re having to test anything that&rsquo;s asynchronous in nature things get a bit trickier.
+In this context, async is something that&rsquo;s either slow (say a network request) or uses callbacks (again, a common pattern in networking code). In these situations, the assertions are made before the code under test will execute:"/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Asynchronous testing of non-callback code in Swift</h1>
+                    <h2 class="headline">
+                    28 May 2017 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>The basic testing setup in Swift is the setup - run - assert loop:</p>
+
+<pre><code> setup
+   |
+  run
+   |
+execute
+   |
+ assert
+</code></pre>
+
+<p>That&rsquo;s fine for code that runs synchronously, but if you&rsquo;re having to test anything that&rsquo;s asynchronous in nature things get a bit trickier.</p>
+
+<p>In this context, async is something that&rsquo;s either slow (say a network request) or uses callbacks (again, a common pattern in networking code). In these situations, the assertions are made <em>before</em> the code under test will execute:</p>
+
+<pre><code> setup
+   |
+  run
+   |
+ assert
+   |
+execute
+</code></pre>
+
+<p>The assertions here will always fail, because the code under test hasn&rsquo;t had the chance to do anything before the assertions are tested.</p>
+
+<p>The solution to this is to create an instance of <code>XCTestExpectation</code> that acts as a <em>semaphore</em> - basically it enables the assertions to be paused until the expectation to resolve.  So the pattern becomes:</p>
+
+<pre><code>      setup
+        |
+ create expectation
+        |
+       run
+        |
+     execute
+        |
+fulfill expectation
+        |
+      assert
+</code></pre>
+
+<p>With asynchronous code that has callbacks that are executed, the callback is the obvious place to fulfill the expectation - something along the lines of</p>
+
+<pre><code>doSlowThingWith(params: params) { result in
+        
+    switch result {
+    
+    case .Success:
+        // Everything worked
+        expectation.fulfill()
+    
+    case .Failure (let error):
+        // Something went wrong
+        print(error)
+    }
+        
+}
+
+</code></pre>
+
+<p>But what if the code you&rsquo;re testing <em>doesn&rsquo;t</em> use this kind of callback pattern?</p>
+
+<pre><code>doSlowThingWithParams(params: params) {
+    // do something
+}
+</code></pre>
+
+<p>In this situation, there&rsquo;s nowhere to fulfill the expectation. One option would be to write the code in the callback pattern to begin with, but that feels wrong - it&rsquo;s a good idea to write testable code, but testing driving architectural decision to this extent isn&rsquo;t such a great idea.</p>
+
+<p>There is a solution, albeit one that feels a bit hacky. It involves throwing the expectation onto a dispatch queue with a long enough delay to guarantee that the slow operation will have finished.</p>
+
+<p>Yes, this does sound a bit like the &ldquo;I had one problem so I used threading. Now problems two I&rsquo;ve got&rdquo; situation. But it does work.  Here&rsquo;s an example:</p>
+
+<pre><code>func test_WhenSomethingSlowHappens_ShouldWorkCorrectly() {
+        
+    // Setup code under test
+
+    // Create expectation
+
+    // Fire the slow code
+    doSlowThing()
+
+    // Set up the delay
+    let mainQueue = DispatchQueue.main
+    let deadline = DispatchTime.now() + .seconds(5)
+    
+    // Throw the assert and the fulfillment onto the queue
+    mainQueue.asyncAfter(deadline: deadline) { 
+        XCTAssertTrue(mockInteractor.didCallLoginSuccess)
+        expect.fulfill()
+    }
+
+    // Hang around waiting for the expectation to be fulfilled,
+    // which should happen before this timeoue
+    waitForExpectations(timeout: 10) { (error) in
+        if let error = error {
+            print(&quot;Error: \(error.localizedDescription)&quot;)
+        }
+    }
+        
+}
+</code></pre>
+
+<p>It&rsquo;s not ideal, because you&rsquo;re responsible for figuring out what the delay and timeout should be. Too slow, and you&rsquo;ll waste time waiting for your test suite to run; too fast and the expectation and assert will be out of sync.  But aside from those limitations, it&rsquo;s an approach to testing asynchronous code that works.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2fpost%2f2017-05-28-async-testing-in-swift%2f - Asynchronous%20testing%20of%20non-callback%20code%20in%20Swift by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-28-async-testing-in-swift/">Asynchronous testing of non-callback code in Swift<aside class="dates">May 28</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-17-the-managers-path-part-three/">The Manager&#39;s Path: the guts of chapters 5 and 6<aside class="dates">May 17</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-16-the-managers-path-part-two/">The Manager&#39;s Path: the guts of chapters 4 and 5<aside class="dates">May 16</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-16-the-managers-path-part-one/">The Manager&#39;s Path - guts of the first three chapters<aside class="dates">May 16</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10-part-2/">Collection View updates in iOS10 Part 2<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2016/06/25/collection-view-updates-in-ios10/">Collection View updates in iOS10, part 1<aside class="dates">Jun 25</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/2015/10/02/testing-asynchronous-code-in-swift/">Testing asynchronous code in Swift<aside class="dates">Oct 2</aside></a>
+        </li>
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(cc) some rights reserved</copyright>
-    <lastBuildDate>Wed, 17 May 2017 15:33:34 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 28 May 2017 13:28:00 +0200</lastBuildDate>
     
 	<atom:link href="https://adoptioncurve.net/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Asynchronous testing of non-callback code in Swift</title>
+      <link>https://adoptioncurve.net/post/2017-05-28-async-testing-in-swift/</link>
+      <pubDate>Sun, 28 May 2017 13:28:00 +0200</pubDate>
+      
+      <guid>https://adoptioncurve.net/post/2017-05-28-async-testing-in-swift/</guid>
+      <description>The basic testing setup in Swift is the setup - run - assert loop:
+ setup | run | execute | assert  That&amp;rsquo;s fine for code that runs synchronously, but if you&amp;rsquo;re having to test anything that&amp;rsquo;s asynchronous in nature things get a bit trickier.
+In this context, async is something that&amp;rsquo;s either slow (say a network request) or uses callbacks (again, a common pattern in networking code). In these situations, the assertions are made before the code under test will execute:</description>
+    </item>
     
     <item>
       <title>The Manager&#39;s Path: the guts of chapters 5 and 6</title>
