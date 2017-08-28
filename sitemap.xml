@@ -2,6 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://adoptioncurve.net/post/2017-08-24-handling-keyboard-appearance-in-ios-11/</loc>
+    <lastmod>2017-08-24T10:53:25+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/post/2017-06-12-drag-and-drop-in-ios-11/</loc>
+    <lastmod>2017-06-12T11:17:15+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adoptioncurve.net/post/2017-06-03-setting-keychains/</loc>
+    <lastmod>2017-06-03T20:08:34+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://adoptioncurve.net/post/2017-05-28-async-testing-in-swift/</loc>
     <lastmod>2017-05-28T13:28:00+02:00</lastmod>
   </url>
@@ -4020,14 +4035,14 @@
   </url>
   
   <url>
-    <loc>https://adoptioncurve.net/tags/links/</loc>
-    <lastmod>2011-09-08T05:48:07+00:00</lastmod>
+    <loc>https://adoptioncurve.net/categories/links/</loc>
+    <lastmod>2012-03-22T09:48:48+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://adoptioncurve.net/categories/links/</loc>
-    <lastmod>2012-03-22T09:48:48+00:00</lastmod>
+    <loc>https://adoptioncurve.net/tags/links/</loc>
+    <lastmod>2011-09-08T05:48:07+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4207,7 +4222,7 @@
   
   <url>
     <loc>https://adoptioncurve.net/post/</loc>
-    <lastmod>2017-05-28T13:28:00+02:00</lastmod>
+    <lastmod>2017-08-24T10:53:25+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4488,13 +4503,13 @@
   </url>
   
   <url>
-    <loc>https://adoptioncurve.net/tags/weeknotes/</loc>
+    <loc>https://adoptioncurve.net/categories/weeknotes/</loc>
     <lastmod>2010-03-13T18:39:53+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://adoptioncurve.net/categories/weeknotes/</loc>
+    <loc>https://adoptioncurve.net/tags/weeknotes/</loc>
     <lastmod>2010-03-13T18:39:53+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -4519,7 +4534,7 @@
   
   <url>
     <loc>https://adoptioncurve.net/</loc>
-    <lastmod>2017-05-28T13:28:00+02:00</lastmod>
+    <lastmod>2017-08-24T10:53:25+02:00</lastmod>
     <priority>0</priority>
   </url>
   

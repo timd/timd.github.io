@@ -1,0 +1,403 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Drag and drop in iOS 11 - a quick start &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Drag and drop in iOS 11 - a quick start" />
+<meta property="og:description" content="The most significant announcement at WWDC 2017 (at least as far as UIKit is concerned) was drag-and-drop. It&rsquo;s been possible to mimic this to an extent with UICollectionView, but what was announced at WWDC is the full-fat, cross-application, deeply-system-integrated real deal. It&rsquo;s now possible to perform sophisticated multi-touch drag and drop operations across the whole iOS platform, which is going to open up a world of UI possibilities in upcoming apps." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/post/2017-06-12-drag-and-drop-in-ios-11/" />
+
+
+
+<meta property="article:published_time" content="2017-06-12T11:17:15&#43;02:00"/>
+<meta property="article:modified_time" content="2017-06-12T11:17:15&#43;02:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Drag and drop in iOS 11 - a quick start">
+<meta itemprop="description" content="The most significant announcement at WWDC 2017 (at least as far as UIKit is concerned) was drag-and-drop. It&rsquo;s been possible to mimic this to an extent with UICollectionView, but what was announced at WWDC is the full-fat, cross-application, deeply-system-integrated real deal. It&rsquo;s now possible to perform sophisticated multi-touch drag and drop operations across the whole iOS platform, which is going to open up a world of UI possibilities in upcoming apps.">
+
+
+<meta itemprop="dateModified" content="2017-06-12T11:17:15&#43;02:00" />
+<meta itemprop="wordCount" content="1438">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Drag and drop in iOS 11 - a quick start"/>
+<meta name="twitter:title" content="Drag and drop in iOS 11 - a quick start"/>
+<meta name="twitter:description" content="The most significant announcement at WWDC 2017 (at least as far as UIKit is concerned) was drag-and-drop. It&rsquo;s been possible to mimic this to an extent with UICollectionView, but what was announced at WWDC is the full-fat, cross-application, deeply-system-integrated real deal. It&rsquo;s now possible to perform sophisticated multi-touch drag and drop operations across the whole iOS platform, which is going to open up a world of UI possibilities in upcoming apps."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Drag and drop in iOS 11 - a quick start</h1>
+                    <h2 class="headline">
+                    12 June 2017 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    
+
+<p>The most significant announcement at WWDC 2017 (at least as far as UIKit is concerned) was drag-and-drop. It&rsquo;s been possible to mimic this to an extent with UICollectionView, but what was announced at WWDC is the full-fat, cross-application, deeply-system-integrated real deal. It&rsquo;s now possible to perform sophisticated multi-touch drag and drop operations across the whole iOS platform, which is going to open up a world of UI possibilities in upcoming apps.</p>
+
+<p>Like much of iOS, the basic concepts are relatively straight-forward, but there&rsquo;s a great deal of power and complexity hidden in the APIs. On the basis that the best way to understand something is to play with it, here&rsquo;s a minimum viable drag and drop app that implements the very basics.</p>
+
+<p><img src="/images/2017/06/simulator.gif" alt="simulator" /></p>
+
+<h3 id="the-core-concepts">The core concepts</h3>
+
+<p>There&rsquo;s three parts to drag and drop - unsurprisingly, the first two are the drag source, and the drop destination.  These are <code>UIViews</code> that have <code>UIDropInteraction</code> and <code>UIDragInteractions</code> attached to them. Through the relevant delegate methods, the drag source and drop destination share instances of <code>UIDropSession</code>, which act as the &ldquo;transport mechanism&rdquo; for the data that the drag and drop represents.</p>
+
+<pre><code>
+       UIView                                            UIView
+          |                                                 |
+          |                                                 |
+  UIDragInteraction                                 UIDropInteraction
+          |                                                 |
+          |                                                 |
+UIDragInteractionDelegate ---&gt; UIDropSession ---&gt; UIDropInteractionDelegate
+                                     |
+                                     |
+                                [UIDragItem]
+                                     |
+                                     |
+                               NSItemProvider
+</code></pre>
+
+<p>To make that more concrete, think of a use case like copying a photo between two albums. The albums might be represented in the app&rsquo;s UI as a series of <code>UIImageViews</code> containing thumbnails. Each <code>UIImageView</code> could have a <code>UIDragInteraction</code> attached to it - the <code>UIDragInteractionDelegate</code> would create a <code>UIDropSession</code> that contains a references to the photo being dragged. When the user drags over a view with a <code>UIDropInteraction</code> attached, the <code>UIDropInteractionDelegate</code> will decide whether it can accept the type of data contained in the <code>UIDropSession</code>. If it can, the photo is &ldquo;exchanged&rdquo; between the two albums by unpacking it from the UIDropSession and updating the underlying model of the album.</p>
+
+<h3 id="the-example">The example</h3>
+
+<p>The example project can be downloaded from <a href="https://github.com/timd/DragAndDropExample">https://github.com/timd/DragAndDropExample</a>. It&rsquo;s incredibly simple - there are two image thumbnails on the left hand side of the screen that can be dragged and dropped over on the gray box on the right hand side.</p>
+
+<p>The images on the left have <code>UIDragInteractions</code> attached to them, and the grey box has a <code>UIDropInteraction</code> attached.</p>
+
+<h3 id="implementing-dragging">Implementing dragging</h3>
+
+<p>Implementing dragging for a view has two steps: creating and adding a drag interaction; and implementing the single required <code>UIDragInteractionDelegate</code> method</p>
+
+<h4 id="creating-and-adding-a-drag-interaction">Creating and adding a drag interaction</h4>
+
+<p>Creating and adding a drag interaction follows exactly the same pattern as the familiar <code>UIInteraction</code> - create an instance of <code>UIDragInteraction</code> with a delegate, and add it to the view:</p>
+
+<pre><code>    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let firstDragInteraction = UIDragInteraction(delegate: self)
+        firstDraggableView.addInteraction(firstDragInteraction)
+        
+    }
+</code></pre>
+
+<h4 id="implementing-the-drag-interaction-delegate">Implementing the drag interaction delegate</h4>
+
+<p>The <code>UIDragInteractionDelegate</code> can be any class that conforms to the protocol, but to keep things simple here we&rsquo;re using the <code>UIViewController</code> class. To conform to the protocol requires one function:</p>
+
+<pre><code>func dragInteraction(_ interaction: UIDragInteraction, itemsForBeginning session: UIDragSession) -&gt; [UIDragItem]
+</code></pre>
+
+<p>This takes the <code>UIDragInteraction</code> and the <code>UIDragSession</code> and returns an array of <code>UIDragItems</code> - these are representations of the data that the views represent. In this example, they are the <code>UIImageViews</code> containing the thumbnails.</p>
+
+<pre><code>    func dragInteraction(_ interaction: UIDragInteraction, itemsForBeginning session: UIDragSession) -&gt; [UIDragItem] {
+        
+        var imageItemProvider: NSItemProvider
+        
+        // Figure out which view is being dragged, and load the appropriate image into the item provider
+        if interaction.view == firstDraggableView {
+            imageItemProvider = NSItemProvider(object: UIImage(named: &quot;panda_200x200&quot;)!)
+        } else {
+            imageItemProvider = NSItemProvider(object: UIImage(named: &quot;kath_square&quot;)!)
+        }
+        
+        // Create and return a drag item containing the item provider
+        let dragItem = UIDragItem(itemProvider: imageItemProvider)
+        return [dragItem]
+        
+    }
+</code></pre>
+
+<p>Working through this function, the first thing we do is to declare an <code>NSItemProvider</code>. This will contain the <code>UIImage</code> that is being dragged - depending on which view is being touched, we create it from the file.  With the <code>NSItemProvider</code> containing the <code>UIImage</code>, we can then create the <code>UIDragItem</code> and return that in an array.</p>
+
+<p>Note that this is definitely <em>not</em> the optimal solution - in a real world application, it&rsquo;s far more likely that you&rsquo;d encapsulate a reference to the underlying model of the image in the <code>NSItemProvider</code>, and pass that around. But to keep things simple, here we&rsquo;re passing the actual image itself.</p>
+
+<p>This is all that&rsquo;s needed to get the drag working - long-press on the image, and UIKit will handle the animation of the image &ldquo;lifting&rdquo; and following the user&rsquo;s finger around.</p>
+
+<h4 id="creating-and-adding-a-drop-interaction">Creating and adding a drop interaction</h4>
+
+<p>With the drag in progress, it&rsquo;s time to implement the drop side of things. The process is almost identical to the drag - create an instance of a <code>UIDropInteraction</code> with a <code>UIDropInteractionDelegate</code>, and attach it to the view that will accept the drop:</p>
+
+<pre><code>// Create the drop interaction and attach to the drop target
+let dropInteraction = UIDropInteraction(delegate: self)
+droppableView.addInteraction(dropInteraction)
+</code></pre>
+
+<h4 id="implementing-the-drop-interaction-delegate">Implementing the drop interaction delegate</h4>
+
+<p>There&rsquo;s a bit more to do in order to implement the drop interaction delegate. The first step is to inform the drag interaction whether the view is prepared to accept the data that&rsquo;s on offer.  This is handled by the <code>dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession)</code> function, which will be called every time the drag touch moves over the drop target view:</p>
+
+<pre><code>    // Declare that the target view can handle UIImages
+    func dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession) -&gt; Bool {
+        return session.canLoadObjects(ofClass: UIImage.self)
+    }
+</code></pre>
+
+<p>Here we&rsquo;re saying that this drop target will <em>only</em> accept <code>UIImage</code> objects.  If the <code>UIDragItem</code> contains representations of something else - strings, structs, model classes etc - this function will return <code>false</code> and an attempt to drop here will be cancelled.</p>
+
+<p>The second <code>UIDropInteractionDelegate</code> method that we need to implement tells the drag interaction what <em>type</em> of drop operation we are willing to support. There are four options:</p>
+
+<ul>
+<li><code>cancel</code>, which prevents the drop taking place</li>
+<li><code>copy</code>, which will indicate that the data will be <em>copied</em> from the source to destination</li>
+<li><code>move</code>, which indicates that the underlying model item will <em>move</em> from source to destination</li>
+<li><code>forbidden</code>, which is an edge case of <code>cancel</code> and applies a badge to the destination view to show that dropping is not allowed here. An example where you&rsquo;d use this is if you attempt to drop an image onto a read-only album.</li>
+</ul>
+
+<p>In this example we&rsquo;re keeping it simple, so we return <code>.copy</code>:</p>
+
+<pre><code>    // Items will be pasted
+    func dropInteraction(_ interaction: UIDropInteraction, sessionDidUpdate session: UIDropSession) -&gt; UIDropProposal {
+        return UIDropProposal(operation: .copy)
+    }
+</code></pre>
+
+<p>By this point we&rsquo;ve decided whether the drop can take place, and what kind of action should be performed - now it&rsquo;s time to for the third <code>UIDropInteractionDelegate</code> method to do the heavy lifting of handling the drop.</p>
+
+<p>This is the <code>dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession)</code> function:</p>
+
+<pre><code>    func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession) {
+        session.loadObjects(ofClass: UIImage.self) { imageItems in
+            let droppedImages = imageItems as! [UIImage]
+            self.imageDropView.image = droppedImages.first
+        }
+    }
+</code></pre>
+
+<p>Here we&rsquo;re using a convenience method on the <code>UIDropSession</code> to extract all the objects of the <code>UIImage</code> class (remember that&rsquo;s what we decided the drop target would accept). The <code>session.loadObjects</code> method takes a closure  - in this we&rsquo;re casting the <code>imageItems</code> into an array of <code>UIImages</code> and then updating the <code>imageDropView</code> with the first one.</p>
+
+<p>Again, this is a non-optimal implementation for the sake of clarity - it&rsquo;s far more likely in a production app that data will be loaded from a data source somewhere - in which case the session would contain representations of the data, rather than the data itself.</p>
+
+<h3 id="some-final-polish">Some final polish</h3>
+
+<p>Although this is a minimum viable implementation, there&rsquo;s a couple of additional <code>UIDragInteractionDelegate</code> methods that we can use to polish things up a bit.  The first is <code>dragInteraction(_ interaction: UIDragInteraction, sessionWillBegin session: UIDragSession)</code> - this gets invoked as the drag session starts.  We can use this to dim the image being &lsquo;dragged&rsquo;:</p>
+
+<pre><code>    // Dim the dragged view when the session starts
+    func dragInteraction(_ interaction: UIDragInteraction, sessionWillBegin session: UIDragSession) {
+        interaction.view?.alpha = 0.1
+    }
+</code></pre>
+
+<p>There&rsquo;s also a corresponding <code>dragInteraction(_ interaction: UIDragInteraction, session: UIDragSession, didEndWith operation: UIDropOperation)</code> which is called at the end of the drag session: this is a good place to reverse the dimming:</p>
+
+<pre><code>    // Fade the dragged image back in once the drag session has finished
+    func dragInteraction(_ interaction: UIDragInteraction, session: UIDragSession, didEndWith operation: UIDropOperation) {
+        UIView.animate(withDuration: 1.0) {
+            interaction.view?.alpha = 1.0
+        }
+    }
+</code></pre>
+
+<h3 id="summary">Summary</h3>
+
+<p>This is a very minimal implementation of drag and drop - it&rsquo;s contained within a single app, doesn&rsquo;t interact with the system at all, and doesn&rsquo;t manipulate any kind of underlying data structure. Nevertheless, it implements the basic building blocks of the drag and drop API, so you can use this as a starting point for much more sophisticated interactions.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2fpost%2f2017-06-12-drag-and-drop-in-ios-11%2f - Drag%20and%20drop%20in%20iOS%2011%20-%20a%20quick%20start by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-08-24-handling-keyboard-appearance-in-ios-11/">Handling keyboard appearance in iOS 11<aside class="dates">Aug 24</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-06-12-drag-and-drop-in-ios-11/">Drag and drop in iOS 11 - a quick start<aside class="dates">Jun 12</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-06-03-setting-keychains/">Setting Keychain content in XCTest UI tests<aside class="dates">Jun 3</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-28-async-testing-in-swift/">Asynchronous testing of non-callback code in Swift<aside class="dates">May 28</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-17-the-managers-path-part-three/">The Manager&#39;s Path: the guts of chapters 5 and 6<aside class="dates">May 17</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-16-the-managers-path-part-two/">The Manager&#39;s Path: the guts of chapters 4 and 5<aside class="dates">May 16</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-16-the-managers-path-part-one/">The Manager&#39;s Path - guts of the first three chapters<aside class="dates">May 16</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

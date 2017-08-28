@@ -1,0 +1,311 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Setting Keychain content in XCTest UI tests &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Setting Keychain content in XCTest UI tests" />
+<meta property="og:description" content="If the state of your app relies on key/value pairs that are set in the Keychain, it&rsquo;s worth testing that. However, if you&rsquo;re using XCTest&#39;s UI testing framework, there&rsquo;s an awkward race condition that occurs if you try to set the key/value pair in the test&rsquo;s setup function.
+The scenario is that the initial screen of the app defaults to a login view if there is no authentication token set in the Keychain, and loads another view if a token has been cached (in other words, implementing a persistent login)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/post/2017-06-03-setting-keychains/" />
+
+
+
+<meta property="article:published_time" content="2017-06-03T20:08:34&#43;02:00"/>
+<meta property="article:modified_time" content="2017-06-03T20:08:34&#43;02:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Setting Keychain content in XCTest UI tests">
+<meta itemprop="description" content="If the state of your app relies on key/value pairs that are set in the Keychain, it&rsquo;s worth testing that. However, if you&rsquo;re using XCTest&#39;s UI testing framework, there&rsquo;s an awkward race condition that occurs if you try to set the key/value pair in the test&rsquo;s setup function.
+The scenario is that the initial screen of the app defaults to a login view if there is no authentication token set in the Keychain, and loads another view if a token has been cached (in other words, implementing a persistent login).">
+
+
+<meta itemprop="dateModified" content="2017-06-03T20:08:34&#43;02:00" />
+<meta itemprop="wordCount" content="461">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Setting Keychain content in XCTest UI tests"/>
+<meta name="twitter:title" content="Setting Keychain content in XCTest UI tests"/>
+<meta name="twitter:description" content="If the state of your app relies on key/value pairs that are set in the Keychain, it&rsquo;s worth testing that. However, if you&rsquo;re using XCTest&#39;s UI testing framework, there&rsquo;s an awkward race condition that occurs if you try to set the key/value pair in the test&rsquo;s setup function.
+The scenario is that the initial screen of the app defaults to a login view if there is no authentication token set in the Keychain, and loads another view if a token has been cached (in other words, implementing a persistent login)."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Setting Keychain content in XCTest UI tests</h1>
+                    <h2 class="headline">
+                    3 June 2017 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>If the state of your app relies on key/value pairs that are set in the <code>Keychain</code>, it&rsquo;s worth testing that. However, if you&rsquo;re using <code>XCTest's</code> UI testing framework, there&rsquo;s an awkward race condition that occurs if you try to set the key/value pair in the test&rsquo;s setup function.</p>
+
+<p>The scenario is that the initial screen of the app defaults to a login view if there is no authentication token set in the Keychain, and loads another view if a token has been cached (in other words, implementing a persistent login).  The code that checks for the presence of the authentication token is triggered by (or exists in) the <code>AppDelegate</code>.</p>
+
+<p>(This example is from a VIPER-structured app, so the <code>AppDelegate</code> defers the decision about what the app&rsquo;s root view should be to a Router class).</p>
+
+<p>A setup function in an <code>XCUITest</code> like this won&rsquo;t work (<code>KeychainWrapper</code> is referring to the <a href="https://github.com/jrendel/SwiftKeychainWrapper">SwiftKeychainWrapper</a> library, which takes care of all the heavy lifting involved in working with the <code>Keychain</code>)</p>
+
+<pre><code>    override func setUp() {
+        super.setUp()
+        
+        let _ = KeychainWrapper.standard.removeAllKeys()
+        continueAfterFailure = false
+        
+    }
+
+</code></pre>
+
+<p>This causes a race condition - the application is spun up and the tests start <em>before</em> the <code>Keychain</code> is flushed, which means that an old token can still be lurking around from a previous test run.</p>
+
+<p>The solution isn&rsquo;t particulary elegant, because it relies on changing production code - but it does work.</p>
+
+<p>The first step is to set a launch argument for the instance of the app that is spun up by your UI test. The obvious place for this is the test class&rsquo;s <code>setup()</code> function:</p>
+
+<pre><code>    override func setUp() {
+		
+        super.setUp()
+        
+        continueAfterFailure = false
+        
+        let app = XCUIApplication()
+        app.launchArguments = [&quot;isLoggedIn&quot;]
+        app.launch()
+
+    }
+</code></pre>
+
+<p>The second step is to update your <code>AppDelegate</code> so that it checks for the presence of this launch argument, and updates itself accordingly:</p>
+
+<pre><code>    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+
+        // Override point for customization after application launch.
+        
+        // ui testing setup
+        if ProcessInfo.processInfo.arguments.contains(&quot;isLoggedIn&quot;) {
+            let _ = KeychainWrapper.standard.set(&quot;abcdef&quot;, forKey: Constants.kKeychainToken)
+        }
+        
+        let router = Router()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        window!.rootViewController = router.navController
+        window!.makeKeyAndVisible()
+        
+        return true
+        
+    }
+
+</code></pre>
+
+<p>Launch arguments can be accessed from an instance of the <code>ProcessInfo()</code> class - they&rsquo;re <code>Strings</code> contained in the <code>arguments</code> array, so you can easily test for their presence:</p>
+
+<pre><code>if ProcessInfo.processInfo.arguments.contains(&quot;isLoggedIn&quot;) { ... }
+</code></pre>
+
+<p>In this example, the <code>AppDelegate</code> is checking for the presence of an <code>isLoggedIn</code> argument, and setting a dummy login token value in the <code>Keychain</code> if it&rsquo;s present.  That value is picked up by the <code>Router</code> class, which instantiates the view stack with the right view controllers.</p>
+
+<p>Making changes to application code to support testing doesn&rsquo;t <em>feel</em> like the right way to go, but it <em>is</em> a viable workaround given the limitations of the <code>XCTest</code> runtime.</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2fpost%2f2017-06-03-setting-keychains%2f - Setting%20Keychain%20content%20in%20XCTest%20UI%20tests by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-08-24-handling-keyboard-appearance-in-ios-11/">Handling keyboard appearance in iOS 11<aside class="dates">Aug 24</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-06-12-drag-and-drop-in-ios-11/">Drag and drop in iOS 11 - a quick start<aside class="dates">Jun 12</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-06-03-setting-keychains/">Setting Keychain content in XCTest UI tests<aside class="dates">Jun 3</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-28-async-testing-in-swift/">Asynchronous testing of non-callback code in Swift<aside class="dates">May 28</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-17-the-managers-path-part-three/">The Manager&#39;s Path: the guts of chapters 5 and 6<aside class="dates">May 17</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-16-the-managers-path-part-two/">The Manager&#39;s Path: the guts of chapters 4 and 5<aside class="dates">May 16</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-16-the-managers-path-part-one/">The Manager&#39;s Path - guts of the first three chapters<aside class="dates">May 16</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

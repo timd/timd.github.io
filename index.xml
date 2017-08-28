@@ -7,10 +7,39 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(cc) some rights reserved</copyright>
-    <lastBuildDate>Sun, 28 May 2017 13:28:00 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 24 Aug 2017 10:53:25 +0200</lastBuildDate>
     
 	<atom:link href="https://adoptioncurve.net/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Handling keyboard appearance in iOS 11</title>
+      <link>https://adoptioncurve.net/post/2017-08-24-handling-keyboard-appearance-in-ios-11/</link>
+      <pubDate>Thu, 24 Aug 2017 10:53:25 +0200</pubDate>
+      
+      <guid>https://adoptioncurve.net/post/2017-08-24-handling-keyboard-appearance-in-ios-11/</guid>
+      <description>Handling the appearance of the keyboard in an iOS interface has always been something of a pain. The keyboard appears as overlay on top of the rest of the interface, so there&amp;rsquo;s the chance that an important part of the UI is obscured. Worst case, the control that the keyboard entry is appearing in can&amp;rsquo;t been seen.
+There&amp;rsquo;s been various hacks and workarounds over the years, and a number of 3rd-party controls.</description>
+    </item>
+    
+    <item>
+      <title>Drag and drop in iOS 11 - a quick start</title>
+      <link>https://adoptioncurve.net/post/2017-06-12-drag-and-drop-in-ios-11/</link>
+      <pubDate>Mon, 12 Jun 2017 11:17:15 +0200</pubDate>
+      
+      <guid>https://adoptioncurve.net/post/2017-06-12-drag-and-drop-in-ios-11/</guid>
+      <description>The most significant announcement at WWDC 2017 (at least as far as UIKit is concerned) was drag-and-drop. It&amp;rsquo;s been possible to mimic this to an extent with UICollectionView, but what was announced at WWDC is the full-fat, cross-application, deeply-system-integrated real deal. It&amp;rsquo;s now possible to perform sophisticated multi-touch drag and drop operations across the whole iOS platform, which is going to open up a world of UI possibilities in upcoming apps.</description>
+    </item>
+    
+    <item>
+      <title>Setting Keychain content in XCTest UI tests</title>
+      <link>https://adoptioncurve.net/post/2017-06-03-setting-keychains/</link>
+      <pubDate>Sat, 03 Jun 2017 20:08:34 +0200</pubDate>
+      
+      <guid>https://adoptioncurve.net/post/2017-06-03-setting-keychains/</guid>
+      <description>If the state of your app relies on key/value pairs that are set in the Keychain, it&amp;rsquo;s worth testing that. However, if you&amp;rsquo;re using XCTest&#39;s UI testing framework, there&amp;rsquo;s an awkward race condition that occurs if you try to set the key/value pair in the test&amp;rsquo;s setup function.
+The scenario is that the initial screen of the app defaults to a login view if there is no authentication token set in the Keychain, and loads another view if a token has been cached (in other words, implementing a persistent login).</description>
+    </item>
     
     <item>
       <title>Asynchronous testing of non-callback code in Swift</title>

@@ -1,0 +1,368 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Tim Duckett">
+		<meta name="description" content="adoption curve dot net">
+		<meta name="generator" content="Hugo 0.20.2" />
+		<title>Handling keyboard appearance in iOS 11 &middot; adoption curve dot net</title>
+		<link rel="shortcut icon" href="https://adoptioncurve.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/style.css">
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://adoptioncurve.net/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://adoptioncurve.net/index.xml" rel="alternate" type="application/rss+xml" title="adoption curve dot net" />
+		
+
+		<meta property="og:title" content="Handling keyboard appearance in iOS 11" />
+<meta property="og:description" content="Handling the appearance of the keyboard in an iOS interface has always been something of a pain. The keyboard appears as overlay on top of the rest of the interface, so there&rsquo;s the chance that an important part of the UI is obscured. Worst case, the control that the keyboard entry is appearing in can&rsquo;t been seen.
+There&rsquo;s been various hacks and workarounds over the years, and a number of 3rd-party controls." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adoptioncurve.net/post/2017-08-24-handling-keyboard-appearance-in-ios-11/" />
+
+
+
+<meta property="article:published_time" content="2017-08-24T10:53:25&#43;02:00"/>
+<meta property="article:modified_time" content="2017-08-24T10:53:25&#43;02:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	    
+	    
+<meta itemprop="name" content="Handling keyboard appearance in iOS 11">
+<meta itemprop="description" content="Handling the appearance of the keyboard in an iOS interface has always been something of a pain. The keyboard appears as overlay on top of the rest of the interface, so there&rsquo;s the chance that an important part of the UI is obscured. Worst case, the control that the keyboard entry is appearing in can&rsquo;t been seen.
+There&rsquo;s been various hacks and workarounds over the years, and a number of 3rd-party controls.">
+
+
+<meta itemprop="dateModified" content="2017-08-24T10:53:25&#43;02:00" />
+<meta itemprop="wordCount" content="863">
+
+
+
+<meta itemprop="keywords" content="change,links,play,technical,weeknotes,work,#bcstransform,#bsitnorth,#debill,1,adhoc,api,app,apple,applications,apps,arduino,autotest,bbc,bcs,bdd,bigsociety,blog,calayer,cluetrain,cms,code,configuration,content,delicious,design,development,dog,dotgov,electronics,enterprise,ethernet,facebook,facepalm,fell,geek,git,government,graph,hack,hacking,hacks,heritage,howto,hsbc,ideas,interesting,interestingnorth,ios,ios5,ipad,iphone,iplayer,javascript,kiwi,lake-district,lakedistrict,langdale,links,linux,luddites,lyddleend2050,macbook,mamp,mashup,me,meme,mobile,mountain,movabletype,mt,muppet,mysql,nationalexpress,nxec,objective-c,objectivec,openoffice,opensource,panda,paperclip,paranoia,php,pinboard,pips,pleaserobme,politics,privacy,procurement,programming,projects,public-sector,rail,rails,reboot,refinerycms,rewiredstate,riverthames,rspec,ruby,rubyonrails,sftp,socialmedia,sonar,spree,ta,tableview,tableviews,tar,tdd,teenagers,testing,thinking,tories,trains,travel,trends,twitter,ubuntu,ui,uitableview,uiview,uiwebview,ux,visualisation,vmware,vodafone,vodafone360,vome,week1,week2,weeknotes,wewatch,xcode," />
+
+	    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Handling keyboard appearance in iOS 11"/>
+<meta name="twitter:title" content="Handling keyboard appearance in iOS 11"/>
+<meta name="twitter:description" content="Handling the appearance of the keyboard in an iOS interface has always been something of a pain. The keyboard appears as overlay on top of the rest of the interface, so there&rsquo;s the chance that an important part of the UI is obscured. Worst case, the control that the keyboard entry is appearing in can&rsquo;t been seen.
+There&rsquo;s been various hacks and workarounds over the years, and a number of 3rd-party controls."/>
+<meta name="twitter:site" content="@https://www.twitter.com/timduckett"/>
+
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://adoptioncurve.net/'> <span class="arrow"> &lt; </span>home</a>
+	
+
+	
+		<a href='https://adoptioncurve.net/about'>about</a>
+	
+
+	
+	<a class="cta" href="https://adoptioncurve.net/index.xml">subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Handling keyboard appearance in iOS 11</h1>
+                    <h2 class="headline">
+                    24 August 2017 
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    
+
+<p>Handling the appearance of the keyboard in an iOS interface has always been something of a pain. The keyboard appears as overlay on top of the rest of the interface, so there&rsquo;s the chance that an important part of the UI is obscured. Worst case, the control that the keyboard entry is appearing in can&rsquo;t been seen.</p>
+
+<p>There&rsquo;s been various hacks and workarounds over the years, and a number of 3rd-party controls. But the gradual introduction of more and more AutoLayout features means that keyboard handling is now - almost - easy enough not to need the convenience of an external library.</p>
+
+<p>Personally I&rsquo;m not sure why there&rsquo;s never been an Apple-implemented convenience method, but maybe the UIKit engineers are busy with other stuff. Here&rsquo;s a quick, hacky approach to moving UI content in response to keyboard appearance, and reverting to the original position when the keyboard is dismissed.</p>
+
+<h2 id="the-concept">The concept</h2>
+
+<p>The key (pun intended) is listening to the <code>UIKeyboardWillShow</code> and <code>UIKeyboardWillHide</code> notifications. These are fired just before the keyboard is animated onscreen, and just after it disappears. If you subscribe your view controller to these, you can use AutoLayout constraints to move your content around and out of the way of the keyboard.</p>
+
+<p>To start the process from the code side, add two notification subscriptions to your view controller (the <code>viewDidLoad</code> function is as good a place as any):</p>
+
+<pre><code>override func viewDidLoad() {
+  
+    super.viewDidLoad()
+    // Register this class for keyboard notifications
+    
+    NotificationCenter.default.addObserver(self,
+      selector: #selector(self.keyboardWillShow(notification:)),
+      name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+    
+    NotificationCenter.default.addObserver(self,
+      selector: #selector(self.keyboardWillHide(notification:)),
+      name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    
+}
+</code></pre>
+
+<p>Then add the two stub functions that will handle the layout changes in response to the notifications:</p>
+
+<pre><code>@objc func keyboardWillShow(notification: Notification) { }
+
+@objc func keyboardWillHide(notification: Notification) { }
+
+</code></pre>
+
+<h2 id="setting-up-the-view">Setting up the view</h2>
+
+<p>The trick to this approach is to embed the content that needs to move inside a container view, and adjust the position of the container when the keyboard appears and disappears.</p>
+
+<p>The diagram shows the concept: the <code>UITextField</code> is embedded within the gray container <code>UIView</code>, and the position of the container is controlled by the blue <code>NSLayoutConstraint</code> between the container view and the Safe Area Layout guide (the green guide)</p>
+
+<p><img src="/images/2017/08/wireframe.png" alt="simulator" /></p>
+
+<p>There are two options to handling the change in layout - if you change only the bottom space constraint, the gray container view will shrink; if you change <em>both</em> top and bottom constraints, the container view will move and retain its proportions (that&rsquo;s the option that&rsquo;s shown).</p>
+
+<p>After adding the constraints in Interface Builder, add outlets to the View Controller and connect them:</p>
+
+<pre><code>// Outlet for the constraint between the bottom of the container view
+// and the bottom of the safe area
+@IBOutlet weak var containerViewBottomLayoutConstraint: NSLayoutConstraint!
+
+// Outlet for the constraint between the top of the container view
+// and the top of the safe area
+@IBOutlet weak var containerViewTopLayoutConstraint: NSLayoutConstraint!
+</code></pre>
+
+<p>Finally, we&rsquo;ll also need a variable to hold the original value of the bottom constraint, so that it can be set back after the keyboard disappears:</p>
+
+<pre><code>var containerViewBottomConstant: CGFloat = 0.0
+</code></pre>
+
+<p>This needs to be set after the view has appeared for the first time:</p>
+
+<pre><code>override func viewDidAppear(_ animated: Bool) {
+    // Grab default spacing between background container and the safe area
+    // when the view first appears
+    containerViewBottomConstant = 
+      containerViewBottomLayoutConstraint.constant
+}
+</code></pre>
+
+<h2 id="handling-keyboard-appearance">Handling keyboard appearance</h2>
+
+<p>When the keyboard appears or disappears, it fires a <code>Notification</code> event which you can subscribe to with a function that takes an optional <code>Notification</code> parameter.  Contained inside this <code>Notification</code> is a <code>userInfo</code> Dictionary; this has various key/value pairs including (in the case of keyboard appearance and disappearance events) one with the key <code>UIKeyboardBoundsUserInfoKey</code>.</p>
+
+<p>This is a <code>CGRect</code> containing the current size and location of the keyboard. The location we don&rsquo;t care about, but the vertical size is of interest. By adding this to the constant of the bottom spacing constraint, the container view will be moved up out of the way of the keyboard:</p>
+
+<pre><code>@objc func keyboardWillShow(notification: Notification) {
+    
+    // If there's no userInfo in the notification,
+    // can't do anything so just return
+    guard let userInfo = notification.userInfo else {
+        return
+    }
+    // If there's no keyboardRect in the notification,
+    // can't do anything so just return
+    guard let keyboardRect = userInfo[&quot;UIKeyboardBoundsUserInfoKey&quot;] as? CGRect else {
+        return
+    }
+    
+    // Adjust the background container's spacing to the
+    // bottom of the safe area by the height of the keyboard
+    containerViewBottomLayoutConstraint.constant = 
+      containerViewBottomConstant - keyboardRect.height
+    
+    // Adjust the background container's spacing to the
+    // top of the safe area by the height of the keyboard
+    containerViewTopLayoutConstraint.constant = 
+      containerViewTopLayoutConstraint.constant - keyboardRect.height
+}
+</code></pre>
+
+<p>If you don&rsquo;t alter the value of the container view&rsquo;s <code>topLayoutConstraint</code>, the view will be compressed by the height of the keyboard. Depending on your UI, it might be better to move the container view as a whole, which is the approach shown here.</p>
+
+<h3 id="handing-keyboard-disappearance">Handing keyboard disappearance</h3>
+
+<p>Handling the removal of the keyboard is more or less the reverse:</p>
+
+<pre><code>@objc func keyboardWillHide(notification: Notification) {
+    
+    // Adjust the background container's spacing to the
+    // top and bottom of the safe area back to the original values
+    containerViewBottomLayoutConstraint.constant = 
+      containerViewBottomConstant
+    containerViewTopLayoutConstraint.constant = 0
+    
+}
+</code></pre>
+
+<p>With the two keyboard notification functions implemented, the final effect looks like this:</p>
+
+<p><img src="/images/2017/08/simulator.gif" alt="simulator" /></p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/timduckett">
+                        <img class="avatar" src="https://adoptioncurve.net/images/avatar.png">
+                        <div>
+                            <span class="dark">Tim Duckett</span>
+                            <span>adoption curve dot net</span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fadoptioncurve.net%2fpost%2f2017-08-24-handling-keyboard-appearance-in-ios-11%2f - Handling%20keyboard%20appearance%20in%20iOS%2011 by @timduckett"><span class="icon-twitter"> Tweet</span></a>
+
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>read more</h3>
+
+    
+    
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-08-24-handling-keyboard-appearance-in-ios-11/">Handling keyboard appearance in iOS 11<aside class="dates">Aug 24</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-06-12-drag-and-drop-in-ios-11/">Drag and drop in iOS 11 - a quick start<aside class="dates">Jun 12</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-06-03-setting-keychains/">Setting Keychain content in XCTest UI tests<aside class="dates">Jun 3</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-28-async-testing-in-swift/">Asynchronous testing of non-callback code in Swift<aside class="dates">May 28</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-17-the-managers-path-part-three/">The Manager&#39;s Path: the guts of chapters 5 and 6<aside class="dates">May 17</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-16-the-managers-path-part-two/">The Manager&#39;s Path: the guts of chapters 4 and 5<aside class="dates">May 16</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-16-the-managers-path-part-one/">The Manager&#39;s Path - guts of the first three chapters<aside class="dates">May 16</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-05-04-outboard-brains/">Outboard brains, or how to form habits without forming habits<aside class="dates">May 4</aside></a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://adoptioncurve.net/post/2017-04-30-testing-throwing-functions-in-swift/">Testing throwing functions in Swift<aside class="dates">Apr 30</aside></a>
+        </li>
+        
+   
+    
+        
+   
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/timd">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/timduckett">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (cc) some rights reserved
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://adoptioncurve.net/js/main.js"></script>
+<script src="https://adoptioncurve.net/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1131882-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
